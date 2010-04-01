@@ -12,9 +12,8 @@ import javax.swing.JFrame;
  */
 public class Main extends JFrame
 {
-    private MarioWorld game = new MarioWorld();
+    private MarioWorld MarioWorld = new MarioWorld();
     private View view;
-    private Controller ctl;
 
     public Main()
     {
@@ -24,8 +23,8 @@ public class Main extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-        view = new View(game, this);
-        ctl = new Controller(game, view, this);
+        view = new View(MarioWorld, this);
+        new Controller(MarioWorld, view, this);
     }
 
     public static void main(String[] args)

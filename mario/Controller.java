@@ -4,13 +4,19 @@
  */
 package mario;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author danny
  */
 class Controller
 {
-    Controller(MarioWorld game, View view, Main aThis)
+    private MarioWorld game;
+    private View view;
+    private JFrame frame;
+
+    Controller(MarioWorld game, View view, JFrame frame)
     {
     }
 }

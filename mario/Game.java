@@ -8,27 +8,17 @@ package mario;
  *
  * @author danny
  */
-class MarioWorld
+public class Game
 {
-    private boolean running = true;
-    private Game game = new Game();
-    public MarioWorld()
-    {
-
-    }
-
-    public Game getGame()
-    {
-        return game;
-    }
+    private boolean running = false;
 
     public boolean isRunning()
     {
         return running;
     }
-    
+
     public void setRunning(boolean running)
     {
         this.running = running;
-    }    
+    }
 }
