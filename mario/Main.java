@@ -18,13 +18,14 @@ public class Main extends JFrame
     public Main()
     {
         setIgnoreRepaint(true);
-        //setUndecorated(true);
+        setUndecorated(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
         view = new View(MarioWorld, this);
         new Controller(MarioWorld, view, this);
+        setVisible(true);
     }
 
     public static void main(String[] args)

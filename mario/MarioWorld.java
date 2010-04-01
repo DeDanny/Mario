@@ -8,13 +8,14 @@ package mario;
  *
  * @author danny
  */
-class MarioWorld
+public class MarioWorld
 {
     private boolean running = true;
     private Game game = new Game();
+
     public MarioWorld()
     {
-
+        
     }
 
     public Game getGame()
@@ -26,9 +27,9 @@ class MarioWorld
     {
         return running;
     }
-    
+
     public void setRunning(boolean running)
     {
         this.running = running;
-    }    
+    }
 }

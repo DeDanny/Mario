@@ -11,6 +11,7 @@ package mario;
 public class Game
 {
     private boolean running = false;
+    private Mario mario = new Mario("smw_mario_sheet.png");
 
     public boolean isRunning()
     {
