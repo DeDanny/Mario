@@ -4,18 +4,18 @@
  */
 package mario;
 
-import javax.swing.JPanel;
+
 
 /**
  *
  * @author Danny
  */
-public class Game extends JPanel
+public class Game
 {
-    private Mario mario = new Mario();
+    
     public Game()
     {
-        requestFocus(true);
+        
     }
 
     public void gameLoop()

@@ -58,7 +58,7 @@ public class Main extends JFrame
             }
         });
         createBufferStrategy(2);
-        BufferStrategy buffer = app.getBufferStrategy();
+        
     }
 
 
