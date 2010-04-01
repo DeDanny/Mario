@@ -9,6 +9,7 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,9 +20,14 @@ public class View
     private BufferStrategy buffer;
     private BufferedImage bi;
     private GraphicsDevice gd;
+    private JFrame frame;
+    private MarioWorld game;
 
-    public View()
+    public View(MarioWorld game, JFrame frame)
     {
+        this.frame = frame;
+        this.game = game;
+        
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         gd = ge.getDefaultScreenDevice();
         GraphicsConfiguration gc = gd.getDefaultConfiguration();

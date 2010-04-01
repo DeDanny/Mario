@@ -2,25 +2,25 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mario;
 
-import java.awt.event.*;
 import mario.states.*;
 
 /**
  *
  * @author Danny
  */
-public class Mario implements KeyListener
+public class Mario extends Sprite
 {
-    private static final int width = 16;
-    private int height = 22;
-    private int speed = 12;
     private State state;
+    private boolean left = false;
+    private boolean right = false;
+    private boolean down = false;
+    private boolean up = false;
 
-    public Mario()
+    Mario(int x, int y, int height, int width, String image)
     {
+        super(x, y, height, width, image);
         this.state = new Normal(this);
     }
 
@@ -29,22 +29,23 @@ public class Mario implements KeyListener
         this.state = state;
     }
 
-    public void keyPressed(KeyEvent e)
+    void setLeft(boolean b)
     {
-        if(e.getKeyChar() == KeyEvent.VK_LEFT)
-        {
-            state = new Left(this);
-        }
+        left = b;
     }
 
-    public void keyReleased(KeyEvent e)
+    void setRight(boolean b)
     {
-        if(e.getKeyChar() == KeyEvent.VK_LEFT)
-        {
-            state = new Normal(this);
-        }
+        right = b;
     }
-    
-    public void keyTyped(KeyEvent e)
-    {}
+
+    void setDown(boolean b)
+    {
+        down = b;
+    }
+
+    void setUp(boolean b)
+    {
+        up = b;
+    }
 }

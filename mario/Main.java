@@ -4,17 +4,6 @@
  */
 package mario;
 
-import java.awt.Color;
-import java.awt.DisplayMode;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 
 /**
@@ -23,5 +12,24 @@ import javax.swing.JFrame;
  */
 public class Main extends JFrame
 {
+    private MarioWorld game = new MarioWorld();
+    private View view;
+    private Controller ctl;
 
+    public Main()
+    {
+        setIgnoreRepaint(true);
+        //setUndecorated(true);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+
+        view = new View(game, this);
+        ctl = new Controller(game, view, this);
+    }
+
+    public static void main(String[] args)
+    {
+        new Main();
+    }
 }
