@@ -18,7 +18,7 @@ public class Controller implements KeyListener, Runnable
     private View view;
     private JFrame frame;
     private Thread gameLoop = new Thread(this);
-    private int gameSpeed = 50;
+    private int gameSpeed = 10;
 
     /**
      *
