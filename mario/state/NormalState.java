@@ -10,9 +10,9 @@ import mario.Mario;
  *
  * @author danny
  */
-public class normal extends State
+public class NormalState extends State
 {
-    public normal(Mario gameObject)
+    public NormalState(Mario gameObject)
     {
         super(gameObject);
     }

@@ -7,7 +7,6 @@ package mario;
 import java.awt.Color;
 import java.awt.DisplayMode;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;

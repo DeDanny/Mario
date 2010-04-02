@@ -7,7 +7,6 @@ package mario;
 import java.awt.Color;
 import java.awt.Graphics;
 import mario.state.MoveState;
-import mario.state.normal;
 
 /**
  *
@@ -30,7 +29,7 @@ public class Mario extends GameObject
         //BufferedImage subimage = sprite.getSubimage(100, 100, 50, 50);
         //subimage = copyBufferedImage(subimage);
         graphics.setColor(Color.red);
-        graphics.fillRect(x, y, 100, 100);
+        graphics.fillRect(x, y, 100, 100);// de 100 en 100 moeten nog worden gezet als variablen in de GameObject
         //graphics.drawImage(sprite, x, y, null);
     }
 

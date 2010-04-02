@@ -13,6 +13,8 @@ import java.util.ArrayList;
 public class Game
 {
     private boolean running = false;
+    private boolean paused = false;
+
     private Mario mario = new Mario();
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
@@ -31,6 +33,16 @@ public class Game
         this.running = running;
     }
 
+    public boolean isPaused()
+    {
+        return paused;
+    }
+
+    public void setPaused(boolean paused)
+    {
+        this.paused = paused;
+    }
+    
     public ArrayList<GameObject> getGameObjects()
     {
         return gameObjects;

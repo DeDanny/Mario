@@ -4,7 +4,6 @@
  */
 package mario.state;
 
-import mario.GameObject;
 import mario.Mario;
 
 /**

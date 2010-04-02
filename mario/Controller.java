@@ -18,7 +18,7 @@ public class Controller implements KeyListener, Runnable
     private View view;
     private JFrame frame;
     private Thread gameLoop = new Thread(this);
-    private int gameSpeed = 10;
+    private final static int GAMESPEED = 10;
 
     /**
      *
@@ -59,7 +59,7 @@ public class Controller implements KeyListener, Runnable
 
                 System.out.println("going loop");
 
-                Thread.sleep(gameSpeed);
+                Thread.sleep(GAMESPEED);
             } catch (InterruptedException ex)
             {
                 System.out.println(ex);
