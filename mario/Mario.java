@@ -29,7 +29,6 @@ public class Mario extends GameObject
     {
         //BufferedImage subimage = sprite.getSubimage(100, 100, 50, 50);
         //subimage = copyBufferedImage(subimage);
-        System.out.println("can you touch me? Yes you just did.");
         graphics.setColor(Color.red);
         graphics.fillRect(x, y, 100, 100);
         //graphics.drawImage(sprite, x, y, null);
