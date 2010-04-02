@@ -5,13 +5,13 @@
 package mario;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import javax.imageio.ImageIO;
 import mario.state.State;
-
 
 /**
  *
@@ -20,10 +20,13 @@ import mario.state.State;
 public abstract class GameObject
 {
     protected BufferedImage sprite;
-    protected int x, y;
+    protected int x, y, width, height;
+    protected HashMap<String, Rectangle> frames = new HashMap<String, Rectangle>();
+    protected String[] animation;
+    protected int animationFrame = 0;
     protected State state;
 
-    public GameObject(int x, int y, String fileName)
+    public GameObject(int x, int y, int width, int height, String fileName)
     {
         this.x = x;
         this.y = y;
@@ -32,7 +35,7 @@ public abstract class GameObject
 
     private BufferedImage loadImage(String fileName)
     {
-         URL imageUrl = Main.class.getResource(fileName);
+        URL imageUrl = Main.class.getResource(fileName);
         try
         {
             sprite = ImageIO.read(imageUrl);
@@ -47,7 +50,24 @@ public abstract class GameObject
         return sprite;
     }
 
+    public BufferedImage getImage()
+    {
+
+        System.out.println(animationFrame + " : " + animation.length);
+        if (animationFrame == animation.length)
+        {
+            animationFrame = 0;
+        }
+        BufferedImage crop = sprite.getSubimage((int) frames.get(animation[animationFrame]).getX(),
+                (int) frames.get(animation[animationFrame]).getY(),
+                (int) frames.get(animation[animationFrame]).getWidth(),
+                (int) frames.get(animation[animationFrame]).getHeight());
+        animationFrame++;
+        return crop;
+    }
+
     abstract public void draw(Graphics graphics);
+
     abstract public void doLoopAction();
 
     public int getX()
@@ -68,5 +88,36 @@ public abstract class GameObject
     public void setY(int y)
     {
         this.y = y;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+
+    public int getWidth()
+    {
+        return width;
+    }
+
+    public void setHeight(int height)
+    {
+        this.height = height;
+    }
+
+    public void setWidth(int width)
+    {
+        this.width = width;
+    }
+
+    public void setAnimation(String[] animation)
+    {
+        this.animation = animation;
+        animationFrame = 0;
+    }
+
+    public String[] getAnimation()
+    {
+        return animation;
     }
 }

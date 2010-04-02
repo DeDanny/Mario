@@ -17,7 +17,7 @@ public class Controller implements KeyListener, Runnable
     private MarioWorld marioWorld;
     private View view;
     private JFrame frame;
-    private Thread gameLoop = new Thread(this);
+    private Thread gameLoop = new Thread(this, "GameLoop");
     private final static int GAMESPEED = 10;
 
     /**

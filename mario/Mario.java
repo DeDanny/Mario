@@ -5,7 +5,7 @@
 package mario;
 
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
+import java.awt.Rectangle;
 import mario.state.MoveState;
 
 /**
@@ -19,17 +19,16 @@ public class Mario extends GameObject
 
     public Mario()
     {
-        super(100, 100, "/images/smw_mario_sheet.png");
+        super(100, 100, 14, 21, "/images/smw_mario_sheet.png");
+
+        frames.put("smallMarioStandRight 0",     new Rectangle(209, 0, 15, 20));
+        frames.put("smallMarioStandLeft 0",      new Rectangle(169, 0, 15, 20));
+        frames.put("smallMarioWalkRight 0",      new Rectangle(209, 0, 15, 20));
+        frames.put("smallMarioWalkRight 1",      new Rectangle(327, 0, 15, 20));
+        frames.put("smallMarioWalkLeft 0",       new Rectangle(169, 0, 15, 20));
+        frames.put("smallMarioWalkLeft 1",       new Rectangle(49, 0, 15, 20));
 
         state = new MoveState(this);
-        createSprites();
-    }
-
-    private void createSprites()
-    {
-        //sprite = new BufferedImage(209, 0, sprite.getType());
-        sprite = sprite.getSubimage(209, 0, 14, 21);
-				// Tell the graphics to draw only one block of the image
     }
 
     public void draw(Graphics graphics)
@@ -37,7 +36,7 @@ public class Mario extends GameObject
         //BufferedImage subimage = sprite.getSubimage(100, 100, 50, 50);
         //subimage = copyBufferedImage(subimage);
         
-	graphics.drawImage(sprite, x, y, null);
+	graphics.drawImage(getImage(), x, y, null);
 
         //graphics.setColor(Color.red);
         //graphics.fillRect(x, y, 100, 100);// de 100 en 100 moeten nog worden gezet als variablen in de GameObject
