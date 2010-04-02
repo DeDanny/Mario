@@ -7,6 +7,7 @@ package mario;
 import java.awt.Color;
 import java.awt.DisplayMode;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -63,11 +64,19 @@ public class View
         try
         {
             // clear back buffer...
-            graphics = buffer.getDrawGraphics();
-            graphics.setColor(Color.black);
+            graphics = bi.createGraphics();
+            graphics.setColor(Color.green);
             graphics.fillRect(0, 0, 640, 480);
 
             // Draw stuff here using Java's Graphics Object!!!
+
+            for (GameObject gameObject : marioWorld.getGame().getGameObjects())
+            {
+                gameObject.draw(graphics);
+            }
+
+            graphics = buffer.getDrawGraphics();
+            graphics.drawImage(bi, 0, 0, null);
 
             // blit the back buffer to the screen
             if (!buffer.contentsLost())
@@ -75,8 +84,6 @@ public class View
                 buffer.show();
             }
 
-            // Let the OS have a little time...
-            Thread.yield();
         } finally
         {
             if (graphics != null)

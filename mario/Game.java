@@ -4,6 +4,8 @@
  */
 package mario;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author danny
@@ -11,7 +13,13 @@ package mario;
 public class Game
 {
     private boolean running = false;
-    private Mario mario = new Mario("smw_mario_sheet.png");
+    private Mario mario = new Mario();
+    private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+
+    public Game()
+    {
+        gameObjects.add(mario);
+    }
 
     public boolean isRunning()
     {
@@ -22,4 +30,14 @@ public class Game
     {
         this.running = running;
     }
+
+    public ArrayList<GameObject> getGameObjects()
+    {
+        return gameObjects;
+    }
+
+    public Mario getMario()
+    {
+        return mario;
+    }    
 }

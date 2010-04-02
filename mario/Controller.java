@@ -18,6 +18,7 @@ public class Controller implements KeyListener, Runnable
     private View view;
     private JFrame frame;
     private Thread gameLoop = new Thread(this);
+    private int gameSpeed = 50;
 
     /**
      *
@@ -49,11 +50,16 @@ public class Controller implements KeyListener, Runnable
             try
             {
 
+                for (GameObject gameObject : marioWorld.getGame().getGameObjects())
+                {
+                    gameObject.doLoopAction();
+                }
+
                 view.draw();
 
                 System.out.println("going loop");
 
-                Thread.sleep(1000);
+                Thread.sleep(gameSpeed);
             } catch (InterruptedException ex)
             {
                 System.out.println(ex);
@@ -78,9 +84,11 @@ public class Controller implements KeyListener, Runnable
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT)
         {
+            marioWorld.getGame().getMario().setLeft(true);
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
+            marioWorld.getGame().getMario().setRight(true);
         }
         if (e.getKeyCode() == KeyEvent.VK_UP)
         {
@@ -95,9 +103,11 @@ public class Controller implements KeyListener, Runnable
     {
         if (e.getKeyCode() == KeyEvent.VK_LEFT)
         {
+            marioWorld.getGame().getMario().setLeft(false);
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
+            marioWorld.getGame().getMario().setRight(false);
         }
         if (e.getKeyCode() == KeyEvent.VK_UP)
         {
