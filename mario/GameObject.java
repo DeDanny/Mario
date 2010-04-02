@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import javax.imageio.ImageIO;
 import mario.state.State;
 
@@ -31,9 +32,10 @@ public abstract class GameObject
 
     private BufferedImage loadImage(String fileName)
     {
+         URL imageUrl = Main.class.getResource(fileName);
         try
         {
-            sprite = ImageIO.read(new File(fileName));
+            sprite = ImageIO.read(imageUrl);
         } catch (IOException e)
         {
         }

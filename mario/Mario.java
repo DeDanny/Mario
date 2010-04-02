@@ -4,8 +4,8 @@
  */
 package mario;
 
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import mario.state.MoveState;
 
 /**
@@ -19,17 +19,28 @@ public class Mario extends GameObject
 
     public Mario()
     {
-        super(100, 100, "smw_mario_sheet.png");
+        super(100, 100, "/images/smw_mario_sheet.png");
 
         state = new MoveState(this);
+        createSprites();
+    }
+
+    private void createSprites()
+    {
+        //sprite = new BufferedImage(209, 0, sprite.getType());
+        sprite = sprite.getSubimage(209, 0, 14, 21);
+				// Tell the graphics to draw only one block of the image
     }
 
     public void draw(Graphics graphics)
     {
         //BufferedImage subimage = sprite.getSubimage(100, 100, 50, 50);
         //subimage = copyBufferedImage(subimage);
-        graphics.setColor(Color.red);
-        graphics.fillRect(x, y, 100, 100);// de 100 en 100 moeten nog worden gezet als variablen in de GameObject
+        
+	graphics.drawImage(sprite, x, y, null);
+
+        //graphics.setColor(Color.red);
+        //graphics.fillRect(x, y, 100, 100);// de 100 en 100 moeten nog worden gezet als variablen in de GameObject
         //graphics.drawImage(sprite, x, y, null);
     }
 
