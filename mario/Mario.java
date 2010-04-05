@@ -4,8 +4,8 @@
  */
 package mario;
 
-import java.awt.Graphics;
 import java.awt.Rectangle;
+import mario.state.JumpState;
 import mario.state.MoveState;
 
 /**
@@ -37,6 +37,7 @@ public class Mario extends GameObject
 
         state = new MoveState(this);
     }
+/*
 
     @Override
     public void draw(Graphics graphics)
@@ -44,17 +45,13 @@ public class Mario extends GameObject
         //BufferedImage subimage = sprite.getSubimage(100, 100, 50, 50);
         //subimage = copyBufferedImage(subimage);
 
-        graphics.drawImage(getImage(), x, y, null);
+       
 
         //graphics.setColor(Color.red);
         //graphics.fillRect(x, y, 100, 100);// de 100 en 100 moeten nog worden gezet als variablen in de GameObject
         //graphics.drawImage(sprite, x, y, null);
     }
-
-    public void doLoopAction()
-    {
-        state.doAction();
-    }
+*/
 
     public void setLeft(boolean left)
     {
@@ -69,6 +66,11 @@ public class Mario extends GameObject
     public void setUp(boolean up)
     {
         this.up = up;
+    }
+
+    public void setJump()
+    {
+        state = new JumpState(this);
     }
 
     public boolean isLeft()

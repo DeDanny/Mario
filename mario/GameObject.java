@@ -44,8 +44,8 @@ public abstract class GameObject
             sprite = ImageIO.read(imageUrl);
         } catch (IOException e)
         {
-            System.out.println("Error int GameObject/loadImage" +
-                    "Error:");
+            System.out.println("Error int GameObject/loadImage"
+                    + "Error:");
             System.out.println(e);
         }
         return sprite;
@@ -82,7 +82,10 @@ public abstract class GameObject
         graphics.drawImage(getImage(), x, y, null);
     }
 
-    abstract public void doLoopAction();
+    public void doLoopAction()
+    {
+        state.doAction();
+    }
 
     public int getX()
     {
