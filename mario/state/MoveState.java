@@ -46,6 +46,7 @@ public class MoveState extends State
         gameObject.setAnimation(standRight);
     }
 
+    @Override
     public void doAction()
     {
         if (gameObject.isLeft() && !gameObject.isUp())
