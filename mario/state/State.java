@@ -18,6 +18,14 @@ public abstract class State
     {
         this.gameObject = gameObject;
     }
-   
+
+    protected final void setAnimation(String[] animation)
+    {
+        if (gameObject.getAnimation() != animation)
+        {
+            gameObject.setAnimation(animation);
+        }
+    }
+
     public abstract void doAction();
 }

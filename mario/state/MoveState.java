@@ -29,7 +29,16 @@ public class MoveState extends State
     {
         "smallMarioStandRight 0"
     };
+    private final static String[] upRight =
+    {
+        "smallMarioLookUpRight 0"
+    };
+    private final static String[] upLeft =
+    {
+        "smallMarioLookUpLeft 0"
+    };
     private int lastSide = 0;
+    private boolean lookingUP = false;
 
     public MoveState(Mario gameObject)
     {
@@ -39,25 +48,49 @@ public class MoveState extends State
 
     public void doAction()
     {
-        if (gameObject.isLeft())
+        if (gameObject.isLeft() && !gameObject.isUp())
         {
             gameObject.setX(gameObject.getX() - WALKSPEED);
-            if(gameObject.getAnimation() != leftAnimation)
-                gameObject.setAnimation(leftAnimation);
+
+            super.setAnimation(leftAnimation);
             lastSide = 1;
         }
 
-        if (gameObject.isRight())
+        if (gameObject.isRight() && !gameObject.isUp())
         {
 
             gameObject.setX(gameObject.getX() + WALKSPEED);
-            if(gameObject.getAnimation() != rightAnimation)
-                gameObject.setAnimation(rightAnimation);
+            super.setAnimation(rightAnimation);
             lastSide = 0;
         }
 
-        if (!gameObject.isRight() && !gameObject.isLeft())
+        if (gameObject.isUp())
         {
+            if (lookingUP == false)
+            {
+                lookingUP = true;
+                gameObject.setY(gameObject.getY() - 1);
+            }
+            switch (lastSide)
+            {
+                case 0:
+                    super.setAnimation(upRight);
+                    break;
+                case 1:
+
+                    super.setAnimation(upLeft);
+                    break;
+            }
+        }
+
+        if (!gameObject.isRight() && !gameObject.isLeft() && !gameObject.isUp())
+        {
+            if (lookingUP)
+            {
+                lookingUP = false;
+                gameObject.setY(gameObject.getY() + 1);
+
+            }
             switch (lastSide)
             {
                 case 0:

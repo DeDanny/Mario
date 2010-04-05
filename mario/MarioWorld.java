@@ -15,7 +15,6 @@ public class MarioWorld
 
     public MarioWorld()
     {
-        
     }
 
     public Game getGame()

@@ -92,6 +92,7 @@ public class Controller implements KeyListener, Runnable
         }
         if (e.getKeyCode() == KeyEvent.VK_UP)
         {
+            marioWorld.getGame().getMario().setUp(true);
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN)
         {
@@ -111,6 +112,7 @@ public class Controller implements KeyListener, Runnable
         }
         if (e.getKeyCode() == KeyEvent.VK_UP)
         {
+            marioWorld.getGame().getMario().setUp(false);
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN)
         {

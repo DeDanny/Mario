@@ -20,11 +20,14 @@ import mario.state.State;
 public abstract class GameObject
 {
     protected BufferedImage sprite;
+    protected BufferedImage spritePart;
     protected int x, y, width, height;
     protected HashMap<String, Rectangle> frames = new HashMap<String, Rectangle>();
     protected String[] animation;
     protected int animationFrame = 0;
     protected State state;
+    protected int frameSpeed = 50;
+    protected long systemTime = System.currentTimeMillis();
 
     public GameObject(int x, int y, int width, int height, String fileName)
     {
@@ -41,6 +44,9 @@ public abstract class GameObject
             sprite = ImageIO.read(imageUrl);
         } catch (IOException e)
         {
+            System.out.println("Error int GameObject/loadImage" +
+                    "Error:");
+            System.out.println(e);
         }
         return sprite;
     }
@@ -52,21 +58,29 @@ public abstract class GameObject
 
     public BufferedImage getImage()
     {
-
-        System.out.println(animationFrame + " : " + animation.length);
-        if (animationFrame == animation.length)
+        System.out.println((System.currentTimeMillis() - systemTime));
+        if ((System.currentTimeMillis() - systemTime) > frameSpeed)
         {
-            animationFrame = 0;
+            systemTime = System.currentTimeMillis();
+            System.out.println(animationFrame + " : " + animation.length);
+            if (animationFrame == animation.length)
+            {
+                animationFrame = 0;
+            }
+            BufferedImage crop = sprite.getSubimage((int) frames.get(animation[animationFrame]).getX(),
+                    (int) frames.get(animation[animationFrame]).getY(),
+                    (int) frames.get(animation[animationFrame]).getWidth(),
+                    (int) frames.get(animation[animationFrame]).getHeight());
+            animationFrame++;
+            spritePart = crop;
         }
-        BufferedImage crop = sprite.getSubimage((int) frames.get(animation[animationFrame]).getX(),
-                (int) frames.get(animation[animationFrame]).getY(),
-                (int) frames.get(animation[animationFrame]).getWidth(),
-                (int) frames.get(animation[animationFrame]).getHeight());
-        animationFrame++;
-        return crop;
+        return spritePart;
     }
 
-    abstract public void draw(Graphics graphics);
+    public void draw(Graphics graphics)
+    {
+        graphics.drawImage(getImage(), x, y, null);
+    }
 
     abstract public void doLoopAction();
 
@@ -119,5 +133,10 @@ public abstract class GameObject
     public String[] getAnimation()
     {
         return animation;
+    }
+
+    public int getFrameSpeed()
+    {
+        return frameSpeed;
     }
 }
