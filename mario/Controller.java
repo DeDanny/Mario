@@ -96,6 +96,7 @@ public class Controller implements KeyListener, Runnable
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN)
         {
+            marioWorld.getGame().getMario().setDuck(true);
         }
     }
 
@@ -116,6 +117,7 @@ public class Controller implements KeyListener, Runnable
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN)
         {
+            marioWorld.getGame().getMario().setDuck(false);
         }
     }
 }

@@ -17,6 +17,7 @@ public class Mario extends GameObject
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
+    private boolean duck = false;
 
     public Mario()
     {
@@ -34,6 +35,9 @@ public class Mario extends GameObject
 
         frames.put("smallMarioLookUpLeft 0", new Rectangle(49, 39, 15, 21));
         frames.put("smallMarioLookUpRight 0", new Rectangle(329, 39, 15, 21));
+
+        frames.put("smallMarioDuckLeft 0", new Rectangle(89, 39, 15, 21));
+        frames.put("smallMarioDuckRight 0", new Rectangle(288, 39, 15, 21));
 
         state = new MoveState(this);
     }
@@ -71,6 +75,11 @@ public class Mario extends GameObject
         this.up = up;
     }
 
+    public void setDuck(boolean duck)
+    {
+        this.duck = duck;
+    }
+
     public boolean isLeft()
     {
         return left;
@@ -84,5 +93,10 @@ public class Mario extends GameObject
     public boolean isUp()
     {
         return up;
+    }
+
+    public boolean isDuck()
+    {
+        return duck;
     }
 }
