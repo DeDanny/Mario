@@ -5,18 +5,17 @@
 package mario.state;
 
 import mario.Mario;
+import mario.State;
 
 /**
  *
  * @author danny
  */
-public abstract class MarioState
+public abstract class MarioState extends State
 {
-    protected Mario gameObject;
-
     public MarioState(Mario gameObject)
     {
-        this.gameObject = gameObject;
+        super(gameObject);
     }
 
     protected final void setAnimation(String[] animation)
@@ -26,6 +25,4 @@ public abstract class MarioState
             gameObject.setAnimation(animation);
         }
     }
-
-    public abstract void doAction();
 }

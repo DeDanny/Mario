@@ -25,7 +25,7 @@ public abstract class GameObject
     protected HashMap<String, Rectangle> frames = new HashMap<String, Rectangle>();
     protected String[] animation;
     protected int animationFrame = 0;
-    protected MarioState state;
+    protected State state;
     protected int frameSpeed = 50;
     protected long systemTime = System.currentTimeMillis();
 
