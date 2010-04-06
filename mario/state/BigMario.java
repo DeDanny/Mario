@@ -16,8 +16,8 @@ public class BigMario extends MoveState
 {
       public BigMario(Mario gameObject) {
         super(gameObject);
-        this.RightAnimation  = new String[] {"bigMarioWalkRight 0", "bigMarioWalkRight 1"};
-        this.LeftAnimation   = new String[]{"bigMarioWalkLeft 0", "bigMarioWalkLeft 1"};
+        this.RightAnimation  = new String[] {"bigMarioStandRight 0", "bigMarioWalkRight 0", "bigMarioWalkRight 1"};
+        this.LeftAnimation   = new String[]{"bigMarioStandLeft 0", "bigMarioWalkLeft 0", "bigMarioWalkLeft 1"};
         this.StandLeft   = new String[]{"bigMarioStandLeft 0"};
         this.StandRight   = new String[]{"bigMarioStandRight 0"};
         this.UpRight   = new String[]{"bigMarioLookUpRight 0"};
