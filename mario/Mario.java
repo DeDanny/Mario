@@ -11,14 +11,15 @@ import mario.state.*;
  *
  * @author danny
  */
-public class Mario extends GameObject {
-
+public class Mario extends GameObject
+{
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
     private boolean down = false;
 
-    public Mario() {
+    public Mario()
+    {
         super(100, 100, 14, 21, "/images/smw_mario_sheet.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(209, 0, 15, 20));
@@ -71,56 +72,68 @@ public class Mario extends GameObject {
      */
 
     @Override
-    public void doLoopAction() {
+    public void doLoopAction()
+    {
         state.doAction();
     }
 
-    public boolean isMove() {
+    public boolean isMove()
+    {
         return (left || right);
     }
 
-    public boolean isPreformingSpecialMove() {
+    public boolean isPreformingSpecialMove()
+    {
         return (up || down);
     }
 
-    public void setLeft(boolean left) {
+    public void setLeft(boolean left)
+    {
         this.left = left;
     }
 
-    public void setRight(boolean right) {
+    public void setRight(boolean right)
+    {
         this.right = right;
     }
 
-    public void setUp(boolean up) {
+    public void setUp(boolean up)
+    {
         this.up = up;
     }
 
-    public void setJump() {
+    public void setJump()
+    {
         state = new JumpState(this);
     }
 
-    public void setDown(boolean down) {
+    public void setDown(boolean down)
+    {
         this.down = down;
     }
 
-    public boolean isLeft() {
+    public boolean isLeft()
+    {
         return left;
     }
 
-    public boolean isRight() {
+    public boolean isRight()
+    {
         return right;
     }
 
-    public boolean isUp() {
+    public boolean isUp()
+    {
         return up;
     }
 
-    public boolean isDown() {
+    public boolean isDown()
+    {
         return down;
     }
 
-    public void setState(MarioState state) {
+    public void setState(MarioState state)
+    {
         this.state = state;
     }
-    
 }

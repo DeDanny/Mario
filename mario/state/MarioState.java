@@ -13,9 +13,11 @@ import mario.State;
  */
 public abstract class MarioState extends State
 {
+    protected Mario gameObject;
     public MarioState(Mario gameObject)
     {
         super(gameObject);
+        this.gameObject = gameObject;
     }
 
     protected final void setAnimation(String[] animation)
