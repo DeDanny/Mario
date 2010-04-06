@@ -23,5 +23,4 @@ import mario.GameObject;
 
    @Override
    public void doLoopAction(){};
-
  }
