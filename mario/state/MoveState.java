@@ -24,7 +24,7 @@ abstract public class MoveState extends MarioState
     protected String[] DuckLeft;
 
 
-    protected int       lastSide        = 0;
+    protected static int lastSide        = 0;
     protected boolean   lookingUP       = false;
     protected boolean   duckDown        = false;
     protected int       duckHeight      = 1;
