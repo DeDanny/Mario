@@ -10,7 +10,7 @@ import mario.Mario;
 
 /**
  *
- * @author Onno
+ * @author Onno 
  */
 public class BigMario extends MoveState
 {
@@ -24,10 +24,8 @@ public class BigMario extends MoveState
         this.UpLeft   = new String[]{"bigMarioLookUpLeft 0"};
         this.DuckRight   = new String[]{"bigMarioDuckRight 0"};
         this.DuckLeft   = new String[]{"bigMarioDuckLeft 0"};
-
+        
         this.duckHeight = 3;
         this.lookupHeight = 3;
     }
-
-
 }

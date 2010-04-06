@@ -7,6 +7,8 @@ package mario;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import mario.state.BigMario;
+import mario.state.SmallMario;
 
 /**
  *
@@ -98,6 +100,14 @@ public class Controller implements KeyListener, Runnable
         if (e.getKeyCode() == KeyEvent.VK_DOWN)
         {
             marioWorld.getGame().getMario().setDown(true);
+        }
+         if (e.getKeyCode() == KeyEvent.VK_1)
+        {
+            marioWorld.getGame().getMario().setState(new BigMario(marioWorld.getGame().getMario()));
+        }
+         if (e.getKeyCode() == KeyEvent.VK_2)
+        {
+            marioWorld.getGame().getMario().setState(new SmallMario(marioWorld.getGame().getMario()));
         }
     }
 
