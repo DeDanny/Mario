@@ -12,7 +12,7 @@ import mario.Mario;
  *
  * @author danny
  */
-public class JumpState extends State{
+public class JumpState extends MarioState{
 
     public JumpState(Mario gameObject)
     {
@@ -22,7 +22,7 @@ public class JumpState extends State{
     @Override
     public void doAction()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+       
     }
 
 

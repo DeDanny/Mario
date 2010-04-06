@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 /**
  *
  * @author Danny
+ * 
  */
 public class Main extends JFrame
 {

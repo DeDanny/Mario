@@ -10,11 +10,11 @@ import mario.Mario;
  *
  * @author danny
  */
-public abstract class State
+public abstract class MarioState
 {
     protected Mario gameObject;
 
-    public State(Mario gameObject)
+    public MarioState(Mario gameObject)
     {
         this.gameObject = gameObject;
     }
