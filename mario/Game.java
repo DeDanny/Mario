@@ -5,6 +5,7 @@
 package mario;
 
 import java.util.ArrayList;
+import mario.enemy.*;
 
 /**
  *
@@ -16,7 +17,9 @@ public class Game
     private boolean paused = false;
 
     private Mario mario = new Mario();
+    private Goomba goomba = new Goomba();
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+    
 
     public Game()
     {
@@ -51,5 +54,10 @@ public class Game
     public Mario getMario()
     {
         return mario;
-    }    
+    }
+
+    public Goomba getGoomba()
+    {
+        return goomba;
+    }
 }
