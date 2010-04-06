@@ -4,7 +4,7 @@
  */
 
 package mario.state;
-package
+
 
 import mario.Mario;
 

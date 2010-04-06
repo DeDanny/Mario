@@ -4,17 +4,17 @@
  */
 package mario.enemy.state;
 
+import mario.State;
 import mario.enemy.Enemy;
 
 /**
  *
  * @author Danny
  */
-abstract public class EnemyState
+abstract public class EnemyState extends State
 {
-    protected Enemy gameObject;
     public EnemyState(Enemy gameObject)
     {
-        this.gameObject = gameObject;
+        super(gameObject);
     }
 }

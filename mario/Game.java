@@ -4,6 +4,7 @@
  */
 package mario;
 
+import background.Background;
 import java.util.ArrayList;
 
 /**
@@ -12,14 +13,16 @@ import java.util.ArrayList;
  */
 public class Game
 {
-    private boolean running = false;
-    private boolean paused = false;
+    private boolean running         = false;
+    private boolean paused          = false;
 
-    private Mario mario = new Mario();
+    private Mario mario             = new Mario();
+    private Background background   = new Background();
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
     public Game()
     {
+        gameObjects.add(background);
         gameObjects.add(mario);
     }
 
