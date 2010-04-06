@@ -10,51 +10,30 @@ import mario.Mario;
  *
  * @author danny
  */
-public class MoveState extends MarioState
+abstract public class MoveState extends MarioState
 {
-    private static final int WALKSPEED = 5;
-    private final static String[] rightAnimation =
-    {
-        "smallMarioWalkRight 0", "smallMarioWalkRight 1"
-    };
-    private final static String[] leftAnimation =
-    {
-        "smallMarioWalkLeft 0", "smallMarioWalkLeft 1"
-    };
-    private final static String[] standLeft =
-    {
-        "smallMarioStandLeft 0"
-    };
-    private final static String[] standRight =
-    {
-        "smallMarioStandRight 0"
-    };
-    private final static String[] upRight =
-    {
-        "smallMarioLookUpRight 0"
-    };
-    private final static String[] upLeft =
-    {
-        "smallMarioLookUpLeft 0"
-    };
-    private final static String[] duckRight =
-    {
-        "smallMarioDuckRight 0"
-    };
-    private final static String[] duckLeft =
-    {
-        "smallMarioDuckLeft 0"
-    };
-    private int lastSide        = 0;
-    private boolean lookingUP   = false;
-    private boolean duckDown    = false;
-    private int duckHeight      = 1;
-    private int lookupHeight    = 1;
+    protected static final int WALKSPEED = 5;
+
+    protected String[] RightAnimation;
+    protected String[] LeftAnimation;
+    protected String[] StandLeft;
+    protected String[] StandRight;
+    protected String[] UpRight;
+    protected String[] UpLeft;
+    protected String[] DuckRight;
+    protected String[] DuckLeft;
+
+
+    protected int       lastSide        = 0;
+    protected boolean   lookingUP       = false;
+    protected boolean   duckDown        = false;
+    protected int       duckHeight      = 1;
+    protected int       lookupHeight    = 1;
 
     public MoveState(Mario gameObject)
     {
         super(gameObject);
-        gameObject.setAnimation(standRight);
+        gameObject.setAnimation(StandRight);
     }
 
     @Override
@@ -81,10 +60,10 @@ public class MoveState extends MarioState
             switch (lastSide)
             {
                 case 0:
-                    gameObject.setAnimation(standRight);
+                    gameObject.setAnimation(StandRight);
                     break;
                 case 1:
-                    gameObject.setAnimation(standLeft);
+                    gameObject.setAnimation(StandLeft);
                     break;
             }
         }
@@ -93,14 +72,14 @@ public class MoveState extends MarioState
         if (gameObject.isLeft() && !gameObject.isPreformingSpecialMove())
         {
             gameObject.setX(gameObject.getX() - WALKSPEED);
-            super.setAnimation(leftAnimation);
+            super.setAnimation(LeftAnimation);
             lastSide = 1;
         }
         // Mario walks right - Arrowright key is pressed
         if (gameObject.isRight() && !gameObject.isPreformingSpecialMove())
         {
             gameObject.setX(gameObject.getX() + WALKSPEED);
-            super.setAnimation(rightAnimation);
+            super.setAnimation(RightAnimation);
             lastSide = 0;
         }
 
@@ -115,11 +94,11 @@ public class MoveState extends MarioState
             switch (lastSide)
             {
                 case 0:
-                    super.setAnimation(upRight);
+                    super.setAnimation(UpRight);
                     break;
                 case 1:
 
-                    super.setAnimation(upLeft);
+                    super.setAnimation(UpLeft);
                     break;
             }
         }
@@ -135,10 +114,10 @@ public class MoveState extends MarioState
             switch (lastSide)
             {
                 case 0:
-                    super.setAnimation(duckRight);
+                    super.setAnimation(DuckRight);
                     break;
                 case 1:
-                    super.setAnimation(duckLeft);
+                    super.setAnimation(DuckLeft);
                     break;
             }
         }

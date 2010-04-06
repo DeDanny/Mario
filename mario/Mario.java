@@ -5,8 +5,8 @@
 package mario;
 
 import java.awt.Rectangle;
-import mario.state.JumpState;
-import mario.state.MoveState;
+import mario.state.*;
+
 
 /**
  *
@@ -38,7 +38,24 @@ public class Mario extends GameObject
         frames.put("smallMarioDuckLeft 0", new Rectangle(89, 39, 15, 21));
         frames.put("smallMarioDuckRight 0", new Rectangle(288, 39, 15, 21));
 
-        state = new MoveState(this);
+        // Big coordinates
+
+        frames.put("bigMarioStandRight 0", new Rectangle(209, 0, 15, 20));
+        frames.put("bigMarioStandLeft 0", new Rectangle(169, 0, 15, 20));
+
+        frames.put("bigMarioWalkRight 0", new Rectangle(209, 0, 15, 20));
+        frames.put("bigMarioWalkRight 1", new Rectangle(327, 0, 15, 20));
+
+        frames.put("bigMarioWalkLeft 0", new Rectangle(169, 0, 15, 20));
+        frames.put("bigMarioWalkLeft 1", new Rectangle(49, 0, 15, 20));
+
+        frames.put("bigMarioLookUpLeft 0", new Rectangle(49, 39, 15, 21));
+        frames.put("bigMarioLookUpRight 0", new Rectangle(329, 39, 15, 21));
+
+        frames.put("bigMarioDuckLeft 0", new Rectangle(89, 39, 15, 21));
+        frames.put("bigMarioDuckRight 0", new Rectangle(288, 39, 15, 21));
+
+        state = new BigMario(this);
     }
     /*
     @Override
