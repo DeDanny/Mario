@@ -101,7 +101,7 @@ public class Controller implements KeyListener, Runnable
         {
             marioWorld.getGame().getMario().setDown(true);
         }
-         if (e.getKeyCode() == KeyEvent.VK_1)
+        if (e.getKeyCode() == KeyEvent.VK_1)
         {
             marioWorld.getGame().getMario().setState(new BigMario(marioWorld.getGame().getMario()));
         }
