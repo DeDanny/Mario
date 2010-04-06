@@ -7,7 +7,6 @@ package mario;
 import java.awt.Rectangle;
 import mario.state.*;
 
-
 /**
  *
  * @author danny
@@ -21,41 +20,41 @@ public class Mario extends GameObject
 
     public Mario()
     {
-        super(100, 100, 14, 21, "/images/smw_mario_sheet.png");
+        super(100, 100, 68, 116, "/images/mario_sprite.png");
 
-        frames.put("smallMarioStandRight 0", new Rectangle(209, 0, 15, 20));
-        frames.put("smallMarioStandLeft 0", new Rectangle(169, 0, 15, 20));
+        frames.put("smallMarioStandRight 0", new Rectangle(802, 0, 60, 80));
+        frames.put("smallMarioStandLeft 0", new Rectangle(642, 0, 60, 80));
 
-        frames.put("smallMarioWalkRight 0", new Rectangle(209, 0, 15, 20));
-        frames.put("smallMarioWalkRight 1", new Rectangle(327, 0, 15, 20));
+        frames.put("smallMarioWalkRight 0", new Rectangle(802, 0, 60, 80));
+        frames.put("smallMarioWalkRight 1", new Rectangle(1278, 0, 60, 80));
 
-        frames.put("smallMarioWalkLeft 0", new Rectangle(169, 0, 15, 20));
-        frames.put("smallMarioWalkLeft 1", new Rectangle(49, 0, 15, 20));
+        frames.put("smallMarioWalkLeft 0", new Rectangle(642, 0, 60, 80));
+        frames.put("smallMarioWalkLeft 1", new Rectangle(162, 0, 60, 80));
 
-        frames.put("smallMarioLookUpLeft 0", new Rectangle(49, 39, 15, 21));
-        frames.put("smallMarioLookUpRight 0", new Rectangle(329, 39, 15, 21));
+        frames.put("smallMarioLookUpLeft 0", new Rectangle(162, 152, 64, 88));
+        frames.put("smallMarioLookUpRight 0", new Rectangle(1278, 154, 64, 88));
 
-        frames.put("smallMarioDuckLeft 0", new Rectangle(89, 39, 15, 21));
-        frames.put("smallMarioDuckRight 0", new Rectangle(288, 39, 15, 21));
+        frames.put("smallMarioDuckLeft 0", new Rectangle(322, 170, 64, 59));
+        frames.put("smallMarioDuckRight 0", new Rectangle(118, 43, 64, 59));
 
         // Big coordinates
 
-        frames.put("bigMarioStandRight 0", new Rectangle(209, 0, 15, 20));
-        frames.put("bigMarioStandLeft 0", new Rectangle(169, 0, 15, 20));
+        frames.put("bigMarioStandRight 0", new Rectangle(798, 302, 64, 115)); // RIGHT
+        frames.put("bigMarioStandLeft 0", new Rectangle(642, 302, 64, 115)); // LEFT
 
-        frames.put("bigMarioWalkRight 0", new Rectangle(209, 0, 15, 20));
-        frames.put("bigMarioWalkRight 1", new Rectangle(327, 0, 15, 20));
+        frames.put("bigMarioWalkRight 0", new Rectangle(1438, 302, 66, 115)); // RIGHT
+        frames.put("bigMarioWalkRight 1", new Rectangle(1278, 302, 68, 112)); // RIGHT
 
-        frames.put("bigMarioWalkLeft 0", new Rectangle(169, 0, 15, 20));
-        frames.put("bigMarioWalkLeft 1", new Rectangle(49, 0, 15, 20));
+        frames.put("bigMarioWalkLeft 0", new Rectangle(0, 302, 66, 115)); // LEFT
+        frames.put("bigMarioWalkLeft 1", new Rectangle(158, 302, 68, 112)); // LEFT
 
-        frames.put("bigMarioLookUpLeft 0", new Rectangle(49, 39, 15, 21));
-        frames.put("bigMarioLookUpRight 0", new Rectangle(329, 39, 15, 21));
+        frames.put("bigMarioLookUpLeft 0", new Rectangle(482, 782, 64, 111)); // LEFT
+        frames.put("bigMarioLookUpRight 0", new Rectangle(782, 196, 15, 27)); // RIGHT
 
-        frames.put("bigMarioDuckLeft 0", new Rectangle(89, 39, 15, 21));
-        frames.put("bigMarioDuckRight 0", new Rectangle(288, 39, 15, 21));
+        frames.put("bigMarioDuckLeft 0", new Rectangle(88, 122, 16, 15)); // LEFT
+        frames.put("bigMarioDuckRight 0", new Rectangle(288, 122, 16, 15)); // RIGHT
 
-        state = new BigMario(this);
+        state = new SmallMario(this);
     }
     /*
     @Override
@@ -131,5 +130,10 @@ public class Mario extends GameObject
     public boolean isDown()
     {
         return down;
+    }
+
+    public void setState(MarioState state)
+    {
+        this.state = state;
     }
 }
