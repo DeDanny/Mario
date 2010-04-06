@@ -17,7 +17,7 @@ public class Mario extends GameObject
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
-    private boolean duck = false;
+    private boolean down = false;
 
     public Mario()
     {
@@ -55,9 +55,20 @@ public class Mario extends GameObject
         //graphics.drawImage(sprite, x, y, null);
     }
 
+    @Override
     public void doLoopAction()
     {
         state.doAction();
+    }
+
+    public boolean isMove()
+    {
+        return (left||right);
+    }
+
+    public boolean isPreformingSpecialMove()
+    {
+        return (up||down);
     }
 
     public void setLeft(boolean left)
@@ -75,9 +86,9 @@ public class Mario extends GameObject
         this.up = up;
     }
 
-    public void setDuck(boolean duck)
+    public void setDown(boolean down)
     {
-        this.duck = duck;
+        this.down = down;
     }
 
     public boolean isLeft()
@@ -95,8 +106,8 @@ public class Mario extends GameObject
         return up;
     }
 
-    public boolean isDuck()
+    public boolean isDown()
     {
-        return duck;
+        return down;
     }
 }

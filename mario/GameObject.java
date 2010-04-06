@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
-import mario.state.State;
+import mario.state.MarioState;
 
 /**
  *
@@ -25,7 +25,7 @@ public abstract class GameObject
     protected HashMap<String, Rectangle> frames = new HashMap<String, Rectangle>();
     protected String[] animation;
     protected int animationFrame = 0;
-    protected State state;
+    protected MarioState state;
     protected int frameSpeed = 50;
     protected long systemTime = System.currentTimeMillis();
 

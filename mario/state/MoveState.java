@@ -10,7 +10,7 @@ import mario.Mario;
  *
  * @author danny
  */
-public class MoveState extends State
+public class MoveState extends MarioState
 {
     private static final int WALKSPEED = 5;
     private final static String[] rightAnimation =
@@ -61,7 +61,7 @@ public class MoveState extends State
     public void doAction()
     {
         // Mario does nothing - No key is pressed
-        if (!gameObject.isRight() && !gameObject.isLeft() && !gameObject.isUp() && !gameObject.isDuck())
+        if (!gameObject.isRight() && !gameObject.isLeft() && !gameObject.isUp() && !gameObject.isDown())
         {
             // Reset Mario's Y-as after looking up
             if (lookingUP)
@@ -90,14 +90,14 @@ public class MoveState extends State
         }
 
         // Mario walks left - Arrowleft key is pressed
-        if (gameObject.isLeft() && !gameObject.isUp() && !gameObject.isDuck())
+        if (gameObject.isLeft() && !gameObject.isPreformingSpecialMove())
         {
             gameObject.setX(gameObject.getX() - WALKSPEED);
             super.setAnimation(leftAnimation);
             lastSide = 1;
         }
         // Mario walks right - Arrowright key is pressed
-        if (gameObject.isRight() && !gameObject.isUp() && !gameObject.isDuck())
+        if (gameObject.isRight() && !gameObject.isPreformingSpecialMove())
         {
             gameObject.setX(gameObject.getX() + WALKSPEED);
             super.setAnimation(rightAnimation);
@@ -105,7 +105,7 @@ public class MoveState extends State
         }
 
         // Mario looks up - Arrowup key is pressed
-        if (gameObject.isUp() && !gameObject.isDuck())
+        if (gameObject.isUp() && !gameObject.isDown())
         {
             if (lookingUP == false)
             {
@@ -125,7 +125,7 @@ public class MoveState extends State
         }
 
         // Mario ducks down - ArrowDown is pressed
-        if (gameObject.isDuck() && !gameObject.isUp())
+        if (gameObject.isDown() && !gameObject.isUp())
         {
             if (duckDown == false)
             {
