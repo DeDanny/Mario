@@ -27,7 +27,9 @@ public class Background extends GameObject
                 });
 
         mapLayOut.addPoint(0, 552);// left up
-        mapLayOut.addPoint(0, 552);//right up
+        mapLayOut.addPoint(800, 552);//right up
+        mapLayOut.addPoint(800, 600);// right down
+        mapLayOut.addPoint(0, 600); // left down
     }
 
     public Rectangle getRectengles()
