@@ -6,7 +6,6 @@ package mario;
 
 import background.Background;
 import blokjes.Questionmark;
-import mario.Mario;
 import java.util.ArrayList;
 import mario.enemy.*;
 
