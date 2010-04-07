@@ -23,11 +23,13 @@ public class Goomba extends Enemy
         setAnimation(new String[]
                 {
                     "goombaStand 0", "goombaWalk 0"
-                });
+
+        });
     }
 
     @Override
     public void hitBy()
     {
+        
     }
 }
