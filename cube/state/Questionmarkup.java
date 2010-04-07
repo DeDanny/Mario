@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package blokjes.state;
+package cube.state;
 
 import java.awt.Rectangle;
 import mario.GameObject;
