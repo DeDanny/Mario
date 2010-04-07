@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
+import mario.state.MarioState;
 
 /**
  *
@@ -138,5 +139,10 @@ public abstract class GameObject
     public int getFrameSpeed()
     {
         return frameSpeed;
+    }
+    
+    public void setState(MarioState state)
+    {
+        this.state = state;
     }
 }

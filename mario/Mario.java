@@ -122,11 +122,6 @@ public class Mario extends GameObject
         return down;
     }
 
-    public void setState(MarioState state)
-    {
-        this.state = state;
-    }
-
     @Override
     public void doGravity()
     {
