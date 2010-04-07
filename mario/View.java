@@ -90,7 +90,5 @@ public class View
                 graphics.dispose();
             }
         }
-
-
     }
 }

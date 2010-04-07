@@ -81,10 +81,8 @@ public abstract class GameObject
     {
         graphics.drawImage(getImage(), x, y, null);
     }
-
+    
     public abstract void doLoopAction();
-
-    public abstract void doGravity();
 
     public int getX()
     {

@@ -50,12 +50,6 @@ public class Stone extends GameObject {
         raak = false;
          * */
     }
-
-    @Override
-    public void doGravity()
-    {
-        
-    }
 }
 
 

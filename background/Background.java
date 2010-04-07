@@ -4,6 +4,7 @@
  */
 package background;
 
+import java.awt.Polygon;
 import java.awt.Rectangle;
 import mario.GameObject;
 
@@ -13,6 +14,7 @@ import mario.GameObject;
  */
 public class Background extends GameObject
 {
+    private Polygon mapLayOut = new Polygon();
     public Background()
     {
         super(0, 0, 800, 600, "/images/background_gameplay.png");
@@ -31,10 +33,6 @@ public class Background extends GameObject
     @Override
     public void doLoopAction()
     {
-    }
-
-    @Override
-    public void doGravity()
-    {
+        
     }
 }

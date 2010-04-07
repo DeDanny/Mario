@@ -4,20 +4,18 @@
  */
 package mario.enemy;
 
-import mario.GameObject;
+import mario.Character;
 import mario.enemy.ai.Ai;
-
 
 /**
  *
  * @author Danny
  */
-abstract public class Enemy extends GameObject
+abstract public class Enemy extends Character
 {
     protected Ai ai;
     public Enemy(int x, int y, int width, int height, String fileName)
     {
-
        super(x, y, width, height, fileName);
     }
     
