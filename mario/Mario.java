@@ -48,8 +48,8 @@ public class Mario extends Character
         frames.put("bigMarioWalkRight 1", new Rectangle(984, 228, 48, 81)); // RIGHT
         frames.put("bigMarioWalkRight 2", new Rectangle(624, 228, 45, 84)); // RIGHT
 
-        frames.put("bigMarioWalkLeft 0", new Rectangle(24, 228, 48, 84)); // LEFT
-        frames.put("bigMarioWalkLeft 1", new Rectangle(144, 228, 48, 81)); // LEFT
+        frames.put("bigMarioWalkLeft 0", new Rectangle(27, 228, 48, 84)); // LEFT
+        frames.put("bigMarioWalkLeft 1", new Rectangle(147, 228, 48, 81)); // LEFT
         frames.put("bigMarioWalkLeft 2", new Rectangle(507, 228, 45, 84)); // LEFT
 
         frames.put("bigMarioLookUpLeft 0", new Rectangle(387, 588, 85, 81)); // LEFT
