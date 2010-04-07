@@ -41,7 +41,7 @@ public class View
         gd.setFullScreenWindow(frame);
         if (gd.isDisplayChangeSupported())
         {
-            gd.setDisplayMode(new DisplayMode(640, 480, 32, DisplayMode.REFRESH_RATE_UNKNOWN));
+            gd.setDisplayMode(new DisplayMode(800, 600, 32, DisplayMode.REFRESH_RATE_UNKNOWN));
         }
 
     }
@@ -52,7 +52,7 @@ public class View
         buffer = frame.getBufferStrategy();
 
         // Create off-screen drawing surface
-        bi = gc.createCompatibleImage(640, 480);
+        bi = gc.createCompatibleImage(800, 600);
 
     }
 

@@ -4,6 +4,7 @@
  */
 package mario;
 
+import background.Background;
 import java.util.ArrayList;
 import mario.enemy.*;
 
@@ -13,17 +14,22 @@ import mario.enemy.*;
  */
 public class Game
 {
-    private boolean running = false;
-    private boolean paused = false;
+    private boolean running         = false;
+    private boolean paused          = false;
+
 
     private Mario mario = new Mario();
     private Goomba goomba = new Goomba();
+    private Background background   = new Background();
+
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     
 
     public Game()
     {
+        gameObjects.add(background);
         gameObjects.add(mario);
+        gameObjects.add(goomba);
     }
 
     public boolean isRunning()
