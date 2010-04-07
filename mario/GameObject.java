@@ -83,6 +83,7 @@ public abstract class GameObject
     }
 
     public abstract void doLoopAction();
+
     public abstract void doGravity();
 
     public int getX()
@@ -140,7 +141,7 @@ public abstract class GameObject
     {
         return frameSpeed;
     }
-    
+
     public void setState(MarioState state)
     {
         this.state = state;
