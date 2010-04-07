@@ -27,11 +27,11 @@ public class Mario extends GameObject
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
 
-        frames.put("smallMarioWalkRight 0", new Rectangle(627, 0, 42, 60));
-        frames.put("smallMarioWalkRight 1", new Rectangle(984, 0, 45, 57));
+        frames.put("smallMarioWalkRight 0", new Rectangle(984, 0, 45, 57));
+        frames.put("smallMarioWalkRight 1", new Rectangle(627, 0, 42, 60));
 
-        frames.put("smallMarioWalkLeft 0", new Rectangle(507, 0, 42, 60));
-        frames.put("smallMarioWalkLeft 1", new Rectangle(147, 0, 45, 57));
+        frames.put("smallMarioWalkLeft 0", new Rectangle(150, 0, 45, 57));
+        frames.put("smallMarioWalkLeft 1", new Rectangle(507, 0, 42, 60));
 
         frames.put("smallMarioLookUpLeft 0", new Rectangle(147, 117, 45, 63));
         frames.put("smallMarioLookUpRight 0", new Rectangle(985, 117, 45, 63));
@@ -41,20 +41,22 @@ public class Mario extends GameObject
 
         // Big coordinates
 
-        frames.put("bigMarioStandRight 0", new Rectangle(798, 302, 64, 115)); // RIGHT
-        frames.put("bigMarioStandLeft 0", new Rectangle(642, 302, 64, 115)); // LEFT
+        frames.put("bigMarioStandRight 0", new Rectangle(624, 228, 45, 84)); // RIGHT
+        frames.put("bigMarioStandLeft 0", new Rectangle(507, 228, 45, 84)); // LEFT
 
-        frames.put("bigMarioWalkRight 0", new Rectangle(1438, 302, 66, 115)); // RIGHT
-        frames.put("bigMarioWalkRight 1", new Rectangle(1278, 302, 68, 112)); // RIGHT
+        frames.put("bigMarioWalkRight 0", new Rectangle(1104, 228, 48, 84)); // RIGHT
+        frames.put("bigMarioWalkRight 1", new Rectangle(984, 228, 48, 81)); // RIGHT
+        frames.put("bigMarioWalkRight 2", new Rectangle(624, 228, 45, 84)); // RIGHT
 
-        frames.put("bigMarioWalkLeft 0", new Rectangle(0, 302, 66, 115)); // LEFT
-        frames.put("bigMarioWalkLeft 1", new Rectangle(158, 302, 68, 112)); // LEFT
+        frames.put("bigMarioWalkLeft 0", new Rectangle(24, 228, 48, 84)); // LEFT
+        frames.put("bigMarioWalkLeft 1", new Rectangle(144, 228, 48, 81)); // LEFT
+        frames.put("bigMarioWalkLeft 2", new Rectangle(507, 228, 45, 84)); // LEFT
 
-        frames.put("bigMarioLookUpLeft 0", new Rectangle(482, 782, 64, 111)); // LEFT
-        frames.put("bigMarioLookUpRight 0", new Rectangle(782, 196, 15, 27)); // RIGHT
+        frames.put("bigMarioLookUpLeft 0", new Rectangle(387, 588, 85, 81)); // LEFT
+        frames.put("bigMarioLookUpRight 0", new Rectangle(744, 588, 85, 81)); // RIGHT
 
-        frames.put("bigMarioDuckLeft 0", new Rectangle(88, 122, 16, 15)); // LEFT
-        frames.put("bigMarioDuckRight 0", new Rectangle(288, 122, 16, 15)); // RIGHT
+        frames.put("bigMarioDuckLeft 0", new Rectangle(264, 366, 48, 45)); // LEFT
+        frames.put("bigMarioDuckRight 0", new Rectangle(864, 366, 48, 45)); // RIGHT
 
         state = new SmallMario(this);
     }
