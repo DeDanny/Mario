@@ -4,9 +4,9 @@
  */
 package mario;
 
-import background.Background;
-import blokjes.Questionmark;
-import blokjes.Stone;
+import mario.background.Background;
+import mario.cube.Questionmark;
+import mario.cube.Stone;
 import java.util.ArrayList;
 import mario.enemy.*;
 
