@@ -5,6 +5,7 @@
 package mario;
 
 import background.Background;
+import blokjes.Questionmark;
 import java.util.ArrayList;
 
 /**
@@ -18,12 +19,14 @@ public class Game
 
     private Mario mario             = new Mario();
     private Background background   = new Background();
+    private Questionmark Questionmark   = new Questionmark();
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
     public Game()
     {
         gameObjects.add(background);
         gameObjects.add(mario);
+        gameObjects.add(Questionmark);
     }
 
     public boolean isRunning()
