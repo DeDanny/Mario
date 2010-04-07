@@ -20,7 +20,7 @@ public class Mario extends GameObject
 
     public Mario()
     {
-        super(100, 100, 68, 116, "/images/mario_sprite.png");
+        super(100, 480, 68, 116, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(802, 0, 60, 80));
         frames.put("smallMarioStandLeft 0", new Rectangle(642, 0, 60, 80));
