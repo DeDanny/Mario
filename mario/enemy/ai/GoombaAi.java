@@ -20,6 +20,6 @@ public class GoombaAi extends Ai
     @Override
     public void doLoopAction()
     {
-        
+        System.out.println("Goomba Ai Loop");
     }
 }

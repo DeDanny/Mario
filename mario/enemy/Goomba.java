@@ -18,11 +18,11 @@ public class Goomba extends Enemy
     {
         super(300, 100, 66, 66, "/images/smw_enemies_sheet.png");
         ai = new GoombaAi(this);
-        frames.put("goombaStand 0", new Rectangle(205, 1301, 66, 66));
-        frames.put("goombaWalk 0", new Rectangle(45, 1301, 66, 66));
+        frames.put("goombaStandLeft 0", new Rectangle(156, 978, 48, 48));
+        frames.put("goombaWalkLeft 0", new Rectangle(35, 978, 50, 48));
         setAnimation(new String[]
                 {
-                    "goombaStand 0", "goombaWalk 0"
+                    "goombaStandLeft 0", "goombaWalkLeft 0"
 
         });
     }
