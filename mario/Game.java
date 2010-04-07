@@ -22,7 +22,6 @@ public class Game
     private Mario mario = new Mario();
     private Goomba goomba = new Goomba();
     private Background background   = new Background();
-
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     
 
