@@ -13,7 +13,6 @@ import mario.enemy.ai.GoombaAi;
  */
 public class Goomba extends Enemy
 {
-
     public Goomba(int x, int y, int width, int height)
     {
         super(x, y, width, height, "/images/smw_enemies_sheet.png");
@@ -35,5 +34,16 @@ public class Goomba extends Enemy
     public void hitBy()
     {
         
+<<<<<<< HEAD
     }}
 
+=======
+    }
+
+    @Override
+    public void doGravity()
+    {
+        
+    }
+}
+>>>>>>> f11b40030b925c9476aa88333ad269e0aa824409

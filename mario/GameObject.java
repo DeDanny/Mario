@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
+import mario.state.MarioState;
 
 /**
  *
@@ -55,7 +56,7 @@ public abstract class GameObject
         return sprite;
     }
 
-    public BufferedImage getImage()
+    private BufferedImage getImage()
     {
         System.out.println((System.currentTimeMillis() - systemTime));
         if ((System.currentTimeMillis() - systemTime) > frameSpeed)
@@ -82,6 +83,8 @@ public abstract class GameObject
     }
 
     public abstract void doLoopAction();
+
+    public abstract void doGravity();
 
     public int getX()
     {
@@ -137,5 +140,10 @@ public abstract class GameObject
     public int getFrameSpeed()
     {
         return frameSpeed;
+    }
+
+    public void setState(MarioState state)
+    {
+        this.state = state;
     }
 }

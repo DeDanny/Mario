@@ -13,10 +13,10 @@ import mario.state.*;
  */
 public class Mario extends GameObject
 {
-    private boolean left = false;
-    private boolean right = false;
-    private boolean up = false;
-    private boolean down = false;
+    private boolean left    = false;
+    private boolean right   = false;
+    private boolean up      = false;
+    private boolean down    = false;
 
     public Mario()
     {
@@ -60,20 +60,6 @@ public class Mario extends GameObject
 
         state = new SmallMario(this);
     }
-    /*
-    @Override
-    public void draw(Graphics graphics)
-    {
-    //BufferedImage subimage = sprite.getSubimage(100, 100, 50, 50);
-    //subimage = copyBufferedImage(subimage);
-
-
-
-    //graphics.setColor(Color.red);
-    //graphics.fillRect(x, y, 100, 100);// de 100 en 100 moeten nog worden gezet als variablen in de GameObject
-    //graphics.drawImage(sprite, x, y, null);
-    }
-     */
 
     @Override
     public void doLoopAction()
@@ -136,8 +122,9 @@ public class Mario extends GameObject
         return down;
     }
 
-    public void setState(MarioState state)
+    @Override
+    public void doGravity()
     {
-        this.state = state;
+        
     }
 }
