@@ -25,6 +25,12 @@ public class Questionmarkup extends GameObject {
     @Override
     public void doLoopAction() {
     }
+
+    @Override
+    public void doGravity()
+    {
+        
+    }
 }
 
 

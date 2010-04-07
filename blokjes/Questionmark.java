@@ -60,7 +60,7 @@ public class Questionmark extends GameObject {
     @Override
     public void doGravity()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 }
             
