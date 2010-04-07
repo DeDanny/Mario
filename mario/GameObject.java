@@ -56,7 +56,7 @@ public abstract class GameObject
         return sprite;
     }
 
-    public BufferedImage getImage()
+    private BufferedImage getImage()
     {
         System.out.println((System.currentTimeMillis() - systemTime));
         if ((System.currentTimeMillis() - systemTime) > frameSpeed)
