@@ -27,8 +27,8 @@ abstract public class MoveState extends MarioState
     protected static int lastSide        = 0;
     protected boolean   lookingUP       = false;
     protected boolean   duckDown        = false;
-    protected int       duckHeight      = 1;
-    protected int       lookupHeight    = 1;
+    protected int       duckHeight      = 0;
+    protected int       lookupHeight    = 0;
 
     public MoveState(Mario gameObject)
     {
@@ -42,20 +42,7 @@ abstract public class MoveState extends MarioState
         // Mario does nothing - No key is pressed
         if (!gameObject.isRight() && !gameObject.isLeft() && !gameObject.isUp() && !gameObject.isDown())
         {
-            // Reset Mario's Y-as after looking up
-            if (lookingUP)
-            {
-                lookingUP = false;
-                gameObject.setY(gameObject.getY() + lookupHeight);
 
-            }
-            // Reset Mario's Y-as after ducking down
-            if (duckDown)
-            {
-                duckDown = false;
-                gameObject.setY(gameObject.getY() - duckHeight);
-
-            }
             // Set Mario left or right side
             switch (lastSide)
             {
@@ -65,6 +52,20 @@ abstract public class MoveState extends MarioState
                 case 1:
                     gameObject.setAnimation(StandLeft);
                     break;
+            }
+            // Reset Mario's Y-as after looking up
+            if (lookingUP)
+            {
+                lookingUP = false;
+                //gameObject.setY(gameObject.getY() - lookupHeight);
+
+            }
+            // Reset Mario's Y-as after ducking down
+            if (duckDown)
+            {
+                duckDown = false;
+                gameObject.setY(gameObject.getY() - duckHeight);
+
             }
         }
 
@@ -86,11 +87,7 @@ abstract public class MoveState extends MarioState
         // Mario looks up - Arrowup key is pressed
         if (gameObject.isUp() && !gameObject.isDown())
         {
-            if (lookingUP == false)
-            {
-                lookingUP = true;
-                gameObject.setY(gameObject.getY() - lookupHeight);
-            }
+
             switch (lastSide)
             {
                 case 0:
@@ -100,6 +97,11 @@ abstract public class MoveState extends MarioState
 
                     super.setAnimation(UpLeft);
                     break;
+            }
+            if (lookingUP == false)
+            {
+                lookingUP = true;
+                gameObject.setY(gameObject.getY() + lookupHeight);
             }
         }
 
