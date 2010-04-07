@@ -29,6 +29,7 @@ abstract public class MoveState extends MarioState
     protected boolean   duckDown        = false;
     protected int       duckHeight      = 0;
     protected int       lookupHeight    = 0;
+    protected int       lookupWidth     = 0;
 
     public MoveState(Mario gameObject)
     {
@@ -42,6 +43,19 @@ abstract public class MoveState extends MarioState
         // Mario does nothing - No key is pressed
         if (!gameObject.isRight() && !gameObject.isLeft() && !gameObject.isUp() && !gameObject.isDown())
         {
+            // Reset Mario's Y-as after looking up
+            if (lookingUP)
+            {
+                lookingUP = false;
+               // gameObject.setY(gameObject.getY() - lookupHeight);
+            }
+            // Reset Mario's Y-as after ducking down
+            if (duckDown)
+            {
+                duckDown = false;
+                gameObject.setY(gameObject.getY() - duckHeight);
+
+            }
 
             // Set Mario left or right side
             switch (lastSide)
@@ -53,20 +67,7 @@ abstract public class MoveState extends MarioState
                     gameObject.setAnimation(StandLeft);
                     break;
             }
-            // Reset Mario's Y-as after looking up
-            if (lookingUP)
-            {
-                lookingUP = false;
-                //gameObject.setY(gameObject.getY() - lookupHeight);
 
-            }
-            // Reset Mario's Y-as after ducking down
-            if (duckDown)
-            {
-                duckDown = false;
-                gameObject.setY(gameObject.getY() - duckHeight);
-
-            }
         }
 
         // Mario walks left - Arrowleft key is pressed
@@ -88,6 +89,13 @@ abstract public class MoveState extends MarioState
         if (gameObject.isUp() && !gameObject.isDown())
         {
 
+            if (lookingUP == false)
+            {
+                lookingUP = true;
+                gameObject.setY(gameObject.getY() + lookupHeight);
+                gameObject.setX(gameObject.getX() - lookupWidth);
+            }
+
             switch (lastSide)
             {
                 case 0:
@@ -98,11 +106,7 @@ abstract public class MoveState extends MarioState
                     super.setAnimation(UpLeft);
                     break;
             }
-            if (lookingUP == false)
-            {
-                lookingUP = true;
-                gameObject.setY(gameObject.getY() + lookupHeight);
-            }
+
         }
 
         // Mario ducks down - ArrowDown is pressed
