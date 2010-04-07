@@ -88,14 +88,6 @@ abstract public class MoveState extends MarioState
         // Mario looks up - Arrowup key is pressed
         if (gameObject.isUp() && !gameObject.isDown())
         {
-
-            if (lookingUP == false)
-            {
-                lookingUP = true;
-                gameObject.setY(gameObject.getY() + lookupHeight);
-                gameObject.setX(gameObject.getX() - lookupWidth);
-            }
-
             switch (lastSide)
             {
                 case 0:
@@ -107,16 +99,18 @@ abstract public class MoveState extends MarioState
                     break;
             }
 
+            if (lookingUP == false)
+            {
+                lookingUP = true;
+                gameObject.setY(gameObject.getY() + lookupHeight);
+                gameObject.setX(gameObject.getX() - lookupWidth);
+            }
+
         }
 
         // Mario ducks down - ArrowDown is pressed
         if (gameObject.isDown() && !gameObject.isUp())
         {
-            if (duckDown == false)
-            {
-                duckDown = true;
-                gameObject.setY(gameObject.getY() + duckHeight);
-            }
             switch (lastSide)
             {
                 case 0:
@@ -125,6 +119,11 @@ abstract public class MoveState extends MarioState
                 case 1:
                     super.setAnimation(DuckLeft);
                     break;
+            }
+            if (duckDown == false)
+            {
+                duckDown = true;
+                gameObject.setY(gameObject.getY() + duckHeight);
             }
         }
     }

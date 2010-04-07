@@ -24,7 +24,7 @@ public class SmallMario extends MoveState
         this.DuckRight   = new String[]{"smallMarioDuckRight 0"};
         this.DuckLeft   = new String[]{"smallMarioDuckLeft 0"};
 
-        this.duckHeight = 0;
+        this.duckHeight = 18;
         this.lookupHeight = -2;
     }
 }
