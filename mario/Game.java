@@ -5,7 +5,7 @@
 package mario;
 
 import background.Background;
-import mario.Mario;
+import blokjes.Questionmark;
 import java.util.ArrayList;
 import mario.enemy.*;
 
@@ -22,6 +22,7 @@ public class Game
     private Mario mario = new Mario();
     private Goomba goomba = new Goomba(300, 512, 66, 66);
     private Background background   = new Background();
+    private Questionmark Questionmark   = new Questionmark();
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     
 
@@ -29,6 +30,7 @@ public class Game
     {
         gameObjects.add(background);
         gameObjects.add(mario);
+        gameObjects.add(Questionmark);
         gameObjects.add(goomba);
     }
 
