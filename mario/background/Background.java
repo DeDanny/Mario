@@ -2,8 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package background;
+package mario.background;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import mario.GameObject;
@@ -23,6 +25,9 @@ public class Background extends GameObject
                 {
                     "drawBackground 0"
                 });
+
+        mapLayOut.addPoint(0, 552);// left up
+        mapLayOut.addPoint(0, 552);//right up
     }
 
     public Rectangle getRectengles()
@@ -34,5 +39,13 @@ public class Background extends GameObject
     public void doLoopAction()
     {
         
+    }
+
+    @Override
+    public void draw(Graphics graphics)
+    {
+        super.draw(graphics);
+        graphics.setColor(Color.red);
+        graphics.drawPolygon(mapLayOut);
     }
 }
