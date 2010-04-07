@@ -21,6 +21,7 @@ public class Controller implements KeyListener, Runnable
     private JFrame frame;
     private Thread gameLoop = new Thread(this, "GameLoop");
     private final static int GAMESPEED = 10;
+    private CollisionDetector collosionDetector= new CollisionDetector();
 
     /**
      *
@@ -52,7 +53,6 @@ public class Controller implements KeyListener, Runnable
         {
             try
             {
-
                 for (GameObject gameObject : marioWorld.getGame().getGameObjects())
                 {
                     gameObject.doLoopAction();

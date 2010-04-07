@@ -82,6 +82,7 @@ public abstract class GameObject
     }
 
     public abstract void doLoopAction();
+    public abstract void doGravity();
 
     public int getX()
     {
