@@ -25,7 +25,8 @@ public class BigMario extends MoveState
         this.DuckRight   = new String[]{"bigMarioDuckRight 0"};
         this.DuckLeft   = new String[]{"bigMarioDuckLeft 0"};
         
-        this.duckHeight = 0;
-        this.lookupHeight = 3;
+        this.duckHeight = 1;
+        this.lookupHeight = 0;
+        this.lookupWidth = 0;
     }
 }

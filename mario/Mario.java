@@ -13,10 +13,10 @@ import mario.state.*;
  */
 public class Mario extends GameObject
 {
-    private boolean left = false;
-    private boolean right = false;
-    private boolean up = false;
-    private boolean down = false;
+    private boolean left    = false;
+    private boolean right   = false;
+    private boolean up      = false;
+    private boolean down    = false;
 
     public Mario()
     {
