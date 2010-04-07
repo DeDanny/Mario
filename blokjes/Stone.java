@@ -11,19 +11,18 @@ import mario.GameObject;
  *
  * @author Nishchal Baldew
  */
-public class Questionmark extends GameObject {
+public class Stone extends GameObject {
 
     private boolean raak = true;
     private int goinUp = 0;
 
-    public Questionmark() {
-        super(100, 350, 63, 63, "/images/nsmbtileset.png");
+    public Stone() {
+        super(148, 349, 63, 63, "/images/nsmbtileset.png");
 
-        frames.put("questionmark 0", new Rectangle(558, 66, 48, 48));
-        frames.put("questionmark 1", new Rectangle(507, 66, 48, 48));
+        frames.put("stone 0", new Rectangle(558, 116, 49, 49));
 
-        setAnimation(new String[]{"questionmark 0"});
-       
+        setAnimation(new String[]{"stone 0"});
+
     }
 
     @Override
@@ -32,19 +31,14 @@ public class Questionmark extends GameObject {
         {
             if(goinUp < 2)
             {
+                System.out.println("HALLO" + goinUp);
                 setY(getY() - 5);
                 goinUp++;
-                
             }
             else
             {
-                setY(getY() + 5);
-                setAnimation(new String[] {"questionmark 1"});
-                 if(goinUp < 4)
-                 {
                 raak = false;
-
-                 }
+                setY(getY() + 5);
             }
         }
         /*
@@ -56,12 +50,6 @@ public class Questionmark extends GameObject {
         raak = false;
          * */
     }
-
-    @Override
-    public void doGravity()
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }
-            
-   
+
+
