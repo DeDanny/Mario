@@ -5,6 +5,7 @@
 package mario;
 
 import background.Background;
+import mario.Mario;
 import java.util.ArrayList;
 
 /**
