@@ -20,7 +20,7 @@ public class Game
 
 
     private Mario mario = new Mario();
-    private Goomba goomba = new Goomba();
+    private Goomba goomba = new Goomba(300, 512, 66, 66);
     private Background background   = new Background();
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     
