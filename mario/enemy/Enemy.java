@@ -5,6 +5,7 @@
 package mario.enemy;
 
 import mario.GameObject;
+import mario.enemy.ai.Ai;
 
 /**
  *
@@ -12,15 +13,23 @@ import mario.GameObject;
  */
 abstract public class Enemy extends GameObject
 {
-
+    protected Ai ai;
     public Enemy(int x, int y, int width, int height, String fileName)
     {
-
         super(x, y, width, height, fileName);
+
     }
     
     @Override
-    public abstract void doLoopAction();
+    public final void doLoopAction()
+    {
+        ai();
+    }
+
+    public final void ai()
+    {
+        ai.doLoopAction();
+    }
 
     public abstract void hitBy();
 }

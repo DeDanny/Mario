@@ -6,6 +6,7 @@ package mario;
 
 import background.Background;
 import java.util.ArrayList;
+import mario.enemy.Goomba;
 
 /**
  *
@@ -18,12 +19,14 @@ public class Game
 
     private Mario mario             = new Mario();
     private Background background   = new Background();
+    private Goomba Goomba   = new Goomba();
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
     public Game()
     {
         gameObjects.add(background);
         gameObjects.add(mario);
+        gameObjects.add(Goomba);
     }
 
     public boolean isRunning()
