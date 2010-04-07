@@ -20,6 +20,6 @@ public class GoombaAi extends Ai
     @Override
     public void doLoopAction()
     {
-        
+        enemy.setX(enemy.getX()-1);
     }
 }
