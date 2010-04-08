@@ -2,16 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mario;
 
 /**
  *
  * @author Danny
  */
-abstract public class State {
-
+abstract public class State
+{
     protected GameObject gameObject;
+
     public State(GameObject gameObject)
     {
         this.gameObject = gameObject;

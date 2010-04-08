@@ -9,6 +9,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
 import mario.state.MarioState;
@@ -28,12 +29,18 @@ public abstract class GameObject
     protected State state;
     protected int frameSpeed = 50;
     protected long systemTime = System.currentTimeMillis();
+    protected Game game;
+    private static ArrayList<GameObject> collection = new ArrayList<GameObject>();
 
-    public GameObject(int x, int y, int width, int height, String fileName)
+    public GameObject(Game game, int x, int y, int width, int height, String fileName)
     {
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.height = height;
         sprite = loadImage(fileName);
+        collection.add(this);
+        this.game = game;
     }
 
     private BufferedImage loadImage(String fileName)
@@ -81,7 +88,7 @@ public abstract class GameObject
     {
         graphics.drawImage(getImage(), x, y, null);
     }
-    
+
     public abstract void doLoopAction();
 
     public int getX()
@@ -96,12 +103,18 @@ public abstract class GameObject
 
     public void setX(int x)
     {
-        this.x = x;
+        if (!checkCollisionMap(x, y))
+        {
+            this.x = x;
+        }
     }
 
     public void setY(int y)
     {
-        this.y = y;
+        if (!checkCollisionMap(x, y))
+        {
+            this.y = y;
+        }
     }
 
     public int getHeight()
@@ -128,6 +141,7 @@ public abstract class GameObject
     {
         this.animation = animation;
         animationFrame = 0;
+        systemTime = System.currentTimeMillis() - frameSpeed;
     }
 
     public String[] getAnimation()
@@ -143,5 +157,16 @@ public abstract class GameObject
     public void setState(MarioState state)
     {
         this.state = state;
+    }
+
+    private boolean checkCollisionMap(int x, int y)
+    {
+        if (game.getBackground().getPolygon().intersects(x, y, width, height))
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }

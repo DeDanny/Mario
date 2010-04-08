@@ -13,15 +13,15 @@ import mario.state.*;
  */
 public class Mario extends Character
 {
-    private boolean left    = false;
-    private boolean right   = false;
-    private boolean up      = false;
-    private boolean down    = false;
+    private boolean left = false;
+    private boolean right = false;
+    private boolean up = false;
+    private boolean down = false;
 
-    public Mario()
+    public Mario(Game game)
     {
 
-        super(100, 480, 45, 63, "/images/mario_sprite.png");
+        super(game, 100, 480, 45, 63, "/images/mario_sprite.png");
 
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
@@ -125,6 +125,9 @@ public class Mario extends Character
     @Override
     public void doGravity()
     {
-        
+        //temp
+        setY(getY() - 1);
+
+        //state = new FallState(this);
     }
 }

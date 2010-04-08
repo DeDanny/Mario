@@ -8,7 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 import java.awt.Rectangle;
-import mario.GameObject;
+import mario.*;
 
 /**
  *
@@ -17,9 +17,10 @@ import mario.GameObject;
 public class Background extends GameObject
 {
     private Polygon mapLayOut = new Polygon();
-    public Background()
+
+    public Background(Game game)
     {
-        super(0, 0, 800, 600, "/images/background_gameplay.png");
+        super(game, 0, 0, 800, 600, "/images/background_gameplay.png");
         frames.put("drawBackground 0", new Rectangle(0, 0, 800, 600));
         setAnimation(new String[]
                 {
@@ -32,15 +33,14 @@ public class Background extends GameObject
         mapLayOut.addPoint(0, 600); // left down
     }
 
-    public Rectangle getRectengles()
+    public Polygon getPolygon()
     {
-        return null;
+        return mapLayOut;
     }
 
     @Override
     public void doLoopAction()
     {
-        
     }
 
     @Override
