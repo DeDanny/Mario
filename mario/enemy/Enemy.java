@@ -4,8 +4,9 @@
  */
 package mario.enemy;
 
-import mario.Character;
 import mario.enemy.ai.Ai;
+import mario.Character;
+import mario.Game;
 
 /**
  *
@@ -14,11 +15,12 @@ import mario.enemy.ai.Ai;
 abstract public class Enemy extends Character
 {
     protected Ai ai;
-    public Enemy(int x, int y, int width, int height, String fileName)
+
+    public Enemy(Game game, int x, int y, int width, int height, String fileName)
     {
-       super(x, y, width, height, fileName);
+        super(game, x, y, width, height, fileName);
     }
-    
+
     @Override
     public final void doLoopAction()
     {

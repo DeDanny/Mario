@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mario;
 
 /**
@@ -11,9 +10,9 @@ package mario;
  */
 abstract public class Character extends GameObject
 {
-    public Character(int x, int y, int width, int height, String fileName)
+    public Character(Game game, int x, int y, int width, int height, String fileName)
     {
-        super(x, y, width, height, fileName);
+        super(game, x, y, width, height, fileName);
     }
 
     public abstract void doGravity();

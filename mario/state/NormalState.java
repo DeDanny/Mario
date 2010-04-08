@@ -16,10 +16,10 @@ public class NormalState extends MarioState
     {
         super(gameObject);
     }
- 
+
     @Override
     public void doAction()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 }

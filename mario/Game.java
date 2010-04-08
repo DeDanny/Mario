@@ -16,21 +16,17 @@ import mario.enemy.*;
  */
 public class Game
 {
-    private boolean running         = false;
-    private boolean paused          = false;
-
-
-    private Mario mario = new Mario();
-    private Goomba goomba = new Goomba(300, 512, 66, 66);
-    private Background background   = new Background();
-    private Questionmark Questionmark   = new Questionmark();
-    private Stone Stone   = new Stone();
+    private boolean running = false;
+    private boolean paused = false;
+    private Mario mario = new Mario(this);
+    private Goomba goomba = new Goomba(this, 300, 512, 66, 66);
+    private Background background = new Background(this);
+    private Questionmark Questionmark = new Questionmark(this);
+    private Stone Stone = new Stone(this);
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-    
 
     public Game()
     {
-        gameObjects.add(background);
         gameObjects.add(mario);
         gameObjects.add(Questionmark);
         gameObjects.add(goomba);
@@ -56,7 +52,7 @@ public class Game
     {
         this.paused = paused;
     }
-    
+
     public ArrayList<GameObject> getGameObjects()
     {
         return gameObjects;
@@ -70,5 +66,10 @@ public class Game
     public Goomba getGoomba()
     {
         return goomba;
+    }
+
+    public Background getBackground()
+    {
+        return background;
     }
 }
