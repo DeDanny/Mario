@@ -141,6 +141,7 @@ public abstract class GameObject
     {
         this.animation = animation;
         animationFrame = 0;
+        systemTime = System.currentTimeMillis() - frameSpeed;
     }
 
     public String[] getAnimation()
