@@ -17,6 +17,7 @@ import mario.*;
 public class Background extends GameObject
 {
     private Polygon mapLayOut = new Polygon();
+   
 
     public Background(Game game)
     {
@@ -27,10 +28,26 @@ public class Background extends GameObject
                     "drawBackground 0"
                 });
 
-        mapLayOut.addPoint(0, 552);// left up
-        mapLayOut.addPoint(800, 552);//right up
-        mapLayOut.addPoint(800, 600);// right down
-        mapLayOut.addPoint(0, 600); // left down
+        mapLayOut.addPoint(0, 552);//
+        mapLayOut.addPoint(0, 0);//
+        mapLayOut.addPoint(0, 552);//
+        
+
+        mapLayOut.addPoint(612, 552); //
+        mapLayOut.addPoint(612, 500); // 
+        mapLayOut.addPoint(605, 500); // 
+        mapLayOut.addPoint(605, 454); // 
+        mapLayOut.addPoint(698, 454); // 
+        mapLayOut.addPoint(698, 500); // 
+        mapLayOut.addPoint(692, 500); // 
+        mapLayOut.addPoint(692, 552); //
+
+        mapLayOut.addPoint(800, 552);//
+        mapLayOut.addPoint(800, 600);//
+        
+        mapLayOut.addPoint(0, 600); //
+        mapLayOut.addPoint(0, 552); //
+
     }
 
     public Polygon getPolygon()
@@ -49,5 +66,6 @@ public class Background extends GameObject
         super.draw(graphics);
         graphics.setColor(Color.red);
         graphics.drawPolygon(mapLayOut);
+
     }
 }
