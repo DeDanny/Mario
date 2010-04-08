@@ -33,18 +33,19 @@ public class Background extends GameObject
         mapLayOut.addPoint(0, 552);//
         
 
-        mapLayOut.addPoint(612, 552); //
-        mapLayOut.addPoint(612, 500); // 
-        mapLayOut.addPoint(605, 500); // 
-        mapLayOut.addPoint(605, 454); // 
-        mapLayOut.addPoint(698, 454); // 
-        mapLayOut.addPoint(698, 500); // 
-        mapLayOut.addPoint(692, 500); // 
-        mapLayOut.addPoint(692, 552); //
+        mapLayOut.addPoint(610, 552); //
+        mapLayOut.addPoint(610, 501); //
+        mapLayOut.addPoint(604, 501); //
+        mapLayOut.addPoint(604, 456); //
+        mapLayOut.addPoint(699, 456); //
+        mapLayOut.addPoint(699, 501); //
+        mapLayOut.addPoint(693, 501); //
+        mapLayOut.addPoint(693, 552); //
 
         mapLayOut.addPoint(800, 552);//
-        mapLayOut.addPoint(800, 600);//
+        mapLayOut.addPoint(800, 0);//
         
+        mapLayOut.addPoint(800, 600); //
         mapLayOut.addPoint(0, 600); //
         mapLayOut.addPoint(0, 552); //
 
