@@ -129,4 +129,16 @@ public class Mario extends Character
         setY(getY() - 1);
         //state = new FallState(this);
     }
+
+    @Override
+    protected void preAnimation()
+    {
+        
+    }
+    
+    @Override
+    protected void postAnimation()
+    {
+
+    }
 }

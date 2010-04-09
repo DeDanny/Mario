@@ -26,7 +26,6 @@ abstract public class MoveState extends MarioState
     protected static final int LEFT = 0;
     protected static final int RIGHT = 1;
 
-
     protected static int direction      = RIGHT;
     protected boolean   lookingUP       = false;
     protected boolean   duckDown        = false;
@@ -43,12 +42,12 @@ abstract public class MoveState extends MarioState
     @Override
     public void doAction()
     {
-
-        if(marioObject.isLeft())
+        
+        if(marioObject.isLeft() && !marioObject.isRight() && !marioObject.isPreformingSpecialMove())
         {
             doLeft();
         }
-        else if(marioObject.isRight())
+        else if(marioObject.isRight() && !marioObject.isLeft() && !marioObject.isPreformingSpecialMove())
         {
             doRight();
         }
@@ -114,14 +113,6 @@ abstract public class MoveState extends MarioState
         }
     }
 
-    protected void preAnimation()
-    {
-    }
-
-    protected void postAnimation()
-    {
-
-    }
 
 
 
