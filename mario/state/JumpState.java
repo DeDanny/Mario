@@ -13,7 +13,7 @@ import mario.Mario;
  * @author danny
  */
 public class JumpState extends MarioState{
-    private int hop = 0;
+    private int jumpTeller = 0;
 
     public JumpState(Mario marioObject)
     {
@@ -23,13 +23,16 @@ public class JumpState extends MarioState{
     @Override
     public void doAction()
     {
-       if(hop < 14)
+       if(jumpTeller < 5)
        {
            marioObject.setY(marioObject.getY() - 5);
+           jumpTeller++;
+           System.out.println("teller "+jumpTeller);
        }
        else
        {
             marioObject.setJump(false);
+            //System.out.println("set jump false yippykayeay");
        }
     }
 

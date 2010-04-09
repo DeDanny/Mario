@@ -18,6 +18,7 @@ public class Mario extends Character
     private boolean up = false;
     private boolean down = false;
     private boolean jump = false;
+    private boolean isBig = false;
 
     public Mario(Game game)
     {
@@ -68,6 +69,17 @@ public class Mario extends Character
         if(jump)
         {
             this.setState(new JumpState(this));
+        }
+        else
+        {
+            if(isBig)
+            {
+                this.setState(new BigMario(this));
+            }
+            else
+            {
+                this.setState(new SmallMario(this));
+            }
         }
         state.doAction();
     }

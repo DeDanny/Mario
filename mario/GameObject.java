@@ -158,9 +158,9 @@ public abstract class GameObject
         return frameSpeed;
     }
 
-    public void setState (MarioState state)
+    public void setState(State state)
     {
-        if(state.getClass() == state.getClass())
+        if(this.state.getClass() != state.getClass())
         {
             this.state = state;
         }
