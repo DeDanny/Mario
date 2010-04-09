@@ -13,16 +13,24 @@ import mario.Mario;
  * @author danny
  */
 public class JumpState extends MarioState{
+    private int hop = 0;
 
-    public JumpState(Mario gameObject)
+    public JumpState(Mario marioObject)
     {
-        super(gameObject);
+        super(marioObject);
     }
 
     @Override
     public void doAction()
     {
-       
+       if(hop < 14)
+       {
+           marioObject.setY(marioObject.getY() + 4);
+       }
+       else
+       {
+            marioObject.setJump(false);
+       }
     }
 
 
