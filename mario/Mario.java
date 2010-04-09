@@ -17,6 +17,7 @@ public class Mario extends Character
     private boolean right = false;
     private boolean up = false;
     private boolean down = false;
+    private boolean jump = false;
 
     public Mario(Game game)
     {
@@ -64,6 +65,10 @@ public class Mario extends Character
     @Override
     public void doLoopAction()
     {
+        if(jump)
+        {
+            this.setState(new JumpState(this));
+        }
         state.doAction();
     }
 
@@ -92,9 +97,9 @@ public class Mario extends Character
         this.up = up;
     }
 
-    public void setJump()
+    public void setJump(boolean jump)
     {
-        state = new JumpState(this);
+        this.jump = jump;
     }
 
     public void setDown(boolean down)
@@ -122,11 +127,28 @@ public class Mario extends Character
         return down;
     }
 
+    public boolean isJump()
+    {
+        return jump;
+    }
+
     @Override
     public void doGravity()
     {
         //temp
         setY(getY() - 1);
         //state = new FallState(this);
+    }
+
+    @Override
+    protected void preAnimation()
+    {
+        
+    }
+    
+    @Override
+    protected void postAnimation()
+    {
+
     }
 }
