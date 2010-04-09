@@ -97,9 +97,9 @@ public class Mario extends Character
         this.up = up;
     }
 
-    public void setJump()
+    public void setJump(boolean jump)
     {
-        state = new JumpState(this);
+        this.jump = jump;
     }
 
     public void setDown(boolean down)
@@ -130,11 +130,6 @@ public class Mario extends Character
     public boolean isJump()
     {
         return jump;
-    }
-
-    public void setJump(boolean jump)
-    {
-        this.jump = jump;
     }
 
     @Override

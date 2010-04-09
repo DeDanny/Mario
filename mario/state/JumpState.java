@@ -25,7 +25,7 @@ public class JumpState extends MarioState{
     {
        if(hop < 14)
        {
-           marioObject.setY(marioObject.getY() + 4);
+           marioObject.setY(marioObject.getY() - 5);
        }
        else
        {

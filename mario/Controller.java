@@ -107,6 +107,10 @@ public class Controller implements KeyListener, Runnable
         {
             marioWorld.getGame().getMario().setState(new SmallMario(marioWorld.getGame().getMario()));
         }
+        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+        {
+            marioWorld.getGame().getMario().setJump(true);
+        }
     }
 
     @Override
