@@ -19,7 +19,7 @@ public class Game
     private boolean running = false;
     private boolean paused = false;
     private Mario mario = new Mario(this);
-    private Goomba goomba = new Goomba(this, 300, 512, 66, 66);
+    private Goomba goomba = new Goomba(this, 300, 450, 66, 66);
     private Background background = new Background(this);
     private Questionmark Questionmark = new Questionmark(this);
     private Stone Stone = new Stone(this);

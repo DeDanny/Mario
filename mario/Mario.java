@@ -21,7 +21,7 @@ public class Mario extends Character
     public Mario(Game game)
     {
 
-        super(game, 725, 480, 45, 63, "/images/mario_sprite.png");
+        super(game, 100, 480, 45, 63, "/images/mario_sprite.png");
 
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
@@ -127,7 +127,6 @@ public class Mario extends Character
     {
         //temp
         setY(getY() - 1);
-
         //state = new FallState(this);
     }
 }
