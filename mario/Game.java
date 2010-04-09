@@ -4,16 +4,16 @@
  */
 package mario;
 
-<<<<<<< HEAD
+
 import background.Background;
 import blokjes.Munt;
 import blokjes.Questionmark;
 import blokjes.Stone;
-=======
+
 import mario.background.Background;
 import mario.cube.Questionmark;
 import mario.cube.Stone;
->>>>>>> 1de9164851077f9c1b8823bfba8fcc8b07f3f6bf
+
 import java.util.ArrayList;
 import mario.enemy.*;
 
@@ -23,7 +23,7 @@ import mario.enemy.*;
  */
 public class Game
 {
-<<<<<<< HEAD
+
     private boolean running         = false;
     private boolean paused          = false;
 
@@ -34,7 +34,7 @@ public class Game
     private Munt Munt   = new Munt();
     private Questionmark Questionmark   = new Questionmark();
     private Stone Stone   = new Stone();
-=======
+
     private boolean running = false;
     private boolean paused = false;
     private Mario mario = new Mario(this);
@@ -42,7 +42,7 @@ public class Game
     private Background background = new Background(this);
     private Questionmark Questionmark = new Questionmark(this);
     private Stone Stone = new Stone(this);
->>>>>>> 1de9164851077f9c1b8823bfba8fcc8b07f3f6bf
+
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
     public Game()
