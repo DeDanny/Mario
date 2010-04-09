@@ -13,18 +13,19 @@ import mario.State;
  */
 public abstract class MarioState extends State
 {
-    protected Mario gameObject;
+    protected Mario MarioObject;
+
     public MarioState(Mario gameObject)
     {
         super(gameObject);
-        this.gameObject = gameObject;
+        this.MarioObject = gameObject;
     }
 
     protected final void setAnimation(String[] animation)
     {
-        if (gameObject.getAnimation() != animation)
+        if (MarioObject.getAnimation() != animation)
         {
-            gameObject.setAnimation(animation);
+            MarioObject.setAnimation(animation);
         }
     }
 }

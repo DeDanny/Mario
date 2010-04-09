@@ -40,62 +40,56 @@ abstract public class MoveState extends MarioState
     @Override
     public void doAction()
     {
-        // Mario does nothing - No key is pressed
-        if (!gameObject.isRight() && !gameObject.isLeft() && !gameObject.isUp() && !gameObject.isDown())
-        {
-            // Reset Mario's Y-as after looking up
-            if (lookingUP)
-            {
-                lookingUP = false;
-               // gameObject.setY(gameObject.getY() - lookupHeight);
-            }
-            // Reset Mario's Y-as after ducking down
-            if (duckDown)
-            {
-                duckDown = false;
-                gameObject.setY(gameObject.getY() - duckHeight);
 
-            }
+         // Reset Mario's Y-as after looking up
+        if (lookingUP)
+        {
+            lookingUP = false;
+            MarioObject.setY(MarioObject.getY() - lookupHeight);
+        }
+        // Reset Mario's Y-as after ducking down
+        if (duckDown)
+        {
+            duckDown = false;
+            MarioObject.setY(MarioObject.getY() - duckHeight);
+
+        }
+
+        // Mario does nothing - No key is pressed
+        if (!MarioObject.isRight() && !MarioObject.isLeft() && !MarioObject.isUp() && !MarioObject.isDown())
+        {
 
             // Set Mario left or right side
             switch (lastSide)
             {
                 case 0:
-                    gameObject.setAnimation(StandRight);
+                    MarioObject.setAnimation(StandRight);
                     break;
                 case 1:
-                    gameObject.setAnimation(StandLeft);
+                    MarioObject.setAnimation(StandLeft);
                     break;
             }
 
         }
 
         // Mario walks left - Arrowleft key is pressed
-        if (gameObject.isLeft() && !gameObject.isPreformingSpecialMove())
+        if (MarioObject.isLeft() && !MarioObject.isPreformingSpecialMove())
         {
-            gameObject.setX(gameObject.getX() - WALKSPEED);
+            MarioObject.setX(MarioObject.getX() - WALKSPEED);
             super.setAnimation(LeftAnimation);
             lastSide = 1;
         }
         // Mario walks right - Arrowright key is pressed
-        if (gameObject.isRight() && !gameObject.isPreformingSpecialMove())
+        if (MarioObject.isRight() && !MarioObject.isPreformingSpecialMove())
         {
-            gameObject.setX(gameObject.getX() + WALKSPEED);
+            MarioObject.setX(MarioObject.getX() + WALKSPEED);
             super.setAnimation(RightAnimation);
             lastSide = 0;
         }
 
         // Mario looks up - Arrowup key is pressed
-        if (gameObject.isUp() && !gameObject.isDown())
+        if (MarioObject.isUp() && !MarioObject.isDown())
         {
-
-            if (lookingUP == false)
-            {
-                lookingUP = true;
-                gameObject.setY(gameObject.getY() + lookupHeight);
-                gameObject.setX(gameObject.getX() - lookupWidth);
-            }
-
             switch (lastSide)
             {
                 case 0:
@@ -107,16 +101,18 @@ abstract public class MoveState extends MarioState
                     break;
             }
 
+            if (lookingUP == false)
+            {
+                lookingUP = true;
+                MarioObject.setY(MarioObject.getY() + lookupHeight);
+                MarioObject.setX(MarioObject.getX() - lookupWidth);
+            }
+
         }
 
         // Mario ducks down - ArrowDown is pressed
-        if (gameObject.isDown() && !gameObject.isUp())
+        if (MarioObject.isDown() && !MarioObject.isUp())
         {
-            if (duckDown == false)
-            {
-                duckDown = true;
-                gameObject.setY(gameObject.getY() + duckHeight);
-            }
             switch (lastSide)
             {
                 case 0:
@@ -125,6 +121,11 @@ abstract public class MoveState extends MarioState
                 case 1:
                     super.setAnimation(DuckLeft);
                     break;
+            }
+            if (duckDown == false)
+            {
+                duckDown = true;
+                MarioObject.setY(MarioObject.getY() + duckHeight);
             }
         }
     }

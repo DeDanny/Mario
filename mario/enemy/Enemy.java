@@ -4,23 +4,23 @@
  */
 package mario.enemy;
 
-import mario.GameObject;
 import mario.enemy.ai.Ai;
-
+import mario.Character;
+import mario.Game;
 
 /**
  *
  * @author Danny
  */
-abstract public class Enemy extends GameObject
+abstract public class Enemy extends Character
 {
     protected Ai ai;
-    public Enemy(int x, int y, int width, int height, String fileName)
-    {
 
-       super(x, y, width, height, fileName);
+    public Enemy(Game game, int x, int y, int width, int height, String fileName)
+    {
+        super(game, x, y, width, height, fileName);
     }
-    
+
     @Override
     public final void doLoopAction()
     {

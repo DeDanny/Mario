@@ -11,17 +11,17 @@ import mario.state.*;
  *
  * @author danny
  */
-public class Mario extends GameObject
+public class Mario extends Character
 {
-    private boolean left    = false;
-    private boolean right   = false;
-    private boolean up      = false;
-    private boolean down    = false;
+    private boolean left = false;
+    private boolean right = false;
+    private boolean up = false;
+    private boolean down = false;
 
-    public Mario()
+    public Mario(Game game)
     {
 
-        super(100, 480, 45, 63, "/images/mario_sprite.png");
+        super(game, 100, 480, 45, 63, "/images/mario_sprite.png");
 
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
@@ -48,8 +48,8 @@ public class Mario extends GameObject
         frames.put("bigMarioWalkRight 1", new Rectangle(984, 228, 48, 81)); // RIGHT
         frames.put("bigMarioWalkRight 2", new Rectangle(624, 228, 45, 84)); // RIGHT
 
-        frames.put("bigMarioWalkLeft 0", new Rectangle(24, 228, 48, 84)); // LEFT
-        frames.put("bigMarioWalkLeft 1", new Rectangle(144, 228, 48, 81)); // LEFT
+        frames.put("bigMarioWalkLeft 0", new Rectangle(27, 228, 48, 84)); // LEFT
+        frames.put("bigMarioWalkLeft 1", new Rectangle(147, 228, 48, 81)); // LEFT
         frames.put("bigMarioWalkLeft 2", new Rectangle(507, 228, 45, 84)); // LEFT
 
         frames.put("bigMarioLookUpLeft 0", new Rectangle(387, 588, 85, 81)); // LEFT
@@ -125,6 +125,8 @@ public class Mario extends GameObject
     @Override
     public void doGravity()
     {
-        
+        //temp
+        setY(getY() - 1);
+        //state = new FallState(this);
     }
 }

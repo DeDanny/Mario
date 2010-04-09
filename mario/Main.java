@@ -21,6 +21,7 @@ public class Main extends JFrame
         setIgnoreRepaint(true);
         setUndecorated(true);
         setLocationRelativeTo(null);
+        setTitle("Awesome Mario Remake");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 

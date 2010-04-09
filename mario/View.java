@@ -4,7 +4,6 @@
  */
 package mario;
 
-import java.awt.Color;
 import java.awt.DisplayMode;
 import java.awt.Graphics;
 import java.awt.GraphicsConfiguration;
@@ -64,10 +63,10 @@ public class View
         {
             // clear back buffer...
             graphics = bi.createGraphics();
-            graphics.setColor(Color.green);
-            graphics.fillRect(0, 0, 640, 480);
 
             // Draw stuff here using Java's Graphics Object!!!
+
+            marioWorld.getGame().getBackground().draw(graphics);
 
             for (GameObject gameObject : marioWorld.getGame().getGameObjects())
             {
@@ -90,7 +89,5 @@ public class View
                 graphics.dispose();
             }
         }
-
-
     }
 }

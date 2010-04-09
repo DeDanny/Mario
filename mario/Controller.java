@@ -44,7 +44,6 @@ public class Controller implements KeyListener, Runnable
         frame.addKeyListener(this);
     }
 
-    
     @Override
     public void run()//GameLoop
     {
@@ -104,7 +103,7 @@ public class Controller implements KeyListener, Runnable
         {
             marioWorld.getGame().getMario().setState(new BigMario(marioWorld.getGame().getMario()));
         }
-         if (e.getKeyCode() == KeyEvent.VK_2)
+        if (e.getKeyCode() == KeyEvent.VK_2)
         {
             marioWorld.getGame().getMario().setState(new SmallMario(marioWorld.getGame().getMario()));
         }
