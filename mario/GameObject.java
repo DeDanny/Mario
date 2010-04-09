@@ -158,9 +158,12 @@ public abstract class GameObject
         return frameSpeed;
     }
 
-    public void setState(MarioState state)
+    public void setState (MarioState state)
     {
-        this.state = state;
+        if(state.getClass() == state.getClass())
+        {
+            this.state = state;
+        }
     }
 
     private boolean checkCollisionMap(int x, int y)

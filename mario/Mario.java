@@ -17,6 +17,7 @@ public class Mario extends Character
     private boolean right = false;
     private boolean up = false;
     private boolean down = false;
+    private boolean jump = false;
 
     public Mario(Game game)
     {
@@ -64,6 +65,10 @@ public class Mario extends Character
     @Override
     public void doLoopAction()
     {
+        if(jump)
+        {
+            this.setState(new JumpState(this));
+        }
         state.doAction();
     }
 
@@ -120,6 +125,16 @@ public class Mario extends Character
     public boolean isDown()
     {
         return down;
+    }
+
+    public boolean isJump()
+    {
+        return jump;
+    }
+
+    public void setJump(boolean jump)
+    {
+        this.jump = jump;
     }
 
     @Override
