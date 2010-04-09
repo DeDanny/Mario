@@ -68,6 +68,7 @@ public abstract class GameObject
         System.out.println((System.currentTimeMillis() - systemTime));
         if ((System.currentTimeMillis() - systemTime) > frameSpeed)
         {
+           
             systemTime = System.currentTimeMillis();
             System.out.println(animationFrame + " : " + animation.length);
             if (animationFrame == animation.length)
@@ -80,13 +81,16 @@ public abstract class GameObject
                     (int) frames.get(animation[animationFrame]).getHeight());
             animationFrame++;
             spritePart = crop;
+            
         }
         return spritePart;
     }
 
     public void draw(Graphics graphics)
-    {
+    { 
+        preAnimation();
         graphics.drawImage(getImage(), x, y, null);
+        postAnimation();
     }
 
     public abstract void doLoopAction();
@@ -168,5 +172,15 @@ public abstract class GameObject
         {
             return false;
         }
+    }
+
+    protected void preAnimation()
+    {
+
+    }
+
+    protected void postAnimation()
+    {
+
     }
 }
