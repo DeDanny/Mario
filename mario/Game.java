@@ -4,9 +4,12 @@
  */
 package mario;
 
+
 import mario.cube.Munt;
 
+
 import mario.background.Background;
+import mario.cube.Munt;
 import mario.cube.Questionmark;
 import mario.cube.Stone;
 
@@ -19,9 +22,9 @@ import mario.enemy.*;
  */
 public class Game
 {
-
     private boolean running         = false;
     private boolean paused          = false;
+
 
 
     private Mario mario = new Mario(this);
