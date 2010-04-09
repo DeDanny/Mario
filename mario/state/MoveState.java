@@ -40,22 +40,24 @@ abstract public class MoveState extends MarioState
     @Override
     public void doAction()
     {
+
+         // Reset Mario's Y-as after looking up
+        if (lookingUP)
+        {
+            lookingUP = false;
+            MarioObject.setY(MarioObject.getY() - lookupHeight);
+        }
+        // Reset Mario's Y-as after ducking down
+        if (duckDown)
+        {
+            duckDown = false;
+            MarioObject.setY(MarioObject.getY() - duckHeight);
+
+        }
+
         // Mario does nothing - No key is pressed
         if (!MarioObject.isRight() && !MarioObject.isLeft() && !MarioObject.isUp() && !MarioObject.isDown())
         {
-            // Reset Mario's Y-as after looking up
-            if (lookingUP)
-            {
-                lookingUP = false;
-               // MarioObject.setY(MarioObject.getY() - lookupHeight);
-            }
-            // Reset Mario's Y-as after ducking down
-            if (duckDown)
-            {
-                duckDown = false;
-                MarioObject.setY(MarioObject.getY() - duckHeight);
-
-            }
 
             // Set Mario left or right side
             switch (lastSide)

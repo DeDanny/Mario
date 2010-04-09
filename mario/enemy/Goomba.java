@@ -35,10 +35,13 @@ public class Goomba extends Enemy
     @Override
     public void hitBy()
     {
+
+
     }
 
-    @Override
-    public void doGravity()
-    {
-    }
+   @Override
+   public void doGravity()
+   {
+        
+   }
 }
