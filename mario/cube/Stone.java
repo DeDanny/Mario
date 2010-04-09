@@ -21,7 +21,7 @@ public class Stone extends GameObject
         super(game, 148, 349, 63, 63, "/images/nsmbtileset.png");
 
         frames.put("stone 0", new Rectangle(558, 116, 49, 49));
-
+        
         setAnimation(new String[]
                 {
                     "stone 0"
