@@ -10,10 +10,14 @@ package mario;
  */
 abstract public class Character extends GameObject
 {
+    protected int fallSpeed = 2;
     public Character(Game game, int x, int y, int width, int height, String fileName)
     {
         super(game, x, y, width, height, fileName);
     }
 
-    public abstract void doGravity();
+    public void doGravity()
+    {
+        setY(getY()+fallSpeed);
+    }
 }
