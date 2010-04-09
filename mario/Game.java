@@ -5,6 +5,7 @@
 package mario;
 
 import background.Background;
+import blokjes.Munt;
 import blokjes.Questionmark;
 import blokjes.Stone;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class Game
     private Mario mario = new Mario();
     private Goomba goomba = new Goomba(300, 512, 66, 66);
     private Background background   = new Background();
+    private Munt Munt   = new Munt();
     private Questionmark Questionmark   = new Questionmark();
     private Stone Stone   = new Stone();
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -32,6 +34,7 @@ public class Game
     {
         gameObjects.add(background);
         gameObjects.add(mario);
+        gameObjects.add(Munt);
         gameObjects.add(Questionmark);
         gameObjects.add(goomba);
         gameObjects.add(Stone);
