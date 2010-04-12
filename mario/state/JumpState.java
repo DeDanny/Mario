@@ -33,6 +33,7 @@ public class JumpState extends MarioState{
        else
        {
             marioObject.setJump(false);
+            marioObject.setFall(true);
             System.out.println("set jump false yippykayeay");
             this.jumpTeller = 0;
        }

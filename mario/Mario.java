@@ -19,9 +19,11 @@ public class Mario extends GameCaracter
     private boolean down = false;
     private boolean jump = false;
     private boolean isBig = false;
+    private boolean fall = false;
     private SmallMario smallMario = new SmallMario(this);
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
+    private FallState fallMario = new FallState(this);
     
 
     public Mario(Game game)
@@ -68,8 +70,16 @@ public class Mario extends GameCaracter
     @Override
     public void doLoopAction()
     {
-        if(!jump)
+        if(jump)
         {   
+            setState(jumpMario);
+        }
+        else if(fall)
+        {
+            setState(fallMario);
+        }
+        else
+        {
             if(isBig)
             {
                 setState(bigMario);
@@ -78,10 +88,6 @@ public class Mario extends GameCaracter
             {
                 setState(smallMario);
             }
-        }
-        else
-        {
-            setState(jumpMario);
         }
         state.doAction();
     }
@@ -116,6 +122,11 @@ public class Mario extends GameCaracter
         this.jump = jump;
     }
 
+    public void setFall(boolean fall)
+    {
+        this.fall = fall;
+    }
+
     public void setDown(boolean down)
     {
         this.down = down;
@@ -144,6 +155,10 @@ public class Mario extends GameCaracter
     public boolean isJump()
     {
         return jump;
+    }
+    public boolean isFall()
+    {
+        return fall;
     }
 
     @Override
