@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -23,6 +23,7 @@ public class SmallMario extends MoveState
         this.UpLeft                 = new String[]{"smallMarioLookUpLeft 0"};
         this.DuckRight              = new String[]{"smallMarioDuckRight 0"};
         this.DuckLeft               = new String[]{"smallMarioDuckLeft 0"};
-        
+
+        gameObject.setAnimation(StandRight);
     }
 }

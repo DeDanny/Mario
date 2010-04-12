@@ -175,10 +175,15 @@ public abstract class GameObject
     }
     public Collision checkCollisionMap()
     {
-     return checkCollisionMap(x, y);
+     return checkCollisionMap(x, y, 2);
     }
 
     public Collision checkCollisionMap(int x, int y)
+    {
+     return checkCollisionMap(x, y, 1);
+    }
+
+    public Collision checkCollisionMap(int x, int y, int downSize)
     {
         Polygon mapPolygon =  game.getBackground().getPolygon();
         if (mapPolygon.intersects(x, y+1, width, 1))
@@ -192,7 +197,7 @@ public abstract class GameObject
             return Collision.SIDE;
         }
 
-        if (mapPolygon.intersects(x, y+height-1, width, 2))
+        if (mapPolygon.intersects(x, y+height-1, width, downSize))
         {
             return Collision.DOWN;
         }

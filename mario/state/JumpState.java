@@ -24,9 +24,9 @@ public class JumpState extends MarioState{
     @Override
     public void doAction()
     {
-       if(jumpTeller < 25)
+       if(jumpTeller < 15)
        {
-           marioObject.setY(marioObject.getY() - 5);
+           marioObject.setY(marioObject.getY() - 10);
            jumpTeller++;
            System.out.println("teller "+jumpTeller);
        }

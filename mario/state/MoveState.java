@@ -36,7 +36,7 @@ abstract public class MoveState extends MarioState
     public MoveState(Mario gameObject)
     {
         super(gameObject);
-        gameObject.setAnimation(StandRight);
+        //gameObject.setAnimation(StandRight);
     }
 
     @Override

@@ -5,6 +5,7 @@
 
 package mario.state;
 
+import mario.Collision;
 import mario.Mario;
 /**
  *
@@ -12,19 +13,24 @@ import mario.Mario;
  */
 public class FallState extends MarioState{
 
+
+    protected String[] StandRight =new String[]{"bigMarioStandRight 0"};
     public FallState(Mario marioObject)
     {
         super(marioObject);
+        gameObject.setAnimation(StandRight);
     }
 
     @Override
     public void doAction()
     {
-
-
-           marioObject.setY(marioObject.getY() + 5);
+        int fallsize = 32;
+        while(marioObject.checkCollisionMap(marioObject.getX(), fallsize)!= Collision.NONE && fallsize != 0)
+        {
+           fallsize--;
+        }
+        marioObject.setY(marioObject.getY() + fallsize);
            // At collision
            //marioObject.setJump(false);
-
     }
 }

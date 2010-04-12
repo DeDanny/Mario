@@ -74,20 +74,24 @@ public class Mario extends GameCharacter
         if(jump)
         {   
             setState(jumpMario);
+            System.out.println("jumpMario");
         }
         else if(fall)
         {
             setState(fallMario);
+            System.out.println("fallMario");
         }
         else
         {
             if(isBig)
             {
                 setState(bigMario);
+            System.out.println("bigMario");
             }
             else
             {
                 setState(smallMario);
+            System.out.println("smallMario");
             }
         }
         state.doAction();
@@ -165,9 +169,15 @@ public class Mario extends GameCharacter
     @Override
     public void doCollision(Collision side)
     {
-        //temp
-
-        //state = new FallState(this);
+        System.out.print(side);
+        if (side  == Collision.NONE)
+        {
+            setFall(true);
+        }
+        if(side != Collision.NONE)
+        {
+            setFall(false);
+        }
     }
 
     @Override

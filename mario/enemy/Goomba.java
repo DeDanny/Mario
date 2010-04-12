@@ -43,10 +43,9 @@ public class Goomba extends Enemy
    @Override
    public void doCollision(Collision side)
    {
-       side = 1;
-       if(side == 1)
+       if(side == Collision.SIDE)
         setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
-       else if(side == 2)
+       //else if(side == 2)
         setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
    }
 }
