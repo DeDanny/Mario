@@ -72,6 +72,10 @@ public class View
             {
                 gameObject.draw(graphics);
             }
+            for (GameObject gameObject : marioWorld.getGame().getCharactersObjects())
+            {
+                gameObject.draw(graphics);
+            }
 
             graphics = buffer.getDrawGraphics();
             graphics.drawImage(bi, 0, 0, null);

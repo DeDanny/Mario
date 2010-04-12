@@ -26,7 +26,7 @@ public class Mario extends GameCharacter
 
     public Mario(Game game)
     {
-        super(game, 100, 480, 45, 63, "/images/mario_sprite.png");
+        super(game, 100, 480, 42, 57, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));

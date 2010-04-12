@@ -79,4 +79,10 @@ public class Game
     {
         return background;
     }
+
+    public ArrayList<GameCharacter> getCharactersObjects()
+    {
+        return charactersObjects;
+    }
+
 }

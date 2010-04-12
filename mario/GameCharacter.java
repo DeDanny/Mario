@@ -18,6 +18,6 @@ abstract public class GameCharacter extends GameObject
 
     public void doCollision(int side)
     {
-        setY(getY()+fallSpeed);
+        
     }
 }
