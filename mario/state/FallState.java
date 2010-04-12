@@ -29,7 +29,7 @@ public class FallState extends MarioState{
         {
            fallsize--;
         }
-        marioObject.setY(marioObject.getY() + fallsize);
+        marioObject.setY(marioObject.getY() + 5);
            // At collision
            //marioObject.setJump(false);
     }
