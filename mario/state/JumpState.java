@@ -10,7 +10,7 @@ import mario.Mario;
 
 /**
  *
- * @author danny 
+ * @author danny
  */
 public class JumpState extends MarioState{
     private int jumpTeller = 0;
