@@ -147,10 +147,10 @@ public class Mario extends GameCharacter
     }
 
     @Override
-    public void doCollision(int side)
+    public void doCollision(Collision side)
     {
         //temp
-        setY(getY() + 1);
+        
         //state = new FallState(this);
     }
 

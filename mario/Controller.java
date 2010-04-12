@@ -58,7 +58,7 @@ public class Controller implements KeyListener, Runnable
 
                 for (GameCharacter gameObject : marioWorld.getGame().getCharactersObjects())
                 {
-                    gameObject.doCollision(GAMESPEED);
+                    gameObject.doCollision(gameObject.checkCollisionMap());
                     gameObject.doLoopAction();
                 }
 

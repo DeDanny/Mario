@@ -5,6 +5,7 @@
 package mario.enemy;
 
 import java.awt.Rectangle;
+import mario.Collision;
 import mario.Game;
 import mario.enemy.ai.GoombaAi;
 
@@ -40,7 +41,7 @@ public class Goomba extends Enemy
     }
 
    @Override
-   public void doCollision(int side)
+   public void doCollision(Collision side)
    {
         
    }

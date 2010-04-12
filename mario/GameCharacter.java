@@ -16,7 +16,7 @@ abstract public class GameCharacter extends GameObject
         super(game, x, y, width, height, fileName);
     }
 
-    public void doCollision(int side)
+    public void doCollision(Collision side)
     {
         
     }
