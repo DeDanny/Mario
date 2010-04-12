@@ -8,10 +8,10 @@ package mario;
  *
  * @author danny
  */
-abstract public class Character extends GameObject
+abstract public class GameCaracter extends GameObject
 {
     protected int fallSpeed = 2;
-    public Character(Game game, int x, int y, int width, int height, String fileName)
+    public GameCaracter(Game game, int x, int y, int width, int height, String fileName)
     {
         super(game, x, y, width, height, fileName);
     }
