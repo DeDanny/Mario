@@ -23,5 +23,6 @@ public class SmallMario extends MoveState
         this.UpLeft                 = new String[]{"smallMarioLookUpLeft 0"};
         this.DuckRight              = new String[]{"smallMarioDuckRight 0"};
         this.DuckLeft               = new String[]{"smallMarioDuckLeft 0"};
+        
     }
 }

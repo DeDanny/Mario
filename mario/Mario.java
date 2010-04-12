@@ -24,6 +24,7 @@ public class Mario extends GameCharacter
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
+    private int moveY = 0;
     
 
     public Mario(Game game)
@@ -172,12 +173,16 @@ public class Mario extends GameCharacter
     @Override
     protected void preAnimation()
     {
-        
+        setY(getY()+moveY);   
     }
     
     @Override
     protected void postAnimation()
     {
+        setY(getY()-moveY);
+    }
 
+    public void setMoveY(int moveY){
+        this.moveY = moveY;
     }
 }
