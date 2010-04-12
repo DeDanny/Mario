@@ -29,14 +29,14 @@ public class Game
     private Stone Stone  = new Stone(this);
 
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-    //private ArrayList<GameCaracter> charactersObjects = new ArrayList<GameCaracter>();
+    private ArrayList<GameCharacter> charactersObjects = new ArrayList<GameCharacter>();
 
     public Game()
     {
-        gameObjects.add(mario);
+        charactersObjects.add(mario);
         gameObjects.add(Munt);
         gameObjects.add(Questionmark);
-        gameObjects.add(goomba);
+        charactersObjects.add(goomba);
         gameObjects.add(Stone);
     }
 

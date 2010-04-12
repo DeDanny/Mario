@@ -40,7 +40,7 @@ public class Goomba extends Enemy
     }
 
    @Override
-   public void doGravity()
+   public void doCollision(int side)
    {
         
    }

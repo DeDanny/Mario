@@ -147,7 +147,7 @@ public class Mario extends GameCharacter
     }
 
     @Override
-    public void doGravity()
+    public void doCollision(int side)
     {
         //temp
         setY(getY() + 1);

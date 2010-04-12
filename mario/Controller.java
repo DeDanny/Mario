@@ -60,7 +60,7 @@ public class Controller implements KeyListener, Runnable
                     {
                         GameCharacter characterObject = (GameCharacter) gameObject;
                         System.out.println("Doing the gravity");
-                         characterObject.doGravity();
+                         characterObject.doCollision(null);
                     }
                 }
 
