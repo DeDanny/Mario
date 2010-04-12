@@ -12,7 +12,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
-import mario.state.MarioState;
 
 /**
  *
@@ -160,10 +159,8 @@ public abstract class GameObject
 
     public void setState(State state)
     {
-        if(this.state.getClass() != state.getClass())
-        {
-            this.state = state;
-        }
+        this.state = state;
+        
     }
 
     private boolean checkCollisionMap(int x, int y)
