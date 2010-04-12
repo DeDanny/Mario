@@ -11,7 +11,7 @@ import mario.state.*;
  *
  * @author danny
  */
-public class Mario extends Character
+public class Mario extends GameCaracter
 {
     private boolean left = false;
     private boolean right = false;

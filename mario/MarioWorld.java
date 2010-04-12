@@ -13,6 +13,10 @@ public class MarioWorld
     private boolean running = true;
     private Game game = new Game();
 
+    public MarioWorld()
+    {
+    }
+
     public Game getGame()
     {
         return game;
