@@ -46,6 +46,12 @@ public class Mario extends GameCharacter
         frames.put("smallMarioDuckLeft 0", new Rectangle(267, 129, 45, 42));
         frames.put("smallMarioDuckRight 0", new Rectangle(864, 129, 45, 42));
 
+        frames.put("smallMarioJumpLeft 0", new Rectangle(504, 117, 48, 66));
+        frames.put("smallMarioJumpRight 0", new Rectangle(624, 117, 48, 66));
+
+        frames.put("smallMarioFallLeft 0", new Rectangle(384, 120, 48, 60));
+        frames.put("smallMarioFallRight 0", new Rectangle(744, 120, 48, 60));
+
         // Big coordinates
 
         frames.put("bigMarioStandRight 0", new Rectangle(624, 228, 45, 84)); // RIGHT
@@ -64,6 +70,12 @@ public class Mario extends GameCharacter
 
         frames.put("bigMarioDuckLeft 0", new Rectangle(264, 366, 48, 45)); // LEFT
         frames.put("bigMarioDuckRight 0", new Rectangle(864, 366, 48, 45)); // RIGHT
+
+        frames.put("bigMarioJumpLeft 0", new Rectangle(504, 342, 48, 93)); // LEFT
+        frames.put("bigMarioJumpRight 0", new Rectangle(624, 342, 48, 93)); // RIGHT
+
+        frames.put("bigMarioFallLeft 0", new Rectangle(384, 345, 48, 87)); // LEFT
+        frames.put("bigMarioFallRight 0", new Rectangle(744, 345, 48, 87)); // RIGHT
 
         state = new SmallMario(this);
     }
