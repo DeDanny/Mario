@@ -14,6 +14,10 @@ import mario.Mario;
  */
 public class JumpState extends MarioState{
     private int jumpTeller = 0;
+    //protected String[] JumpRight = new String[]{"smallMarioJumpRight 0"};
+    //protected String[] JumpLeft = new String[]{"smallMarioJumpLeft 0"};
+    protected String[] JumpRight = new String[]{"bigMarioJumpRight 0"};
+    protected String[] JumpLeft = new String[]{"bigMarioJumpLeft 0"};
 
     public JumpState(Mario marioObject)
     {
@@ -24,6 +28,7 @@ public class JumpState extends MarioState{
     @Override
     public void doAction()
     {
+       gameObject.setAnimation(JumpRight);
        if(jumpTeller < 15)
        {
            marioObject.setY(marioObject.getY() - 10);
