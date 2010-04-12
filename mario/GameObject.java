@@ -145,7 +145,7 @@ public abstract class GameObject
     {
         this.animation = animation;
         animationFrame = 0;
-        systemTime = System.currentTimeMillis() - frameSpeed;
+        //systemTime = System.currentTimeMillis() - frameSpeed;
     }
 
     public String[] getAnimation()
@@ -158,7 +158,7 @@ public abstract class GameObject
         return frameSpeed;
     }
 
-    public void setState(MarioState state)
+    public void setState(State state)
     {
         if(this.state.getClass() != state.getClass())
         {
