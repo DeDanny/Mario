@@ -19,12 +19,14 @@ public class Mario extends Character
     private boolean down = false;
     private boolean jump = false;
     private boolean isBig = false;
+    private SmallMario smallMario = new SmallMario(this);
+    private BigMario bigMario = new BigMario(this);
+    private JumpState jumpMario = new JumpState(this);
+    
 
     public Mario(Game game)
     {
-
         super(game, 100, 480, 45, 63, "/images/mario_sprite.png");
-
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
@@ -66,20 +68,20 @@ public class Mario extends Character
     @Override
     public void doLoopAction()
     {
-        if(jump)
-        {
-            this.setState(new JumpState(this));
-        }
-        else
-        {
+        if(!jump)
+        {   
             if(isBig)
             {
-                this.setState(new BigMario(this));
+                setState(bigMario);
             }
             else
             {
-                this.setState(new SmallMario(this));
+                setState(smallMario);
             }
+        }
+        else
+        {
+            setState(jumpMario);
         }
         state.doAction();
     }

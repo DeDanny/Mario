@@ -18,6 +18,7 @@ public class JumpState extends MarioState{
     public JumpState(Mario marioObject)
     {
         super(marioObject);
+        
     }
 
     @Override
@@ -32,7 +33,8 @@ public class JumpState extends MarioState{
        else
        {
             marioObject.setJump(false);
-            //System.out.println("set jump false yippykayeay");
+            System.out.println("set jump false yippykayeay");
+            this.jumpTeller = 0;
        }
     }
 
