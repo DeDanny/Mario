@@ -29,7 +29,7 @@ public class Game
     private Stone Stone  = new Stone(this);
 
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-    private ArrayList<Character> charactersObjects = new ArrayList<Character>();
+    //private ArrayList<GameCharacter> charactersObjects = new ArrayList<GameCharacter>();
 
     public Game()
     {

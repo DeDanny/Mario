@@ -11,7 +11,7 @@ import mario.state.*;
  *
  * @author danny
  */
-public class Mario extends GameCaracter
+public class Mario extends GameCharacter
 {
     private boolean left = false;
     private boolean right = false;
@@ -162,10 +162,10 @@ public class Mario extends GameCaracter
     }
 
     @Override
-    public void doGravity()
+    public void doCollision(int side)
     {
         //temp
-        setY(getY() - 1);
+        //setY(getY() + 1);
         //state = new FallState(this);
     }
 

@@ -53,7 +53,15 @@ public class Controller implements KeyListener, Runnable
             {
                 for (GameObject gameObject : marioWorld.getGame().getGameObjects())
                 {
+
                     gameObject.doLoopAction();
+                    System.out.println(gameObject instanceof GameCharacter);
+                    if(gameObject instanceof GameCharacter)
+                    {
+                        GameCharacter characterObject = (GameCharacter) gameObject;
+                        System.out.println("Doing the gravity");
+                         characterObject.doCollision(1);
+                    }
                 }
 
                 view.draw();
