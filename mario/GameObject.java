@@ -175,7 +175,7 @@ public abstract class GameObject
     }
     public Collision checkCollisionMap()
     {
-     return checkCollisionMap(x, y, 2);
+        return checkCollisionMap(x, y, 2);
     }
 
     public Collision checkCollisionMap(int x, int y)

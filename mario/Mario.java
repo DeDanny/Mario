@@ -28,7 +28,6 @@ public class Mario extends GameCharacter
     private int moveY = 0;
     private int tempHeight;
     private int heightOriginal;
-    
 
     public Mario(Game game)
     {
@@ -86,27 +85,27 @@ public class Mario extends GameCharacter
     @Override
     public void doLoopAction()
     {
-        if(jump)
-        {   
+        if (jump)
+        {
             setState(jumpMario);
             System.out.println("jumpMario");
-        }
-        else if(fall)
+        } else
         {
-            setState(fallMario);
-            System.out.println("fallMario");
-        }
-        else
-        {
-            if(isBig)
+            if (fall)
             {
-                setState(bigMario);
-            System.out.println("bigMario");
-            }
-            else
+                setState(fallMario);
+                System.out.println("fallMario");
+            } else
             {
-                setState(smallMario);
-            System.out.println("smallMario");
+                if (isBig)
+                {
+                    setState(bigMario);
+                    System.out.println("bigMario");
+                } else
+                {
+                    setState(smallMario);
+                    System.out.println("smallMario");
+                }
             }
         }
         state.doAction();
@@ -176,6 +175,7 @@ public class Mario extends GameCharacter
     {
         return jump;
     }
+
     public boolean isFall()
     {
         return fall;
@@ -192,14 +192,14 @@ public class Mario extends GameCharacter
     }
 
     @Override
-    public void doCollision(Collision side)
+    public void doMapCollision(Collision side)
     {
         System.out.print(side);
-        if (side  == Collision.NONE)
+        if (side == Collision.NONE)
         {
             setFall(true);
         }
-        if(side != Collision.NONE)
+        if (side != Collision.NONE)
         {
             setFall(false);
         }
@@ -210,22 +210,47 @@ public class Mario extends GameCharacter
     {
         heightOriginal = getHeight();
         setHeight(tempHeight);
-        setY(getY()+moveY);
+        setY(getY() + moveY);
     }
-    
+
     @Override
     protected void postAnimation()
     {
         setHeight(heightOriginal);
-        setY(getY()-moveY);
+        setY(getY() - moveY);
         tempHeight = 0;
     }
 
-    public void setMoveY(int moveY){
+    public void setMoveY(int moveY)
+    {
         this.moveY = moveY;
     }
 
-    public void setTempHeight(int tempHeight){
+    public void setTempHeight(int tempHeight)
+    {
         this.tempHeight = tempHeight;
+    }
+
+    @Override
+    public void doCharacterCollision(Collision collision)
+    {
+        switch (collision)
+        {
+            case SIDE:
+                System.out.println("MARIO DOOD");
+                break;
+            case UP:
+
+                System.out.println("MARIO DOOD");
+                break;
+            case DOWN:
+
+                System.out.println("MARIO EXTRA JUMP");
+                break;
+            case NONE:
+
+                System.out.println("MARIO NIKS");
+                break;
+        }
     }
 }
