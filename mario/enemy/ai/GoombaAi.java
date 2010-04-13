@@ -6,6 +6,7 @@ package mario.enemy.ai;
 
 import mario.enemy.Enemy;
 
+
 /**
  *
  * @author Danny

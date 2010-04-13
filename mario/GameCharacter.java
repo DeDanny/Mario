@@ -22,4 +22,9 @@ abstract public class GameCharacter extends GameObject
     }
     
     abstract public void doCharacterCollision(Collision collision);
+
+    public Collision checkCollisionGameCharacters()
+    {
+        return Collision.DOWN;
+    }
 }

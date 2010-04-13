@@ -22,7 +22,7 @@ public class Questionmark extends GameObject
 
         frames.put("questionmark 0", new Rectangle(558, 66, 48, 48));
         frames.put("questionmark 1", new Rectangle(507, 66, 48, 48));
-
+        
         setAnimation(new String[]
                 {
                     "questionmark 0"

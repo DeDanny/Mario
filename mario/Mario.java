@@ -208,17 +208,17 @@ public class Mario extends GameCharacter
     @Override
     protected void preAnimation()
     {
-        heightOriginal = getHeight();
-        setHeight(tempHeight);
+        //heightOriginal = getHeight();
+        //setHeight(tempHeight);
         setY(getY() + moveY);
     }
 
     @Override
     protected void postAnimation()
     {
-        setHeight(heightOriginal);
+        //setHeight(heightOriginal);
         setY(getY() - moveY);
-        tempHeight = 0;
+        //tempHeight = 0;
     }
 
     public void setMoveY(int moveY)

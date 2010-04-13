@@ -29,7 +29,7 @@ public class Goomba extends Enemy
                     "goombaStandLeft 0", "goombaWalkLeft 0"
                 });
 
-        //"goombaStandRight 0", "goombaWalkRight 0"
+      
 
     }
 
@@ -43,10 +43,13 @@ public class Goomba extends Enemy
    @Override
    public void doMapCollision(Collision side)
    {
-       if(side == Collision.SIDE)
-        setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
+    //   if(side == Collision.SIDE)
+   
+       // setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
        //else if(side == 2)
-        setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
+       // setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
+   
+   
    }
 
     @Override
