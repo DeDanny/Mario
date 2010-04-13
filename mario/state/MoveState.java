@@ -4,6 +4,7 @@
  */
 package mario.state;
 
+import mario.Direction;
 import mario.Mario;
 
 /**
@@ -23,10 +24,11 @@ abstract public class MoveState extends MarioState
     protected String[] DuckRight;
     protected String[] DuckLeft;
 
-    protected static final int LEFT = 0;
-    protected static final int RIGHT = 1;
+//    protected static final int LEFT = 0;
+//    protected static final int RIGHT = 1;
+//
+//    protected static int direction      = RIGHT;
 
-    protected static int direction      = RIGHT;
     protected boolean   lookingUP       = false;
     protected boolean   duckDown        = false;
     //protected static int duckMoveY      = 19;
@@ -45,6 +47,7 @@ abstract public class MoveState extends MarioState
     @Override
     public void doAction()
     {
+
         if (duckDown) {
             duckDown = false;
             //marioObject.setMoveY(duckMoveYOriginal);
@@ -76,17 +79,18 @@ abstract public class MoveState extends MarioState
     {
         marioObject.setX(marioObject.getX() - WALKSPEED);
         super.setAnimation(LeftAnimation);
-        direction = LEFT;
+        marioObject.setDirection(Direction.LEFT);
     }
     private void doRight()
     {
         marioObject.setX(marioObject.getX() + WALKSPEED);
         super.setAnimation(RightAnimation);
-        direction = RIGHT;
+        marioObject.setDirection(Direction.RIGHT);
     }
     private void doUp()
     {
-        switch (direction) {
+
+        switch (marioObject.getDirection()) {
             case LEFT:
                 super.setAnimation(UpLeft);
                 break;
@@ -102,7 +106,7 @@ abstract public class MoveState extends MarioState
             marioObject.setMoveY(duckMoveY);
             marioObject.setTempHeight(2);
         }
-        switch (direction) {
+        switch (marioObject.getDirection()) {
             case LEFT:
                 super.setAnimation(DuckLeft);
                 break;
@@ -115,7 +119,7 @@ abstract public class MoveState extends MarioState
     private void doStand()
     {
         // Set Mario left or right side
-        switch (direction) {
+        switch (marioObject.getDirection()) {
             case LEFT:
                 marioObject.setAnimation(StandLeft);
                 break;            

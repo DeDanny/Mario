@@ -88,8 +88,12 @@ public class Mario extends GameCharacter
     {
         if(jump)
         {   
-            setState(jumpMario);
-            System.out.println("jumpMario");
+            if(this.state != fallMario){
+               setState(jumpMario);
+               System.out.println("jumpMario");
+            }else{
+               this.setJump(false);
+            }           
         }
         else if(fall)
         {
@@ -101,12 +105,12 @@ public class Mario extends GameCharacter
             if(isBig)
             {
                 setState(bigMario);
-            System.out.println("bigMario");
+                System.out.println("bigMario");
             }
             else
             {
                 setState(smallMario);
-            System.out.println("smallMario");
+                System.out.println("smallMario");
             }
         }
         state.doAction();
@@ -208,16 +212,16 @@ public class Mario extends GameCharacter
     @Override
     protected void preAnimation()
     {
-        heightOriginal = getHeight();
-        setHeight(tempHeight);
+        //heightOriginal = getHeight();
+       // setHeight(tempHeight);
         setY(getY()+moveY);
     }
     
     @Override
     protected void postAnimation()
     {
-        setHeight(heightOriginal);
-        setY(getY()-moveY);
+        //setHeight(heightOriginal);
+        //(getY()-moveY);
         tempHeight = 0;
     }
 
