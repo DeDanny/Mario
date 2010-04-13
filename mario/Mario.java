@@ -18,7 +18,7 @@ public class Mario extends GameCharacter
     private boolean up = false;
     private boolean down = false;
     private boolean jump = false;
-    private boolean isBig = false;
+    private boolean isBig = false; // False is SmallMario - True is BigMario
     private boolean fall = false;
     private Direction direction = Direction.LEFT;
     private SmallMario smallMario = new SmallMario(this);
@@ -31,7 +31,7 @@ public class Mario extends GameCharacter
 
     public Mario(Game game)
     {
-        super(game, 100, 480, 42, 57, "/images/mario_sprite.png");
+        super(game, 100, 400, 42, 57, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
@@ -79,7 +79,7 @@ public class Mario extends GameCharacter
         frames.put("bigMarioFallLeft 0", new Rectangle(384, 345, 48, 87)); // LEFT
         frames.put("bigMarioFallRight 0", new Rectangle(744, 345, 48, 87)); // RIGHT
 
-        state = new SmallMario(this);
+        //state = new SmallMario(this);
     }
 
     @Override
@@ -109,6 +109,7 @@ public class Mario extends GameCharacter
                 {
                     setState(smallMario);
                     System.out.println("smallMario");
+                    setHeight(60);
                 }
             }
         }
@@ -153,6 +154,15 @@ public class Mario extends GameCharacter
     public void setDown(boolean down)
     {
         this.down = down;
+    }
+    public void setIsBig(boolean isBig)
+    {
+        this.isBig = isBig;
+    }
+
+    public boolean getIsBig()
+    {
+        return isBig;
     }
 
     public boolean isLeft()

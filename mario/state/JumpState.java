@@ -14,11 +14,12 @@ import mario.Mario;
 public class JumpState extends MarioState {
 
     protected static final int WALKSPEED = 5;
+
     private int jumpTeller = 0;
-    protected String[] JumpRight = new String[]{"smallMarioJumpRight 0"};
-    protected String[] JumpLeft = new String[]{"smallMarioJumpLeft 0"};
-    //protected String[] JumpRight = new String[]{"bigMarioJumpRight 0"};
-    //protected String[] JumpLeft = new String[]{"bigMarioJumpLeft 0"};
+    protected String[] smallJumpRight = new String[]{"smallMarioJumpRight 0"};
+    protected String[] smallJumpLeft = new String[]{"smallMarioJumpLeft 0"};
+    protected String[] bigJumpRight = new String[]{"bigMarioJumpRight 0"};
+    protected String[] bigJumpLeft = new String[]{"bigMarioJumpLeft 0"};
 
     public JumpState(Mario marioObject) {
         super(marioObject);
@@ -59,11 +60,23 @@ public class JumpState extends MarioState {
     }
 
     private void setAnimationLeft() {
-        super.setAnimation(JumpLeft);
+        if(marioObject.getIsBig()) {
+           super.setAnimation(bigJumpLeft);
+        }
+        else
+        {
+            super.setAnimation(smallJumpLeft);
+        }   
     }
 
     private void setAnimationRight() {
-        super.setAnimation(JumpRight);
+        if(marioObject.getIsBig()) {
+           super.setAnimation(bigJumpRight);
+        }
+        else
+        {
+            super.setAnimation(smallJumpRight);
+        }
     }
 
     private void doJumping() {

@@ -15,10 +15,10 @@ import mario.Mario;
 public class FallState extends MarioState {
 
     protected static final int WALKSPEED = 5;
-    protected String[] FallRight = new String[]{"smallMarioFallRight 0"};
-    protected String[] FallLeft = new String[]{"smallMarioFallLeft 0"};
-    //protected String[] FallRight = new String[]{"bigMarioFallRight 0"};
-    //protected String[] FallLeft = new String[]{"bigMarioFallLeft 0"};
+    protected String[] smallFallRight = new String[]{"smallMarioFallRight 0"};
+    protected String[] smallFallLeft = new String[]{"smallMarioFallLeft 0"};
+    protected String[] bigFallRight = new String[]{"bigMarioFallRight 0"};
+    protected String[] bigFallLeft = new String[]{"bigMarioFallLeft 0"};
 
     public FallState(Mario marioObject) {
         super(marioObject);
@@ -38,11 +38,11 @@ public class FallState extends MarioState {
         }
 
         int fallsize = 5;
-        while (marioObject.checkCollisionMap(marioObject.getY(), fallsize) != Collision.NONE && fallsize != 0) {
+        while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
             fallsize--;
             System.out.println("fallsize = " + fallsize);
         }
-        System.out.println("fallsize = " + fallsize);
+        System.out.println("CHEEEEEEEEEEECK: "+marioObject.checkCollisionMap(marioObject.getX(), fallsize));
         marioObject.setY(marioObject.getY() + fallsize);
     }
 
@@ -59,10 +59,22 @@ public class FallState extends MarioState {
     }
 
     private void setAnimationLeft() {
-        super.setAnimation(FallLeft);
+        if(marioObject.getIsBig()) {
+           super.setAnimation(bigFallLeft);
+        }
+        else
+        {
+            super.setAnimation(smallFallLeft);
+        }
     }
 
     private void setAnimationRight() {
-        super.setAnimation(FallRight);
+        if(marioObject.getIsBig()) {
+           super.setAnimation(bigFallRight);
+        }
+        else
+        {
+            super.setAnimation(smallFallRight);
+        }
     }
 }
