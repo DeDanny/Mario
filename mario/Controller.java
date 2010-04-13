@@ -109,13 +109,13 @@ public class Controller implements KeyListener, Runnable
         }
         if (e.getKeyCode() == KeyEvent.VK_1)
         {
-            marioWorld.getGame().getMario().setState(new BigMario(marioWorld.getGame().getMario()));
+            marioWorld.getGame().getMario().setBig(true);
         }
         if (e.getKeyCode() == KeyEvent.VK_2)
         {
-            marioWorld.getGame().getMario().setState(new SmallMario(marioWorld.getGame().getMario()));
+            marioWorld.getGame().getMario().setBig(false);
         }
-        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+        if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP)
         {
             marioWorld.getGame().getMario().setJump(true);
         }
