@@ -99,10 +99,10 @@ public class Controller implements KeyListener, Runnable
         {
             marioWorld.getGame().getMario().setRight(true);
         }
-        if (e.getKeyCode() == KeyEvent.VK_UP)
-        {
-            marioWorld.getGame().getMario().setUp(true);
-        }
+//        if (e.getKeyCode() == KeyEvent.VK_UP)
+//        {
+//            marioWorld.getGame().getMario().setUp(true);
+//        }
         if (e.getKeyCode() == KeyEvent.VK_DOWN)
         {
             marioWorld.getGame().getMario().setDown(true);
