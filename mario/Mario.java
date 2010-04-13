@@ -18,7 +18,7 @@ public class Mario extends CharacterObject
     private boolean up = false;
     private boolean down = false;
     private boolean jump = false;
-    private boolean isBig = false; // False is SmallMario - True is BigMario
+    private boolean big = false; // False is SmallMario - True is BigMario
     private boolean fall = false;
     private Direction direction = Direction.LEFT;
     private SmallMario smallMario = new SmallMario(this);
@@ -101,7 +101,7 @@ public class Mario extends CharacterObject
                 System.out.println("fallMario");
             } else
             {
-                if (isBig)
+                if (big)
                 {
                     setState(bigMario);
                     System.out.println("bigMario");
@@ -155,14 +155,14 @@ public class Mario extends CharacterObject
     {
         this.down = down;
     }
-    public void setIsBig(boolean isBig)
+    public void setBig(boolean isBig)
     {
-        this.isBig = isBig;
+        this.big = isBig;
     }
 
     public boolean getIsBig()
     {
-        return isBig;
+        return big;
     }
 
     public boolean isLeft()
