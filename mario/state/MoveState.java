@@ -29,8 +29,11 @@ abstract public class MoveState extends MarioState
     protected static int direction      = RIGHT;
     protected boolean   lookingUP       = false;
     protected boolean   duckDown        = false;
+    //protected static int duckMoveY      = 19;
     protected static int duckMoveY      = 19;
-    protected static int duckHeight     = 42;
+    protected static int duckMoveYOriginal      = 60;
+    //protected static int duckHeight     = 42;
+    protected static int duckHeight     = 2;
 
 
     public MoveState(Mario gameObject)
@@ -44,7 +47,7 @@ abstract public class MoveState extends MarioState
     {
         if (duckDown) {
             duckDown = false;
-            //marioObject.setMoveY(duckMoveY);
+            //marioObject.setMoveY(duckMoveYOriginal);
         }
         
         if(marioObject.isLeft() && !marioObject.isRight() && !marioObject.isPreformingSpecialMove())
@@ -97,6 +100,7 @@ abstract public class MoveState extends MarioState
         if (!duckDown) {
             duckDown = true;
             marioObject.setMoveY(duckMoveY);
+            marioObject.setTempHeight(2);
         }
         switch (direction) {
             case LEFT:

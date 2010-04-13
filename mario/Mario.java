@@ -20,11 +20,14 @@ public class Mario extends GameCharacter
     private boolean jump = false;
     private boolean isBig = false;
     private boolean fall = false;
+    private Direction direction = Direction.LEFT;
     private SmallMario smallMario = new SmallMario(this);
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
     private int moveY = 0;
+    private int tempHeight;
+    private int heightOriginal;
     
 
     public Mario(Game game)
@@ -178,6 +181,16 @@ public class Mario extends GameCharacter
         return fall;
     }
 
+    public Direction getDirection()
+    {
+        return direction;
+    }
+
+    public void setDirection(Direction direction)
+    {
+        this.direction = direction;
+    }
+
     @Override
     public void doCollision(Collision side)
     {
@@ -195,16 +208,24 @@ public class Mario extends GameCharacter
     @Override
     protected void preAnimation()
     {
-        setY(getY()+moveY);   
+        heightOriginal = getHeight();
+        setHeight(tempHeight);
+        setY(getY()+moveY);
     }
     
     @Override
     protected void postAnimation()
     {
+        setHeight(heightOriginal);
         setY(getY()-moveY);
+        tempHeight = 0;
     }
 
     public void setMoveY(int moveY){
         this.moveY = moveY;
+    }
+
+    public void setTempHeight(int tempHeight){
+        this.tempHeight = tempHeight;
     }
 }
