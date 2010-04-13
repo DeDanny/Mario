@@ -31,9 +31,9 @@ public class FallState extends MarioState {
             doLeft();
         } else if (marioObject.isRight() && !marioObject.isLeft() && !marioObject.isPreformingSpecialMove()) {
             doRight();
-        } else if (marioObject.getDirection() == Direction.LEFT) {
+        } else if (marioObject.getDirection() == Direction.LEFT && !marioObject.isPreformingSpecialMove()) {
             setAnimationLeft();
-        } else if (marioObject.getDirection() == Direction.RIGHT) {
+        } else if (marioObject.getDirection() == Direction.RIGHT && !marioObject.isPreformingSpecialMove()) {
             setAnimationRight();
         }
 

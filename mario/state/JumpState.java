@@ -27,25 +27,22 @@ public class JumpState extends MarioState {
 
     @Override
     public void doAction() {
-        if (marioObject.isLeft() && !marioObject.isRight() && !marioObject.isPreformingSpecialMove()) {
-            doLeft();
-        } else if (marioObject.isRight() && !marioObject.isLeft() && !marioObject.isPreformingSpecialMove()) {
-            doRight();
-        } else if (marioObject.getDirection() == Direction.LEFT) {
-            setAnimationLeft();
-        } else if (marioObject.getDirection() == Direction.RIGHT) {
-            setAnimationRight();
-        }
-
-        if (jumpTeller < 15) {
-            marioObject.setY(marioObject.getY() - 10);
-            jumpTeller++;
-            //System.out.println("teller " + jumpTeller);
-        } else {
-            marioObject.setJump(false);
-            marioObject.setFall(true);
-            //System.out.println("set jump false yippykayeay");
-            jumpTeller = 0;
+        if (!marioObject.isPreformingSpecialMove()) {
+            if (marioObject.isLeft() && !marioObject.isRight()) {
+                doLeft();
+                doJumping();
+            } else if (marioObject.isRight() && !marioObject.isLeft()) {
+                doRight();
+                doJumping();
+            } else if (marioObject.getDirection() == Direction.LEFT) {
+                setAnimationLeft();
+                doJumping();
+            } else if (marioObject.getDirection() == Direction.RIGHT) {
+                setAnimationRight();
+                doJumping();
+            } else {
+                marioObject.setJump(false);
+            }
         }
     }
 
@@ -61,13 +58,24 @@ public class JumpState extends MarioState {
         marioObject.setDirection(Direction.RIGHT);
     }
 
-    private void setAnimationLeft()
-    {
+    private void setAnimationLeft() {
         super.setAnimation(JumpLeft);
     }
 
-    private void setAnimationRight()
-    {
+    private void setAnimationRight() {
         super.setAnimation(JumpRight);
+    }
+
+    private void doJumping() {
+        if (jumpTeller < 15) {
+            marioObject.setY(marioObject.getY() - 10);
+            jumpTeller++;
+            //System.out.println("teller " + jumpTeller);
+        } else {
+            marioObject.setJump(false);
+            marioObject.setFall(true);
+            //System.out.println("set jump false yippykayeay");
+            jumpTeller = 0;
+        }
     }
 }
