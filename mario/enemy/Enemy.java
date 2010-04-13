@@ -5,14 +5,14 @@
 package mario.enemy;
 
 import mario.enemy.ai.Ai;
-import mario.GameCharacter;
+import mario.CharacterObject;
 import mario.Game;
 
 /**
  *
  * @author Danny
  */
-abstract public class Enemy extends GameCharacter
+abstract public class Enemy extends CharacterObject
 {
     protected Ai ai;
 

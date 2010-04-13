@@ -49,6 +49,8 @@ public class Controller implements KeyListener, Runnable
     {
         while (marioWorld.isRunning())
         {
+
+            System.out.println("going loop----------------------------------------------------------------");
             try
             {
                 for (GameObject gameObject : marioWorld.getGame().getGameObjects())
@@ -56,7 +58,7 @@ public class Controller implements KeyListener, Runnable
                     gameObject.doLoopAction();                
                 }
 
-                for (GameCharacter gameObject : marioWorld.getGame().getCharactersObjects())
+                for (CharacterObject gameObject : marioWorld.getGame().getCharactersObjects())
                 {
                     gameObject.doMapCollision(gameObject.checkCollisionMap());
                     gameObject.doCharacterCollision(gameObject.checkCollisionGameCharacters());
@@ -65,15 +67,14 @@ public class Controller implements KeyListener, Runnable
 
                 view.draw();
 
-                System.out.println("going loop");
 
+                System.out.println("end loop----------------------------------------------------------------");
                 Thread.sleep(GAMESPEED);
             } catch (InterruptedException ex)
             {
                 System.out.println(ex);
             }
         }
-        //shutDown();
         System.exit(0);
     }
 

@@ -36,7 +36,7 @@ public class Game
 
 
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-    private ArrayList<GameCharacter> charactersObjects = new ArrayList<GameCharacter>();
+    private ArrayList<CharacterObject> charactersObjects = new ArrayList<CharacterObject>();
 
     public Game()
     {
@@ -77,17 +77,12 @@ public class Game
         return mario;
     }
 
-    public Goomba getGoomba()
-    {
-        return goomba;
-    }
-
     public Background getBackground()
     {
         return background;
     }
 
-    public ArrayList<GameCharacter> getCharactersObjects()
+    public ArrayList<CharacterObject> getCharactersObjects()
     {
         return charactersObjects;
     }

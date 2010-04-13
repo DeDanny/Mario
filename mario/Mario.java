@@ -11,7 +11,7 @@ import mario.state.*;
 *
 * @author danny
 */
-public class Mario extends GameCharacter
+public class Mario extends CharacterObject
 {
     private boolean left = false;
     private boolean right = false;
@@ -244,15 +244,12 @@ public class Mario extends GameCharacter
                 System.out.println("MARIO DOOD");
                 break;
             case UP:
-
                 System.out.println("MARIO DOOD");
                 break;
             case DOWN:
-
                 System.out.println("MARIO EXTRA JUMP");
                 break;
             case NONE:
-
                 System.out.println("MARIO NIKS");
                 break;
         }

@@ -13,7 +13,7 @@ import mario.Mario;
  */
 public class JumpState extends MarioState {
 
-    protected static final int WALKSPEED = 5;
+    protected static final int WALKSPEED = 2;
     private int jumpTeller = 0;
     protected String[] JumpRight = new String[]{"smallMarioJumpRight 0"};
     protected String[] JumpLeft = new String[]{"smallMarioJumpLeft 0"};
@@ -40,10 +40,10 @@ public class JumpState extends MarioState {
             } else if (marioObject.getDirection() == Direction.RIGHT) {
                 setAnimationRight();
                 doJumping();
-            } else {
+            }
+        } else {
                 marioObject.setJump(false);
             }
-        }
     }
 
     private void doLeft() {

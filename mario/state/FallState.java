@@ -14,7 +14,7 @@ import mario.Mario;
  */
 public class FallState extends MarioState {
 
-    protected static final int WALKSPEED = 5;
+    protected static final int WALKSPEED = 2;
     protected String[] FallRight = new String[]{"smallMarioFallRight 0"};
     protected String[] FallLeft = new String[]{"smallMarioFallLeft 0"};
     //protected String[] FallRight = new String[]{"bigMarioFallRight 0"};
