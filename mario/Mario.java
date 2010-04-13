@@ -208,7 +208,7 @@ public class Mario extends CharacterObject
     @Override
     public void doMapCollision(Collision side)
     {
-        System.out.print(side);
+        System.out.println(side);
         if (side == Collision.NONE)
         {
             setFall(true);
@@ -232,6 +232,7 @@ public class Mario extends CharacterObject
     {
         //setHeight(heightOriginal);
         setY(getY() - moveY);
+        moveY = 0;
         //tempHeight = 0;
     }
 

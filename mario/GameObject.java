@@ -90,7 +90,6 @@ public abstract class GameObject
     public void draw(Graphics graphics)
     { 
         preAnimation();
-        graphics.drawImage(getImage(), x, y, null);
         graphics.setColor(Color.red);
         graphics.fillRect(x, y, width, height);
 
@@ -106,6 +105,7 @@ public abstract class GameObject
 
         graphics.setColor(Color.pink);
          graphics.fillRect(x, y+height-1, width, 4);
+        graphics.drawImage(getImage(), x, y, null);
         postAnimation();
     }
 
