@@ -6,14 +6,12 @@ package mario;
 
 /**
  *
- * @author danny
+ * @author Danny
  */
-abstract public class Character extends GameObject
+abstract public class MapObject extends GameObject
 {
-    public Character(Game game, int x, int y, int width, int height, String fileName)
+    public MapObject(Game game, int x, int y, int width, int height, String fileName)
     {
         super(game, x, y, width, height, fileName);
     }
-
-    public abstract void doGravity();
 }

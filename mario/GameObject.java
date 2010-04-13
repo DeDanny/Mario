@@ -4,7 +4,9 @@
  */
 package mario;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -12,7 +14,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
-import mario.state.MarioState;
 
 /**
  *
@@ -89,6 +90,15 @@ public abstract class GameObject
     public void draw(Graphics graphics)
     { 
         preAnimation();
+        graphics.setColor(Color.red);
+        graphics.drawRect(x, y, width, height);
+        graphics.setColor(Color.blue);
+        graphics.fillRect(x, y+1, width, 1);
+        graphics.setColor(Color.green);
+        graphics.fillRect(x, y, 1, height);
+        graphics.fillRect(x+width, y-1, 1, height);
+        graphics.setColor(Color.orange);
+        graphics.fillRect(x, y+height-1, width, 2);
         graphics.drawImage(getImage(), x, y, null);
         postAnimation();
     }
@@ -107,7 +117,7 @@ public abstract class GameObject
 
     public void setX(int x)
     {
-        if (!checkCollisionMap(x, y))
+        if (checkCollisionMap(x, y) == Collision.NONE)
         {
             this.x = x;
         }
@@ -115,7 +125,7 @@ public abstract class GameObject
 
     public void setY(int y)
     {
-        if (!checkCollisionMap(x, y))
+        if (checkCollisionMap(x, y) == Collision.NONE)
         {
             this.y = y;
         }
@@ -145,7 +155,7 @@ public abstract class GameObject
     {
         this.animation = animation;
         animationFrame = 0;
-        systemTime = System.currentTimeMillis() - frameSpeed;
+        //systemTime = System.currentTimeMillis() - frameSpeed;
     }
 
     public String[] getAnimation()
@@ -158,23 +168,41 @@ public abstract class GameObject
         return frameSpeed;
     }
 
-    public void setState (MarioState state)
+    public void setState(State state)
     {
-        if(state.getClass() == state.getClass())
-        {
-            this.state = state;
-        }
+        this.state = state;
+        
+    }
+    public Collision checkCollisionMap()
+    {
+     return checkCollisionMap(x, y, 2);
     }
 
-    private boolean checkCollisionMap(int x, int y)
+    public Collision checkCollisionMap(int x, int y)
     {
-        if (game.getBackground().getPolygon().intersects(x, y, width, height))
+     return checkCollisionMap(x, y, 1);
+    }
+
+    public Collision checkCollisionMap(int x, int y, int downSize)
+    {
+        Polygon mapPolygon =  game.getBackground().getPolygon();
+        if (mapPolygon.intersects(x, y+1, width, 1))
         {
-            return true;
-        } else
-        {
-            return false;
+            return Collision.UP;
         }
+
+        if (mapPolygon.intersects(x, y-1, 1, height) ||
+             mapPolygon.intersects(x+width, y-1, 1, height))
+        {
+            return Collision.SIDE;
+        }
+
+        if (mapPolygon.intersects(x, y+height-1, width, downSize))
+        {
+            return Collision.DOWN;
+        }
+
+        return Collision.NONE;
     }
 
     protected void preAnimation()

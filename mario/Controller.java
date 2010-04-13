@@ -53,6 +53,12 @@ public class Controller implements KeyListener, Runnable
             {
                 for (GameObject gameObject : marioWorld.getGame().getGameObjects())
                 {
+                    gameObject.doLoopAction();                
+                }
+
+                for (GameCharacter gameObject : marioWorld.getGame().getCharactersObjects())
+                {
+                    gameObject.doCollision(gameObject.checkCollisionMap());
                     gameObject.doLoopAction();
                 }
 
@@ -106,6 +112,10 @@ public class Controller implements KeyListener, Runnable
         if (e.getKeyCode() == KeyEvent.VK_2)
         {
             marioWorld.getGame().getMario().setState(new SmallMario(marioWorld.getGame().getMario()));
+        }
+        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+        {
+            marioWorld.getGame().getMario().setJump(true);
         }
     }
 

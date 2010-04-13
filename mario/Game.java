@@ -28,7 +28,7 @@ public class Game
 
 
     private Mario mario = new Mario(this);
-    private Goomba goomba = new Goomba(this,300, 512, 66, 66);
+    private Goomba goomba = new Goomba(this,300, 505, 45, 45);
     private Background background   = new Background(this);
     private Munt Munt   = new Munt(this);
     private Questionmark Questionmark   = new Questionmark(this);
@@ -36,13 +36,14 @@ public class Game
 
 
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+    private ArrayList<GameCharacter> charactersObjects = new ArrayList<GameCharacter>();
 
     public Game()
     {
-        gameObjects.add(mario);
+        charactersObjects.add(mario);
         gameObjects.add(Munt);
         gameObjects.add(Questionmark);
-        gameObjects.add(goomba);
+        charactersObjects.add(goomba);
         gameObjects.add(Stone);
     }
 
@@ -85,4 +86,10 @@ public class Game
     {
         return background;
     }
+
+    public ArrayList<GameCharacter> getCharactersObjects()
+    {
+        return charactersObjects;
+    }
+
 }

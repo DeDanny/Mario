@@ -11,19 +11,25 @@ import mario.state.*;
  *
  * @author danny
  */
-public class Mario extends Character
+public class Mario extends GameCharacter
 {
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
     private boolean down = false;
     private boolean jump = false;
+    private boolean isBig = false;
+    private boolean fall = false;
+    private SmallMario smallMario = new SmallMario(this);
+    private BigMario bigMario = new BigMario(this);
+    private JumpState jumpMario = new JumpState(this);
+    private FallState fallMario = new FallState(this);
+    private int moveY = 0;
+    
 
     public Mario(Game game)
     {
-
-        super(game, 100, 480, 45, 63, "/images/mario_sprite.png");
-
+        super(game, 100, 480, 42, 57, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
@@ -39,6 +45,12 @@ public class Mario extends Character
 
         frames.put("smallMarioDuckLeft 0", new Rectangle(267, 129, 45, 42));
         frames.put("smallMarioDuckRight 0", new Rectangle(864, 129, 45, 42));
+
+        frames.put("smallMarioJumpLeft 0", new Rectangle(504, 117, 48, 66));
+        frames.put("smallMarioJumpRight 0", new Rectangle(624, 117, 48, 66));
+
+        frames.put("smallMarioFallLeft 0", new Rectangle(384, 120, 48, 60));
+        frames.put("smallMarioFallRight 0", new Rectangle(744, 120, 48, 60));
 
         // Big coordinates
 
@@ -59,6 +71,12 @@ public class Mario extends Character
         frames.put("bigMarioDuckLeft 0", new Rectangle(264, 366, 48, 45)); // LEFT
         frames.put("bigMarioDuckRight 0", new Rectangle(864, 366, 48, 45)); // RIGHT
 
+        frames.put("bigMarioJumpLeft 0", new Rectangle(504, 342, 48, 93)); // LEFT
+        frames.put("bigMarioJumpRight 0", new Rectangle(624, 342, 48, 93)); // RIGHT
+
+        frames.put("bigMarioFallLeft 0", new Rectangle(384, 345, 48, 87)); // LEFT
+        frames.put("bigMarioFallRight 0", new Rectangle(744, 345, 48, 87)); // RIGHT
+
         state = new SmallMario(this);
     }
 
@@ -66,8 +84,27 @@ public class Mario extends Character
     public void doLoopAction()
     {
         if(jump)
+        {   
+            setState(jumpMario);
+            System.out.println("jumpMario");
+        }
+        else if(fall)
         {
-            this.setState(new JumpState(this));
+            setState(fallMario);
+            System.out.println("fallMario");
+        }
+        else
+        {
+            if(isBig)
+            {
+                setState(bigMario);
+            System.out.println("bigMario");
+            }
+            else
+            {
+                setState(smallMario);
+            System.out.println("smallMario");
+            }
         }
         state.doAction();
     }
@@ -97,9 +134,14 @@ public class Mario extends Character
         this.up = up;
     }
 
-    public void setJump()
+    public void setJump(boolean jump)
     {
-        state = new JumpState(this);
+        this.jump = jump;
+    }
+
+    public void setFall(boolean fall)
+    {
+        this.fall = fall;
     }
 
     public void setDown(boolean down)
@@ -131,17 +173,38 @@ public class Mario extends Character
     {
         return jump;
     }
-
-    public void setJump(boolean jump)
+    public boolean isFall()
     {
-        this.jump = jump;
+        return fall;
     }
 
     @Override
-    public void doGravity()
+    public void doCollision(Collision side)
     {
-        //temp
-        setY(getY() - 1);
-        //state = new FallState(this);
+        System.out.print(side);
+        if (side  == Collision.NONE)
+        {
+            setFall(true);
+        }
+        if(side != Collision.NONE)
+        {
+            setFall(false);
+        }
+    }
+
+    @Override
+    protected void preAnimation()
+    {
+        setY(getY()+moveY);   
+    }
+    
+    @Override
+    protected void postAnimation()
+    {
+        setY(getY()-moveY);
+    }
+
+    public void setMoveY(int moveY){
+        this.moveY = moveY;
     }
 }
