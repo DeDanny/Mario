@@ -18,10 +18,10 @@ public class Questionmark extends GameObject
 
     public Questionmark(Game game)
     {
-        super(game, 100, 350, 63, 63, "/images/nsmbtileset.png");
+        super(game, 100, 350, 47, 48, "/images/nsmbtileset.png");
 
         frames.put("questionmark 0", new Rectangle(558, 66, 48, 48));
-        frames.put("questionmark 1", new Rectangle(507, 66, 48, 48));
+        frames.put("questionmark 1", new Rectangle(507, 66, 48, 48));//vast blokje
         
         setAnimation(new String[]
                 {
