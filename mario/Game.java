@@ -10,6 +10,7 @@ import mario.cube.Questionmark;
 import mario.cube.Stone;
 import mario.cube.Mushroom;
 import java.util.ArrayList;
+import java.util.Iterator;
 import mario.enemy.*;
 
 /**
@@ -18,20 +19,14 @@ import mario.enemy.*;
  */
 public class Game
 {
-    private boolean running         = false;
-    private boolean paused          = false;
-
-
-
+    private boolean running = false;
+    private boolean paused = false;
     private Mario mario = new Mario(this);
-    private Goomba goomba = new Goomba(this,300, 505, 45, 45);
-    private Background background   = new Background(this);
+    private Background background = new Background(this);
     private Mushroom Mushroom = new Mushroom(this);
-    private Munt Munt   = new Munt(this);
-    private Questionmark Questionmark   = new Questionmark(this);
-    private Stone Stone   = new Stone(this);
-
-
+    private Munt Munt = new Munt(this);
+    private Questionmark Questionmark = new Questionmark(this);
+    private Stone Stone = new Stone(this);
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     private ArrayList<CharacterObject> charactersObjects = new ArrayList<CharacterObject>();
 
@@ -41,7 +36,9 @@ public class Game
         gameObjects.add(Mushroom);
         gameObjects.add(Munt);
         gameObjects.add(Questionmark);
-        charactersObjects.add(goomba);
+        charactersObjects.add(new Goomba(this, 300, 505, 45, 45));
+        charactersObjects.add(new Goomba(this, 200, 505, 45, 45));
+        charactersObjects.add(new Goomba(this, 500, 505, 45, 45));
         gameObjects.add(Stone);
     }
 
@@ -85,4 +82,17 @@ public class Game
         return charactersObjects;
     }
 
+    public void removeDeadObjects()
+    {
+
+        for (Iterator<CharacterObject> it = charactersObjects.iterator(); it.hasNext();)
+        {
+            CharacterObject characterObject = it.next();
+            if (!characterObject.isAlive())
+            {
+                it.remove();
+            }
+        }
+
+    }
 }

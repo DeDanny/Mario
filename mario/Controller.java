@@ -53,6 +53,9 @@ public class Controller implements KeyListener, Runnable
             System.out.println("going loop----------------------------------------------------------------");
             try
             {
+
+                marioWorld.getGame().removeDeadObjects();
+
                 for (GameObject gameObject : marioWorld.getGame().getGameObjects())
                 {
                     gameObject.doLoopAction();                

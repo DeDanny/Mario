@@ -5,6 +5,7 @@
 package mario.enemy;
 
 import java.awt.Rectangle;
+import mario.CharacterObject;
 import mario.Collision;
 import mario.Game;
 import mario.enemy.ai.GoombaAi;
@@ -55,6 +56,15 @@ public class Goomba extends Enemy
     @Override
     public void doCharacterCollision(Collision collision)
     {
-        
+        if(characterObject instanceof mario.Mario)
+        {
+            switch(collision)
+            {
+                case UP:
+                    System.out.println("Goomba: \"I'm dead!!! :(\"");
+                    setAlive(false);
+                    break;
+            }
+        }
     }
 }

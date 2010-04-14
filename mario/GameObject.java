@@ -91,7 +91,7 @@ public abstract class GameObject
     { 
         preAnimation();
         graphics.setColor(Color.red);
-        graphics.fillRect(x, y, width, height);
+        //graphics.fillRect(x, y, width, height);
 
         graphics.setColor(Color.blue);
         graphics.fillRect(x, y, width, 1);
