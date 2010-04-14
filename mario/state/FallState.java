@@ -45,7 +45,7 @@ public class FallState extends MarioState {
             fallsize--;
             System.out.println("fallsize = " + fallsize);
         }
-        System.out.println("CHEEEEEEEEEEECK: "+marioObject.checkCollisionMap(marioObject.getX(), fallsize));
+        //System.out.println("CHEEEEEEEEEEECK: "+marioObject.checkCollisionMap(marioObject.getX(), fallsize));
         marioObject.setY(marioObject.getY() + fallsize);
     }
 

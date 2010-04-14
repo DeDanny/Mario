@@ -28,6 +28,7 @@ public class Mario extends CharacterObject
     private int moveY = 0;
     private int tempHeight;
     private int heightOriginal;
+    private boolean PrePost = false;
 
     public Mario(Game game)
     {
@@ -85,6 +86,18 @@ public class Mario extends CharacterObject
     @Override
     public void doLoopAction()
     {
+
+        if (big)
+        {
+            heightOriginal = 84;
+            tempHeight = heightOriginal;
+            setHeight(heightOriginal);
+        } else
+        {
+            heightOriginal = 60;
+            tempHeight = heightOriginal;
+            setHeight(heightOriginal);
+        }
         if (jump)
         {
             if (this.state != fallMario) {
@@ -109,7 +122,6 @@ public class Mario extends CharacterObject
                 {
                     setState(smallMario);
                     System.out.println("smallMario");
-                    setHeight(60);
                 }
             }
         }
@@ -222,23 +234,32 @@ public class Mario extends CharacterObject
     @Override
     protected void preAnimation()
     {
-        //heightOriginal = getHeight();
-        //setHeight(tempHeight);
-        setY(getY() + moveY);
+        if(PrePost)
+        {
+            setHeight(tempHeight);
+            setY(getY() + moveY);
+            
+            PrePost = false;
+        }
     }
 
     @Override
     protected void postAnimation()
     {
-        //setHeight(heightOriginal);
-        setY(getY() - moveY);
-        moveY = 0;
-        //tempHeight = 0;
+        //if(PrePost)
+        {
+//            setHeight(heightOriginal);
+//            setY(getY() - moveY);
+//            PrePost = false;
+
+        }
     }
 
-    public void setMoveY(int moveY)
+    public void setMoveY(int moveY, int TmpHeight)
     {
-        this.moveY = moveY;
+        PrePost = true;
+        setTempHeight(TmpHeight);
+        this.moveY      = moveY;
     }
 
     public void setTempHeight(int tempHeight)

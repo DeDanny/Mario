@@ -33,9 +33,9 @@ abstract public class MoveState extends MarioState
     protected boolean   duckDown        = false;
     //protected static int duckMoveY      = 19;
     protected static int duckMoveY      = 19;
-    protected static int duckMoveYOriginal      = 60;
+    //protected static int duckMoveYOriginal      = 60;
     //protected static int duckHeight     = 42;
-    protected static int duckHeight     = 2;
+    protected static int duckHeight     = 41;
 
 
     public MoveState(Mario gameObject)
@@ -49,7 +49,7 @@ abstract public class MoveState extends MarioState
     {
 
         if (duckDown) {
-            duckDown = false;
+            //duckDown = false;
             //marioObject.setMoveY(duckMoveYOriginal);
         }
         
@@ -102,9 +102,15 @@ abstract public class MoveState extends MarioState
     private void doDown()
     {
         if (!duckDown) {
+            //marioObject.setHeight(duckHeight);
+            marioObject.setMoveY(duckMoveY, duckHeight);
+            
+            //marioObject.setMoveY(duckMoveY);
+            marioObject.setY(marioObject.getY() + duckMoveY);
+            //
+            //marioObject.setTempHeight(2);
             duckDown = true;
-            marioObject.setMoveY(duckMoveY);
-            marioObject.setTempHeight(2);
+            System.out.println("Fuck me i am Duck");
         }
         switch (marioObject.getDirection()) {
             case LEFT:
