@@ -40,7 +40,7 @@ public abstract class GameObject
         this.width = width;
         this.height = height;
         sprite = loadImage(fileName);
-        collection.add(this);
+        boolean add = collection.add(this);
         this.game = game;
     }
 
@@ -66,12 +66,12 @@ public abstract class GameObject
 
     private BufferedImage getImage()
     {
-        System.out.println((System.currentTimeMillis() - systemTime));
+        //System.out.println((System.currentTimeMillis() - systemTime));
         if ((System.currentTimeMillis() - systemTime) > frameSpeed)
         {
            
             systemTime = System.currentTimeMillis();
-            System.out.println(animationFrame + " : " + animation.length);
+            //System.out.println(animationFrame + " : " + animation.length);
             if (animationFrame == animation.length)
             {
                 animationFrame = 0;
