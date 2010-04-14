@@ -91,14 +91,20 @@ public abstract class GameObject
     { 
         preAnimation();
         graphics.setColor(Color.red);
-        graphics.drawRect(x, y, width, height);
+        graphics.fillRect(x, y, width, height);
+
         graphics.setColor(Color.blue);
-        graphics.fillRect(x, y+1, width, 1);
+        graphics.fillRect(x, y, width, 1);
+
         graphics.setColor(Color.green);
         graphics.fillRect(x, y, 1, height);
-        graphics.fillRect(x+width, y-1, 1, height);
+        graphics.fillRect(x+width-1, y, 1, height);
+
         graphics.setColor(Color.orange);
         graphics.fillRect(x, y+height-1, width, 2);
+
+        graphics.setColor(Color.pink);
+         graphics.fillRect(x, y+height-1, width, 4);
         graphics.drawImage(getImage(), x, y, null);
         postAnimation();
     }
@@ -186,13 +192,13 @@ public abstract class GameObject
     public Collision checkCollisionMap(int x, int y, int downSize)
     {
         Polygon mapPolygon =  game.getBackground().getPolygon();
-        if (mapPolygon.intersects(x, y+1, width, 1))
+        if (mapPolygon.intersects(x, y, width, 1))
         {
             return Collision.UP;
         }
 
-        if (mapPolygon.intersects(x, y-1, 1, height) ||
-             mapPolygon.intersects(x+width, y-1, 1, height))
+        if (mapPolygon.intersects(x, y, 1, height) ||
+             mapPolygon.intersects(x+width-1, y, 1, height))
         {
             return Collision.SIDE;
         }

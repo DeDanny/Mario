@@ -19,11 +19,9 @@ public class Munt extends GameObject {
     private int goinUp = 0;
 
     public Munt(Game game) {
-        super(game,100, 350, 63, 63, "/images/nsmbtileset.png");
+        super(game,100, 350, 44, 48, "/images/nsmbtileset.png");
 
         frames.put("munt 0", new Rectangle(457, 167, 45, 48));
-
-        
 
         setAnimation(new String[]{"munt 0"});
 
@@ -63,12 +61,6 @@ public class Munt extends GameObject {
         }
         raak = false;
          * */
-    }
-
-   // @Override
-    public void doGravity()
-    {
-
     }
 }
 

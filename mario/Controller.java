@@ -49,6 +49,8 @@ public class Controller implements KeyListener, Runnable
     {
         while (marioWorld.isRunning())
         {
+
+            System.out.println("going loop----------------------------------------------------------------");
             try
             {
                 for (GameObject gameObject : marioWorld.getGame().getGameObjects())
@@ -56,7 +58,7 @@ public class Controller implements KeyListener, Runnable
                     gameObject.doLoopAction();                
                 }
 
-                for (GameCharacter gameObject : marioWorld.getGame().getCharactersObjects())
+                for (CharacterObject gameObject : marioWorld.getGame().getCharactersObjects())
                 {
                     gameObject.doMapCollision(gameObject.checkCollisionMap());
                     gameObject.doCharacterCollision(gameObject.checkCollisionGameCharacters());
@@ -65,15 +67,14 @@ public class Controller implements KeyListener, Runnable
 
                 view.draw();
 
-                System.out.println("going loop");
 
+                System.out.println("end loop----------------------------------------------------------------");
                 Thread.sleep(GAMESPEED);
             } catch (InterruptedException ex)
             {
                 System.out.println(ex);
             }
         }
-        //shutDown();
         System.exit(0);
     }
 
@@ -98,23 +99,24 @@ public class Controller implements KeyListener, Runnable
         {
             marioWorld.getGame().getMario().setRight(true);
         }
-        if (e.getKeyCode() == KeyEvent.VK_UP)
-        {
-            marioWorld.getGame().getMario().setUp(true);
-        }
+
+//      if (e.getKeyCode() == KeyEvent.VK_UP)
+//      {
+//          marioWorld.getGame().getMario().setUp(true);
+//      }
         if (e.getKeyCode() == KeyEvent.VK_DOWN)
         {
             marioWorld.getGame().getMario().setDown(true);
         }
         if (e.getKeyCode() == KeyEvent.VK_1)
         {
-            marioWorld.getGame().getMario().setState(new BigMario(marioWorld.getGame().getMario()));
+            marioWorld.getGame().getMario().setBig(true);
         }
         if (e.getKeyCode() == KeyEvent.VK_2)
         {
-            marioWorld.getGame().getMario().setState(new SmallMario(marioWorld.getGame().getMario()));
+            marioWorld.getGame().getMario().setBig(false);
         }
-        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+        if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP)
         {
             marioWorld.getGame().getMario().setJump(true);
         }

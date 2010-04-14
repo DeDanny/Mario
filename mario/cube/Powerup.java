@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.enemy;
+package mario.cube;
 
-import mario.enemy.ai.Ai;
+import mario.cube.ai.Ai;
 import mario.CharacterObject;
 import mario.Game;
 
@@ -12,11 +12,11 @@ import mario.Game;
  *
  * @author Danny
  */
-abstract public class Enemy extends CharacterObject
+abstract public class Powerup extends CharacterObject
 {
     protected Ai ai;
 
-    public Enemy(Game game, int x, int y, int width, int height, String fileName)
+    public Powerup(Game game, int x, int y, int width, int height, String fileName)
     {
         super(game, x, y, width, height, fileName);
     }

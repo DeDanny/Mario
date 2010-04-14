@@ -11,14 +11,14 @@ import mario.state.*;
 *
 * @author danny
 */
-public class Mario extends GameCharacter
+public class Mario extends CharacterObject
 {
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
     private boolean down = false;
     private boolean jump = false;
-    private boolean isBig = false;
+    private boolean big = false; // False is SmallMario - True is BigMario
     private boolean fall = false;
     private Direction direction = Direction.LEFT;
     private SmallMario smallMario = new SmallMario(this);
@@ -31,7 +31,7 @@ public class Mario extends GameCharacter
 
     public Mario(Game game)
     {
-        super(game, 100, 480, 42, 57, "/images/mario_sprite.png");
+        super(game, 100, 400, 42, 57, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
@@ -79,7 +79,7 @@ public class Mario extends GameCharacter
         frames.put("bigMarioFallLeft 0", new Rectangle(384, 345, 48, 87)); // LEFT
         frames.put("bigMarioFallRight 0", new Rectangle(744, 345, 48, 87)); // RIGHT
 
-        state = new SmallMario(this);
+        //state = new SmallMario(this);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Mario extends GameCharacter
                 System.out.println("fallMario");
             } else
             {
-                if (isBig)
+                if (big)
                 {
                     setState(bigMario);
                     System.out.println("bigMario");
@@ -109,6 +109,7 @@ public class Mario extends GameCharacter
                 {
                     setState(smallMario);
                     System.out.println("smallMario");
+                    setHeight(60);
                 }
             }
         }
@@ -154,6 +155,15 @@ public class Mario extends GameCharacter
     {
         this.down = down;
     }
+    public void setBig(boolean isBig)
+    {
+        this.big = isBig;
+    }
+
+    public boolean getIsBig()
+    {
+        return big;
+    }
 
     public boolean isLeft()
     {
@@ -198,7 +208,7 @@ public class Mario extends GameCharacter
     @Override
     public void doMapCollision(Collision side)
     {
-        System.out.print(side);
+        System.out.println(side);
         if (side == Collision.NONE)
         {
             setFall(true);
@@ -222,6 +232,7 @@ public class Mario extends GameCharacter
     {
         //setHeight(heightOriginal);
         setY(getY() - moveY);
+        moveY = 0;
         //tempHeight = 0;
     }
 
@@ -244,15 +255,12 @@ public class Mario extends GameCharacter
                 System.out.println("MARIO DOOD");
                 break;
             case UP:
-
                 System.out.println("MARIO DOOD");
                 break;
             case DOWN:
-
                 System.out.println("MARIO EXTRA JUMP");
                 break;
             case NONE:
-
                 System.out.println("MARIO NIKS");
                 break;
         }

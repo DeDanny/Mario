@@ -4,15 +4,11 @@
  */
 package mario;
 
-
-import mario.cube.Munt;
-
-
 import mario.background.Background;
 import mario.cube.Munt;
 import mario.cube.Questionmark;
 import mario.cube.Stone;
-
+import mario.cube.Mushroom;
 import java.util.ArrayList;
 import mario.enemy.*;
 
@@ -30,17 +26,19 @@ public class Game
     private Mario mario = new Mario(this);
     private Goomba goomba = new Goomba(this,300, 505, 47, 47);
     private Background background   = new Background(this);
+    private Mushroom Mushroom = new Mushroom(this);
     private Munt Munt   = new Munt(this);
     private Questionmark Questionmark   = new Questionmark(this);
     private Stone Stone   = new Stone(this);
 
 
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-    private ArrayList<GameCharacter> charactersObjects = new ArrayList<GameCharacter>();
+    private ArrayList<CharacterObject> charactersObjects = new ArrayList<CharacterObject>();
 
     public Game()
     {
         charactersObjects.add(mario);
+        gameObjects.add(Mushroom);
         gameObjects.add(Munt);
         gameObjects.add(Questionmark);
         charactersObjects.add(goomba);
@@ -77,17 +75,12 @@ public class Game
         return mario;
     }
 
-    public Goomba getGoomba()
-    {
-        return goomba;
-    }
-
     public Background getBackground()
     {
         return background;
     }
 
-    public ArrayList<GameCharacter> getCharactersObjects()
+    public ArrayList<CharacterObject> getCharactersObjects()
     {
         return charactersObjects;
     }
