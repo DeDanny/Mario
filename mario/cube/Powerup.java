@@ -5,14 +5,14 @@
 package mario.cube;
 
 import mario.cube.ai.Ai;
-import mario.GameCharacter;
+import mario.CharacterObject;
 import mario.Game;
 
 /**
  *
  * @author Danny
  */
-abstract public class Powerup extends GameCharacter
+abstract public class Powerup extends CharacterObject
 {
     protected Ai ai;
 
