@@ -26,12 +26,12 @@ public class Goomba extends Enemy
         frameSpeed = 100;
         setAnimation(new String[]
                 {
-                    "goombaStandLeft 0", "goombaWalkLeft 0"
+                    "goombaStandLeft 0", "goombaWalkLeft 0",
                 });
 
       
 
-    }
+   }
 
     @Override
     public void hitBy()
@@ -43,18 +43,23 @@ public class Goomba extends Enemy
    @Override
    public void doMapCollision(Collision side)
    {
-    //   if(side == Collision.SIDE)
-   
-       // setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
-       //else if(side == 2)
-       // setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
-   
-   
+
+       if(side == Collision.SIDE)
+          super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
+
    }
+       //else if(side == Collision.
+       
+   
+   
+   
 
     @Override
     public void doCharacterCollision(Collision collision)
     {
         
+
+    
+
     }
 }

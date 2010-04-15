@@ -25,7 +25,7 @@ public class Game
 
 
     private Mario mario = new Mario(this);
-    private Goomba goomba = new Goomba(this,300, 505, 45, 45);
+    private Goomba goomba = new Goomba(this,300, 505, 47, 47);
     private Background background   = new Background(this);
     private Mushroom Mushroom = new Mushroom(this);
     private Munt Munt   = new Munt(this);
