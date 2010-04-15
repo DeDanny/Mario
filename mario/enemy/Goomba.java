@@ -55,10 +55,8 @@ public class Goomba extends Enemy
    
    
 
-    @Override
-    public void doCharacterCollision(Collision collision)
+    public void doCharacterCollision(Collision collision, CharacterObject charachter)
     {
-
         if(characterObject instanceof mario.Mario)
         {
             switch(collision)

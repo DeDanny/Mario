@@ -10,10 +10,8 @@ package mario;
  * @author Danny
  */
 public enum Collision {
-
 	UP,
 	DOWN,
 	SIDE,
         NONE
-
 }
