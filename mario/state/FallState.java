@@ -15,13 +15,13 @@ import mario.Mario;
 public class FallState extends MarioState {
 
 
-    protected static final int WALKSPEED = 2;
+    protected static final int WALKSPEED = 4;
 
     protected String[] smallFallRight = new String[]{"smallMarioFallRight 0"};
     protected String[] smallFallLeft = new String[]{"smallMarioFallLeft 0"};
     protected String[] bigFallRight = new String[]{"bigMarioFallRight 0"};
     protected String[] bigFallLeft = new String[]{"bigMarioFallLeft 0"};
-
+    private int fallsize = 1;
 
     public FallState(Mario marioObject) {
         super(marioObject);
@@ -40,7 +40,11 @@ public class FallState extends MarioState {
             setAnimationRight();
         }
 
-        int fallsize = 5;
+
+        if(fallsize < 7)
+        {
+            fallsize++;
+        }
         while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
             fallsize--;
             System.out.println("fallsize = " + fallsize);

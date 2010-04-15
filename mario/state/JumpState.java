@@ -13,7 +13,7 @@ import mario.Mario;
  */
 public class JumpState extends MarioState {
 
-    protected static final int WALKSPEED = 2;
+    protected static final int WALKSPEED = 4;
 
 
     private int jumpTeller = 0;
@@ -21,6 +21,7 @@ public class JumpState extends MarioState {
     protected String[] smallJumpLeft = new String[]{"smallMarioJumpLeft 0"};
     protected String[] bigJumpRight = new String[]{"bigMarioJumpRight 0"};
     protected String[] bigJumpLeft = new String[]{"bigMarioJumpLeft 0"};
+    private int jumpHeight;
 
     public JumpState(Mario marioObject) {
         super(marioObject);
@@ -81,8 +82,15 @@ public class JumpState extends MarioState {
     }
 
     private void doJumping() {
+
+        jumpHeight = 10;
+        if (jumpTeller > 10)
+        {
+            jumpHeight--;
+        }
+
         if (jumpTeller < 15) {
-            marioObject.setY(marioObject.getY() - 10);
+            marioObject.setY(marioObject.getY() - jumpHeight);
             jumpTeller++;
             //System.out.println("teller " + jumpTeller);
         } else {
