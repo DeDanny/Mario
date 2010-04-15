@@ -11,10 +11,9 @@ import mario.*;
  *
  * @author Nishchal Baldew
  */
-public class Questionmark extends GameObject
+public class Questionmark extends Cube
 {
-    private boolean raak = true;
-    private int goinUp = 0;
+
 
     public Questionmark(Game game)
     {
@@ -33,35 +32,14 @@ public class Questionmark extends GameObject
     @Override
     public void doLoopAction()
     {
-        if (raak)
-        {
-            if (goinUp < 2)
-            {
-                setY(getY() - 5);
-                goinUp++;
 
-            } else
-            {
-                setY(getY() + 5);
-                setAnimation(new String[]
-                        {
-                            "questionmark 1"
-                        });
-                if (goinUp < 4)
-                {
-                    raak = false;
-
-                }
-            }
-        }
-        /*
-        if (y > 95) {
-        setY(getY() - 5);
-        } else if (raak = true) {
-        setY(getY() + 5);
-        }
-        raak = false;
-         * */
+        doHit();
+    }
+    @Override
+    public void doHit()
+    {
+        super.doHit();
+        setAnimation(new String[]{"questionmark 1"});
     }
 }
             

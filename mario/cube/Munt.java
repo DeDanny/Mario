@@ -53,14 +53,6 @@ public class Munt extends GameObject {
                  }
             }
         }
-        /*
-        if (y > 95) {
-            setY(getY() - 5);
-        } else if (raak = true) {
-            setY(getY() + 5);
-        }
-        raak = false;
-         * */
     }
 }
 
