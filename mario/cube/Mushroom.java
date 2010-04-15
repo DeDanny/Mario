@@ -57,7 +57,8 @@ public class Mushroom extends Powerup
    
 
     @Override
-    public void doCharacterCollision(Collision collision)
+    public void doCharacterCollision(Collision collision, CharacterObject charachter)
+
     {
     }
 
