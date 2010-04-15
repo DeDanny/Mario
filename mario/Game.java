@@ -12,6 +12,7 @@ import mario.cube.Mushroom;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.enemy.*;
+import mario.ScoreBalk;
 
 /**
  *
@@ -24,9 +25,12 @@ public class Game
     private Mario mario = new Mario(this);
     private Background background = new Background(this);
     private Mushroom Mushroom = new Mushroom(this);
-    private Munt Munt = new Munt(this);
-    private Questionmark Questionmark = new Questionmark(this);
-    private Stone Stone = new Stone(this);
+
+    private Munt Munt   = new Munt(this);
+    private Questionmark Questionmark   = new Questionmark(this);
+    private Stone Stone   = new Stone(this);
+    private ScoreBalk ScoreBalk = new ScoreBalk(this);
+
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     private ArrayList<CharacterObject> charactersObjects = new ArrayList<CharacterObject>();
 
@@ -40,6 +44,7 @@ public class Game
         charactersObjects.add(new Goomba(this, 200, 505, 45, 45));
         charactersObjects.add(new Goomba(this, 500, 505, 45, 45));
         gameObjects.add(Stone);
+        gameObjects.add(ScoreBalk);
     }
 
     public boolean isRunning()

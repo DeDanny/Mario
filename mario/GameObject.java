@@ -65,7 +65,7 @@ public abstract class GameObject
         return sprite;
     }
 
-    private BufferedImage getImage()
+    protected BufferedImage getImage()
     {
         //System.out.println((System.currentTimeMillis() - systemTime));
         if ((System.currentTimeMillis() - systemTime) > frameSpeed)
@@ -90,7 +90,6 @@ public abstract class GameObject
 
     public void draw(Graphics graphics)
     { 
-        preAnimation();
         graphics.drawImage(getImage(), x, y, null);
         graphics.setColor(Color.red);
         //graphics.fillRect(x, y, width, height);
@@ -111,8 +110,11 @@ public abstract class GameObject
 
         graphics.setColor(Color.orange);
         graphics.fillRect(x, y+height-1, width, 2);
-        
-        postAnimation();
+
+        graphics.setColor(Color.pink);
+         graphics.fillRect(x, y+height-1, width, 4);
+        graphics.drawImage(getImage(), x, y, null);;
+     
     }
 
     public abstract void doLoopAction();
@@ -239,15 +241,5 @@ public abstract class GameObject
         }
 
         return Collision.NONE;
-    }
-
-    protected void preAnimation()
-    {
-
-    }
-
-    protected void postAnimation()
-    {
-
     }
 }

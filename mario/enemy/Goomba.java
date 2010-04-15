@@ -9,6 +9,8 @@ import mario.CharacterObject;
 import mario.Collision;
 import mario.Game;
 import mario.enemy.ai.GoombaAi;
+import mario.enemy.*;
+
 
 /**
  *
@@ -28,6 +30,7 @@ public class Goomba extends Enemy
         setAnimation(new String[]
                 {
                     "goombaStandLeft 0", "goombaWalkLeft 0",
+                    //"goombaStandRight 0", "goombaWalkRight 0"
                 });
 
       
@@ -45,8 +48,15 @@ public class Goomba extends Enemy
    public void doMapCollision(Collision side)
    {
 
-       if(side == Collision.SIDE)
-          super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
+       //  if(side == Collision.SIDE)
+         {
+           
+                                                            
+             
+             //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
+         }
+          
+
 
    }
        //else if(side == Collision.
