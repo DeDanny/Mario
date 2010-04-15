@@ -21,6 +21,7 @@ abstract public class Powerup extends CharacterObject
         super(game, x, y, width, height, fileName);
     }
 
+   
     @Override
     public final void doLoopAction()
     {

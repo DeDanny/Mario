@@ -39,11 +39,11 @@ abstract public class MoveState extends MarioState
 
 
 
-    protected static int Height;
-    protected static int tempHeight;
-    protected static int tempY = 0;
+    protected  int Height;
+    protected  int tempHeight;
+    protected  int tempY;
     private boolean ducked = false;
-    private boolean noMore = false;
+    private boolean noMore = true;
 
 
     public MoveState(Mario gameObject)
@@ -84,8 +84,8 @@ abstract public class MoveState extends MarioState
 
         if(!ducked && !noMore)
         {
-            marioObject.setHeight(60);
-            marioObject.setY(marioObject.getY() - 19);
+            marioObject.setHeight(Height);
+            marioObject.setY(marioObject.getY() - tempY);
             noMore = true;
         }
     }
@@ -117,19 +117,9 @@ abstract public class MoveState extends MarioState
     private void doDown()
     {
 
-        //if (ducked) {
-
-        //}else{
-            //marioObject.setY(marioObject.getY() + tempY);
-            //marioObject.setHeight(tempHeight);
-            //
-            //marioObject.setTempHeight(2);
-            //ducked = false;
-            //System.out.println("Fuck me i am Duck");
-        //}
         if (ducked) {
-            marioObject.setHeight(41);
-            marioObject.setY(marioObject.getY() + 19);
+            marioObject.setHeight(tempHeight);
+            marioObject.setY(marioObject.getY() + tempY);
             noMore = false;
         }
 

@@ -22,8 +22,9 @@ public class SmallMario extends MoveState {
         this.UpLeft = new String[]{"smallMarioLookUpLeft 0"};
         this.DuckRight = new String[]{"smallMarioDuckRight 0"};
         this.DuckLeft = new String[]{"smallMarioDuckLeft 0"};
-        //this.Height = 60;
-        //this.tempHeight = 10;
+        this.Height = 60;
+        this.tempHeight = 41;
+        this.tempY = 19;
 
         //gameObject.setHeight(60);
         //gameObject.setAnimation(StandRight);

@@ -36,7 +36,6 @@ public class Stone extends GameObject
         {
             if (goinUp < 2)
             {
-                System.out.println("HALLO" + goinUp);
                 setY(getY() - 5);
                 goinUp++;
             } else

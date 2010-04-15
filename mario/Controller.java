@@ -7,8 +7,6 @@ package mario;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
-import mario.state.BigMario;
-import mario.state.SmallMario;
 
 /**
  *
@@ -21,6 +19,7 @@ public class Controller implements KeyListener, Runnable
     private JFrame frame;
     private Thread gameLoop = new Thread(this, "GameLoop");
     private final static int GAMESPEED = 10;
+    private CollisionDetector collisionDetector;
 
     /**
      *
@@ -33,6 +32,7 @@ public class Controller implements KeyListener, Runnable
         this.marioWorld = marioWorld;
         this.view = view;
         this.frame = frame;
+        collisionDetector = new CollisionDetector(marioWorld);
 
         init();
 
@@ -49,30 +49,30 @@ public class Controller implements KeyListener, Runnable
     {
         while (marioWorld.isRunning())
         {
-
             System.out.println("going loop----------------------------------------------------------------");
-            try
+
+            if (!marioWorld.getGame().isPaused())
             {
-                for (GameObject gameObject : marioWorld.getGame().getGameObjects())
+                try
                 {
-                    gameObject.doLoopAction();                
-                }
+                    marioWorld.getGame().removeDeadObjects();
 
-                for (CharacterObject gameObject : marioWorld.getGame().getCharactersObjects())
+                    collisionDetector.detectCollisionsGameObjects();
+
+                    gameObjectenLoopAction();
+                    gameObjectLoopAction();
+
+                    view.draw();
+
+                    System.out.println("end loop----------------------------------------------------------------");
+                    Thread.sleep(GAMESPEED);
+                } catch (InterruptedException ex)
                 {
-                    gameObject.doMapCollision(gameObject.checkCollisionMap());
-                    gameObject.doCharacterCollision(gameObject.checkCollisionGameCharacters());
-                    gameObject.doLoopAction();
+                    System.out.println(ex);
                 }
-
-                view.draw();
-
-
-                System.out.println("end loop----------------------------------------------------------------");
-                Thread.sleep(GAMESPEED);
-            } catch (InterruptedException ex)
+            } else
             {
-                System.out.println(ex);
+                //pauze menu
             }
         }
         System.exit(0);
@@ -88,7 +88,7 @@ public class Controller implements KeyListener, Runnable
     {
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
         {
-            marioWorld.setRunning(false);
+            marioWorld.getGame().setPaused(true);
         }
 
         if (e.getKeyCode() == KeyEvent.VK_LEFT)
@@ -116,6 +116,14 @@ public class Controller implements KeyListener, Runnable
         {
             marioWorld.getGame().getMario().setBig(false);
         }
+        if (e.getKeyCode() == KeyEvent.VK_0)
+        {
+            marioWorld.setRunning(false);
+        }
+        if (e.getKeyCode() == KeyEvent.VK_3)
+        {
+            marioWorld.getGame().setPaused(false);
+        }
         if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP)
         {
             marioWorld.getGame().getMario().setJump(true);
@@ -142,5 +150,22 @@ public class Controller implements KeyListener, Runnable
             marioWorld.getGame().getMario().setDown(false);
         }
     }
-}
 
+    private void gameObjectenLoopAction()
+    {
+        for (GameObject gameObject : marioWorld.getGame().getGameObjects())
+        {
+            gameObject.doLoopAction();
+        }
+    }
+
+    private void gameObjectLoopAction()
+    {
+
+        for (CharacterObject gameObject : marioWorld.getGame().getCharactersObjects())
+        {
+            gameObject.doMapCollision(gameObject.checkCollisionMap());
+            gameObject.doLoopAction();
+        }
+    }
+}

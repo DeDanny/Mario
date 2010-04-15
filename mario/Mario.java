@@ -18,6 +18,8 @@ public class Mario extends CharacterObject
     private boolean up = false;
     private boolean down = false;
     private boolean jump = false;
+    private boolean jumpExtra = false;
+
     private boolean big = false; // False is SmallMario - True is BigMario
     private boolean fall = false;
     private Direction direction = Direction.LEFT;
@@ -85,16 +87,17 @@ public class Mario extends CharacterObject
     public void doLoopAction()
     {
 
-
-        if (jump)
+        if (jump || jumpExtra )
         {
-            if (this.state != fallMario) {
+            if (this.state != fallMario || jumpExtra ) {
                 setState(jumpMario);
+                this.jumpExtra  = false;
                 System.out.println("jumpMario");
             } else {
                 this.setJump(false);
             }
-        } else
+        }
+        else
         {
             if (fall)
             {
@@ -105,6 +108,11 @@ public class Mario extends CharacterObject
                 if (big)
                 {
                     setState(bigMario);
+                    if(!duck)
+                    {
+                        setY(getY() + 19);
+                    }
+                    setHeight(84);
                     System.out.println("bigMario");
                 } else
                 {
@@ -213,7 +221,6 @@ public class Mario extends CharacterObject
     @Override
     public void doMapCollision(Collision side)
     {
-        System.out.println(side);
         if (side == Collision.NONE)
         {
             setFall(true);
@@ -224,34 +231,21 @@ public class Mario extends CharacterObject
         }
     }
 
-
-    public void setMoveY(int moveY, int TmpHeight)
-    {
-//    ducked = true;
-//    setTempHeight(TmpHeight);
-//    this.moveY  = moveY;
-    }
-
-    public void isDuck(boolean duck)
-    {
-        this.duck = true;
-    }
-
-
-
-    @Override
-    public void doCharacterCollision(Collision collision)
+    public void doCharacterCollision(Collision collision, CharacterObject charachter)
     {
         switch (collision)
         {
             case SIDE:
+                setAlive(false);
                 System.out.println("MARIO DOOD");
                 break;
             case UP:
+                setAlive(false);
                 System.out.println("MARIO DOOD");
                 break;
             case DOWN:
                 System.out.println("MARIO EXTRA JUMP");
+                jumpExtra = true;
                 break;
             case NONE:
                 System.out.println("MARIO NIKS");
