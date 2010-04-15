@@ -15,8 +15,7 @@ import mario.cube.ai.MushroomAi;
 public class Mushroom extends Powerup
 
 {
-   
-
+  
     public Mushroom(Game game)
     {
         super(game, 100, 350, 48, 48, "/images/nsmbtileset.png");
@@ -31,19 +30,30 @@ public class Mushroom extends Powerup
 
     }
 
+
     @Override
+
     public void hitBy()
     {
     }
 
-//    @Override
-//   public void doMapCollision(Collision side)
-//   {
-//
-//       if(side == Collision.SIDE)
-//          setX(getX() + 1);
-//
-//   }
+    @Override
+   public void doMapCollision(Collision side)
+   {
+        if(side == Collision.SIDE)
+        {
+            Direction direction = ai.getDirection();
+            if(direction == Direction.LEFT)
+            {
+                direction = Direction.RIGHT;
+            }
+            else
+            {
+                direction = Direction.LEFT;
+            }
+            ai.setDirection(direction);
+        }
+   }
    
 
     @Override

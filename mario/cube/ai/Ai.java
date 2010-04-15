@@ -4,6 +4,7 @@
  */
 package mario.cube.ai;
 
+import mario.Direction;
 import mario.cube.Powerup;
 
 /**
@@ -13,10 +14,19 @@ import mario.cube.Powerup;
 abstract public class Ai
 {
     protected Powerup mushroom;
+    protected Direction direction;
 
     public Ai(Powerup mushroom)
     {
         this.mushroom = mushroom;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 
     public abstract void doLoopAction();
