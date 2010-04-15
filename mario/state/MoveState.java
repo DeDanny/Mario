@@ -41,7 +41,7 @@ abstract public class MoveState extends MarioState
 
     protected  int Height;
     protected  int tempHeight;
-    protected  int tempY;
+    protected  int tempY = 0;
     private boolean ducked = false;
     private boolean noMore = true;
 
@@ -82,7 +82,7 @@ abstract public class MoveState extends MarioState
             ducked = false;
         }
 
-        if(!ducked && !noMore)
+        if(!ducked && !noMore && tempY != 0)
         {
             marioObject.setHeight(Height);
             marioObject.setY(marioObject.getY() - tempY);
