@@ -25,10 +25,8 @@ public class Mario extends CharacterObject
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
-    private int moveY = 0;
-    private int tempHeight;
-    private int heightOriginal;
-    private boolean PrePost = false;
+    private boolean duck = false;
+
 
     public Mario(Game game)
     {
@@ -87,17 +85,7 @@ public class Mario extends CharacterObject
     public void doLoopAction()
     {
 
-        if (big)
-        {
-            heightOriginal = 84;
-            tempHeight = heightOriginal;
-            setHeight(heightOriginal);
-        } else
-        {
-            heightOriginal = 60;
-            tempHeight = heightOriginal;
-            setHeight(heightOriginal);
-        }
+
         if (jump)
         {
             if (this.state != fallMario) {
@@ -121,6 +109,11 @@ public class Mario extends CharacterObject
                 } else
                 {
                     setState(smallMario);
+                    if(!duck)
+                    {
+                        setY(getY() + 19);
+                    }
+                    setHeight(60);
                     System.out.println("smallMario");
                 }
             }
@@ -231,41 +224,20 @@ public class Mario extends CharacterObject
         }
     }
 
-    @Override
-    protected void preAnimation()
-    {
-        if(PrePost)
-        {
-            setHeight(tempHeight);
-            setY(getY() + moveY);
-            
-            PrePost = false;
-        }
-    }
-
-    @Override
-    protected void postAnimation()
-    {
-        //if(PrePost)
-        {
-//            setHeight(heightOriginal);
-//            setY(getY() - moveY);
-//            PrePost = false;
-
-        }
-    }
 
     public void setMoveY(int moveY, int TmpHeight)
     {
-        PrePost = true;
-        setTempHeight(TmpHeight);
-        this.moveY      = moveY;
+//    ducked = true;
+//    setTempHeight(TmpHeight);
+//    this.moveY  = moveY;
     }
 
-    public void setTempHeight(int tempHeight)
+    public void isDuck(boolean duck)
     {
-        this.tempHeight = tempHeight;
+        this.duck = true;
     }
+
+
 
     @Override
     public void doCharacterCollision(Collision collision)

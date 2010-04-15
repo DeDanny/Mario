@@ -29,13 +29,21 @@ abstract public class MoveState extends MarioState
 //
 //    protected static int direction      = RIGHT;
 
-    protected boolean   lookingUP       = false;
-    protected boolean   duckDown        = false;
+    //protected boolean   lookingUP       = false;
+    //protected boolean   ducked          = false;
     //protected static int duckMoveY      = 19;
-    protected static int duckMoveY      = 19;
+   // protected static int duckMoveY      = 19;
     //protected static int duckMoveYOriginal      = 60;
     //protected static int duckHeight     = 42;
-    protected static int duckHeight     = 41;
+    //protected static int duckHeight     = 41;
+
+
+
+    protected static int Height;
+    protected static int tempHeight;
+    protected static int tempY = 0;
+    private boolean ducked = false;
+    private boolean noMore = false;
 
 
     public MoveState(Mario gameObject)
@@ -48,30 +56,37 @@ abstract public class MoveState extends MarioState
     public void doAction()
     {
 
-        if (duckDown) {
-            //duckDown = false;
-            //marioObject.setMoveY(duckMoveYOriginal);
-        }
-        
         if(marioObject.isLeft() && !marioObject.isRight() && !marioObject.isPreformingSpecialMove())
         {
             doLeft();
+            ducked = false;
         }
         else if(marioObject.isRight() && !marioObject.isLeft() && !marioObject.isPreformingSpecialMove())
         {
             doRight();
+            ducked = false;
         }
         else if(marioObject.isUp())
         {
             doUp();
+            ducked = false;
         }
         else if(marioObject.isDown())
         {
             doDown();
+            ducked = true;
         }
         else
         {
             doStand();
+            ducked = false;
+        }
+
+        if(!ducked && !noMore)
+        {
+            marioObject.setHeight(60);
+            marioObject.setY(marioObject.getY() - 19);
+            noMore = true;
         }
     }
 
@@ -101,17 +116,23 @@ abstract public class MoveState extends MarioState
     }
     private void doDown()
     {
-        if (!duckDown) {
-            //marioObject.setHeight(duckHeight);
-            marioObject.setMoveY(duckMoveY, duckHeight);
-            
-            //marioObject.setMoveY(duckMoveY);
-            marioObject.setY(marioObject.getY() + duckMoveY);
+
+        //if (ducked) {
+
+        //}else{
+            //marioObject.setY(marioObject.getY() + tempY);
+            //marioObject.setHeight(tempHeight);
             //
             //marioObject.setTempHeight(2);
-            duckDown = true;
-            System.out.println("Fuck me i am Duck");
+            //ducked = false;
+            //System.out.println("Fuck me i am Duck");
+        //}
+        if (ducked) {
+            marioObject.setHeight(41);
+            marioObject.setY(marioObject.getY() + 19);
+            noMore = false;
         }
+
         switch (marioObject.getDirection()) {
             case LEFT:
                 super.setAnimation(DuckLeft);
@@ -138,8 +159,9 @@ abstract public class MoveState extends MarioState
 
 
 
-    private void kansloos()
-    {
+
+//    private void kansloos()
+//    {
 //        if(false){
 //            // Reset Mario's Y-as after looking up
 //            if (lookingUP) {
@@ -209,5 +231,5 @@ abstract public class MoveState extends MarioState
 //                }
 //            }
 //        }
-    }
+//    }
 }
