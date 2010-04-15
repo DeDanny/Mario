@@ -5,9 +5,12 @@
 package mario.enemy;
 
 import java.awt.Rectangle;
+import mario.CharacterObject;
 import mario.Collision;
 import mario.Game;
 import mario.enemy.ai.GoombaAi;
+import mario.enemy.*;
+
 
 /**
  *
@@ -27,6 +30,7 @@ public class Goomba extends Enemy
         setAnimation(new String[]
                 {
                     "goombaStandLeft 0", "goombaWalkLeft 0",
+                    //"goombaStandRight 0", "goombaWalkRight 0"
                 });
 
       
@@ -44,8 +48,15 @@ public class Goomba extends Enemy
    public void doMapCollision(Collision side)
    {
 
-       if(side == Collision.SIDE)
-          super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
+       //  if(side == Collision.SIDE)
+         {
+           
+                                                            
+             
+             //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
+         }
+          
+
 
    }
        //else if(side == Collision.
@@ -54,12 +65,19 @@ public class Goomba extends Enemy
    
    
 
-    @Override
-    public void doCharacterCollision(Collision collision)
+    public void doCharacterCollision(Collision collision, CharacterObject characterObject)
     {
-        
 
-    
+        if(characterObject instanceof mario.Mario)
+        {
+            switch(collision)
+            {
+                case UP:
+                    System.out.println("Goomba: \"I'm dead!!! :(\"");
+                    setAlive(false);
+                    break;
+            }
+        }
 
     }
 }

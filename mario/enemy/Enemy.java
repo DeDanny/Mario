@@ -26,7 +26,7 @@ abstract public class Enemy extends CharacterObject
     {
         ai();
     }
-
+   
     public final void ai()
     {
         ai.doLoopAction();

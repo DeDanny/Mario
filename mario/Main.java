@@ -26,12 +26,12 @@ public class Main extends JFrame
         setVisible(true);
 
         view = new View(MarioWorld, this);
-        new Controller(MarioWorld, view, this);
+        Controller controller = new Controller(MarioWorld, view, this);
         setVisible(true);
     }
 
     public static void main(String[] args)
     {
-        new Main();
+        Main main = new Main();
     }
 }

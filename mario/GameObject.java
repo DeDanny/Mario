@@ -32,6 +32,7 @@ public abstract class GameObject
     protected long systemTime = System.currentTimeMillis();
     protected Game game;
     private static ArrayList<GameObject> collection = new ArrayList<GameObject>();
+    private int x_last, y_last, width_last, height_last;
 
     public GameObject(Game game, int x, int y, int width, int height, String fileName)
     {
@@ -40,7 +41,7 @@ public abstract class GameObject
         this.width = width;
         this.height = height;
         sprite = loadImage(fileName);
-        collection.add(this);
+        boolean add = collection.add(this);
         this.game = game;
     }
 
@@ -66,12 +67,12 @@ public abstract class GameObject
 
     protected BufferedImage getImage()
     {
-        System.out.println((System.currentTimeMillis() - systemTime));
+        //System.out.println((System.currentTimeMillis() - systemTime));
         if ((System.currentTimeMillis() - systemTime) > frameSpeed)
         {
            
             systemTime = System.currentTimeMillis();
-            System.out.println(animationFrame + " : " + animation.length);
+            //System.out.println(animationFrame + " : " + animation.length);
             if (animationFrame == animation.length)
             {
                 animationFrame = 0;
@@ -89,15 +90,23 @@ public abstract class GameObject
 
     public void draw(Graphics graphics)
     { 
+        graphics.drawImage(getImage(), x, y, null);
         graphics.setColor(Color.red);
-        graphics.fillRect(x, y, width, height);
+        //graphics.fillRect(x, y, width, height);
+
+        graphics.setColor(Color.cyan);
+        graphics.fillRect(x-1, y+1, width, 2);
 
         graphics.setColor(Color.blue);
         graphics.fillRect(x, y, width, 1);
 
+
         graphics.setColor(Color.green);
         graphics.fillRect(x, y, 1, height);
         graphics.fillRect(x+width-1, y, 1, height);
+        
+        graphics.setColor(Color.pink);
+        graphics.fillRect(x, y+height-1, width, 4);
 
         graphics.setColor(Color.orange);
         graphics.fillRect(x, y+height-1, width, 2);
@@ -105,6 +114,7 @@ public abstract class GameObject
         graphics.setColor(Color.pink);
          graphics.fillRect(x, y+height-1, width, 4);
         graphics.drawImage(getImage(), x, y, null);;
+     
     }
 
     public abstract void doLoopAction();
@@ -118,11 +128,30 @@ public abstract class GameObject
     {
         return y;
     }
+    public int getXLast()
+    {
+        return x_last;
+    }
+
+    public int getYLast()
+    {
+        return y_last;
+    }
+    public int getWidthLast()
+    {
+        return width_last;
+    }
+
+    public int getHeightLast()
+    {
+        return height_last;
+    }
 
     public void setX(int x)
     {
         if (checkCollisionMap(x, y) == Collision.NONE)
         {
+            x_last = this.x;
             this.x = x;
         }
     }
@@ -131,7 +160,10 @@ public abstract class GameObject
     {
         if (checkCollisionMap(x, y) == Collision.NONE)
         {
+            y_last = this.y;
+            System.out.println(y_last + " : " + this.y + " : " + y);
             this.y = y;
+            System.out.println(y_last + " : " + this.y + " : " + y);
         }
     }
 
@@ -147,11 +179,13 @@ public abstract class GameObject
 
     public void setHeight(int height)
     {
+        height_last = this.height;
         this.height = height;
     }
 
     public void setWidth(int width)
     {
+        width_last = this.width;
         this.width = width;
     }
 
