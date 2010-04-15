@@ -47,10 +47,10 @@ public class ScoreBalk extends GameObject {
         graphics.setColor(Color.WHITE);
         graphics.drawString("Score: " + score, 10, 20);
         setAnimation(new String[]{"muntje"});
-        graphics.drawImage(getImage(), 50, 5, null);
+//        graphics.drawImage(getImage(), 50, 5, null);
         graphics.drawString("Coins: " + coins, 110, 20);
         setAnimation(new String[]{"leven"});
-        graphics.drawImage(getImage(), 20, 5, null);
+//        graphics.drawImage(getImage(), 20, 5, null);
         graphics.drawString("Lives: " + lives, 210, 20);
  
     }
