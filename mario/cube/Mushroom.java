@@ -13,14 +13,15 @@ import mario.cube.ai.MushroomAi;
  * @author Nishchal Baldew
  */
 public class Mushroom extends Powerup
+
 {
-    private boolean raak = true;
-    private int goinUp = 0;
+   
 
     public Mushroom(Game game)
     {
         super(game, 100, 350, 48, 48, "/images/nsmbtileset.png");
         ai = new MushroomAi(this);
+
         frames.put("mushroom 0", new Rectangle(1225, 2327, 50, 50));
 
         setAnimation(new String[]
@@ -35,11 +36,21 @@ public class Mushroom extends Powerup
     {
     }
 
+//    @Override
+//   public void doMapCollision(Collision side)
+//   {
+//
+//       if(side == Collision.SIDE)
+//          setX(getX() + 1);
+//
+//   }
+   
+
     @Override
     public void doCharacterCollision(Collision collision)
     {
     }
-//    @Override
+
 //    public void doLoopAction() {
 //        if(raak)
 //        {
@@ -67,4 +78,5 @@ public class Mushroom extends Powerup
     }
     raak = false;
      * */
+
 }
