@@ -9,7 +9,7 @@ import mario.CharacterObject;
 import mario.Collision;
 import mario.Game;
 import mario.enemy.ai.GoombaAi;
-import mario.enemy.*;
+
 
 
 /**
@@ -18,6 +18,8 @@ import mario.enemy.*;
  */
 public class Goomba extends Enemy
 {
+   
+
     public Goomba(Game game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
@@ -29,13 +31,15 @@ public class Goomba extends Enemy
         frameSpeed = 100;
         setAnimation(new String[]
                 {
-                    "goombaStandLeft 0", "goombaWalkLeft 0",
-                    //"goombaStandRight 0", "goombaWalkRight 0"
-                });
+                     "goombaStandLeft 0", "goombaWalkLeft 0",
+                     //"goombaStandRight 0", "goombaWalkRight 0"
+                    });
 
       
 
    }
+
+
 
     @Override
     public void hitBy()
@@ -44,21 +48,43 @@ public class Goomba extends Enemy
 
     }
 
+
+
    @Override
    public void doMapCollision(Collision side)
    {
-
-       //  if(side == Collision.SIDE)
-         {
-           
+        if (side == Collision.NONE)
+        {
+            setFall(true);
+        }
+        if (side != Collision.NONE)
+        {
+            setFall(false);
+        }
+   }
+           //
+//        if(side == Collision.SIDE)
+//        {
+//            Direction direction = ai.getDirection();
+//            if(direction == Direction.LEFT)
+//            {
+//                direction = Direction.RIGHT;
+//            }
+//            else
+//            {
+//                direction = Direction.LEFT;
+//            }
+//            ai.setDirection(direction);
+      //  }
+ //
                                                             
              
              //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
-         }
+      //   }
           
 
 
-   }
+   //}
        //else if(side == Collision.
        
    
