@@ -11,10 +11,9 @@ import mario.*;
  *
  * @author Nishchal Baldew
  */
-public class Stone extends GameObject
+public class Stone extends Cube
 {
-    private boolean raak = true;
-    private int goinUp = 0;
+
 
     public Stone(Game game)
     {
@@ -32,26 +31,7 @@ public class Stone extends GameObject
     @Override
     public void doLoopAction()
     {
-        if (raak)
-        {
-            if (goinUp < 2)
-            {
-                setY(getY() - 5);
-                goinUp++;
-            } else
-            {
-                raak = false;
-                setY(getY() + 5);
-            }
-        }
-        /*
-        if (y > 95) {
-        setY(getY() - 5);
-        } else if (raak = true) {
-        setY(getY() + 5);
-        }
-        raak = false;
-         * */
+        doHit();
     }
 }
 
