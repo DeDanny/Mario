@@ -17,7 +17,7 @@ public class GoombaAi extends Ai
     public GoombaAi(Enemy enemy)
     {
         super(enemy);
-
+        
       // protected String[] WalkRight = new String[]{"goombaWalkRight 0"};
     }
 
@@ -25,6 +25,11 @@ public class GoombaAi extends Ai
     public void doLoopAction()
     {
        // super.setAnimation("WalkRight");
-         enemy.setX(enemy.getX() - 1);
+
+       
+       enemy.setX(enemy.getX() - 1);
+      // super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
     }
+
+   
 }
