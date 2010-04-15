@@ -29,13 +29,21 @@ abstract public class MoveState extends MarioState
 //
 //    protected static int direction      = RIGHT;
 
-    protected boolean   lookingUP       = false;
-    protected boolean   duckDown        = false;
+    //protected boolean   lookingUP       = false;
+    //protected boolean   ducked          = false;
     //protected static int duckMoveY      = 19;
-    protected static int duckMoveY      = 19;
-    protected static int duckMoveYOriginal      = 60;
+   // protected static int duckMoveY      = 19;
+    //protected static int duckMoveYOriginal      = 60;
     //protected static int duckHeight     = 42;
-    protected static int duckHeight     = 2;
+    //protected static int duckHeight     = 41;
+
+
+
+    protected  int Height;
+    protected  int tempHeight;
+    protected  int tempY = 0;
+    private boolean ducked = false;
+    private boolean noMore = true;
 
 
     public MoveState(Mario gameObject)
@@ -48,30 +56,37 @@ abstract public class MoveState extends MarioState
     public void doAction()
     {
 
-        if (duckDown) {
-            duckDown = false;
-            //marioObject.setMoveY(duckMoveYOriginal);
-        }
-        
         if(marioObject.isLeft() && !marioObject.isRight() && !marioObject.isPreformingSpecialMove())
         {
             doLeft();
+            ducked = false;
         }
         else if(marioObject.isRight() && !marioObject.isLeft() && !marioObject.isPreformingSpecialMove())
         {
             doRight();
+            ducked = false;
         }
         else if(marioObject.isUp())
         {
             doUp();
+            ducked = false;
         }
         else if(marioObject.isDown())
         {
             doDown();
+            ducked = true;
         }
         else
         {
             doStand();
+            ducked = false;
+        }
+
+        if(!ducked && !noMore && tempY != 0)
+        {
+            marioObject.setHeight(Height);
+            marioObject.setY(marioObject.getY() - tempY);
+            noMore = true;
         }
     }
 
@@ -101,11 +116,13 @@ abstract public class MoveState extends MarioState
     }
     private void doDown()
     {
-        if (!duckDown) {
-            duckDown = true;
-            marioObject.setMoveY(duckMoveY);
-            marioObject.setTempHeight(2);
+
+        if (ducked) {
+            marioObject.setHeight(tempHeight);
+            marioObject.setY(marioObject.getY() + tempY);
+            noMore = false;
         }
+
         switch (marioObject.getDirection()) {
             case LEFT:
                 super.setAnimation(DuckLeft);
@@ -132,8 +149,9 @@ abstract public class MoveState extends MarioState
 
 
 
-    private void kansloos()
-    {
+
+//    private void kansloos()
+//    {
 //        if(false){
 //            // Reset Mario's Y-as after looking up
 //            if (lookingUP) {
@@ -203,5 +221,5 @@ abstract public class MoveState extends MarioState
 //                }
 //            }
 //        }
-    }
+//    }
 }
