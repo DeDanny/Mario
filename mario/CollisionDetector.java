@@ -23,68 +23,43 @@ public class CollisionDetector
     {
         for (CharacterObject characterObject : marioWorld.getGame().getCharactersObjects())
         {
-            for (CharacterObject characterObjectLoop : marioWorld.getGame().getCharactersObjects())
+            if (characterObject.isAlive())
             {
-                if (characterObject != characterObjectLoop)
+                for (CharacterObject characterObjectLoop : marioWorld.getGame().getCharactersObjects())
                 {
-                    int y_last = characterObject.getYLast();
-                    int height_last = characterObject.getHeightLast();
-
-                    int x = characterObject.getX();
-                    int y = characterObject.getY();
-                    int width = characterObject.getWidth();
-                    int height = characterObject.getHeight();
-
-                    int xOthere = characterObjectLoop.getX();
-                    int yOthere = characterObjectLoop.getY();
-                    int widthOthere = characterObjectLoop.getWidth();
-                    int heightOthere = characterObjectLoop.getHeight();
-
-                    Rectangle object = new Rectangle(x, y, width, height);
-                    Rectangle othereObject = new Rectangle(xOthere, yOthere, widthOthere, heightOthere);
-                    if(object.intersects(othereObject))
+                    if (characterObject != characterObjectLoop && characterObjectLoop.isAlive())
                     {
-                        if((y_last+height_last) < yOthere)
+                        int y_last = characterObject.getYLast();
+                        int height_last = characterObject.getHeightLast();
+
+                        int x = characterObject.getX();
+                        int y = characterObject.getY();
+                        int width = characterObject.getWidth();
+                        int height = characterObject.getHeight();
+
+                        int xOthere = characterObjectLoop.getX();
+                        int yOthere = characterObjectLoop.getY();
+                        int widthOthere = characterObjectLoop.getWidth();
+                        int heightOthere = characterObjectLoop.getHeight();
+
+                        Rectangle object = new Rectangle(x, y, width, height);
+                        Rectangle othereObject = new Rectangle(xOthere, yOthere, widthOthere, heightOthere);
+                        if (object.intersects(othereObject))
                         {
-                            characterObject.doCharacterCollision(Collision.DOWN, characterObjectLoop);
-                            characterObjectLoop.doCharacterCollision(Collision.UP, characterObject);
+                            if ((y_last + height_last) < yOthere)
+                            {
+                                characterObject.doCharacterCollision(Collision.DOWN, characterObjectLoop);
+                                characterObjectLoop.doCharacterCollision(Collision.UP, characterObject);
+                            } else
+                            {
+                                characterObject.doCharacterCollision(Collision.SIDE, characterObjectLoop);
+                                characterObjectLoop.doCharacterCollision(Collision.SIDE, characterObject);
+                            }
                         }
-                        else
-                        {
-                            characterObject.doCharacterCollision(Collision.SIDE, characterObjectLoop);
-                            characterObjectLoop.doCharacterCollision(Collision.SIDE, characterObject);
-                        }
-
-
-//                        if((xOthere + (widthOthere/2)) > (x + (width/2)))
-//                        {
-//                            xdirection = Direction.LEFT;
-//                        }
-//                        else if((xOthere + (widthOthere/2)) < (x + (width/2)))
-//                        {
-//                            xdirection = Direction.RIGHT;
-//                        }else
-//                        {
-//                            xdirection = Direction.MIDDLE;
-//                        }
-//
-//                        if((yOthere + (heightOthere/2)) > (y + (height/2)))
-//                        {
-//                            ydirection = Direction.LEFT;
-//                        }
-//                        else if((yOthere + (heightOthere/2)) < (x + (height/2)))
-//                        {
-//                            ydirection = Direction.RIGHT;
-//                        }else
-//                        {
-//                            ydirection = Direction.MIDDLE;
-//                        }
-
-
-
                     }
                 }
             }
+
         }
 
     }
@@ -125,4 +100,27 @@ public class CollisionDetector
 //
 //        return Collision.NONE;
 //    }
+//                        if((xOthere + (widthOthere/2)) > (x + (width/2)))
+//                        {
+//                            xdirection = Direction.LEFT;
+//                        }
+//                        else if((xOthere + (widthOthere/2)) < (x + (width/2)))
+//                        {
+//                            xdirection = Direction.RIGHT;
+//                        }else
+//                        {
+//                            xdirection = Direction.MIDDLE;
+//                        }
+//
+//                        if((yOthere + (heightOthere/2)) > (y + (height/2)))
+//                        {
+//                            ydirection = Direction.LEFT;
+//                        }
+//                        else if((yOthere + (heightOthere/2)) < (x + (height/2)))
+//                        {
+//                            ydirection = Direction.RIGHT;
+//                        }else
+//                        {
+//                            ydirection = Direction.MIDDLE;
+//                        }
 }

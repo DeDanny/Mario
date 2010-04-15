@@ -236,11 +236,11 @@ public class Mario extends CharacterObject
         switch (collision)
         {
             case SIDE:
-                game.setRunning(false);
+                setAlive(false);
                 System.out.println("MARIO DOOD");
                 break;
             case UP:
-                game.setRunning(false);
+                setAlive(false);
                 System.out.println("MARIO DOOD");
                 break;
             case DOWN:
