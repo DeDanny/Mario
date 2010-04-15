@@ -6,6 +6,7 @@ package mario.cube;
 
 import java.awt.Rectangle;
 import mario.*;
+import mario.Game;
 
 
 
@@ -33,9 +34,11 @@ public class Munt extends GameObject {
 
     @Override
     public void doLoopAction() {
-        if(raak)
-        {
-            if(goinUp < 20)
+        doHit();
+    }
+
+    public void doHit(){
+            if(goinUp < 20 && raak)
             {
                 setY(getY() - 5);
                 goinUp++;
@@ -43,14 +46,9 @@ public class Munt extends GameObject {
             }
             else
             {
-               
-                 if(goinUp < 4)
-                 {
                 raak = false;
-                 }
             }
         }
     }
-}
 
 
