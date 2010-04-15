@@ -82,7 +82,7 @@ abstract public class MoveState extends MarioState
             ducked = false;
         }
 
-        if(!ducked && !noMore && tempY != 0)
+        if(!ducked && !noMore)
         {
             marioObject.setHeight(Height);
             marioObject.setY(marioObject.getY() - tempY);
