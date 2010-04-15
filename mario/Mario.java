@@ -27,12 +27,11 @@ public class Mario extends CharacterObject
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
-    private boolean duck = false;
 
 
     public Mario(Game game)
     {
-        super(game, 100, 401, 42, 57, "/images/mario_sprite.png");
+        super(game, 600, 392, 42, 57, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));

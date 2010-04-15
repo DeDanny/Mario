@@ -37,6 +37,11 @@ public class CollisionDetector
                         int width = characterObject.getWidth();
                         int height = characterObject.getHeight();
 
+                        if( height_last == 0)
+                        {
+                            height_last = height;
+                        }
+
                         int xOthere = characterObjectLoop.getX();
                         int yOthere = characterObjectLoop.getY();
                         int widthOthere = characterObjectLoop.getWidth();
