@@ -10,12 +10,8 @@ package mario;
  */
 abstract public class MapObject extends GameObject
 {
-    private int score = 0;
-    
     public MapObject(Game game, int x, int y, int width, int height, String fileName)
     {
         super(game, x, y, width, height, fileName);
     }
-
-
 }

@@ -219,23 +219,6 @@ public class Mario extends CharacterObject
         }
     }
 
-    @Override
-    protected void preAnimation()
-    {
-        //heightOriginal = getHeight();
-        //setHeight(tempHeight);
-        setY(getY() + moveY);
-    }
-
-    @Override
-    protected void postAnimation()
-    {
-        //setHeight(heightOriginal);
-        setY(getY() - moveY);
-        moveY = 0;
-        //tempHeight = 0;
-    }
-
     public void setMoveY(int moveY)
     {
         this.moveY = moveY;
