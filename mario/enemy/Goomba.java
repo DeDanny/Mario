@@ -53,6 +53,7 @@ public class Goomba extends Enemy
    @Override
    public void doMapCollision(Collision side)
    {
+
         if (side == Collision.NONE)
         {
             setFall(true);
@@ -81,6 +82,20 @@ public class Goomba extends Enemy
              
              //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
       //   }
+
+
+//         if(side == Collision.SIDE)
+//         {
+//           //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
+//         }
+//            switch(side)
+//            {
+//                case SIDE:
+//                    System.out.println("Goomba-Collision with Wall");
+//                    //setAlive(false);
+//                    break;
+//            }
+
           
 
 

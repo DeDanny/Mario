@@ -27,13 +27,12 @@ public class Mario extends CharacterObject
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
-    private int moveY = 0;
-    private int tempHeight;
-    private int heightOriginal;
+    private boolean duck = false;
+
 
     public Mario(Game game)
     {
-        super(game, 100, 400, 42, 57, "/images/mario_sprite.png");
+        super(game, 100, 401, 42, 57, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
@@ -87,6 +86,7 @@ public class Mario extends CharacterObject
     @Override
     public void doLoopAction()
     {
+
         if (jump || jumpExtra )
         {
             if (this.state != fallMario || jumpExtra ) {
@@ -96,7 +96,8 @@ public class Mario extends CharacterObject
             } else {
                 this.setJump(false);
             }
-        } else
+        }
+        else
         {
             if (fall)
             {
@@ -107,12 +108,13 @@ public class Mario extends CharacterObject
                 if (big)
                 {
                     setState(bigMario);
+                    setHeight(84);
                     System.out.println("bigMario");
                 } else
                 {
                     setState(smallMario);
-                    System.out.println("smallMario");
                     setHeight(60);
+                    System.out.println("smallMario");
                 }
             }
         }
@@ -219,16 +221,6 @@ public class Mario extends CharacterObject
         {
             setFall(false);
         }
-    }
-
-    public void setMoveY(int moveY)
-    {
-        this.moveY = moveY;
-    }
-
-    public void setTempHeight(int tempHeight)
-    {
-        this.tempHeight = tempHeight;
     }
 
     public void doCharacterCollision(Collision collision, CharacterObject charachter)
