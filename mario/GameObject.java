@@ -94,9 +94,6 @@ public abstract class GameObject
         graphics.setColor(Color.red);
         //graphics.fillRect(x, y, width, height);
 
-        graphics.setColor(Color.cyan);
-        graphics.fillRect(x-1, y+1, width, 2);
-
         graphics.setColor(Color.blue);
         graphics.fillRect(x, y, width, 1);
 
@@ -111,8 +108,6 @@ public abstract class GameObject
         graphics.setColor(Color.orange);
         graphics.fillRect(x, y+height-1, width, 2);
 
-        graphics.setColor(Color.pink);
-         graphics.fillRect(x, y+height-1, width, 4);
         graphics.drawImage(getImage(), x, y, null);;
      
     }
