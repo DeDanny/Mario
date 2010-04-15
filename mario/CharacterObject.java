@@ -4,7 +4,6 @@
  */
 package mario;
 
-import java.awt.Rectangle;
 
 /**
  *
@@ -13,6 +12,7 @@ import java.awt.Rectangle;
 abstract public class CharacterObject extends GameObject
 {
     protected int fallSpeed = 2;
+    protected boolean alive = true;
     public CharacterObject(Game game, int x, int y, int width, int height, String fileName)
     {
         super(game, x, y, width, height, fileName);
@@ -23,33 +23,15 @@ abstract public class CharacterObject extends GameObject
         
     }
     
-    abstract public void doCharacterCollision(Collision collision);
+    abstract public void doCharacterCollision(Collision collision, CharacterObject charachter);
 
-    public Collision checkCollisionGameCharacters()
+    public boolean isAlive()
     {
-         for (CharacterObject characterObject : game.getCharactersObjects())
-        {
-             if(characterObject != this)
-             {
-                Rectangle characterObjectRectangle =  new Rectangle(characterObject.getX(), characterObject.getY(), characterObject.getWidth(), characterObject.getHeight());
-                if (characterObjectRectangle.intersects(x, y+1, width, 1))
-                {
-                    return Collision.UP;
-                }
+        return alive;
+    }
 
-                if (characterObjectRectangle.intersects(x, y-1, 1, height) ||
-                     characterObjectRectangle.intersects(x+width, y-1, 1, height))
-                {
-                    return Collision.SIDE;
-                }
-
-                if (characterObjectRectangle.intersects(x, y+height-1, width, 4))
-                {
-                    return Collision.DOWN;
-                }
-             }
-        }
-
-        return Collision.NONE;
+    protected void setAlive(boolean alive)
+    {
+        this.alive = alive;
     }
 }
