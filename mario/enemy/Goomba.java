@@ -48,13 +48,17 @@ public class Goomba extends Enemy
    public void doMapCollision(Collision side)
    {
 
-       //  if(side == Collision.SIDE)
+         if(side == Collision.SIDE)
          {
-           
-                                                            
-             
-             //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
+           //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
          }
+            switch(side)
+            {
+                case SIDE:
+                    System.out.println("Goomba-Collision with Wall");
+                    //setAlive(false);
+                    break;
+            }
           
 
 

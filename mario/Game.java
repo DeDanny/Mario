@@ -41,8 +41,13 @@ public class Game
         gameObjects.add(Munt);
         gameObjects.add(Questionmark);
         //charactersObjects.add(new Goomba(this, 300, 505, 45, 45));
+
         charactersObjects.add(new Goomba(this, 100, 505, 45, 45));
         charactersObjects.add(new Goomba(this, 500, 505, 45, 45));
+
+        //charactersObjects.add(new Goomba(this, 200, 505, 45, 45));
+        //charactersObjects.add(new Goomba(this, 500, 505, 45, 45));
+
         gameObjects.add(Stone);
         gameObjects.add(ScoreBalk);
     }
