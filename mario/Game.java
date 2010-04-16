@@ -43,8 +43,8 @@ public class Game
         mapObjects.add(Munt);
         mapObjects.add(Questionmark);
 
-        mapObjects.add(new Goomba(this, 300, 205, 45, 45));
-        mapObjects.add(new Goomba(this, 300, 205, 45, 45));
+        mapObjects.add(new Goomba(this, 100, 205, 45, 45));
+        //mapObjects.add(new Goomba(this, 300, 205, 45, 45));
 
         mapObjects.add(Stone);
         mapObjects.add(ScoreBalk);

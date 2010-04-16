@@ -27,6 +27,17 @@ public class WalkAi extends Ai
             mapObject.setY(mapObject.getY() + fallsize);
             System.out.println("fall mapObject");
         }
-        mapObject.setX(mapObject.getX() - 1);
+
+        switch(direction){
+               case LEFT: 
+               mapObject.setX(mapObject.getX() - 1);;
+                   break;
+               case RIGHT:
+               mapObject.setX(mapObject.getX() + 1);
+                   break;
+        }
+        
     }
+
+
 }

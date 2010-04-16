@@ -36,6 +36,7 @@ public abstract class GameObject
     protected Game game;
     private static ArrayList<GameObject> collection = new ArrayList<GameObject>();
     private int x_last, y_last, width_last, height_last;
+    protected Collision mapCollision = Collision.NONE;
 
     public GameObject(Game game, int x, int y, int width, int height, String fileName)
     {
@@ -98,18 +99,18 @@ public abstract class GameObject
         //graphics.fillRect(x, y, width, height);
 
         graphics.setColor(Color.blue);
-        graphics.fillRect(x, y, width, 1);
+        graphics.fillRect(x+2, y, width-2, 1);
 
 
         graphics.setColor(Color.green);
-        graphics.fillRect(x, y, 1, height);
-        graphics.fillRect(x+width-1, y, 1, height);
+        graphics.fillRect(x, y, 2, height);
+        graphics.fillRect(x+width-1, y, 2, height);
         
         graphics.setColor(Color.pink);
         graphics.fillRect(x, y+height-1, width, 4);
 
         graphics.setColor(Color.orange);
-        graphics.fillRect(x, y+height-1, width, 2);
+        graphics.fillRect(x+1, y+height-1, width-1, 2);
 
         graphics.drawImage(getImage(), x, y, null);;
      
@@ -222,22 +223,26 @@ public abstract class GameObject
     public Collision checkCollisionMap(int x, int y, int downSize)
     {
         Polygon mapPolygon =  game.getBackground().getPolygon();
-        if (mapPolygon.intersects(x, y, width, 1))
+        if (mapPolygon.intersects(x+2, y, width-2, 1))
         {
+            mapCollision = Collision.UP;
             return Collision.UP;
         }
 
-        if (mapPolygon.intersects(x, y, 1, height) ||
-             mapPolygon.intersects(x+width-1, y, 1, height))
+        if (mapPolygon.intersects(x, y, 2, height) ||
+             mapPolygon.intersects(x+width-1, y, 2, height))
         {
+            mapCollision = Collision.SIDE;
             return Collision.SIDE;
         }
 
-        if (mapPolygon.intersects(x, y+height-1, width, downSize))
+        if (mapPolygon.intersects(x+1, y+height-1, width-1, downSize))
         {
+            mapCollision = Collision.DOWN;
             return Collision.DOWN;
         }
 
+        mapCollision = Collision.NONE;
         return Collision.NONE;
     }
 }

@@ -9,6 +9,7 @@ import mario.core.Collision;
 import mario.Game;
 import mario.core.MapObject;
 import mario.ai.WalkAi;
+import mario.core.Direction;
 
 
 
@@ -51,17 +52,36 @@ public class Goomba extends Enemy
 
 
    @Override
-   public void doMapCollision(Collision side)
+   public void doMapCollision()
    {
+        switch (mapCollision)
+        {
+            case SIDE:
+                ai.toggleDirection();
+                System.out.println("Goombla col side");
+                break;
+            case NONE:
+                setFall(true);
+            break;
+            default:
+                setFall(false);
+            break;
+        }
 
-        if (side == Collision.NONE)
-        {
-            setFall(true);
-        }
-        if (side != Collision.NONE)
-        {
-            setFall(false);
-        }
+//        if (side == Collision.SIDE)
+//        {
+//            ai.toggleDirection();
+//            System.out.println("Goombla col side");
+//        }
+//
+//        if (side == Collision.NONE)
+//        {
+//            setFall(true);
+//        }
+//        if (side != Collision.NONE)
+//        {
+//            setFall(false);
+//        }
    }
            //
 //        if(side == Collision.SIDE)

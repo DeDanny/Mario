@@ -42,6 +42,10 @@ public class Mushroom extends Powerup
     }
 
     @Override
+     public void doMapCollision()
+    {
+
+    }
    public void doMapCollision(Collision side)
    {
         if(side == Collision.SIDE)

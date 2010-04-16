@@ -29,5 +29,16 @@ abstract public class Ai
         this.direction = direction;
     }
 
+    public void toggleDirection()
+    {
+        if(getDirection() == direction.RIGHT){
+            setDirection(direction.LEFT);
+        }
+        else if(getDirection() == direction.LEFT)
+        {
+            setDirection(direction.RIGHT);
+        }
+    }
+
     public abstract void doLoopAction();
 }

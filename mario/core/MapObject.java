@@ -39,7 +39,7 @@ abstract public class MapObject extends GameObject
         this.fall = fall;
     }
 
-    public void doMapCollision(Collision side)
+    public void doMapCollision()
     {
 
     }

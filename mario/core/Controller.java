@@ -165,7 +165,8 @@ public class Controller implements KeyListener, Runnable
 
         for (MapObject gameObject : marioWorld.getGame().getMapObjects())
         {
-            gameObject.doMapCollision(gameObject.checkCollisionMap());
+            //gameObject.doMapCollision(gameObject.checkCollisionMap());
+            gameObject.doMapCollision();
             gameObject.doLoopAction();
         }
     }
