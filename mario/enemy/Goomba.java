@@ -55,7 +55,9 @@ public class Goomba extends Enemy
    {
 
         if (side == Collision.NONE)
+        System.out.println("No COlliisionn *#*#*#*#*#*#*#*#*#*#*#*#*#*#");
         {
+
             setFall(true);
         }
         if (side != Collision.NONE)
