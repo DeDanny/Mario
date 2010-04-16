@@ -63,10 +63,10 @@ public class Goomba extends Enemy {
                 System.out.println("Goombla col side");
                 switch (ai.getDirection()) {
                     case LEFT:
-                       setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft"});
+                       setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
                         break;
                     case RIGHT:
-                       setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight"});
+                       setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
                         break;
                 }
                 break;
