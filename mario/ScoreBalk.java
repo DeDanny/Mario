@@ -37,7 +37,7 @@ public class ScoreBalk extends MapObject {
         // Verhoog telkens score met 1 (als test).
         score++;
         //Controleerd telkens op nieuwe Score.
-        //addScore();
+        addScore();
 //        scoreString = Integer.toString(score);
     }
 
@@ -46,7 +46,7 @@ public class ScoreBalk extends MapObject {
     {
  
         graphics.setColor(Color.WHITE);
-        graphics.drawString("Score: " + score, 10, 20);
+        graphics.drawString("Score: " + newScore, 10, 20);
         setAnimation(new String[]{"muntje"});
 //        graphics.drawImage(getImage(), 50, 5, null);
         graphics.drawString("Coins: " + coins, 110, 20);
