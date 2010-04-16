@@ -97,10 +97,15 @@ public class ScoreBalk extends MapObject {
 		this.score = score;
 	}
 
+        public void addCoin()
+        {
+            coins++;
+        }
+
     @Override
     public void doCharacterCollision(Collision collision, MapObject mapObject)
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
 }

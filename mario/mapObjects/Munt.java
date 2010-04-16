@@ -54,7 +54,11 @@ public class Munt extends MapObject {
     @Override
     public void doCharacterCollision(Collision collision, MapObject mapObject)
     {
-
+        if(mapObject instanceof mario.Mario)
+        {
+            game.getScoreBalk().addCoin();
+            setAlive(false);
+        }
     }
     }
 

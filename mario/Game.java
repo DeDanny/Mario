@@ -103,4 +103,9 @@ public class Game
         }
 
     }
+
+    public ScoreBalk getScoreBalk() {
+        return ScoreBalk;
+    }
+
 }
