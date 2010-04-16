@@ -4,15 +4,17 @@
  */
 package mario;
 
+import mario.core.GameObject;
+import mario.core.CharacterObject;
 import mario.background.Background;
-import mario.cube.Munt;
-import mario.cube.Questionmark;
-import mario.cube.Stone;
-import mario.cube.Mushroom;
+import mario.mapObjects.Munt;
+import mario.mapObjects.Questionmark;
+import mario.mapObjects.Stone;
+import mario.mapObjects.Mushroom;
 import java.util.ArrayList;
 import java.util.Iterator;
+import mario.core.MapObject;
 import mario.enemy.*;
-import mario.ScoreBalk;
 
 /**
  *
@@ -32,29 +34,20 @@ public class Game
     private ScoreBalk ScoreBalk = new ScoreBalk(this);
 
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-    private ArrayList<CharacterObject> charactersObjects = new ArrayList<CharacterObject>();
+    private ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
 
     public Game()
     {
-        charactersObjects.add(mario);
-        gameObjects.add(Mushroom);
-        gameObjects.add(Munt);
-        gameObjects.add(Questionmark);
+        mapObjects.add(mario);
+        mapObjects.add(Mushroom);
+        mapObjects.add(Munt);
+        mapObjects.add(Questionmark);
 
-        charactersObjects.add(new Goomba(this, 300, 205, 45, 45));
-        //charactersObjects.add(new Goomba(this, 200, 505, 45, 45));
-        charactersObjects.add(new Goomba(this, 500, 205, 45, 45));
+        mapObjects.add(new Goomba(this, 300, 205, 45, 45));
+        mapObjects.add(new Goomba(this, 300, 205, 45, 45));
 
-        //charactersObjects.add(new Goomba(this, 300, 505, 45, 45));
-
-        charactersObjects.add(new Goomba(this, 100, 505, 45, 45));
-        charactersObjects.add(new Goomba(this, 500, 505, 45, 45));
-
-        //charactersObjects.add(new Goomba(this, 200, 505, 45, 45));
-        //charactersObjects.add(new Goomba(this, 500, 505, 45, 45));
-
-        gameObjects.add(Stone);
-        gameObjects.add(ScoreBalk);
+        mapObjects.add(Stone);
+        mapObjects.add(ScoreBalk);
     }
 
     public boolean isRunning()
@@ -92,18 +85,18 @@ public class Game
         return background;
     }
 
-    public ArrayList<CharacterObject> getCharactersObjects()
+    public ArrayList<MapObject> getMapObjects()
     {
-        return charactersObjects;
+        return mapObjects;
     }
 
     public void removeDeadObjects()
     {
 
-        for (Iterator<CharacterObject> it = charactersObjects.iterator(); it.hasNext();)
+        for (Iterator<MapObject> it = mapObjects.iterator(); it.hasNext();)
         {
-            CharacterObject characterObject = it.next();
-            if (!characterObject.isAlive())
+            MapObject mapObject = it.next();
+            if (!mapObject.isAlive())
             {
                 it.remove();
             }

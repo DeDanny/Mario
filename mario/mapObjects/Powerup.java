@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.cube;
+package mario.mapObjects;
 
-import mario.cube.ai.Ai;
-import mario.CharacterObject;
+import mario.ai.Ai;
+import mario.core.CharacterObject;
 import mario.Game;
 
 /**

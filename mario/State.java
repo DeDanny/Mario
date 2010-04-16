@@ -4,6 +4,8 @@
  */
 package mario;
 
+import mario.core.GameObject;
+
 /**
  *
  * @author Danny

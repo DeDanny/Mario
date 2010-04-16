@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.cube;
+package mario.mapObjects;
 
 import java.awt.Rectangle;
-import mario.*;
 import mario.Game;
+import mario.core.Collision;
+import mario.core.MapObject;
 
 
 
@@ -14,7 +15,7 @@ import mario.Game;
  *
  * @author Nishchal Baldew
  */
-public class Munt extends GameObject {
+public class Munt extends MapObject {
 
     private boolean raak = true;
     private int goinUp = 0;
@@ -49,6 +50,12 @@ public class Munt extends GameObject {
                 raak = false;
             }
         }
+
+    @Override
+    public void doCharacterCollision(Collision collision, MapObject mapObject)
+    {
+
+    }
     }
 
 

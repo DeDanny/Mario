@@ -8,13 +8,14 @@ package mario;
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.Color;
-import mario.*;
+import mario.core.Collision;
+import mario.core.MapObject;
 
 /**
  *
  * @author Mike
  */
-public class ScoreBalk extends GameObject {
+public class ScoreBalk extends MapObject {
 
     private int score;
     private int newScore;
@@ -95,5 +96,11 @@ public class ScoreBalk extends GameObject {
 	{
 		this.score = score;
 	}
+
+    @Override
+    public void doCharacterCollision(Collision collision, MapObject mapObject)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
 }

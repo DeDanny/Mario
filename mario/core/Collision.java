@@ -1,13 +1,17 @@
+package mario.core;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.cube.state;
 
 /**
  *
- * @author Nishchal Baldew
+ * @author Danny
  */
-public class Questionmarkup {
-
+public enum Collision {
+	UP,
+	DOWN,
+	SIDE,
+        NONE
 }

@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario;
+package mario.core;
 
 import java.awt.Rectangle;
+import mario.MarioWorld;
 
 /**
  *
@@ -21,11 +22,11 @@ public class CollisionDetector
 
     public void detectCollisionsGameObjects()
     {
-        for (CharacterObject characterObject : marioWorld.getGame().getCharactersObjects())
+        for (MapObject characterObject : marioWorld.getGame().getMapObjects())
         {
             if (characterObject.isAlive())
             {
-                for (CharacterObject characterObjectLoop : marioWorld.getGame().getCharactersObjects())
+                for (MapObject characterObjectLoop : marioWorld.getGame().getMapObjects())
                 {
                     if (characterObject != characterObjectLoop && characterObjectLoop.isAlive())
                     {
@@ -70,7 +71,7 @@ public class CollisionDetector
     }
 //    public Collision checkCollisionGameCharacters()
 //    {
-//         for (CharacterObject characterObjectLoop : game.getCharactersObjects())
+//         for (CharacterObject characterObjectLoop : game.getMapObjects())
 //        {
 //             characterObject = characterObjectLoop;
 //             if(characterObject != this)

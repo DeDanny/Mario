@@ -1,16 +1,22 @@
 /*
-* To change this template, choose Tools | Templates
-* and open the template in the editor. git
-*/
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor. git
+ */
 package mario;
 
+import mario.core.Direction;
+import mario.core.CharacterObject;
+import mario.core.Collision;
 import java.awt.Rectangle;
-import mario.state.*;
+import mario.MarioState.*;
+import mario.core.MapObject;
+import mario.enemy.Enemy;
+import mario.mapObjects.Cube;
 
 /**
-*
-* @author danny
-*/
+ *
+ * @author danny
+ */
 public class Mario extends CharacterObject
 {
     private boolean left = false;
@@ -19,15 +25,12 @@ public class Mario extends CharacterObject
     private boolean down = false;
     private boolean jump = false;
     private boolean jumpExtra = false;
-
     private boolean big = false; // False is SmallMario - True is BigMario
-    private boolean fall = false;
     private Direction direction = Direction.LEFT;
     private SmallMario smallMario = new SmallMario(this);
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
-
 
     public Mario(Game game)
     {
@@ -86,17 +89,18 @@ public class Mario extends CharacterObject
     public void doLoopAction()
     {
 
-        if (jump || jumpExtra )
+        if (jump || jumpExtra)
         {
-            if (this.state != fallMario || jumpExtra ) {
+            if (this.state != fallMario || jumpExtra)
+            {
                 setState(jumpMario);
-                this.jumpExtra  = false;
+                this.jumpExtra = false;
                 System.out.println("jumpMario");
-            } else {
+            } else
+            {
                 this.setJump(false);
             }
-        }
-        else
+        } else
         {
             if (fall)
             {
@@ -159,6 +163,7 @@ public class Mario extends CharacterObject
     {
         this.down = down;
     }
+
     public void setBig(boolean isBig)
     {
         this.big = isBig;
@@ -194,11 +199,6 @@ public class Mario extends CharacterObject
         return jump;
     }
 
-    public boolean isFall()
-    {
-        return fall;
-    }
-
     public Direction getDirection()
     {
         return direction;
@@ -222,25 +222,53 @@ public class Mario extends CharacterObject
         }
     }
 
-    public void doCharacterCollision(Collision collision, CharacterObject charachter)
+    public void doCharacterCollision(Collision collision, MapObject mapObject)
     {
-        switch (collision)
+        if (mapObject instanceof Enemy)
         {
-            case SIDE:
-                setAlive(false);
-                System.out.println("MARIO DOOD");
-                break;
-            case UP:
-                setAlive(false);
-                System.out.println("MARIO DOOD");
-                break;
-            case DOWN:
-                System.out.println("MARIO EXTRA JUMP");
-                jumpExtra = true;
-                break;
-            case NONE:
-                System.out.println("MARIO NIKS");
-                break;
+            switch (collision)
+            {
+                case SIDE:
+                    if (big)
+                    {
+                        big = false;
+                    } else
+                    {
+
+                        setAlive(false);
+                    }
+                    System.out.println("MARIO DOOD");
+                    break;
+                case UP:
+                    if (big)
+                    {
+                        big = false;
+                    } else
+                    {
+
+                        setAlive(false);
+                    }
+                    System.out.println("MARIO DOOD");
+                    break;
+                case DOWN:
+                    System.out.println("MARIO EXTRA JUMP");
+                    jumpExtra = true;
+                    break;
+                case NONE:
+                    System.out.println("MARIO NIKS");
+                    break;
+            }
         }
+
+        if(mapObject instanceof Cube)
+        {
+            switch (collision)
+            {
+                case DOWN:
+                    setFall(false);
+                    break;
+            }
+        }
+
     }
 }

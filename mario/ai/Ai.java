@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.cube.ai;
+package mario.ai;
 
-import mario.Direction;
-import mario.cube.Powerup;
+import mario.core.Direction;
+import mario.core.MapObject;
 
 /**
  *
@@ -13,12 +13,12 @@ import mario.cube.Powerup;
  */
 abstract public class Ai
 {
-    protected Powerup mushroom;
+    protected MapObject mapObject;
     protected Direction direction;
 
-    public Ai(Powerup mushroom)
+    public Ai(MapObject mushroom)
     {
-        this.mushroom = mushroom;
+        this.mapObject = mushroom;
     }
 
     public Direction getDirection() {

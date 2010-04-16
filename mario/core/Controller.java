@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario;
+package mario.core;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import mario.MarioWorld;
 
 /**
  *
@@ -162,7 +163,7 @@ public class Controller implements KeyListener, Runnable
     private void gameObjectLoopAction()
     {
 
-        for (CharacterObject gameObject : marioWorld.getGame().getCharactersObjects())
+        for (MapObject gameObject : marioWorld.getGame().getMapObjects())
         {
             gameObject.doMapCollision(gameObject.checkCollisionMap());
             gameObject.doLoopAction();

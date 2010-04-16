@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package mario.state;
+package mario.MarioState;
 
 import mario.Mario;
 

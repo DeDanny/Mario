@@ -5,10 +5,10 @@
 package mario.enemy;
 
 import java.awt.Rectangle;
-import mario.CharacterObject;
-import mario.Collision;
+import mario.core.Collision;
 import mario.Game;
-import mario.enemy.ai.GoombaAi;
+import mario.core.MapObject;
+import mario.ai.WalkAi;
 
 
 
@@ -23,7 +23,7 @@ public class Goomba extends Enemy
     public Goomba(Game game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
-        ai = new GoombaAi(this);
+        ai = new WalkAi(this);
         frames.put("goombaStandLeft 0", new Rectangle(156, 978, 48, 48));
         frames.put("goombaWalkLeft 0", new Rectangle(35, 978, 50, 48));
         frames.put("goombaStandRight 0", new Rectangle(33,862,50,48));
@@ -106,7 +106,7 @@ public class Goomba extends Enemy
    
    
 
-    public void doCharacterCollision(Collision collision, CharacterObject characterObject)
+    public void doCharacterCollision(Collision collision, MapObject characterObject)
     {
 
         if(characterObject instanceof mario.Mario)

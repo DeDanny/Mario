@@ -2,17 +2,17 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package mario.mapObjects;
 
-package mario.cube;
-
-import java.awt.Rectangle;
 import mario.*;
+import mario.core.Collision;
+import mario.core.MapObject;
 
 /**
  *
  * @author Nishchal Baldew
  */
-abstract public class Cube extends GameObject
+abstract public class Cube extends MapObject
 {
     protected boolean raak = true;
     protected int goinUp = 0;
@@ -20,32 +20,31 @@ abstract public class Cube extends GameObject
 
     public Cube(Game game, int x, int y, int width, int height, String fileName)
     {
-            super(game, x, y, width, height, fileName);
+        super(game, x, y, width, height, fileName);
     }
-
 
     @Override
     public void doLoopAction()
     {
-      
     }
 
     public void doHit()
     {
-           if (goinUp < 10 && raak)
-            {
-                setY(getY() - 1);
-                goinUp++;
+        if (goinUp < 10 && raak)
+        {
+            setY(getY() - 12);
+            goinUp++;
 
-            }
-            else if (goinUp >= 10 && down <= 10)
+        } else
+        {
+            if (goinUp >= 10 && down <= 10)
             {
 
                 setY(getY() + 1);
                 raak = false;
                 down++;
-                    
+
             }
         }
-
     }
+}

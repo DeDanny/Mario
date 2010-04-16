@@ -5,9 +5,9 @@
 package mario;
 
 import javax.swing.JFrame;
-import mario.Controller;
+import mario.core.Controller;
 import mario.MarioWorld;
-import mario.View;
+import mario.core.View;
 
 /**
  *

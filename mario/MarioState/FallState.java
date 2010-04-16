@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.state;
+package mario.MarioState;
 
-import mario.Collision;
-import mario.Direction;
+import mario.core.Collision;
+import mario.core.Direction;
 import mario.Mario;
 
 /**

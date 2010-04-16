@@ -4,6 +4,7 @@
  */
 package mario.background;
 
+import mario.core.GameObject;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;

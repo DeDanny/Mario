@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario;
+package mario.core;
 
 import java.awt.DisplayMode;
 import java.awt.Graphics;
@@ -12,6 +12,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
+import mario.MarioWorld;
 
 /**
  *
@@ -72,7 +73,7 @@ public class View
             {
                 gameObject.draw(graphics);
             }
-            for (GameObject gameObject : marioWorld.getGame().getCharactersObjects())
+            for (GameObject gameObject : marioWorld.getGame().getMapObjects())
             {
                 gameObject.draw(graphics);
             }

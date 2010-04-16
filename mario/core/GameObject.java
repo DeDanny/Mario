@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario;
+package mario.core;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,6 +14,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
+import mario.Game;
+import mario.Main;
+import mario.State;
 
 /**
  *

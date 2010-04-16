@@ -2,11 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.cube;
+package mario.mapObjects;
 
+import mario.core.Direction;
+import mario.core.CharacterObject;
+import mario.core.Collision;
 import java.awt.Rectangle;
 import mario.*;
-import mario.cube.ai.MushroomAi;
+import mario.ai.WalkAi;
+import mario.core.MapObject;
 
 /**
  *
@@ -19,7 +23,7 @@ public class Mushroom extends Powerup
     public Mushroom(Game game)
     {
         super(game, 100, 350, 48, 48, "/images/nsmbtileset.png");
-        ai = new MushroomAi(this);
+        ai = new WalkAi(this);
 
         frames.put("mushroom 0", new Rectangle(1225, 2327, 50, 50));
 
@@ -57,9 +61,9 @@ public class Mushroom extends Powerup
    
 
     @Override
-    public void doCharacterCollision(Collision collision, CharacterObject charachter)
-
+    public void doCharacterCollision(Collision collision, MapObject charachter)
     {
+        
     }
 
 //    public void doLoopAction() {
