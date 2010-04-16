@@ -14,9 +14,8 @@ import mario.core.MapObject;
  */
 abstract public class Cube extends MapObject
 {
-    protected boolean raak = true;
+   
     protected int goinUp = 0;
-    protected int down = 0;
 
     public Cube(Game game, int x, int y, int width, int height, String fileName)
     {
@@ -26,25 +25,33 @@ abstract public class Cube extends MapObject
     @Override
     public void doLoopAction()
     {
+
     }
 
     public void doHit()
     {
-        if (goinUp < 10 && raak)
-        {
-            setY(getY() - 12);
-            goinUp++;
 
-        } else
-        {
-            if (goinUp >= 10 && down <= 10)
-            {
-
-                setY(getY() + 1);
-                raak = false;
-                down++;
-
-            }
+        if (goinUp < 10) {
+            setY(getY() - 5);
         }
+        else if(goinUp < 20)
+        {
+            setY(getY() + 5);
+        }
+        goinUp++;
+    }
+
+    public int getGoinUp() {
+        return goinUp;
+    }
+
+    public void setGoinUp(int goinUp) {
+        this.goinUp = goinUp;
+    }
+
+    public void doCharacterCollision(Collision collision, MapObject charachter)
+    {
+
+
     }
 }

@@ -13,43 +13,52 @@ import mario.core.MapObject;
  *
  * @author Nishchal Baldew
  */
-public class Stone extends Cube
-{
-    public Stone(Game game)
-    {
+public class Stone extends Cube {
+
+    protected boolean hit = false;
+
+    public Stone(Game game) {
         super(game, 148, 349, 48, 49, "/images/nsmbtileset.png");
 
         frames.put("stone 0", new Rectangle(558, 116, 49, 49));
 
-        setAnimation(new String[]
-                {
+        setAnimation(new String[]{
                     "stone 0"
                 });
 
     }
 
     @Override
-    public void doLoopAction()
-    {
-        
+    public void doLoopAction() {
+        if (hit) {
+            super.doHit();
+            if (getGoinUp() == 20) {
+                hit = false;
+                setGoinUp(0);
+            }
+        }
     }
 
-    public void doCharacterCollision(Collision collision, MapObject charachter)
-    {
-        switch (collision)
-        {
-            case SIDE:
+    @Override
+    public void doCharacterCollision(Collision collision, MapObject charachter) {
+        if (charachter instanceof mario.Mario) {
 
-                break;
-            case UP:
+            switch (collision) {
+                case SIDE:
 
-                break;
-            case DOWN:
-                doHit();
-                break;
-            case NONE:
+                    break;
+                case UP:
 
-                break;
+                    break;
+                case DOWN:
+                    hit = true;
+                    break;
+                case NONE:
+
+                    break;
+            }
+
         }
+
     }
 }
