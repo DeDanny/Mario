@@ -33,6 +33,7 @@ abstract public class Ai
     {
         if(getDirection() == direction.RIGHT){
             setDirection(direction.LEFT);
+
         }
         else if(getDirection() == direction.LEFT)
         {
@@ -42,3 +43,5 @@ abstract public class Ai
 
     public abstract void doLoopAction();
 }
+
+

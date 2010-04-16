@@ -9,63 +9,55 @@ import mario.core.Collision;
 import mario.Game;
 import mario.core.MapObject;
 import mario.ai.WalkAi;
-import mario.core.Direction;
-
-
 
 /**
  *
  * @author Danny
  */
-public class Goomba extends Enemy
-{
-   
+public class Goomba extends Enemy {
 
-    public Goomba(Game game, int x, int y, int width, int height)
-    {
+    public Goomba(Game game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
         ai = new WalkAi(this);
         frames.put("goombaStandLeft 0", new Rectangle(156, 978, 48, 48));
         frames.put("goombaWalkLeft 0", new Rectangle(35, 978, 50, 48));
-        frames.put("goombaStandRight 0", new Rectangle(33,862,50,48));
-        frames.put("goombaWalkRight 0", new Rectangle(154,861,50,48));
+        frames.put("goombaStandRight 0", new Rectangle(33, 862, 50, 48));
+        frames.put("goombaWalkRight 0", new Rectangle(154, 861, 50, 48));
         frameSpeed = 100;
-        setAnimation(new String[]
-                {
-                     "goombaStandLeft 0", "goombaWalkLeft 0",
-                     //"goombaStandRight 0", "goombaWalkRight 0"
-                    });
-
-      
-
-   }
-
-
-
-    @Override
-    public void hitBy()
-    {
-
-
+    
+        setAnimation(new String[]{
+                    "goombaStandLeft 0", "goombaWalkLeft 0", //"goombaStandRight 0", "goombaWalkRight 0"
+                });
     }
 
 
+    
 
-   @Override
-   public void doMapCollision()
-   {
-        switch (mapCollision)
-        {
+    @Override
+    public void hitBy() {
+    }
+
+    @Override
+    public void doMapCollision() {
+        switch (mapCollision) {
             case SIDE:
                 ai.toggleDirection();
                 System.out.println("Goombla col side");
+                switch (ai.getDirection()) {
+                    case LEFT:
+                       setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft"});
+                        break;
+                    case RIGHT:
+                       setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight"});
+                        break;
+                }
                 break;
             case NONE:
                 setFall(true);
-            break;
+                break;
             default:
                 setFall(false);
-            break;
+                break;
         }
 
 //        if (side == Collision.SIDE)
@@ -82,8 +74,8 @@ public class Goomba extends Enemy
 //        {
 //            setFall(false);
 //        }
-   }
-           //
+    }
+    //
 //        if(side == Collision.SIDE)
 //        {
 //            Direction direction = ai.getDirection();
@@ -96,14 +88,11 @@ public class Goomba extends Enemy
 //                direction = Direction.LEFT;
 //            }
 //            ai.setDirection(direction);
-      //  }
- //
-                                                            
-             
-             //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
-      //   }
+    //  }
+    //
 
-
+    //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
+    //   }
 //         if(side == Collision.SIDE)
 //         {
 //           //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
@@ -115,24 +104,12 @@ public class Goomba extends Enemy
 //                    //setAlive(false);
 //                    break;
 //            }
+    //}
+    //else if(side == Collision.
+    public void doCharacterCollision(Collision collision, MapObject characterObject) {
 
-          
-
-
-   //}
-       //else if(side == Collision.
-       
-   
-   
-   
-
-    public void doCharacterCollision(Collision collision, MapObject characterObject)
-    {
-
-        if(characterObject instanceof mario.Mario)
-        {
-            switch(collision)
-            {
+        if (characterObject instanceof mario.Mario) {
+            switch (collision) {
                 case UP:
                     System.out.println("Goomba: \"I'm dead!!! :(\"");
                     setAlive(false);
