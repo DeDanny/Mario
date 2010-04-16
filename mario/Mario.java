@@ -210,13 +210,14 @@ public class Mario extends CharacterObject
     }
 
     @Override
-    public void doMapCollision(Collision side)
+    public void doMapCollision()
     {
-        if (side == Collision.NONE)
+        checkCollisionMap();
+        if (mapCollision == Collision.NONE)
         {
             setFall(true);
         }
-        if (side != Collision.NONE)
+        if (mapCollision != Collision.NONE)
         {
             setFall(false);
         }
