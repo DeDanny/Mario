@@ -5,7 +5,6 @@
 package mario.mapObjects;
 
 import mario.*;
-import mario.core.Collision;
 import mario.core.MapObject;
 
 /**

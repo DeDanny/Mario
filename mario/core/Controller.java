@@ -58,10 +58,10 @@ public class Controller implements KeyListener, Runnable
                 {
                     marioWorld.getGame().removeDeadObjects();
 
-                    collisionDetector.detectCollisionsGameObjects();
-
                     gameObjectenLoopAction();
                     gameObjectLoopAction();
+
+                    collisionDetector.detectCollisionsGameObjects();
 
                     view.draw();
 

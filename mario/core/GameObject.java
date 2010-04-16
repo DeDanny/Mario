@@ -74,7 +74,7 @@ public abstract class GameObject
         //System.out.println((System.currentTimeMillis() - systemTime));
         if ((System.currentTimeMillis() - systemTime) > frameSpeed)
         {
-           
+
             systemTime = System.currentTimeMillis();
             //System.out.println(animationFrame + " : " + animation.length);
             if (animationFrame == animation.length)
@@ -87,33 +87,33 @@ public abstract class GameObject
                     (int) frames.get(animation[animationFrame]).getHeight());
             animationFrame++;
             spritePart = crop;
-            
+
         }
         return spritePart;
     }
 
     public void draw(Graphics graphics)
-    { 
+    {
         graphics.drawImage(getImage(), x, y, null);
         graphics.setColor(Color.red);
         //graphics.fillRect(x, y, width, height);
 
         graphics.setColor(Color.blue);
-        graphics.fillRect(x+2, y, width-2, 1);
+        graphics.fillRect(x + 2, y, width - 2, 1);
 
 
         graphics.setColor(Color.green);
         graphics.fillRect(x, y, 2, height);
-        graphics.fillRect(x+width-1, y, 2, height);
-        
+        graphics.fillRect(x + width - 1, y, 2, height);
+
         graphics.setColor(Color.pink);
-        graphics.fillRect(x, y+height-1, width, 4);
+        graphics.fillRect(x, y + height - 1, width, 4);
 
         graphics.setColor(Color.orange);
-        graphics.fillRect(x+1, y+height-1, width-1, 2);
+        graphics.fillRect(x + 1, y + height - 1, width - 1, 2);
 
-        graphics.drawImage(getImage(), x, y, null);;
-     
+        graphics.drawImage(getImage(), x, y, null);
+
     }
 
     public abstract void doLoopAction();
@@ -127,6 +127,7 @@ public abstract class GameObject
     {
         return y;
     }
+
     public int getXLast()
     {
         return x_last;
@@ -136,6 +137,7 @@ public abstract class GameObject
     {
         return y_last;
     }
+
     public int getWidthLast()
     {
         return width_last;
@@ -208,8 +210,9 @@ public abstract class GameObject
     public void setState(State state)
     {
         this.state = state;
-        
+
     }
+
     public Collision checkCollisionMap()
     {
         return checkCollisionMap(x, y, 2);
@@ -217,32 +220,58 @@ public abstract class GameObject
 
     public Collision checkCollisionMap(int x, int y)
     {
-     return checkCollisionMap(x, y, 1);
+        return checkCollisionMap(x, y, 1);
     }
 
     public Collision checkCollisionMap(int x, int y, int downSize)
     {
-        Polygon mapPolygon =  game.getBackground().getPolygon();
-        if (mapPolygon.intersects(x+2, y, width-2, 1))
-        {
-            mapCollision = Collision.UP;
-            return Collision.UP;
-        }
+        Polygon mapPolygon = game.getBackground().getPolygon();
 
-        if (mapPolygon.intersects(x, y, 2, height) ||
-             mapPolygon.intersects(x+width-1, y, 2, height))
-        {
-            mapCollision = Collision.SIDE;
-            return Collision.SIDE;
-        }
-
-        if (mapPolygon.intersects(x+1, y+height-1, width-1, downSize))
-        {
-            mapCollision = Collision.DOWN;
-            return Collision.DOWN;
-        }
+        Rectangle up = new Rectangle(x + 2, y, width - 2, 1);
+        Rectangle right = new Rectangle(x, y, 2, height);
+        Rectangle down = new Rectangle(x + width - 1, y, 2, height);
+        Rectangle left = new Rectangle(x + 1, y + height - 1, width - 1, downSize);
 
         mapCollision = Collision.NONE;
-        return Collision.NONE;
+        if (mapPolygon.intersects(up))
+        {
+            mapCollision = Collision.UP;
+        }
+
+        if (mapPolygon.intersects(left)
+                || mapPolygon.intersects(right))
+        {
+            mapCollision = Collision.SIDE;
+        }
+
+        if (mapPolygon.intersects(down))
+        {
+            mapCollision = Collision.DOWN;
+        }
+
+        for (MapObject characterObjectLoop : game.getMapObjects())
+        {
+            if (this != characterObjectLoop || characterObjectLoop instanceof NoClip)
+            {
+                Rectangle mapObjectRectangle = new Rectangle(characterObjectLoop.getX(), characterObjectLoop.getY(), characterObjectLoop.getWidth(), characterObjectLoop.getHeight());
+                if (mapObjectRectangle.intersects(up))
+                {
+                    mapCollision = Collision.UP;
+                }
+
+                if (mapObjectRectangle.intersects(left)
+                        || mapPolygon.intersects(right))
+                {
+                    mapCollision = Collision.SIDE;
+                }
+
+                if (mapObjectRectangle.intersects(down))
+                {
+                    mapCollision = Collision.DOWN;
+                }
+            }
+        }
+
+        return mapCollision;
     }
 }

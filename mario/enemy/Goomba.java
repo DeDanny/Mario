@@ -6,17 +6,19 @@ package mario.enemy;
 
 import java.awt.Rectangle;
 import mario.core.Collision;
+import mario.core.NoClip;
 import mario.Game;
-import mario.core.MapObject;
 import mario.ai.WalkAi;
+import mario.core.MapObject;
 
 /**
  *
  * @author Danny
  */
-public class Goomba extends Enemy {
-
-    public Goomba(Game game, int x, int y, int width, int height) {
+public class Goomba extends Enemy implements NoClip
+{
+    public Goomba(Game game, int x, int y, int width, int height)
+    {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
         ai = new WalkAi(this);
         frames.put("goombaStandLeft 0", new Rectangle(156, 978, 48, 48));
@@ -24,28 +26,26 @@ public class Goomba extends Enemy {
         frames.put("goombaStandRight 0", new Rectangle(33, 862, 50, 48));
         frames.put("goombaWalkRight 0", new Rectangle(154, 861, 50, 48));
         frameSpeed = 100;
-    
-        setAnimation(new String[]{
+
+        setAnimation(new String[]
+                {
                     "goombaStandLeft 0", "goombaWalkLeft 0", //"goombaStandRight 0", "goombaWalkRight 0"
                 });
     }
 
-
-    
-
     @Override
-    public void hitBy() {
+    public void hitBy()
+    {
     }
 
-
-
-
-  // @Override
-   public void doMapCollision(Collision side)
-   {
+    // @Override
+    public void doMapCollision(Collision side)
+    {
 
         if (side == Collision.NONE)
-        System.out.println("No COlliisionn *#*#*#*#*#*#*#*#*#*#*#*#*#*#");
+        {
+            System.out.println("No COlliisionn *#*#*#*#*#*#*#*#*#*#*#*#*#*#");
+        }
         {
 
             setFall(true);
@@ -54,19 +54,29 @@ public class Goomba extends Enemy {
         {
             setFall(false);
         }
-   }
+    }
+
     @Override
-    public void doMapCollision() {
-        switch (mapCollision) {
+    public void doMapCollision()
+    {
+        switch (mapCollision)
+        {
             case SIDE:
                 ai.toggleDirection();
                 System.out.println("Goombla col side");
-                switch (ai.getDirection()) {
+                switch (ai.getDirection())
+                {
                     case LEFT:
-                       setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
+                        setAnimation(new String[]
+                                {
+                                    "goombaStandLeft 0", "goombaWalkLeft 0"
+                                });
                         break;
                     case RIGHT:
-                       setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
+                        setAnimation(new String[]
+                                {
+                                    "goombaStandRight 0", "goombaWalkRight 0"
+                                });
                         break;
                 }
                 break;
@@ -125,10 +135,13 @@ public class Goomba extends Enemy {
 //            }
     //}
     //else if(side == Collision.
-    public void doCharacterCollision(Collision collision, MapObject characterObject) {
+    public void doCharacterCollision(Collision collision, MapObject characterObject)
+    {
 
-        if (characterObject instanceof mario.Mario) {
-            switch (collision) {
+        if (characterObject instanceof mario.Mario)
+        {
+            switch (collision)
+            {
                 case UP:
                     System.out.println("Goomba: \"I'm dead!!! :(\"");
                     setAlive(false);

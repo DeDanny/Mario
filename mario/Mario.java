@@ -154,11 +154,6 @@ public class Mario extends CharacterObject
         this.jump = jump;
     }
 
-    public void setFall(boolean fall)
-    {
-        this.fall = fall;
-    }
-
     public void setDown(boolean down)
     {
         this.down = down;
