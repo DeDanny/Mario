@@ -41,7 +41,7 @@ public class FallState extends MarioState {
         }
 
 
-        if(fallsize < 7)
+        while(fallsize < 7)
         {
             fallsize++;
         }

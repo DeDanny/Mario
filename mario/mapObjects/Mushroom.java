@@ -5,18 +5,18 @@
 package mario.mapObjects;
 
 import mario.core.Direction;
-import mario.core.CharacterObject;
 import mario.core.Collision;
 import java.awt.Rectangle;
 import mario.*;
 import mario.ai.WalkAi;
 import mario.core.MapObject;
+import mario.core.NoClip;
 
 /**
  *
  * @author Nishchal Baldew
  */
-public class Mushroom extends Powerup
+public class Mushroom extends Powerup implements NoClip
 
 {
   

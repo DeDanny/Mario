@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 import mario.*;
 import mario.core.Collision;
 import mario.core.MapObject;
+import mario.core.NoClip;
 
 /**
  *

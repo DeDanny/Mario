@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 import mario.Game;
 import mario.core.Collision;
 import mario.core.MapObject;
+import mario.core.NoClip;
 
 
 
@@ -15,7 +16,8 @@ import mario.core.MapObject;
  *
  * @author Nishchal Baldew
  */
-public class Munt extends MapObject {
+public class Munt extends MapObject implements NoClip
+{
 
     private boolean raak = true;
     private int goinUp = 0;
