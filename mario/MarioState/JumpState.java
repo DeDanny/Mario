@@ -15,7 +15,7 @@ import mario.core.Collision;
 public class JumpState extends MarioState
 {
     protected static final int WALKSPEED = 4;
-    private int jumpTeller = 0;
+    
     protected String[] smallJumpRight = new String[]
     {
         "smallMarioJumpRight 0"
@@ -113,13 +113,13 @@ public class JumpState extends MarioState
     private void doJumping()
     {
 
-        jumpHeight = 10;
-        if (jumpTeller > 10)
+        jumpHeight = 12;
+        if (marioObject.getJumpTeller() > 10)
         {
-            jumpHeight--;
+            jumpHeight++;
         }
 
-        if (jumpTeller < 15)
+        if (marioObject.getJumpTeller() < 20)
         {
             while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() - jumpHeight) != Collision.NONE && jumpHeight != 0)
             {
@@ -130,7 +130,7 @@ public class JumpState extends MarioState
             marioObject.setY(marioObject.getY() - jumpHeight);
 
 
-            jumpTeller++;
+            marioObject.setJumpTeller(marioObject.getJumpTeller() + 1);
 
             //System.out.println("teller " + jumpTeller);
         }
@@ -139,7 +139,7 @@ public class JumpState extends MarioState
             marioObject.setJump(false);
             marioObject.setFall(true);
             //System.out.println("set jump false yippykayeay");
-            jumpTeller = 0;
+            marioObject.setJumpTeller(0);
         }
     }
 }

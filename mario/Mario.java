@@ -33,6 +33,15 @@ public class Mario extends CharacterObject implements NoClip
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
+    protected int jumpTeller = 1;
+
+    public int getJumpTeller() {
+        return jumpTeller;
+    }
+
+    public void setJumpTeller(int jumpTeller) {
+        this.jumpTeller = jumpTeller;
+    }
 
     public Mario(Game game) {
         super(game, 600, 392, 42, 57, "/images/mario_sprite.png");
@@ -239,6 +248,7 @@ public class Mario extends CharacterObject implements NoClip
                     break;
                 case UP:
                     setFall(true);
+                    jumpTeller = 0;
                     break;
             }
         }

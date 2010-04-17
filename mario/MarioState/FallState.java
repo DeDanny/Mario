@@ -104,7 +104,7 @@ public class FallState extends MarioState
 
     private void doFall()
     {
-        while (fallsize < 7)
+        while (fallsize < 9)
         {
             fallsize++;
         }
