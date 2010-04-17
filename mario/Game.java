@@ -4,7 +4,6 @@
  */
 package mario;
 
-import mario.core.GameObject;
 import mario.background.Background;
 import mario.mapObjects.Munt;
 import mario.mapObjects.Questionmark;
@@ -13,6 +12,7 @@ import mario.mapObjects.Mushroom;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.core.MapObject;
+import mario.core.ReUse;
 import mario.enemy.*;
 
 /**
@@ -24,16 +24,18 @@ public class Game
     private boolean running = false;
     private boolean paused = false;
     private Mario mario = new Mario(this,200, 392, 42, 57);
-    private Background background = new Background(this);
+    private Background background = new Background(this, 0, 552, 800,  48);
+    private Background background2 = new Background(this, 800, 552, 800,  48);
+
     private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 45, 48);
-    private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     private ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
 
     public Game()
     {
+        mapObjects.add(background);
+        mapObjects.add(background2);
         mapObjects.add(mario);
         mapObjects.add(ScoreBalk);
-
         mapObjects.add(new Stone(this, 148, 350, 45, 45));
         mapObjects.add(new Stone(this, 194, 350, 45, 45));
         mapObjects.add(new Questionmark(this, 240, 350, 45, 45));
@@ -65,11 +67,6 @@ public class Game
         this.paused = paused;
     }
 
-    public ArrayList<GameObject> getGameObjects()
-    {
-        return gameObjects;
-    }
-
     public Mario getMario()
     {
         return mario;
@@ -93,7 +90,14 @@ public class Game
             MapObject mapObject = it.next();
             if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) < 0)
             {
-                it.remove();
+                if(mapObject instanceof ReUse)
+                {
+                    mapObject.setX(800);
+                }
+                else
+                {
+                    it.remove();
+                }
             }
         }
     }

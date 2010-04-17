@@ -58,7 +58,7 @@ public class Controller implements KeyListener, Runnable
                 {
                     marioWorld.getGame().removeDeadObjects();
 
-                    gameObjectenLoopAction();
+                    
                     gameObjectLoopAction();
 
                     collisionDetector.detectCollisionsGameObjects();
@@ -152,13 +152,6 @@ public class Controller implements KeyListener, Runnable
         }
     }
 
-    private void gameObjectenLoopAction()
-    {
-        for (GameObject gameObject : marioWorld.getGame().getGameObjects())
-        {
-            gameObject.doLoopAction();
-        }
-    }
 
     private void gameObjectLoopAction()
     {
