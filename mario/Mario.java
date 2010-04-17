@@ -10,6 +10,7 @@ import mario.core.Collision;
 import java.awt.Rectangle;
 import mario.MarioState.*;
 import mario.core.MapObject;
+import mario.core.NoClip;
 import mario.enemy.Enemy;
 import mario.mapObjects.Cube;
 
@@ -17,7 +18,7 @@ import mario.mapObjects.Cube;
  *
  * @author danny
  */
-public class Mario extends CharacterObject
+public class Mario extends CharacterObject implements NoClip
 {
     private boolean left = false;
     private boolean right = false;

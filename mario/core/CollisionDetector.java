@@ -33,10 +33,10 @@ public class CollisionDetector
                         int y_last = characterObject.getYLast();
                         int height_last = characterObject.getHeightLast();
 
-                        int x = characterObject.getX();
-                        int y = characterObject.getY();
-                        int width = characterObject.getWidth();
-                        int height = characterObject.getHeight();
+                        int x = characterObject.getX()+1;
+                        int y = characterObject.getY()+1;
+                        int width = characterObject.getWidth()+1;
+                        int height = characterObject.getHeight()+1;
 
                         if( height_last == 0)
                         {
