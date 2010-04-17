@@ -17,8 +17,8 @@ import mario.mapObjects.Cube;
  *
  * @author danny
  */
-public class Mario extends CharacterObject
-{
+public class Mario extends CharacterObject {
+
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
@@ -32,8 +32,7 @@ public class Mario extends CharacterObject
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
 
-    public Mario(Game game)
-    {
+    public Mario(Game game) {
         super(game, 600, 392, 42, 57, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
@@ -86,161 +85,127 @@ public class Mario extends CharacterObject
     }
 
     @Override
-    public void doLoopAction()
-    {
-
-        if (jump || jumpExtra)
-        {
-            if (this.state != fallMario || jumpExtra)
-            {
-                setState(jumpMario);
-                this.jumpExtra = false;
-                System.out.println("jumpMario");
-            } else
-            {
-                this.setJump(false);
-            }
-        } else
-        {
-            if (fall)
-            {
-                setState(fallMario);
-                System.out.println("fallMario");
-            } else
-            {
-                if (big)
-                {
+    public void doLoopAction() {
+        if (fall) {
+            setState(fallMario);
+            System.out.println("fallMario");
+        } else {
+            if (jump || jumpExtra) {
+                if (this.state != fallMario || jumpExtra) {
+                    setState(jumpMario);
+                    this.jumpExtra = false;
+                    System.out.println("jumpMario");
+                } else {
+                    this.setJump(false);
+                }
+            } else {
+                if (big) {
                     setState(bigMario);
                     setHeight(82);
                     System.out.println("bigMario");
-                } else
-                {
+                } else {
                     setState(smallMario);
                     setHeight(58);
                     System.out.println("smallMario");
                 }
             }
         }
+
+
         state.doAction();
     }
 
-    public boolean isMove()
-    {
+    public boolean isMove() {
         return (left || right);
     }
 
-    public boolean isPreformingSpecialMove()
-    {
+    public boolean isPreformingSpecialMove() {
         return (up || down);
     }
 
-    public void setLeft(boolean left)
-    {
+    public void setLeft(boolean left) {
         this.left = left;
     }
 
-    public void setRight(boolean right)
-    {
+    public void setRight(boolean right) {
         this.right = right;
     }
 
-    public void setUp(boolean up)
-    {
+    public void setUp(boolean up) {
         this.up = up;
     }
 
-    public void setJump(boolean jump)
-    {
+    public void setJump(boolean jump) {
         this.jump = jump;
     }
 
-    public void setDown(boolean down)
-    {
+    public void setDown(boolean down) {
         this.down = down;
     }
 
-    public void setBig(boolean isBig)
-    {
+    public void setBig(boolean isBig) {
         this.big = isBig;
     }
 
-    public boolean getIsBig()
-    {
+    public boolean getIsBig() {
         return big;
     }
 
-    public boolean isLeft()
-    {
+    public boolean isLeft() {
         return left;
     }
 
-    public boolean isRight()
-    {
+    public boolean isRight() {
         return right;
     }
 
-    public boolean isUp()
-    {
+    public boolean isUp() {
         return up;
     }
 
-    public boolean isDown()
-    {
+    public boolean isDown() {
         return down;
     }
 
-    public boolean isJump()
-    {
+    public boolean isJump() {
         return jump;
     }
 
-    public Direction getDirection()
-    {
+    public Direction getDirection() {
         return direction;
     }
 
-    public void setDirection(Direction direction)
-    {
+    public void setDirection(Direction direction) {
         this.direction = direction;
     }
 
     @Override
-    public void doMapCollision()
-    {
+    public void doMapCollision() {
         checkCollisionMap();
-        if (mapCollision == Collision.NONE)
-        {
+        if (mapCollision == Collision.NONE && !isJump()) {
             setFall(true);
         }
-        if (mapCollision != Collision.NONE)
-        {
+        if (mapCollision != Collision.NONE) {
             setFall(false);
         }
     }
 
-    public void doCharacterCollision(Collision collision, MapObject mapObject)
-    {
-        if (mapObject instanceof Enemy)
-        {
-            switch (collision)
-            {
+    public void doCharacterCollision(Collision collision, MapObject mapObject) {
+        if (mapObject instanceof Enemy) {
+            switch (collision) {
                 case SIDE:
-                    if (big)
-                    {
+                    if (big) {
                         big = false;
-                    } else
-                    {
+                    } else {
 
                         setAlive(false);
                     }
                     System.out.println("MARIO DOOD");
                     break;
                 case UP:
-                    if (big)
-                    {
+                    if (big) {
                         big = false;
-                    } else
-                    {
+                    } else {
 
                         setAlive(false);
                     }
@@ -256,10 +221,8 @@ public class Mario extends CharacterObject
             }
         }
 
-        if(mapObject instanceof Cube)
-        {
-            switch (collision)
-            {
+        if (mapObject instanceof Cube) {
+            switch (collision) {
                 case DOWN:
                     setFall(false);
                     break;

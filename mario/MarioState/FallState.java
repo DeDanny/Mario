@@ -30,27 +30,19 @@ public class FallState extends MarioState {
 
     @Override
     public void doAction() {
-        if (marioObject.isLeft() && !marioObject.isRight() && !marioObject.isPreformingSpecialMove()) {
-            doLeft();
-        } else if (marioObject.isRight() && !marioObject.isLeft() && !marioObject.isPreformingSpecialMove()) {
-            doRight();
-        } else if (marioObject.getDirection() == Direction.LEFT && !marioObject.isPreformingSpecialMove()) {
-            setAnimationLeft();
-        } else if (marioObject.getDirection() == Direction.RIGHT && !marioObject.isPreformingSpecialMove()) {
-            setAnimationRight();
-        }
-
-
-        while(fallsize < 7)
-        {
-            fallsize++;
-        }
-        while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
-            fallsize--;
-            System.out.println("fallsize = " + fallsize);
-        }
-        //System.out.println("CHEEEEEEEEEEECK: "+marioObject.checkCollisionMap(marioObject.getX(), fallsize));
-        marioObject.setY(marioObject.getY() + fallsize);
+       //if (!marioObject.isPreformingSpecialMove() && !marioObject.isJump()) {
+            if (marioObject.isLeft() && !marioObject.isRight()) {
+                doLeft();
+            } else if (marioObject.isRight() && !marioObject.isLeft()) {
+                doRight();
+            } else if (marioObject.getDirection() == Direction.LEFT) {
+                setAnimationLeft();
+            } else if (marioObject.getDirection() == Direction.RIGHT) {
+                setAnimationRight();
+            }
+            
+       //}
+        doFall();
     }
 
     private void doLeft() {
@@ -83,5 +75,18 @@ public class FallState extends MarioState {
         {
             super.setAnimation(smallFallRight);
         }
+    }
+
+    private void doFall()
+    {
+        while(fallsize < 7)
+        {
+            fallsize++;
+        }
+        while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
+            fallsize--;
+            System.out.println("fallsize = " + fallsize);
+        }
+        marioObject.setY(marioObject.getY() + fallsize);
     }
 }
