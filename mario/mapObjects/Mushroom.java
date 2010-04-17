@@ -66,7 +66,7 @@ public class Mushroom extends Powerup implements NoClip
     public void doCharacterCollision(Collision collision, MapObject charachter) {
         if (charachter instanceof Mario) {
             setAlive(false);
-            //game.getMario().setGrow(true);
+            game.getMario().setGrow(true);
         }
     }
 //    public void doLoopAction() {

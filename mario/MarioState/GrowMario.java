@@ -2,30 +2,61 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mario.MarioState;
 
 import mario.Mario;
+
 /**
  *
  * @author Onno
  */
-public class GrowMario extends MoveState {
+public class GrowMario extends MarioState {
 
-      public GrowMario(Mario gameObject) {
-        super(gameObject);
-        this.RightAnimation     = new String[]{"bigMarioWalkRight 0", "bigMarioWalkRight 1", "bigMarioWalkRight 2"};
-        this.LeftAnimation      = new String[]{"bigMarioWalkLeft 0", "bigMarioWalkLeft 1", "bigMarioWalkLeft 2"};
-        this.StandLeft          = new String[]{"bigMarioStandLeft 0"};
-        this.StandRight         = new String[]{"bigMarioStandRight 0"};
-        this.UpRight            = new String[]{"bigMarioLookUpRight 0"};
-        this.UpLeft             = new String[]{"bigMarioLookUpLeft 0"};
-        this.DuckRight          = new String[]{"bigMarioDuckRight 0"};
-        this.DuckLeft           = new String[]{"bigMarioDuckLeft 0"};
+    protected String[] growJumpLeft = new String[]{"smallMarioJumpLeft 0", "bigMarioJumpLeft 0"};
+    protected String[] growJumpRight = new String[]{"smallMarioJumpRight 0", "bigMarioJumpRight 0"};
 
-        this.Height = 84;
-        this.tempHeight = 41;
-        this.tempY = 43;
+    protected String[] growStandLeft = new String[]{"smallMarioStandLeft 0", "bigMarioStandLeft 0"};
+    protected String[] growStandRight = new String[]{"smallMarioStandRight 0", "bigMarioStandRight 0"};
 
+    protected String[] growFallLeft = new String[]{"smallMarioFallLeft 0", "bigMarioFallLeft 0"};
+    protected String[] growFallRight = new String[]{"smallMarioFallRight 0", "bigMarioFallRight 0"};
+    
+    private int growTeller;
+
+    public GrowMario(Mario marioObject) {
+        super(marioObject);
+        //gameObject.setAnimation(StandRight);
+
+    }
+
+    @Override
+    public void doAction() {
+        if (growTeller < 100) {
+            switch (marioObject.getDirection()) {
+                case LEFT:
+                    if (marioObject.isJump()) {
+                        super.setAnimation(growJumpLeft);
+                    } else if (marioObject.isFall()) {
+                        super.setAnimation(growFallLeft);
+                    } else {
+                        super.setAnimation(growStandLeft);
+                    }
+                    break;
+                case RIGHT:
+                    if (marioObject.isJump()) {
+                        super.setAnimation(growJumpRight);
+                    } else if (marioObject.isFall()) {
+                        super.setAnimation(growFallRight);
+                    } else {
+                        super.setAnimation(growStandRight);
+                    }
+                    break;
+            }
+
+            growTeller++;
+        } else {
+            marioObject.setBig(true);
+            marioObject.setGrow(false);
+        }
     }
 }
