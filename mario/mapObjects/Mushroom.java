@@ -20,9 +20,9 @@ public class Mushroom extends Powerup implements NoClip
 
 {
   
-    public Mushroom(Game game)
+    public Mushroom(Game game, int x, int y, int width, int height)
     {
-        super(game, 100, 350, 48, 48, "/images/nsmbtileset.png");
+        super(game, x, y, width, height, "/images/nsmbtileset.png");
         ai = new WalkAi(this);
 
         frames.put("mushroom 0", new Rectangle(1225, 2327, 50, 50));

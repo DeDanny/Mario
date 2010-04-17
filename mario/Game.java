@@ -25,28 +25,23 @@ public class Game
     private boolean paused = false;
     private Mario mario = new Mario(this);
     private Background background = new Background(this);
-    private Mushroom Mushroom = new Mushroom(this);
-
-    private Munt Munt   = new Munt(this);
-    private Questionmark Questionmark   = new Questionmark(this);
-    private Stone Stone   = new Stone(this);
-    private ScoreBalk ScoreBalk = new ScoreBalk(this);
-
+    private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 45, 48);
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
     private ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
 
     public Game()
     {
         mapObjects.add(mario);
-        mapObjects.add(Mushroom);
-        mapObjects.add(Munt);
-        mapObjects.add(Questionmark);
-
-        mapObjects.add(new Goomba(this, 100, 205, 45, 45));
-        //mapObjects.add(new Goomba(this, 300, 205, 45, 45));
-
-        mapObjects.add(Stone);
         mapObjects.add(ScoreBalk);
+
+        mapObjects.add(new Stone(this, 148, 350, 45, 45));
+        mapObjects.add(new Stone(this, 194, 350, 45, 45));
+        mapObjects.add(new Questionmark(this, 240, 350, 45, 45));
+        mapObjects.add(new Stone(this, 286, 350, 45, 45));
+        
+        mapObjects.add(new Goomba(this, 100, 205, 45, 45));
+        mapObjects.add(new Munt(this, 240, 300, 45, 45));
+        mapObjects.add(new Mushroom(this, 100, 205, 45, 45));
     }
 
     public boolean isRunning()
@@ -103,8 +98,8 @@ public class Game
 
     }
 
-    public ScoreBalk getScoreBalk() {
+    public ScoreBalk getScoreBalk()
+    {
         return ScoreBalk;
     }
-
 }
