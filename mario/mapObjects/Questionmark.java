@@ -13,43 +13,35 @@ import mario.core.MapObject;
  *
  * @author Nishchal Baldew
  */
-public class Questionmark extends Cube
-{
+public class Questionmark extends Cube {
 
     protected boolean hit = false;
-    
-    public Questionmark(Game game, int x, int y, int width, int height)
-    {
+    protected boolean done = false;
+
+    public Questionmark(Game game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
         frames.put("questionmark 0", new Rectangle(558, 66, 48, 48));
         frames.put("questionmark 1", new Rectangle(507, 66, 48, 48));//vast blokje
 
-        setAnimation(new String[]
-                {
-                    "questionmark 0"
-                });
+        setAnimation(new String[]{"questionmark 0"});
 
     }
 
- 
-
     @Override
-     public void doLoopAction()
-    {
+    public void doLoopAction() {
 
-        if (hit) {
+        if (hit && !done) {
             super.doHit();
             if (getGoinUp() == 20) {
                 hit = false;
-                setGoinUp(20);
+                done = true;
+                setGoinUp(0);
+                setAnimation(new String[]{"questionmark 1"});
             }
-            setAnimation(new String[]{"questionmark 1"});
+            
         }
-        //super.doHit();
-
     }
-
 
     @Override
     public void doCharacterCollision(Collision collision, MapObject charachter) {
@@ -73,7 +65,4 @@ public class Questionmark extends Cube
         }
 
     }
-
-
-
 }

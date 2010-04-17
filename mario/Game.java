@@ -23,7 +23,7 @@ public class Game
 {
     private boolean running = false;
     private boolean paused = false;
-    private Mario mario = new Mario(this,200, 392, 42, 57);
+    private Mario mario = new Mario(this,200, 420, 42, 57);
     private Background background = new Background(this, 0, 552, 800,  48);
     private Background background2 = new Background(this, 800, 552, 800,  48);
 
@@ -39,10 +39,10 @@ public class Game
         mapObjects.add(new Stone(this, 148, 350, 45, 45));
         mapObjects.add(new Stone(this, 194, 350, 45, 45));
         mapObjects.add(new Questionmark(this, 240, 350, 45, 45));
+        mapObjects.add(new Coin(this, 240, 303, 45, 45));
         mapObjects.add(new Stone(this, 286, 350, 45, 45));
         
-        mapObjects.add(new Goomba(this, 600, 205, 45, 45));
-        mapObjects.add(new Coin(this, 240, 300, 45, 45));
+        mapObjects.add(new Goomba(this, 600, 205, 45, 45));    
         mapObjects.add(new Mushroom(this, 500, 205, 45, 45));
 
     }
