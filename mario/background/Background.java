@@ -4,20 +4,22 @@
  */
 package mario.background;
 
-import mario.core.GameObject;
 import java.awt.Rectangle;
 import mario.*;
+import mario.core.Collision;
+import mario.core.MapObject;
+import mario.core.ReUse;
 
 /**
  *
  * @author Onno
  */
-public class Background extends GameObject
+public class Background extends MapObject implements ReUse
 {
-    public Background(Game game)
+    public Background(Game game, int x, int y, int width, int height)
     {
-        super(game, 0, 0, 800, 600, "/images/background_gameplay.png");
-        frames.put("drawBackground 0", new Rectangle(0, 0, 800, 600));
+        super(game, x, y, width, height, "/images/background_gameplay.png");
+        frames.put("drawBackground 0", new Rectangle(0, 0, 800, 48));
         setAnimation(new String[]
                 {
                     "drawBackground 0"
@@ -28,5 +30,11 @@ public class Background extends GameObject
     @Override
     public void doLoopAction()
     {
+    }
+
+
+    public void doCharacterCollision(Collision collision, MapObject mapObject)
+    {
+        
     }
 }

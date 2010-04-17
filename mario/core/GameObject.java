@@ -144,7 +144,6 @@ public abstract class GameObject
             {
                 if (x > ((800 / 2) + 5))
                 {
-
                     moveAll(this.x - x_last);
                 }
                 if(x <= 0)
@@ -236,12 +235,7 @@ public abstract class GameObject
         Rectangle mapRectangle = new Rectangle(0, 552, 800,  48);
 
         mapCollision = Collision.NONE;
-
-        if (mapRectangle.intersects(objectRectangle))
-        {
-            mapCollision = Collision.COLLISION;
-        }
-
+        
         for (MapObject characterObjectLoop : game.getMapObjects())
         {
             if (this != characterObjectLoop)
@@ -262,7 +256,6 @@ public abstract class GameObject
 
     private void moveAll(int i)
     {
-        game.getBackground().setX(game.getBackground().getX() - i, true);
         for (MapObject characterObjectLoop : game.getMapObjects())
         {
             if( !(characterObjectLoop instanceof Static))

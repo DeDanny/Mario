@@ -10,12 +10,13 @@ import java.awt.Graphics;
 import java.awt.Color;
 import mario.core.Collision;
 import mario.core.MapObject;
+import mario.core.Static;
 
 /**
  *
  * @author Mike
  */
-public class ScoreBalk extends MapObject {
+public class ScoreBalk extends MapObject implements Static{
 
     private int score;
     private int newScore;
