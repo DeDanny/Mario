@@ -19,6 +19,8 @@ public class GrowMario extends MarioState {
     protected String[] growStandRight = new String[]{"smallMarioStandRight 0", "bigMarioStandRight 0"};
     protected String[] growFallLeft = new String[]{"smallMarioFallLeft 0", "bigMarioFallLeft 0"};
     protected String[] growFallRight = new String[]{"smallMarioFallRight 0", "bigMarioFallRight 0"};
+    protected String[] growDuckLeft = new String[]{"smallMarioDuckLeft 0", "bigMarioDuckLeft 0"};
+    protected String[] growDuckRight = new String[]{"smallMarioDuckRight 0", "bigMarioDuckRight 0"};
     private int growTeller;
 
     public GrowMario(Mario marioObject) {
@@ -29,26 +31,27 @@ public class GrowMario extends MarioState {
     @Override
     public void doAction() {
         if (setBigY) {
-            if (marioObject.isBig()) {
-                // Make mario smaller
-                marioObject.setY(marioObject.getY() + 24);
-                marioObject.setHeight(58);
-            } else {
+            if (!marioObject.isBig()) {
                 // Make mario Bigger
-                marioObject.setY(marioObject.getY() - 25);
-                marioObject.setHeight(82);
+                if(!marioObject.isDown()){
+                    marioObject.setY(marioObject.getY() - 25);
+                    marioObject.setHeight(82);
+                }
+
             }
             setBigY = false;
         }
 
 
-        if (growTeller < 100) {
+        if (growTeller < 25) {
             switch (marioObject.getDirection()) {
                 case LEFT:
                     if (marioObject.isJump()) {
                         super.setAnimation(growJumpLeft);
                     } else if (marioObject.isFall()) {
                         super.setAnimation(growFallLeft);
+                    } else if (marioObject.isDown()) {
+                         super.setAnimation(growDuckLeft);
                     } else {
                         super.setAnimation(growStandLeft);
                     }
@@ -58,6 +61,8 @@ public class GrowMario extends MarioState {
                         super.setAnimation(growJumpRight);
                     } else if (marioObject.isFall()) {
                         super.setAnimation(growFallRight);
+                    } else if (marioObject.isDown()) {
+                        super.setAnimation(growDuckRight);
                     } else {
                         super.setAnimation(growStandRight);
                     }
