@@ -8,7 +8,6 @@ import java.awt.Rectangle;
 import mario.*;
 import mario.core.Collision;
 import mario.core.MapObject;
-import mario.core.NoClip;
 
 /**
  *
@@ -19,9 +18,9 @@ public class Questionmark extends Cube
 
     protected boolean hit = false;
     
-    public Questionmark(Game game)
+    public Questionmark(Game game, int x, int y, int width, int height)
     {
-        super(game, 500, 349, 47, 48, "/images/nsmbtileset.png");
+        super(game, x, y, width, height, "/images/nsmbtileset.png");
 
         frames.put("questionmark 0", new Rectangle(558, 66, 48, 48));
         frames.put("questionmark 1", new Rectangle(507, 66, 48, 48));//vast blokje

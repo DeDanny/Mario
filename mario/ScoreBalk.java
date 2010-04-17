@@ -23,8 +23,9 @@ public class ScoreBalk extends MapObject {
     private int lives = 3;
     private int coins;
 
-     public ScoreBalk(Game game) {
-        super(game,0, 0, 45, 48, "/images/nsmbtileset.png");
+     public ScoreBalk(Game game, int x, int y, int width, int height)
+    {
+        super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("muntje", new Rectangle(457, 167, 45, 48));
         frames.put("leven", new Rectangle(1338, 2337, 33, 30));
         setAnimation(new String[]{"muntje"});
