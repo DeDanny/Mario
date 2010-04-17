@@ -103,11 +103,9 @@ public class Mario extends CharacterObject implements NoClip
             } else {
                 if (big) {
                     setState(bigMario);
-                    setHeight(82);
                     System.out.println("bigMario");
                 } else {
                     setState(smallMario);
-                    setHeight(58);
                     System.out.println("smallMario");
                 }
             }
@@ -145,8 +143,19 @@ public class Mario extends CharacterObject implements NoClip
         this.down = down;
     }
 
-    public void setBig(boolean isBig) {
-        this.big = isBig;
+    public void setBig(boolean big)
+    {
+        if(big == false)
+        {
+            setY(getY()+24);
+            setHeight(58);
+        }
+        else
+        {
+            setY(getY()-24);
+            setHeight(82);
+        }
+        this.big = big;
     }
 
     public boolean getIsBig() {
