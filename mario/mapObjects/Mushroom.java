@@ -16,10 +16,8 @@ import mario.core.NoClip;
  *
  * @author Nishchal Baldew
  */
-public class Mushroom extends Powerup implements NoClip {
-
-
-  
+public class Mushroom extends Powerup implements NoClip
+{
     public Mushroom(Game game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");

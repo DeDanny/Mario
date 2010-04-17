@@ -137,16 +137,16 @@ public abstract class GameObject
 
         if (checkCollisionMap(x, y) == Collision.NONE)
         {
+            x_last = this.x;
+            this.x = x;
             if (this instanceof Mario)
             {
                 if (x > ((800 / 2) + 5))
                 {
 
-                    moveAllBack(x - this.x);
+                    moveAll(this.x - x_last);
                 }
             }
-            x_last = this.x;
-            this.x = x;
         }
     }
 
@@ -256,7 +256,7 @@ public abstract class GameObject
         return mapCollision;
     }
 
-    private void moveAllBack(int i)
+    private void moveAll(int i)
     {
         game.getBackground().setX(game.getBackground().getX() - i, true);
         for (MapObject characterObjectLoop : game.getMapObjects())

@@ -43,8 +43,8 @@ public class Mario extends CharacterObject implements NoClip
         this.jumpTeller = jumpTeller;
     }
 
-    public Mario(Game game) {
-        super(game, 600, 392, 42, 57, "/images/mario_sprite.png");
+    public Mario(Game game,int x,int y,int width,int height) {
+        super(game, x, y, width, height, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
