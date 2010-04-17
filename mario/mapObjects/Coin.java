@@ -14,15 +14,16 @@ import mario.core.NoClip;
  *
  * @author Nishchal Baldew
  */
-public class Munt extends MapObject implements NoClip
+public class Coin extends MapObject implements NoClip
 {
 
     private boolean hit = false;
     private boolean changeAni = false;
     private int goinUp;
+    private boolean hadCollision = false;
     
 
-    public Munt(Game game, int x, int y, int width, int height)
+    public Coin(Game game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("munt nothing", new Rectangle(0, 0, 1, 1));
@@ -67,11 +68,15 @@ public class Munt extends MapObject implements NoClip
     @Override
     public void doCharacterCollision(Collision collision, MapObject mapObject) {
         if (mapObject instanceof mario.Mario) {
-            game.getScoreBalk().addCoin();
-            setAlive(false);
+            if(hadCollision){
+                game.getScoreBalk().addCoin();
+                setAlive(false);
+            }
+
         }
 
         if (mapObject instanceof Questionmark) {
+            hadCollision = true;
             hit = true;
             changeAni = true;
         }

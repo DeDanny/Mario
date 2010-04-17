@@ -19,7 +19,7 @@ public class Controller implements KeyListener, Runnable
     private View view;
     private JFrame frame;
     private Thread gameLoop = new Thread(this, "GameLoop");
-    private final static int GAMESPEED = 10000;
+    private final static int GAMESPEED = 10;
     private long gameTimer = System.currentTimeMillis();
     private CollisionDetector collisionDetector;
 

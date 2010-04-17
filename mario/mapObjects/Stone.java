@@ -24,9 +24,7 @@ public class Stone extends Cube {
 
         frames.put("stone 0", new Rectangle(558, 116, 49, 49));
 
-        setAnimation(new String[]{
-                    "stone 0"
-                });
+        setAnimation(new String[]{"stone 0"});
 
     }
 
