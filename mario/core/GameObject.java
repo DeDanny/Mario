@@ -142,7 +142,7 @@ public abstract class GameObject
                 if (x > ((800 / 2) + 5))
                 {
 
-                    moveAllBack(x - this.x);
+                    moveAll(x - this.x);
                 }
             }
             x_last = this.x;
@@ -256,7 +256,7 @@ public abstract class GameObject
         return mapCollision;
     }
 
-    private void moveAllBack(int i)
+    private void moveAll(int i)
     {
         game.getBackground().setX(game.getBackground().getX() - i, true);
         for (MapObject characterObjectLoop : game.getMapObjects())
