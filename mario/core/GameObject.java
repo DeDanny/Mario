@@ -17,6 +17,7 @@ import javax.imageio.ImageIO;
 import mario.Game;
 import mario.Main;
 import mario.State;
+import mario.Mario;
 
 /**
  *
@@ -133,7 +134,25 @@ public abstract class GameObject
 
     public void setX(int x)
     {
+
         if (checkCollisionMap(x, y) == Collision.NONE)
+        {
+            if (this instanceof Mario)
+            {
+                if (x > ((800 / 2) + 5))
+                {
+
+                    moveAllBack(x - this.x);
+                }
+            }
+            x_last = this.x;
+            this.x = x;
+        }
+    }
+
+    public void setX(int x, boolean override)
+    {
+        if (override)
         {
             x_last = this.x;
             this.x = x;
@@ -206,8 +225,6 @@ public abstract class GameObject
         return checkCollisionMap(x, y, 1);
     }
 
-
-
     public Collision checkCollisionMap(int x, int y, int downSize)
     {
         Polygon mapPolygon = game.getBackground().getPolygon();
@@ -216,7 +233,7 @@ public abstract class GameObject
 
         mapCollision = Collision.NONE;
 
-        if(mapPolygon.intersects(objectRectangle))
+        if (mapPolygon.intersects(objectRectangle))
         {
             mapCollision = Collision.COLLISION;
         }
@@ -229,7 +246,7 @@ public abstract class GameObject
                 {
 
                     Rectangle mapObjectRectangle = new Rectangle(characterObjectLoop.getX(), characterObjectLoop.getY(), characterObjectLoop.getWidth(), characterObjectLoop.getHeight());
-                    if(mapObjectRectangle.intersects(objectRectangle))
+                    if (mapObjectRectangle.intersects(objectRectangle))
                     {
                         mapCollision = Collision.COLLISION;
                     }
@@ -237,5 +254,14 @@ public abstract class GameObject
             }
         }
         return mapCollision;
+    }
+
+    private void moveAllBack(int i)
+    {
+        game.getBackground().setX(game.getBackground().getX() - i, true);
+        for (MapObject characterObjectLoop : game.getMapObjects())
+        {
+            characterObjectLoop.setX(characterObjectLoop.getX() - i, true);
+        }
     }
 }
