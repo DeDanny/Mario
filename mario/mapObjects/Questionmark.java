@@ -16,6 +16,9 @@ import mario.core.NoClip;
  */
 public class Questionmark extends Cube
 {
+
+    protected boolean hit = false;
+    
     public Questionmark(Game game)
     {
         super(game, 500, 349, 47, 48, "/images/nsmbtileset.png");
@@ -30,39 +33,48 @@ public class Questionmark extends Cube
 
     }
 
+ 
+
     @Override
-    public void doLoopAction()
+     public void doLoopAction()
     {
+
+        if (hit) {
+            super.doHit();
+            if (getGoinUp() == 20) {
+                hit = false;
+                setGoinUp(20);
+            }
+            setAnimation(new String[]{"questionmark 1"});
+        }
+        //super.doHit();
+
     }
 
-    @Override
-    public void doHit()
-    {
-        super.doHit();
-        setAnimation(new String[]
-                {
-                    "questionmark 1"
-                });
-    }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject mapObject)
-    {
-        switch (collision)
-        {
-            case SIDE:
+    public void doCharacterCollision(Collision collision, MapObject charachter) {
+        if (charachter instanceof mario.Mario) {
 
-                break;
-            case UP:
+            switch (collision) {
+                case SIDE:
 
-                break;
-            case DOWN:
-                doHit();
-                break;
-            case NONE:
+                    break;
+                case UP:
 
-                break;
+                    break;
+                case DOWN:
+                    hit = true;
+                    break;
+                case NONE:
+
+                    break;
+            }
+
         }
 
     }
+
+
+
 }
