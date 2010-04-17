@@ -5,7 +5,6 @@
 package mario;
 
 import mario.core.GameObject;
-import mario.core.CharacterObject;
 import mario.background.Background;
 import mario.mapObjects.Munt;
 import mario.mapObjects.Questionmark;
