@@ -23,6 +23,7 @@ public class Main extends JFrame
     {
         setIgnoreRepaint(true);
         setUndecorated(true);
+        setSize(800, 600);
         setLocationRelativeTo(null);
         setTitle("Awesome Mario Remake");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,5 +37,6 @@ public class Main extends JFrame
     public static void main(String[] args)
     {
         Main main = new Main();
+        main.setVisible(true);
     }
 }
