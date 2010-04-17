@@ -165,7 +165,7 @@ public class Mario extends CharacterObject implements NoClip
 
     public void toggleBig()
     {
-        if(getBig())
+        if(isBig())
         {
             big = false;
         }
@@ -190,7 +190,7 @@ public class Mario extends CharacterObject implements NoClip
         this.big = big;
     }
 
-    public boolean getBig() {
+    public boolean isBig() {
         return big;
     }
 
