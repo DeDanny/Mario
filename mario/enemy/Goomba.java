@@ -38,22 +38,6 @@ public class Goomba extends Enemy implements NoClip
     {
     }
 
-    // @Override
-    public void doMapCollision(Collision side)
-    {
-        if (side == Collision.NONE)
-        {
-            System.out.println("No COlliisionn *#*#*#*#*#*#*#*#*#*#*#*#*#*#");
-        }
-
-        setFall(true);
-
-        if (side != Collision.NONE)
-        {
-            setFall(false);
-        }
-    }
-
     @Override
     public void doMapCollision()
     {
