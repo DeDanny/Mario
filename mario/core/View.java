@@ -4,6 +4,7 @@
  */
 package mario.core;
 
+import java.awt.Color;
 import java.awt.DisplayMode;
 import java.awt.Graphics;
 import java.awt.GraphicsConfiguration;
@@ -66,7 +67,8 @@ public class View
             graphics = bi.createGraphics();
 
             // Draw stuff here using Java's Graphics Object!!!
-
+            graphics.setColor(Color.white);
+            graphics.fillRect(0, 0, 800, 600);
             marioWorld.getGame().getBackground().draw(graphics);
 
             for (GameObject gameObject : marioWorld.getGame().getGameObjects())

@@ -23,7 +23,7 @@ public class Game
 {
     private boolean running = false;
     private boolean paused = false;
-    private Mario mario = new Mario(this);
+    private Mario mario = new Mario(this,200, 392, 42, 57);
     private Background background = new Background(this);
     private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 45, 48);
     private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();

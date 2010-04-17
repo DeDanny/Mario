@@ -137,16 +137,16 @@ public abstract class GameObject
 
         if (checkCollisionMap(x, y) == Collision.NONE)
         {
+            x_last = this.x;
+            this.x = x;
             if (this instanceof Mario)
             {
                 if (x > ((800 / 2) + 5))
                 {
 
-                    moveAll(x - this.x);
+                    moveAll(this.x - x_last);
                 }
             }
-            x_last = this.x;
-            this.x = x;
         }
     }
 
