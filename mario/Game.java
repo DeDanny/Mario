@@ -6,7 +6,7 @@ package mario;
 
 import mario.core.GameObject;
 import mario.background.Background;
-import mario.mapObjects.Munt;
+import mario.mapObjects.Coin;
 import mario.mapObjects.Questionmark;
 import mario.mapObjects.Stone;
 import mario.mapObjects.Mushroom;
@@ -40,7 +40,7 @@ public class Game
         mapObjects.add(new Stone(this, 286, 350, 45, 45));
         
         mapObjects.add(new Goomba(this, 600, 205, 45, 45));
-        mapObjects.add(new Munt(this, 240, 300, 45, 45));
+        mapObjects.add(new Coin(this, 240, 300, 45, 45));
         mapObjects.add(new Mushroom(this, 500, 205, 45, 45));
 
     }
