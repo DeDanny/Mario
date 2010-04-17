@@ -263,6 +263,9 @@ public class Mario extends CharacterObject
                 case DOWN:
                     setFall(false);
                     break;
+                case UP:
+                    setFall(true);
+                    break;
             }
         }
 
