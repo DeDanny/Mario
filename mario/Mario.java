@@ -163,22 +163,34 @@ public class Mario extends CharacterObject implements NoClip
         this.down = down;
     }
 
+    public void toggleBig()
+    {
+        if(isBig())
+        {
+            big = false;
+        }
+        else
+        {
+            big = true;
+        }
+    }
+
     public void setBig(boolean big)
     {
         if(big == false)
         {
-            setY(getY()+24);
-            setHeight(58);
+            //setY(getY()+24);
+            //setHeight(58);
         }
         else
         {
-            setY(getY()-24);
-            setHeight(82);
+            //setY(getY()-24);
+            //setHeight(82);
         }
         this.big = big;
     }
 
-    public boolean getIsBig() {
+    public boolean isBig() {
         return big;
     }
 
@@ -234,19 +246,17 @@ public class Mario extends CharacterObject implements NoClip
             switch (collision) {
                 case SIDE:
                     if (big) {
-                        big = false;
+                        grow = true;
                     } else {
-
-                        setAlive(false);
+                        //setAlive(false);
                     }
                     System.out.println("MARIO DOOD");
                     break;
                 case UP:
                     if (big) {
-                        big = false;
+                        grow = true;
                     } else {
-
-                        setAlive(false);
+                        //setAlive(false);
                     }
                     System.out.println("MARIO DOOD");
                     break;
