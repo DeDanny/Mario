@@ -146,6 +146,10 @@ public abstract class GameObject
 
                     moveAll(this.x - x_last);
                 }
+                if(x <= 0)
+                {
+                     this.x = 0;
+                }
             }
         }
     }
@@ -227,13 +231,12 @@ public abstract class GameObject
 
     public Collision checkCollisionMap(int x, int y, int downSize)
     {
-        Polygon mapPolygon = game.getBackground().getPolygon();
-
         Rectangle objectRectangle = new Rectangle(x, y, width, height + downSize);
+        Rectangle mapRectangle = new Rectangle(0, 552, 800,  48);
 
         mapCollision = Collision.NONE;
 
-        if (mapPolygon.intersects(objectRectangle))
+        if (mapRectangle.intersects(objectRectangle))
         {
             mapCollision = Collision.COLLISION;
         }
