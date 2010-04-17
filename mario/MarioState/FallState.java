@@ -12,51 +12,37 @@ import mario.Mario;
  *
  * @author Onno
  */
-public class FallState extends MarioState
-{
+public class FallState extends MarioState {
+
     protected static final int WALKSPEED = 4;
-    protected String[] smallFallRight = new String[]
-    {
+    protected String[] smallFallRight = new String[]{
         "smallMarioFallRight 0"
     };
-    protected String[] smallFallLeft = new String[]
-    {
+    protected String[] smallFallLeft = new String[]{
         "smallMarioFallLeft 0"
     };
-    protected String[] bigFallRight = new String[]
-    {
+    protected String[] bigFallRight = new String[]{
         "bigMarioFallRight 0"
     };
-    protected String[] bigFallLeft = new String[]
-    {
+    protected String[] bigFallLeft = new String[]{
         "bigMarioFallLeft 0"
     };
     private int fallsize = 1;
 
-    public FallState(Mario marioObject)
-    {
+    public FallState(Mario marioObject) {
         super(marioObject);
-
     }
 
     @Override
-    public void doAction()
-    {
+    public void doAction() {
         //if (!marioObject.isPreformingSpecialMove() && !marioObject.isJump()) {
-        if (marioObject.isLeft() && !marioObject.isRight())
-        {
+        if (marioObject.isLeft() && !marioObject.isRight()) {
             doLeft();
-        }
-        else if (marioObject.isRight() && !marioObject.isLeft())
-        {
+        } else if (marioObject.isRight() && !marioObject.isLeft()) {
             doRight();
-        }
-        else if (marioObject.getDirection() == Direction.LEFT)
-        {
+        } else if (marioObject.getDirection() == Direction.LEFT) {
             setAnimationLeft();
-        }
-        else if (marioObject.getDirection() == Direction.RIGHT)
-        {
+        } else if (marioObject.getDirection() == Direction.RIGHT) {
             setAnimationRight();
         }
 
@@ -64,52 +50,39 @@ public class FallState extends MarioState
         doFall();
     }
 
-    private void doLeft()
-    {
+    private void doLeft() {
         marioObject.setX(marioObject.getX() - WALKSPEED);
         setAnimationLeft();
         marioObject.setDirection(Direction.LEFT);
     }
 
-    private void doRight()
-    {
+    private void doRight() {
         marioObject.setX(marioObject.getX() + WALKSPEED);
         setAnimationRight();
         marioObject.setDirection(Direction.RIGHT);
     }
 
-    private void setAnimationLeft()
-    {
-        if (marioObject.getIsBig())
-        {
+    private void setAnimationLeft() {
+        if (marioObject.getIsBig()) {
             super.setAnimation(bigFallLeft);
-        }
-        else
-        {
+        } else {
             super.setAnimation(smallFallLeft);
         }
     }
 
-    private void setAnimationRight()
-    {
-        if (marioObject.getIsBig())
-        {
+    private void setAnimationRight() {
+        if (marioObject.getIsBig()) {
             super.setAnimation(bigFallRight);
-        }
-        else
-        {
+        } else {
             super.setAnimation(smallFallRight);
         }
     }
 
-    private void doFall()
-    {
-        while (fallsize < 7)
-        {
+    private void doFall() {
+        while (fallsize < 7) {
             fallsize++;
         }
-        while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() + fallsize) != Collision.NONE && fallsize != 0)
-        {
+        while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
             fallsize--;
             System.out.println("fallsize = " + fallsize);
         }
