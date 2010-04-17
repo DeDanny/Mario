@@ -90,12 +90,11 @@ public class Game
         for (Iterator<MapObject> it = mapObjects.iterator(); it.hasNext();)
         {
             MapObject mapObject = it.next();
-            if (!mapObject.isAlive())
+            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) < 0)
             {
                 it.remove();
             }
         }
-
     }
 
     public ScoreBalk getScoreBalk()

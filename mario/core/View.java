@@ -67,7 +67,7 @@ public class View
             graphics = bi.createGraphics();
 
             // Draw stuff here using Java's Graphics Object!!!
-            graphics.setColor(Color.white);
+            graphics.setColor(new Color(107, 136, 255));
             graphics.fillRect(0, 0, 800, 600);
             marioWorld.getGame().getBackground().draw(graphics);
 

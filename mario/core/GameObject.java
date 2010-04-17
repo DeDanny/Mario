@@ -18,6 +18,7 @@ import mario.Game;
 import mario.Main;
 import mario.State;
 import mario.Mario;
+import mario.ScoreBalk;
 
 /**
  *
@@ -264,6 +265,7 @@ public abstract class GameObject
         game.getBackground().setX(game.getBackground().getX() - i, true);
         for (MapObject characterObjectLoop : game.getMapObjects())
         {
+            if( !(characterObjectLoop instanceof Static))
             characterObjectLoop.setX(characterObjectLoop.getX() - i, true);
         }
     }
