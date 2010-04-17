@@ -63,7 +63,7 @@ public class FallState extends MarioState {
     }
 
     private void setAnimationLeft() {
-        if (marioObject.getIsBig()) {
+        if (marioObject.isBig()) {
             super.setAnimation(bigFallLeft);
         } else {
             super.setAnimation(smallFallLeft);
@@ -71,7 +71,7 @@ public class FallState extends MarioState {
     }
 
     private void setAnimationRight() {
-        if (marioObject.getIsBig()) {
+        if (marioObject.isBig()) {
             super.setAnimation(bigFallRight);
         } else {
             super.setAnimation(smallFallRight);
