@@ -19,7 +19,8 @@ public class Controller implements KeyListener, Runnable
     private View view;
     private JFrame frame;
     private Thread gameLoop = new Thread(this, "GameLoop");
-    private final static int GAMESPEED = 10;
+    private final static int GAMESPEED = 10000;
+    private long gameTimer = System.currentTimeMillis();
     private CollisionDetector collisionDetector;
 
     /**
@@ -50,31 +51,30 @@ public class Controller implements KeyListener, Runnable
     {
         while (marioWorld.isRunning())
         {
-            System.out.println("going loop----------------------------------------------------------------");
-
-            if (!marioWorld.getGame().isPaused())
+            if ((System.currentTimeMillis() - gameTimer) >  GAMESPEED)
             {
-                try
+                gameTimer = System.currentTimeMillis();
+                System.out.println("going loop----------------------------------------------------------------");
+
+                if (!marioWorld.getGame().isPaused())
                 {
-                    marioWorld.getGame().removeDeadObjects();
+                        marioWorld.getGame().removeDeadObjects();
 
-                    
-                    gameObjectLoopAction();
 
-                    collisionDetector.detectCollisionsGameObjects();
+                        gameObjectLoopAction();
 
-                    view.draw();
+                        collisionDetector.detectCollisionsGameObjects();
 
-                    System.out.println("end loop----------------------------------------------------------------");
-                    Thread.sleep(GAMESPEED);
-                } catch (InterruptedException ex)
-                {
-                    System.out.println(ex);
+                        view.draw();
+
+                        System.out.println("end loop----------------------------------------------------------------");
                 }
-            } else
-            {
-                //pauze menu
+                else
+                {
+                    //pauze menu
+                }
             }
+
         }
         System.exit(0);
     }
@@ -151,7 +151,6 @@ public class Controller implements KeyListener, Runnable
             marioWorld.getGame().getMario().setDown(false);
         }
     }
-
 
     private void gameObjectLoopAction()
     {
