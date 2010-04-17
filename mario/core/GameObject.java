@@ -94,28 +94,9 @@ public abstract class GameObject
 
     public void draw(Graphics graphics)
     {
-        
         graphics.setColor(Color.red);
         graphics.fillRect(x, y, width, height);
         graphics.drawImage(getImage(), x, y, null);
-        graphics.setColor(Color.blue);
-        graphics.fillRect(x + 2, y, width - 2, 1);
-
-        graphics.setColor(Color.green);
-        graphics.fillRect(x, y, 2, height);
-        
-        graphics.setColor(Color.darkGray);
-        graphics.fillRect(x + width - 1, y, 2, height);
-
-        graphics.setColor(Color.orange);
-        graphics.fillRect(x + 1, y + height - 1, width - 1, 2);
-
-        graphics.setColor(Color.pink);
-        graphics.fillRect(x, y + height - 1, width, 4);
-
-
-        graphics.drawImage(getImage(), x, y, null);
-
     }
 
     public abstract void doLoopAction();
