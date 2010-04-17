@@ -33,7 +33,7 @@ public class View
         this.marioWorld = marioWorld;
         this.frame = frame;
         setDoubleBuffer();
-        setFullScreen();
+        //setFullScreen();
     }
 
     private void setFullScreen()
