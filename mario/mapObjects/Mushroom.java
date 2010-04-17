@@ -16,64 +16,57 @@ import mario.core.NoClip;
  *
  * @author Nishchal Baldew
  */
-public class Mushroom extends Powerup implements NoClip
+public class Mushroom extends Powerup implements NoClip {
 
-{
-  
-    public Mushroom(Game game)
-    {
+    public Mushroom(Game game) {
         super(game, 100, 350, 48, 48, "/images/nsmbtileset.png");
         ai = new WalkAi(this);
 
         frames.put("mushroom 0", new Rectangle(1225, 2327, 50, 50));
 
-        setAnimation(new String[]
-                {
-                    "mushroom 0"
-                });
+        setAnimation(new String[]{"mushroom 0"});
 
-    }
-
-
-    @Override
-
-    public void hitBy()
-    {
     }
 
     @Override
-     public void doMapCollision()
-    {
-
+    public void hitBy() {
     }
-   public void doMapCollision(Collision side)
-   {
-        if(side == Collision.SIDE)
-        {
+
+    @Override
+    public void doMapCollision() {
+        switch (mapCollision) {
+            case SIDE:
+                ai.toggleDirection();
+                break;
+            case NONE:
+                setFall(true);
+                break;
+            default:
+                setFall(false);
+                break;
+
+        }
+    }
+
+    public void doMapCollision(Collision side) {
+        if (side == Collision.SIDE) {
             Direction direction = ai.getDirection();
-            if(direction == Direction.LEFT)
-            {
+            if (direction == Direction.LEFT) {
                 direction = Direction.RIGHT;
-            }
-            else
-            {
+            } else {
                 direction = Direction.LEFT;
             }
             ai.setDirection(direction);
         }
-   }
-   
+    }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject charachter)
-    {
-        if(charachter instanceof Mario)
-        {
+    public void doCharacterCollision(Collision collision, MapObject charachter) {
+        if (charachter instanceof Mario) {
             setAlive(false);
             game.getMario().setBig(true);
         }
     }
-
 //    public void doLoopAction() {
 //        if(raak)
 //        {
@@ -101,5 +94,4 @@ public class Mushroom extends Powerup implements NoClip
     }
     raak = false;
      * */
-
 }
