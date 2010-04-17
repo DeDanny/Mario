@@ -203,8 +203,10 @@ public class Mario extends CharacterObject implements NoClip
     {
         if (big == false)
         {
-            setY(getY() + 24);
-            setHeight(58);
+            //setY(getY() + 24);
+            // setHeight(58);
+            //setY(getY()+24);
+            //setHeight(58);
         }
         else
         {
@@ -290,7 +292,7 @@ public class Mario extends CharacterObject implements NoClip
                         if (big)
                         {
                             godModeTimer = System.currentTimeMillis();
-                            big = false;
+                            grow = true;
                         }
                         else
                         {
@@ -322,7 +324,6 @@ public class Mario extends CharacterObject implements NoClip
                 }
             }
         }
-
         if (mapObject instanceof Cube)
         {
             switch (collision)
