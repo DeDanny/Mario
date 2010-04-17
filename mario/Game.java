@@ -41,7 +41,10 @@ public class Game
         
         mapObjects.add(new Goomba(this, 100, 205, 45, 45));
         mapObjects.add(new Munt(this, 240, 300, 45, 45));
-        mapObjects.add(new Mushroom(this, 100, 205, 45, 45));
+        mapObjects.add(new Mushroom(this, 500, 205, 45, 45));
+        mapObjects.add(new Mushroom(this, 550, 205, 45, 45));
+        mapObjects.add(new Mushroom(this, 400, 205, 45, 45));
+        mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
     }
 
     public boolean isRunning()
