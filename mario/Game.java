@@ -11,6 +11,7 @@ import mario.mapObjects.Stone;
 import mario.mapObjects.Mushroom;
 import java.util.ArrayList;
 import java.util.Iterator;
+import mario.core.AiDirector;
 import mario.core.MapObject;
 import mario.core.ReUse;
 import mario.enemy.*;
@@ -23,6 +24,7 @@ public class Game
 {
     private boolean running = false;
     private boolean paused = false;
+    private AiDirector aiDirector = new AiDirector(this);
     private Mario mario = new Mario(this,200, 392, 42, 57);
     private Background background = new Background(this, 0, 552, 800,  48);
     private Background background2 = new Background(this, 800, 552, 800,  48);
@@ -72,6 +74,11 @@ public class Game
         return mario;
     }
 
+    public void addMapObject(MapObject mapObject)
+    {
+        mapObjects.add(mapObject);
+    }
+
     public Background getBackground()
     {
         return background;
@@ -84,7 +91,6 @@ public class Game
 
     public void removeDeadObjects()
     {
-
         for (Iterator<MapObject> it = mapObjects.iterator(); it.hasNext();)
         {
             MapObject mapObject = it.next();
@@ -97,6 +103,7 @@ public class Game
                 else
                 {
                     it.remove();
+                    aiDirector.removeObject();
                 }
             }
         }
