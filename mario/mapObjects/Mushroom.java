@@ -25,7 +25,7 @@ public class Mushroom extends Powerup implements NoClip {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
         ai = new WalkAi(this);
-
+        ai.setWALKSPEED(2);
         frames.put("mushroom 0", new Rectangle(1225, 2327, 50, 50));
 
         setAnimation(new String[]{"mushroom 0"});
@@ -68,7 +68,7 @@ public class Mushroom extends Powerup implements NoClip {
     public void doCharacterCollision(Collision collision, MapObject charachter) {
         if (charachter instanceof Mario) {
             setAlive(false);
-            game.getMario().setBig(true);
+            //game.getMario().setGrow(true);
         }
     }
 //    public void doLoopAction() {

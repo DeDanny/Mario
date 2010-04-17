@@ -11,10 +11,9 @@ import mario.Mario;
  *
  * @author danny
  */
-abstract public class MoveState extends MarioState
-{
-    protected static final int WALKSPEED = 5;
+abstract public class MoveState extends MarioState {
 
+    protected static final int WALKSPEED = 5;
     protected String[] RightAnimation;
     protected String[] LeftAnimation;
     protected String[] StandLeft;
@@ -23,87 +22,68 @@ abstract public class MoveState extends MarioState
     protected String[] UpLeft;
     protected String[] DuckRight;
     protected String[] DuckLeft;
-
 //    protected static final int LEFT = 0;
 //    protected static final int RIGHT = 1;
 //
 //    protected static int direction      = RIGHT;
-
     //protected boolean   lookingUP       = false;
     //protected boolean   ducked          = false;
     //protected static int duckMoveY      = 19;
-   // protected static int duckMoveY      = 19;
+    // protected static int duckMoveY      = 19;
     //protected static int duckMoveYOriginal      = 60;
     //protected static int duckHeight     = 42;
     //protected static int duckHeight     = 41;
-
-
-
-    protected  int Height;
-    protected  int tempHeight;
-    protected  int tempY = 0;
+    protected int Height;
+    protected int tempHeight;
+    protected int tempY = 0;
     private boolean ducked = false;
     private boolean noMore = true;
 
-
-    public MoveState(Mario gameObject)
-    {
+    public MoveState(Mario gameObject) {
         super(gameObject);
         //gameObject.setAnimation(StandRight);
     }
 
     @Override
-    public void doAction()
-    {
+    public void doAction() {
 
-        if(marioObject.isLeft() && !marioObject.isRight() && !marioObject.isPreformingSpecialMove())
-        {
+        if (marioObject.isLeft() && !marioObject.isRight() && !marioObject.isPreformingSpecialMove()) {
             doLeft();
             ducked = false;
-        }
-        else if(marioObject.isRight() && !marioObject.isLeft() && !marioObject.isPreformingSpecialMove())
-        {
+        } else if (marioObject.isRight() && !marioObject.isLeft() && !marioObject.isPreformingSpecialMove()) {
             doRight();
             ducked = false;
-        }
-        else if(marioObject.isUp())
-        {
+        } else if (marioObject.isUp()) {
             doUp();
             ducked = false;
-        }
-        else if(marioObject.isDown())
-        {
+        } else if (marioObject.isDown()) {
             doDown();
             ducked = true;
-        }
-        else
-        {
+        } else {
             doStand();
             ducked = false;
         }
 
-        if(!ducked && !noMore)
-        {
+        if (!ducked && !noMore) {
             marioObject.setHeight(Height);
             marioObject.setY(marioObject.getY() - tempY);
             noMore = true;
         }
     }
 
-    private void doLeft()
-    {
+    private void doLeft() {
         marioObject.setX(marioObject.getX() - WALKSPEED);
         super.setAnimation(LeftAnimation);
         marioObject.setDirection(Direction.LEFT);
     }
-    private void doRight()
-    {
+
+    private void doRight() {
         marioObject.setX(marioObject.getX() + WALKSPEED);
         super.setAnimation(RightAnimation);
         marioObject.setDirection(Direction.RIGHT);
     }
-    private void doUp()
-    {
+
+    private void doUp() {
 
         switch (marioObject.getDirection()) {
             case LEFT:
@@ -114,8 +94,8 @@ abstract public class MoveState extends MarioState
                 break;
         }
     }
-    private void doDown()
-    {
+
+    private void doDown() {
 
         if (ducked) {
             marioObject.setHeight(tempHeight);
@@ -133,23 +113,17 @@ abstract public class MoveState extends MarioState
         }
     }
 
-    private void doStand()
-    {
+    private void doStand() {
         // Set Mario left or right side
         switch (marioObject.getDirection()) {
             case LEFT:
                 marioObject.setAnimation(StandLeft);
-                break;            
+                break;
             case RIGHT:
                 marioObject.setAnimation(StandRight);
                 break;
         }
     }
-
-
-
-
-
 //    private void kansloos()
 //    {
 //        if(false){

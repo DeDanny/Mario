@@ -30,12 +30,12 @@ abstract public class Cube extends MapObject
 
     public void doHit()
     {
-        if (goinUp < 5) {
-            setY(getY() - 3);
+        if (goinUp < 2) {
+            setY(getY() - 4);
         }
-        else if(goinUp < 10)
+        else if(goinUp < 4)
         {
-            setY(getY() + 3);
+            setY(getY() + 4);
         }
 
         goinUp++;
