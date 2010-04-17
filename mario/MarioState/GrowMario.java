@@ -26,8 +26,8 @@ public class GrowMario extends MarioState {
     public GrowMario(Mario marioObject) {
         super(marioObject);
         //gameObject.setAnimation(StandRight);
-            marioObject.setY(marioObject.getY()-24);
-            marioObject.setHeight(82);
+//            marioObject.setY(marioObject.getY()-24);
+//           marioObject.setHeight(82);
 
     }
 
