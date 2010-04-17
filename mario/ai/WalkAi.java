@@ -6,6 +6,9 @@ import mario.core.MapObject;
 
 public class WalkAi extends Ai {
 
+   
+
+
     public WalkAi(MapObject mapObject) {
         super(mapObject);
         direction = Direction.LEFT;
@@ -26,14 +29,17 @@ public class WalkAi extends Ai {
 
         switch (direction) {
             case LEFT:
-                mapObject.setX(mapObject.getX() - 1);
+                mapObject.setX(mapObject.getX() - WALKSPEED);
 
                 break;
             case RIGHT:
-                mapObject.setX(mapObject.getX() + 1);
+                mapObject.setX(mapObject.getX() + WALKSPEED);
 
                 break;
         }
 
     }
+
+
+
 }

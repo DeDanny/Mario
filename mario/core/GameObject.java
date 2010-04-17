@@ -17,6 +17,7 @@ import javax.imageio.ImageIO;
 import mario.Game;
 import mario.Main;
 import mario.State;
+import mario.Mario;
 
 /**
  *
@@ -133,7 +134,29 @@ public abstract class GameObject
 
     public void setX(int x)
     {
+
         if (checkCollisionMap(x, y) == Collision.NONE)
+        {
+            x_last = this.x;
+            this.x = x;
+            if (this instanceof Mario)
+            {
+                if (x > ((800 / 2) + 5))
+                {
+
+                    moveAll(this.x - x_last);
+                }
+                if(x <= 0)
+                {
+                     this.x = 0;
+                }
+            }
+        }
+    }
+
+    public void setX(int x, boolean override)
+    {
+        if (override)
         {
             x_last = this.x;
             this.x = x;
@@ -206,17 +229,14 @@ public abstract class GameObject
         return checkCollisionMap(x, y, 1);
     }
 
-
-
     public Collision checkCollisionMap(int x, int y, int downSize)
     {
-        Polygon mapPolygon = game.getBackground().getPolygon();
-
         Rectangle objectRectangle = new Rectangle(x, y, width, height + downSize);
+        Rectangle mapRectangle = new Rectangle(0, 552, 800,  48);
 
         mapCollision = Collision.NONE;
 
-        if(mapPolygon.intersects(objectRectangle))
+        if (mapRectangle.intersects(objectRectangle))
         {
             mapCollision = Collision.COLLISION;
         }
@@ -229,7 +249,7 @@ public abstract class GameObject
                 {
 
                     Rectangle mapObjectRectangle = new Rectangle(characterObjectLoop.getX(), characterObjectLoop.getY(), characterObjectLoop.getWidth(), characterObjectLoop.getHeight());
-                    if(mapObjectRectangle.intersects(objectRectangle))
+                    if (mapObjectRectangle.intersects(objectRectangle))
                     {
                         mapCollision = Collision.COLLISION;
                     }
@@ -237,5 +257,14 @@ public abstract class GameObject
             }
         }
         return mapCollision;
+    }
+
+    private void moveAll(int i)
+    {
+        game.getBackground().setX(game.getBackground().getX() - i, true);
+        for (MapObject characterObjectLoop : game.getMapObjects())
+        {
+            characterObjectLoop.setX(characterObjectLoop.getX() - i, true);
+        }
     }
 }

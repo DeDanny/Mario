@@ -27,15 +27,28 @@ public class Mario extends CharacterObject implements NoClip
     private boolean down = false;
     private boolean jump = false;
     private boolean jumpExtra = false;
+    private boolean grow = false;
+
+
     private boolean big = false; // False is SmallMario - True is BigMario
     private Direction direction = Direction.LEFT;
     private SmallMario smallMario = new SmallMario(this);
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
+    private GrowMario growMario = new GrowMario(this);
+    protected int jumpTeller = 1;
 
-    public Mario(Game game) {
-        super(game, 600, 392, 42, 57, "/images/mario_sprite.png");
+    public int getJumpTeller() {
+        return jumpTeller;
+    }
+
+    public void setJumpTeller(int jumpTeller) {
+        this.jumpTeller = jumpTeller;
+    }
+
+    public Mario(Game game,int x,int y,int width,int height) {
+        super(game, x, y, width, height, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
@@ -88,28 +101,35 @@ public class Mario extends CharacterObject implements NoClip
 
     @Override
     public void doLoopAction() {
-        if (fall) {
+        if(grow)
+        {
+            setState(growMario);
+            System.out.println("growMario");
+        }else{
+           if (fall) {
             setState(fallMario);
             System.out.println("fallMario");
-        } else {
-            if (jump || jumpExtra) {
-                if (this.state != fallMario || jumpExtra) {
-                    setState(jumpMario);
-                    this.jumpExtra = false;
-                    System.out.println("jumpMario");
-                } else {
-                    this.setJump(false);
-                }
             } else {
-                if (big) {
-                    setState(bigMario);
-                    System.out.println("bigMario");
+                if (jump || jumpExtra) {
+                    if (this.state != fallMario || jumpExtra) {
+                        setState(jumpMario);
+                        this.jumpExtra = false;
+                        System.out.println("jumpMario");
+                    } else {
+                        this.setJump(false);
+                    }
                 } else {
-                    setState(smallMario);
-                    System.out.println("smallMario");
+                    if (big) {
+                        setState(bigMario);
+                        System.out.println("bigMario");
+                    } else {
+                        setState(smallMario);
+                        System.out.println("smallMario");
+                    }
                 }
             }
         }
+        
 
 
         state.doAction();
@@ -152,14 +172,22 @@ public class Mario extends CharacterObject implements NoClip
         }
         else
         {
-            setY(getY()-24);
-            setHeight(82);
+            //setY(getY()-24);
+            //setHeight(82);
         }
         this.big = big;
     }
 
     public boolean getIsBig() {
         return big;
+    }
+
+    public boolean isGrow() {
+        return grow;
+    }
+
+    public void setGrow(boolean grow) {
+        this.grow = grow;
     }
 
     public boolean isLeft() {
@@ -239,6 +267,7 @@ public class Mario extends CharacterObject implements NoClip
                     break;
                 case UP:
                     setFall(true);
+                    jumpTeller = 0;
                     break;
             }
         }

@@ -22,8 +22,9 @@ public class Munt extends MapObject implements NoClip
     private int goinUp;
     
 
-    public Munt(Game game) {
-        super(game, 500, 300, 47, 48, "/images/nsmbtileset.png");
+    public Munt(Game game, int x, int y, int width, int height)
+    {
+        super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("munt nothing", new Rectangle(0, 0, 1, 1));
         frames.put("munt 0", new Rectangle(457, 167, 45, 48));
         frames.put("munt 1", new Rectangle(922, 3873, 45, 48));

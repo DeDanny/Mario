@@ -78,8 +78,11 @@ public class FallState extends MarioState {
         }
     }
 
-    private void doFall() {
-        while (fallsize < 7) {
+
+    private void doFall()
+    {
+        while (fallsize < 9)
+        {
             fallsize++;
         }
         while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {

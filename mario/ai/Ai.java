@@ -15,6 +15,7 @@ abstract public class Ai
 {
     protected MapObject mapObject;
     protected Direction direction;
+    protected int WALKSPEED = 1;
 
     public Ai(MapObject mushroom)
     {
@@ -41,6 +42,13 @@ abstract public class Ai
         }
     }
 
+    public int getWALKSPEED() {
+        return WALKSPEED;
+    }
+
+    public void setWALKSPEED(int WALKSPEED) {
+        this.WALKSPEED = WALKSPEED;
+    }
     public abstract void doLoopAction();
 }
 
