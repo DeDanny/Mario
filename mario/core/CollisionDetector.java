@@ -65,68 +65,6 @@ public class CollisionDetector
                     }
                 }
             }
-
         }
-
     }
-//    public Collision checkCollisionGameCharacters()
-//    {
-//         for (CharacterObject characterObjectLoop : game.getMapObjects())
-//        {
-//             characterObject = characterObjectLoop;
-//             if(characterObject != this)
-//             {
-//                System.out.println(this.getClass());
-//                Rectangle characterObjectRectangle =  new Rectangle(characterObject.getX(), characterObject.getY(), characterObject.getWidth(), characterObject.getHeight());
-//                System.out.println(characterObject.getClass() + " : " +characterObject.getX()+ " . " +characterObject.getY()+ " . " +characterObject.getWidth()+ " . " +characterObject.getHeight());
-//                System.out.println(x+ " . " + (y+height-1) + " . " + width+ " . " + 4);
-//                System.out.println(x+ " . " + (y-1) + " . " + 1+ " . " + height);
-//                System.out.println((x+width)+ " . " + (y-1) + " . " + 1+ " . " + height);
-//                System.out.println((x-1)+ " . " + (y+1) + " . " + width + " . " + 2);
-//                if (characterObjectRectangle.intersects(x, y+height-1, width, 4))
-//                {
-//                     System.out.println(Collision.DOWN);
-//                    return Collision.DOWN;
-//                }
-//
-//                if (characterObjectRectangle.intersects(x, y-1, 1, height) ||
-//                     characterObjectRectangle.intersects(x+width, y-1, 1, height))
-//                {
-//                     System.out.println(Collision.SIDE);
-//                    return Collision.SIDE;
-//                }
-//
-//                if (characterObjectRectangle.intersects(x-1, y+1, width, 2))
-//                {
-//                     System.out.println(Collision.UP);
-//                    return Collision.UP;
-//                }
-//             }
-//        }
-//
-//        return Collision.NONE;
-//    }
-//                        if((xOthere + (widthOthere/2)) > (x + (width/2)))
-//                        {
-//                            xdirection = Direction.LEFT;
-//                        }
-//                        else if((xOthere + (widthOthere/2)) < (x + (width/2)))
-//                        {
-//                            xdirection = Direction.RIGHT;
-//                        }else
-//                        {
-//                            xdirection = Direction.MIDDLE;
-//                        }
-//
-//                        if((yOthere + (heightOthere/2)) > (y + (height/2)))
-//                        {
-//                            ydirection = Direction.LEFT;
-//                        }
-//                        else if((yOthere + (heightOthere/2)) < (x + (height/2)))
-//                        {
-//                            ydirection = Direction.RIGHT;
-//                        }else
-//                        {
-//                            ydirection = Direction.MIDDLE;
-//                        }
 }
