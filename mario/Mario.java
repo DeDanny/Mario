@@ -111,12 +111,12 @@ public class Mario extends CharacterObject
                 if (big)
                 {
                     setState(bigMario);
-                    setHeight(84);
+                    setHeight(82);
                     System.out.println("bigMario");
                 } else
                 {
                     setState(smallMario);
-                    setHeight(60);
+                    setHeight(58);
                     System.out.println("smallMario");
                 }
             }

@@ -94,8 +94,6 @@ public abstract class GameObject
 
     public void draw(Graphics graphics)
     {
-        graphics.setColor(Color.red);
-        graphics.fillRect(x, y, width, height);
         graphics.drawImage(getImage(), x, y, null);
     }
 
