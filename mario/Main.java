@@ -25,12 +25,11 @@ public class Main extends JFrame
         setSize(800, 600);
         setLocationRelativeTo(null);
         setTitle("Awesome Mario Remake");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 
         view = new View(MarioWorld, this);
         Controller controller = new Controller(MarioWorld, view, this);
-        setVisible(true);
     }
 
     public static void main(String[] args)

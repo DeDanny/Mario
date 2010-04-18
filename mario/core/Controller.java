@@ -52,33 +52,36 @@ public class Controller implements KeyListener, Runnable
     {
         while (marioWorld.isRunning())
         {
-            if ((System.currentTimeMillis() - gameTimer) >  GAMESPEED)
+            if ((System.currentTimeMillis() - gameTimer) > GAMESPEED)
             {
                 gameTimer = System.currentTimeMillis();
                 System.out.println("going loop----------------------------------------------------------------");
 
                 if (!marioWorld.getGame().isPaused())
                 {
-                        marioWorld.getGame().removeDeadObjects();
+                    marioWorld.getGame().removeObjects();
+                    marioWorld.getGame().getAiDirector().createMapObjects();
 
+                    gameObjectLoopAction();
 
-                        gameObjectLoopAction();
+                    collisionDetector.detectCollisionsGameObjects();
 
-                        collisionDetector.detectCollisionsGameObjects();
+                    view.draw();
 
-                        view.draw();
-
-                        System.out.println("end loop----------------------------------------------------------------");
-                }
-                else
+                    System.out.println("end loop----------------------------------------------------------------");
+                } else
                 {
                     //pauze menu
 
-                    marioWorld.setGame(new Game());
                 }
             }
-
         }
+        SecurityManager security = System.getSecurityManager();
+        if (security != null)
+        {
+            security.checkExit(0);
+        }
+
         System.exit(0);
     }
 
