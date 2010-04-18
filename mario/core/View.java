@@ -73,6 +73,7 @@ public class View
 
             // Draw stuff here using Java's Graphics Object!!!
             graphics.setColor(new Color(0, 0, 0, 30));
+            graphics.setColor(new Color(0, 0, 0, 90));
             graphics.fillRect(0, 0, 800, 600);
 
             if (menu == null)

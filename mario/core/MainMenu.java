@@ -27,6 +27,12 @@ public class MainMenu extends Menu
             case 1:
                 marioWorld.getGame().setRunning(true);
                 break;
+            case 2:
+                //marioWorld.getGame().setRunning(true);
+                break;
+            case 3:
+                marioWorld.setRunning(false);
+                break;
         }
     }
 }

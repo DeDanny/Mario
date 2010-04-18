@@ -63,6 +63,7 @@ public class Goomba extends Enemy implements NoClip {
                 case UP:
                     System.out.println("Goomba is dead");
                     setAlive(false);
+                    game.getScoreBalk().killGoomba();
                     break;
             }
         }

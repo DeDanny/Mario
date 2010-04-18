@@ -20,6 +20,7 @@ public class ScoreBalk extends MapObject implements Static{
 
     private int score;
     private int newScore;
+    private int killedGoombas;
 //    private String scoreString;
     private int lives = 3;
     private int coins;
@@ -55,13 +56,14 @@ public class ScoreBalk extends MapObject implements Static{
         setAnimation(new String[]{"leven"});
 //        graphics.drawImage(getImage(), 20, 5, null);
         graphics.drawString("Lives: " + lives, 210, 20);
+        graphics.drawString("killedGoombas: " + killedGoombas, 310, 20);
  
     }
 
      //Zit in de doLoop zodat altijd de juiste Score aangegeven wordt.
      public void addScore()
      {
-         newScore = getScore() + (getCoins() * 100);
+         newScore = getScore() + (getCoins() * 100)+ (killedGoombas * 20);
      }
 
      public void addScore(int punten)
@@ -102,6 +104,11 @@ public class ScoreBalk extends MapObject implements Static{
         public void addCoin()
         {
             coins++;
+        }
+
+        public void killGoomba()
+        {
+            killedGoombas++;
         }
 
     @Override
