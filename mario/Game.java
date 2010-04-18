@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package mario;
 
 import mario.background.Background;
@@ -24,9 +20,7 @@ public class Game
 {
     private boolean running = false;
     private boolean paused = false;
-
     private AiDirector aiDirector = new AiDirector(this);
-    
     private Mario mario = new Mario(this,200, 420, 42, 57);
 
     private Background background = new Background(this, 0, 552, 800,  48);
@@ -92,7 +86,7 @@ public class Game
         return mapObjects;
     }
 
-    public void removeDeadObjects()
+    public void removeObjects()
     {
         for (Iterator<MapObject> it = mapObjects.iterator(); it.hasNext();)
         {
@@ -115,5 +109,10 @@ public class Game
     public ScoreBalk getScoreBalk()
     {
         return ScoreBalk;
+    }
+
+    public AiDirector getAiDirector()
+    {
+        return aiDirector;
     }
 }

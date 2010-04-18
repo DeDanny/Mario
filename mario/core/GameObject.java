@@ -6,7 +6,6 @@ package mario.core;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -18,7 +17,6 @@ import mario.Game;
 import mario.Main;
 import mario.State;
 import mario.Mario;
-import mario.ScoreBalk;
 
 /**
  *
@@ -26,6 +24,7 @@ import mario.ScoreBalk;
  */
 public abstract class GameObject
 {
+    private static imagesLoader loader = new imagesLoader();
     protected BufferedImage sprite;
     protected BufferedImage spritePart;
     protected int x, y, width, height;
@@ -46,24 +45,9 @@ public abstract class GameObject
         this.y = y;
         this.width = width;
         this.height = height;
-        sprite = loadImage(fileName);
+        sprite = loader.getImage(fileName);
         boolean add = collection.add(this);
         this.game = game;
-    }
-
-    private BufferedImage loadImage(String fileName)
-    {
-        URL imageUrl = Main.class.getResource(fileName);
-        try
-        {
-            sprite = ImageIO.read(imageUrl);
-        } catch (IOException e)
-        {
-            System.out.println("Error int GameObject/loadImage"
-                    + "Error:");
-            System.out.println(e);
-        }
-        return sprite;
     }
 
     public BufferedImage getSprite()
@@ -89,7 +73,6 @@ public abstract class GameObject
                     (int) frames.get(animation[animationFrame]).getHeight());
             animationFrame++;
             spritePart = crop;
-
         }
         return spritePart;
     }

@@ -11,15 +11,21 @@ package mario;
 public class MarioWorld
 {
     private boolean running = true;
-    private Game game = new Game();
+    private Game game;
 
     public MarioWorld()
     {
+        game = new Game();
     }
 
     public Game getGame()
     {
         return game;
+    }
+
+    public void setGame(Game game)
+    {
+        this.game = game;
     }
 
     public boolean isRunning()
