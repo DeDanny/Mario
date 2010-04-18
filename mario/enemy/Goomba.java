@@ -22,13 +22,22 @@ public class Goomba extends Enemy implements NoClip {
     public Goomba(Game game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
         ai = new WalkAi(this);
-        frames.put("goombaStandLeft 0", new Rectangle(156, 978, 48, 48));
-        frames.put("goombaWalkLeft 0", new Rectangle(35, 978, 50, 48));
-        frames.put("goombaStandRight 0", new Rectangle(33, 862, 50, 48));
-        frames.put("goombaWalkRight 0", new Rectangle(154, 861, 50, 48));
+        frames.put("goombaStandLeft 0", new Rectangle(27, 4161, 45, 51));
+        frames.put("goombaWalkLeft 0", new Rectangle(87, 4161, 45, 51));
+        frames.put("goombaWalkLeft 1", new Rectangle(150, 4161, 45, 51));
+        frames.put("goombaWalkLeft 2", new Rectangle(213, 4161, 45, 51));
+        frames.put("goombaWalkLeft 3", new Rectangle(276, 4161, 45, 51));
+        frames.put("goombaWalkLeft 4", new Rectangle(339, 4161, 45, 51));
+
+        frames.put("goombaStandRight 0", new Rectangle(27, 4100, 45, 51));
+        frames.put("goombaWalkRight 0", new Rectangle(84, 4100, 45, 51));
+        frames.put("goombaWalkRight 1", new Rectangle(147, 4100, 45, 51));
+        frames.put("goombaWalkRight 2", new Rectangle(210, 4100, 45, 51));
+        frames.put("goombaWalkRight 3", new Rectangle(273, 4100, 45, 51));
+        frames.put("goombaWalkRight 4", new Rectangle(336, 4100, 45, 51));
         frameSpeed = 100;
 
-        setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
+        setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 4", "goombaWalkLeft 3", "goombaWalkLeft 2", "goombaWalkLeft 1", "goombaWalkLeft 0"});
     }
 
     @Override
@@ -69,10 +78,10 @@ public class Goomba extends Enemy implements NoClip {
                     ai.toggleDirection();
                     switch (ai.getDirection()) {
                         case LEFT:
-                            setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
+                            setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 4", "goombaWalkLeft 3", "goombaWalkLeft 2", "goombaWalkLeft 1", "goombaWalkLeft 0"});
                             break;
                         case RIGHT:
-                            setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
+                            setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0", "goombaWalkRight 1", "goombaWalkRight 2", "goombaWalkRight 3", "goombaWalkRight 4"});
                             break;
                     }
                     System.out.println("Goomba Head is bumping on Tube -- Toggle Direction");

@@ -22,7 +22,7 @@ import mario.enemy.Goomba;
  */
 public class AiDirector
 {
-    private static final int MAXMAPOBJECTEN = 3;
+    private static final int MAXMAPOBJECTEN = 2;
     private int mapObjectenCount = 0;
     private Game game;
 
@@ -84,7 +84,7 @@ public class AiDirector
                 procent = generator.nextInt(100);
                 if (procent < 40) //create an goobma
                 {
-                    mapObjectenList.add(new Goomba(game, 600, 205, 45, 45));
+                    mapObjectenList.add(new Goomba(game, 600, 205, 45, 51));
                 } else if (procent < 80)
                 {
                     if (countNow >= 3)

@@ -42,10 +42,10 @@ public class Game
         mapObjects.add(new Coin(this, 240, 303, 45, 45));
         mapObjects.add(new Stone(this, 286, 350, 45, 45));
 
-        mapObjects.add(new Tube(this, 286, 456, 96, 96));
-        mapObjects.add(new Tube(this, 650, 456, 96, 96));
+        mapObjects.add(new Tube(this, 400, 456, 96, 96));
+       //mapObjects.add(new Tube(this, 650, 456, 96, 96));
         
-       // mapObjects.add(new Mushroom(this, 500, 205, 45, 45));
+        mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
 
     }
 
