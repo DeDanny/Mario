@@ -25,7 +25,6 @@ public class GrowMario extends MarioState {
 
     public GrowMario(Mario marioObject) {
         super(marioObject);
-        //gameObject.setAnimation(StandRight);        
     }
 
     @Override
@@ -33,17 +32,17 @@ public class GrowMario extends MarioState {
         if (setBigY) {
             if (!marioObject.isBig()) {
                 // Make mario Bigger
-                if(!marioObject.isDown()){
+                if (!marioObject.isDown()) {
                     marioObject.setY(marioObject.getY() - 25);
                     marioObject.setHeight(82);
                 }
-
             }
             setBigY = false;
         }
 
 
         if (growTeller < 25) {
+            growTeller++;
             switch (marioObject.getDirection()) {
                 case LEFT:
                     if (marioObject.isJump()) {
@@ -51,7 +50,7 @@ public class GrowMario extends MarioState {
                     } else if (marioObject.isFall()) {
                         super.setAnimation(growFallLeft);
                     } else if (marioObject.isDown()) {
-                         super.setAnimation(growDuckLeft);
+                        super.setAnimation(growDuckLeft);
                     } else {
                         super.setAnimation(growStandLeft);
                     }
@@ -68,18 +67,12 @@ public class GrowMario extends MarioState {
                     }
                     break;
             }
-
-            growTeller++;
+            
         } else {
             growTeller = 0;
+
             setBigY = true;
-            if (marioObject.isBig()) {
-                marioObject.setBig(false);
-            }
-            else
-            {
-                marioObject.setBig(true);
-            }
+            marioObject.toggleBig();
             marioObject.setGrow(false);
         }
     }

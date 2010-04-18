@@ -162,21 +162,22 @@ public class Mario extends CharacterObject implements NoClip {
     }
 
     public void toggleBig() {
-        if (isBig()) {
-            big = false;
+        if (this.big == true) {
+            this.big = false;
+            setY(getY() + 24);
+            setHeight(58);
         } else {
-            big = true;
+            this.big = true;
         }
     }
 
     public void setBig(boolean big) {
-        if (big == false) {
+        if (!big) {
             //setY(getY() + 24);
             //setHeight(58);
-            if (!down) {
-                setY(getY() + 24);
-                setHeight(58);
-            }
+            //if (!down) {
+
+            //}
 
         } else {
             //setY(getY()-24);
@@ -245,7 +246,6 @@ public class Mario extends CharacterObject implements NoClip {
                             godModeTimer = System.currentTimeMillis();
                             grow = true;
                         } else {
-
                             setAlive(false);
                         }
                         System.out.println("MARIO DOOD");

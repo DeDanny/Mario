@@ -85,6 +85,8 @@ public class AiDirector
                 if (procent < 40) //create an goobma
                 {
                     mapObjectenList.add(new Goomba(game, 600, 205, 45, 51));
+                    mapObjectenList.add(new Goomba(game, 500, 205, 45, 51));
+                    mapObjectenList.add(new Goomba(game, 400, 205, 45, 51));
                 } else if (procent < 80)
                 {
                     if (countNow >= 3)
