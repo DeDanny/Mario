@@ -6,6 +6,7 @@ package mario.core;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import mario.MarioWorld;
 
 /**
  *
@@ -16,9 +17,11 @@ public abstract class Menu
     protected String[] menuItems;
     protected int menuItemsCount;
     protected int selectedItem = 1;
+    protected MarioWorld marioWorld;
 
-    public Menu(String[] menuItems)
+    public Menu(MarioWorld marioWorld, String[] menuItems)
     {
+        this.marioWorld = marioWorld;
         this.menuItems = menuItems;
         this.menuItemsCount = menuItems.length;
     }

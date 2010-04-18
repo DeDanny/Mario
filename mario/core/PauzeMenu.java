@@ -4,6 +4,8 @@
  */
 package mario.core;
 
+import mario.MarioWorld;
+
 
 /**
  *
@@ -11,9 +13,9 @@ package mario.core;
  */
 public class PauzeMenu extends Menu
 {
-    public PauzeMenu()
+    public PauzeMenu(MarioWorld marioWorld)
     {
-        super(new String[]
+        super(marioWorld,new String[]
                 {
                     ""
                 });
@@ -21,6 +23,6 @@ public class PauzeMenu extends Menu
 
     public void execute()
     {
-
+        
     }
 }

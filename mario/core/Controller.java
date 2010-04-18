@@ -24,8 +24,8 @@ public class Controller implements KeyListener, Runnable, MouseListener
     private final static int GAMESPEED = 10;
     private long gameTimer = System.currentTimeMillis();
     private CollisionDetector collisionDetector;
-    private Menu mainMenu = new MainMenu();
-    private Menu pauzeMenu = new PauzeMenu();
+    private Menu mainMenu = new MainMenu(marioWorld);
+    private Menu pauzeMenu = new PauzeMenu(marioWorld);
     private Menu selectedMenu;
 
     /**
