@@ -28,9 +28,7 @@ public class Goomba extends Enemy implements NoClip {
         frames.put("goombaWalkRight 0", new Rectangle(154, 861, 50, 48));
         frameSpeed = 100;
 
-        setAnimation(new String[]{
-                    "goombaStandLeft 0", "goombaWalkLeft 0", //"goombaStandRight 0", "goombaWalkRight 0"
-                });
+        setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
     }
 
     @Override
@@ -68,19 +66,19 @@ public class Goomba extends Enemy implements NoClip {
         if (mapObject instanceof Tube) {
             switch (collision) {
                 case UP:
-//                    ai.toggleDirection();
-//                    switch (ai.getDirection()) {
-//                        case LEFT:
-//                            setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
-//                            break;
-//                        case RIGHT:
-//                            setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
-//                            break;
-//                    }
-                    System.out.println("Goomba Vol UP tube");
+                    ai.toggleDirection();
+                    switch (ai.getDirection()) {
+                        case LEFT:
+                            setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 0"});
+                            break;
+                        case RIGHT:
+                            setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0"});
+                            break;
+                    }
+                    System.out.println("Goomba Head is bumping on Tube -- Toggle Direction");
                     break;
                 case DOWN:
-                    System.out.println("Goomba Vol DOWN tube -- Doorlopen");
+                    System.out.println("Goomba is Walking on Tube -- Doorlopen");
                     break;
             }
 

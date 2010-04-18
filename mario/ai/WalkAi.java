@@ -17,9 +17,7 @@ public class WalkAi extends Ai {
             int fallsize = 5;
             while (mapObject.checkCollisionMap(mapObject.getX(), mapObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
                 fallsize--;
-                //System.out.println("fallsize = " + fallsize);
             }
-
             mapObject.setY(mapObject.getY() + fallsize);
             System.out.println("fall mapObject");
         }
