@@ -31,7 +31,7 @@ public class CollisionDetector
                     if (characterObject != characterObjectLoop && characterObjectLoop.isAlive())
                     {
                         int y_last = characterObject.getYLast();
-                        int height_last = characterObject.getHeightLast();
+                        int height_last = characterObject.getHeight();
 
                         int x = characterObject.getX()+1;
                         int y = characterObject.getY()+1;
