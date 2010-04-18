@@ -147,9 +147,9 @@ public abstract class GameObject
         if (checkCollisionMap(x, y) == Collision.NONE)
         {
             y_last = this.y;
-            System.out.println(y_last + " : " + this.y + " : " + y);
+            //System.out.println(y_last + " : " + this.y + " : " + y);
             this.y = y;
-            System.out.println(y_last + " : " + this.y + " : " + y);
+            //System.out.println(y_last + " : " + this.y + " : " + y);
         }
     }
 

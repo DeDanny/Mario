@@ -19,7 +19,7 @@ public class WalkAi extends Ai {
                 fallsize--;
             }
             mapObject.setY(mapObject.getY() + fallsize);
-            System.out.println("fall mapObject");
+            //System.out.println("fall mapObject");
         }
 
         switch (direction) {

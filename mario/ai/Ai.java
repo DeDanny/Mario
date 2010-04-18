@@ -25,10 +25,10 @@ abstract public class Ai {
     public void toggleDirection() {
         if (getDirection() == direction.RIGHT) {
             setDirection(direction.LEFT);
-            System.out.println("toggleDirection Right");
+            //System.out.println("toggleDirection Right");
         } else if (getDirection() == direction.LEFT) {
             setDirection(direction.RIGHT);
-            System.out.println("toggleDirection Left");
+            //System.out.println("toggleDirection Left");
         }
     }
 

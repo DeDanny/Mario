@@ -70,7 +70,7 @@ public class Controller implements KeyListener, Runnable, MouseListener
                     if ((System.currentTimeMillis() - gameTimer) > GAMESPEED)
                     {
                         gameTimer = System.currentTimeMillis();
-                        System.out.println("going loop----------------------------------------------------------------");
+                        //System.out.println("going loop----------------------------------------------------------------");
                         marioWorld.getGame().removeObjects();
                         marioWorld.getGame().getAiDirector().createMapObjects();
 
@@ -80,7 +80,7 @@ public class Controller implements KeyListener, Runnable, MouseListener
 
                         view.draw();
 
-                        System.out.println("end loop----------------------------------------------------------------");
+                        //System.out.println("end loop----------------------------------------------------------------");
                     }
                 }
             }

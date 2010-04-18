@@ -102,27 +102,31 @@ public class Mario extends CharacterObject implements NoClip {
     public void doLoopAction() {
         if (grow) {
             setState(growMario);
-            System.out.println("growMario");
+            //System.out.println("growMario");
         } else {
             if (fall) {
                 setState(fallMario);
-                System.out.println("fallMario");
+                //System.out.println("fallMario");
             } else {
                 if (jump || jumpExtra) {
                     if (this.state != fallMario || jumpExtra) {
                         setState(jumpMario);
+                        if(jumpExtra)
+                        {
+                            System.out.println("jumpXTRA");
+                        }
                         this.jumpExtra = false;
-                        System.out.println("jumpMario");
+                       // System.out.println("jumpMario");
                     } else {
                         this.setJump(false);
                     }
                 } else {
                     if (big) {
                         setState(bigMario);
-                        System.out.println("bigMario");
+                        //System.out.println("bigMario");
                     } else {
                         setState(smallMario);
-                        System.out.println("smallMario");
+                        //System.out.println("smallMario");
                     }
                 }
             }
@@ -169,21 +173,6 @@ public class Mario extends CharacterObject implements NoClip {
         } else {
             this.big = true;
         }
-    }
-
-    public void setBig(boolean big) {
-        if (!big) {
-            //setY(getY() + 24);
-            //setHeight(58);
-            //if (!down) {
-
-            //}
-
-        } else {
-            //setY(getY()-24);
-            //setHeight(82);
-        }
-        this.big = big;
     }
 
     public boolean isBig() {
@@ -240,8 +229,9 @@ public class Mario extends CharacterObject implements NoClip {
     public void doCharacterCollision(Collision collision, MapObject mapObject) {
         if ((System.currentTimeMillis() - godModeTimer) > godModeTime) {
             if (mapObject instanceof Enemy) {
+                 System.out.println("collision:"+collision);
                 switch (collision) {
-                    case SIDE:
+                    case UP:
                         if (big) {
                             godModeTimer = System.currentTimeMillis();
                             grow = true;
@@ -250,22 +240,9 @@ public class Mario extends CharacterObject implements NoClip {
                         }
                         System.out.println("MARIO DOOD");
                         break;
-                    case UP:
-                        if (big) {
-                            godModeTimer = System.currentTimeMillis();
-                            big = false;
-                        } else {
-
-                            setAlive(false);
-                        }
-                        System.out.println("MARIO DOOD");
-                        break;
                     case DOWN:
                         System.out.println("MARIO EXTRA JUMP");
                         jumpExtra = true;
-                        break;
-                    case NONE:
-                        System.out.println("MARIO NIKS");
                         break;
                 }
             }

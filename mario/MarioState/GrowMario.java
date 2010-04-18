@@ -70,10 +70,10 @@ public class GrowMario extends MarioState {
             
         } else {
             growTeller = 0;
-
             setBigY = true;
-            marioObject.toggleBig();
             marioObject.setGrow(false);
+            marioObject.toggleBig();
+            
         }
     }
 }
