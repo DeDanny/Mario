@@ -72,7 +72,7 @@ public class Controller implements KeyListener, Runnable
                 } else
                 {
                     //pauze menu
-
+                    marioWorld.setGame(new Game());
                 }
             }
         }

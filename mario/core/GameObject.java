@@ -8,13 +8,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.imageio.ImageIO;
 import mario.Game;
-import mario.Main;
 import mario.State;
 import mario.Mario;
 

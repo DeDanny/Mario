@@ -11,7 +11,6 @@ import java.util.Iterator;
 import mario.core.AiDirector;
 import mario.core.MapObject;
 import mario.core.ReUse;
-import mario.enemy.*;
 
 /**
  *
@@ -45,7 +44,7 @@ public class Game
         mapObjects.add(new Tube(this, 400, 456, 96, 96));
        //mapObjects.add(new Tube(this, 650, 456, 96, 96));
         
-        mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
+        //mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
 
     }
 
@@ -94,7 +93,7 @@ public class Game
         for (Iterator<MapObject> it = mapObjects.iterator(); it.hasNext();)
         {
             MapObject mapObject = it.next();
-            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) < 0)
+            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) < 0 || mapObject.getX() > 1200)
             {
                 if(mapObject instanceof ReUse)
                 {

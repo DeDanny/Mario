@@ -22,7 +22,7 @@ import mario.enemy.Goomba;
  */
 public class AiDirector
 {
-    private static final int MAXMAPOBJECTEN = 2;
+    private static final int MAXMAPOBJECTEN = 10;
     private int mapObjectenCount = 0;
     private Game game;
 
@@ -87,7 +87,8 @@ public class AiDirector
                     mapObjectenList.add(new Goomba(game, 600, 205, 45, 51));
                     mapObjectenList.add(new Goomba(game, 500, 205, 45, 51));
                     mapObjectenList.add(new Goomba(game, 400, 205, 45, 51));
-                } else if (procent < 80)
+                }
+                else if (procent < 80)
                 {
                     if (countNow >= 3)
                     {
@@ -96,7 +97,8 @@ public class AiDirector
                         // mapObjectenList.add(new Stone(game, 650 + (45 * 2), 350, 45, 45));
                         countNow -= 3;
                     }
-                } else
+                }
+                else
                 {
                     // mapObjectenList.add(new Goomba(game, procent, procent, procent, procent));
                 }
