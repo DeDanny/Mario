@@ -6,7 +6,6 @@ package mario;
 
 import javax.swing.JFrame;
 import mario.core.Controller;
-import mario.core.View;
 
 /**
  *
@@ -15,9 +14,6 @@ import mario.core.View;
  */
 public class Main extends JFrame
 {
-    private MarioWorld MarioWorld = new MarioWorld();
-    private View view;
-
     public Main()
     {
         setIgnoreRepaint(true);
@@ -28,8 +24,7 @@ public class Main extends JFrame
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 
-        view = new View(MarioWorld, this);
-        Controller controller = new Controller(MarioWorld, view, this);
+        Controller controller = new Controller(this);
     }
 
     public static void main(String[] args)

@@ -59,6 +59,11 @@ public class View
 
     public void draw()
     {
+        drawMenu(null);
+    }
+
+    void drawMenu(Menu menu)
+    {
         Graphics graphics = null;
 
         try
@@ -67,13 +72,21 @@ public class View
             graphics = bi.createGraphics();
 
             // Draw stuff here using Java's Graphics Object!!!
-            graphics.setColor(new Color(107, 136, 255));
+            graphics.setColor(new Color(0, 0, 0, 30));
             graphics.fillRect(0, 0, 800, 600);
 
-            for (GameObject gameObject : marioWorld.getGame().getMapObjects())
+            if (menu == null)
             {
-                gameObject.draw(graphics);
+                for (GameObject gameObject : marioWorld.getGame().getMapObjects())
+                {
+                    gameObject.draw(graphics);
+                }
             }
+            else
+            {
+                menu.draw(graphics);
+            }
+
 
             graphics = buffer.getDrawGraphics();
             graphics.drawImage(bi, 0, 0, null);

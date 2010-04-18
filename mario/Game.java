@@ -44,7 +44,7 @@ public class Game
         mapObjects.add(new Tube(this, 400, 456, 96, 96));
        //mapObjects.add(new Tube(this, 650, 456, 96, 96));
         
-        //mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
+        mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
 
     }
 

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import mario.Game;
 import mario.enemy.Goomba;
+import mario.mapObjects.Questionmark;
+import mario.mapObjects.Stone;
 
 /**
  * 70% chanch on creating an object
@@ -84,17 +86,29 @@ public class AiDirector
                 procent = generator.nextInt(100);
                 if (procent < 40) //create an goobma
                 {
-                    mapObjectenList.add(new Goomba(game, 600, 205, 45, 51));
-                    mapObjectenList.add(new Goomba(game, 500, 205, 45, 51));
-                    mapObjectenList.add(new Goomba(game, 400, 205, 45, 51));
+                    mapObjectenList.add(new Goomba(game, 880, 500, 45, 51));
                 }
                 else if (procent < 80)
                 {
                     if (countNow >= 3)
                     {
-                        //mapObjectenList.add(new Stone(game, 650, 350, 45, 45));
-                        // mapObjectenList.add(new Stone(game, 650 + 45, 350, 45, 45));
-                        // mapObjectenList.add(new Stone(game, 650 + (45 * 2), 350, 45, 45));
+                        mapObjectenList.add(new Stone(game, 850, 350, 45, 45));
+                        procent = generator.nextInt(100);
+                        if(procent < 40)
+                        {
+                            procent = generator.nextInt(100);
+                            if(procent < 40)
+                            {
+                                mapObjectenList.add(new Questionmark(game, 850 + 45+1, 350, 45, 45));
+                            }
+                            mapObjectenList.add(new Stone(game, 850 + 45+1, 350, 45, 45));
+                        }
+                        else
+                        {
+                            mapObjectenList.add(new Stone(game, 850 + 45+1, 350, 45, 45));
+                        }
+                        mapObjectenList.add(new Stone(game, 850 + 45+1, 350, 45, 45));
+                        mapObjectenList.add(new Stone(game, 850 + (45 * 2)+1, 350, 45, 45));
                         countNow -= 3;
                     }
                 }

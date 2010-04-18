@@ -6,34 +6,34 @@ package mario.core;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
-import mario.Game;
 import mario.MarioWorld;
 
 /**
  *
  * @author Danny
  */
-public class Controller implements KeyListener, Runnable
+public class Controller implements KeyListener, Runnable, MouseListener
 {
-    private MarioWorld marioWorld;
-    private View view;
+    private MarioWorld marioWorld = new MarioWorld();
     private JFrame frame;
+    private View view;
     private Thread gameLoop = new Thread(this, "GameLoop");
     private final static int GAMESPEED = 10;
     private long gameTimer = System.currentTimeMillis();
     private CollisionDetector collisionDetector;
+    private Menu mainMenu = new MainMenu();
+    private Menu pauzeMenu = new PauzeMenu();
+    private Menu selectedMenu;
 
     /**
      *
-     * @param marioWorld
-     * @param view
-     * @param frame
      */
-    public Controller(MarioWorld marioWorld, View view, JFrame frame)
+    public Controller(JFrame frame)
     {
-        this.marioWorld = marioWorld;
-        this.view = view;
+        view = new View(marioWorld, frame);
         this.frame = frame;
         collisionDetector = new CollisionDetector(marioWorld);
 
@@ -45,6 +45,7 @@ public class Controller implements KeyListener, Runnable
     private void init()
     {
         frame.addKeyListener(this);
+        frame.addMouseListener(this);
     }
 
     @Override
@@ -52,27 +53,35 @@ public class Controller implements KeyListener, Runnable
     {
         while (marioWorld.isRunning())
         {
-            if ((System.currentTimeMillis() - gameTimer) > GAMESPEED)
+            if (!marioWorld.getGame().isRunning())
             {
-                gameTimer = System.currentTimeMillis();
-                System.out.println("going loop----------------------------------------------------------------");
-
-                if (!marioWorld.getGame().isPaused())
+                selectedMenu = mainMenu;
+                view.drawMenu(mainMenu);
+            }
+            else
+            {
+                if (marioWorld.getGame().isPaused())
                 {
-                    marioWorld.getGame().removeObjects();
-                    marioWorld.getGame().getAiDirector().createMapObjects();
-
-                    gameObjectLoopAction();
-
-                    collisionDetector.detectCollisionsGameObjects();
-
-                    view.draw();
-
-                    System.out.println("end loop----------------------------------------------------------------");
-                } else
+                    selectedMenu = pauzeMenu;
+                    view.drawMenu(pauzeMenu);
+                }
+                else
                 {
-                    //pauze menu
-                    marioWorld.setGame(new Game());
+                    if ((System.currentTimeMillis() - gameTimer) > GAMESPEED)
+                    {
+                        gameTimer = System.currentTimeMillis();
+                        System.out.println("going loop----------------------------------------------------------------");
+                        marioWorld.getGame().removeObjects();
+                        marioWorld.getGame().getAiDirector().createMapObjects();
+
+                        gameObjectLoopAction();
+
+                        collisionDetector.detectCollisionsGameObjects();
+
+                        view.draw();
+
+                        System.out.println("end loop----------------------------------------------------------------");
+                    }
                 }
             }
         }
@@ -93,79 +102,98 @@ public class Controller implements KeyListener, Runnable
     @Override
     public void keyPressed(KeyEvent e)
     {
-        if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+        if (!marioWorld.getGame().isRunning() || marioWorld.getGame().isPaused())
         {
-            marioWorld.getGame().setPaused(true);
+            switch (e.getKeyCode())
+            {
+                case KeyEvent.VK_UP:
+                    selectedMenu.menuUp();
+                    break;
+                case KeyEvent.VK_DOWN:
+                    selectedMenu.menuDown();
+                    break;
+                case KeyEvent.VK_ENTER:
+                    selectedMenu.execute();
+                    break;
+            }
         }
-
-        if (e.getKeyCode() == KeyEvent.VK_LEFT)
+        else
         {
-            marioWorld.getGame().getMario().setLeft(true);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-        {
-            marioWorld.getGame().getMario().setRight(true);
-        }
-
-//      if (e.getKeyCode() == KeyEvent.VK_UP)
-//      {
-//          marioWorld.getGame().getMario().setUp(true);
-//      }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN)
-        {
-            marioWorld.getGame().getMario().setDown(true);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_1)
-        {
-            marioWorld.getGame().getMario().setBig(true);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_2)
-        {
-            marioWorld.getGame().getMario().setBig(false);
+            switch (e.getKeyCode())
+            {
+                case KeyEvent.VK_ESCAPE:
+                    marioWorld.getGame().setPaused(true);
+                    break;
+                case KeyEvent.VK_LEFT:
+                    marioWorld.getGame().getMario().setLeft(true);
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    marioWorld.getGame().getMario().setRight(true);
+                    break;
+                case KeyEvent.VK_DOWN:
+                    marioWorld.getGame().getMario().setDown(true);
+                    break;
+                case KeyEvent.VK_SPACE:
+                    marioWorld.getGame().getMario().setJump(true);
+                    break;
+                case KeyEvent.VK_UP:
+                    marioWorld.getGame().getMario().setJump(true);
+                    break;
+            }
         }
         if (e.getKeyCode() == KeyEvent.VK_0)
         {
             marioWorld.setRunning(false);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_3)
-        {
-            marioWorld.getGame().setPaused(false);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_UP)
-        {
-            marioWorld.getGame().getMario().setJump(true);
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e)
     {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT)
+        switch (e.getKeyCode())
         {
-            marioWorld.getGame().getMario().setLeft(false);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-        {
-            marioWorld.getGame().getMario().setRight(false);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP)
-        {
-            marioWorld.getGame().getMario().setUp(false);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN)
-        {
-            marioWorld.getGame().getMario().setDown(false);
+            case KeyEvent.VK_LEFT:
+                marioWorld.getGame().getMario().setLeft(false);
+                break;
+            case KeyEvent.VK_RIGHT:
+                marioWorld.getGame().getMario().setRight(false);
+                break;
+            case KeyEvent.VK_DOWN:
+                marioWorld.getGame().getMario().setDown(false);
+                break;
         }
     }
 
     private void gameObjectLoopAction()
     {
-
         for (MapObject gameObject : marioWorld.getGame().getMapObjects())
         {
-            //gameObject.doMapCollision(gameObject.checkCollisionMap());
             gameObject.doMapCollision();
             gameObject.doLoopAction();
         }
+    }
+
+    public void mouseClicked(MouseEvent e)
+    {
+        System.out.println("mouseClicked");
+        System.out.println(e);
+    }
+
+    public void mousePressed(MouseEvent e)
+    {
+        System.out.println("mousePressed");
+        System.out.println(e);
+    }
+
+    public void mouseReleased(MouseEvent e)
+    {
+    }
+
+    public void mouseEntered(MouseEvent e)
+    {
+    }
+
+    public void mouseExited(MouseEvent e)
+    {
     }
 }
