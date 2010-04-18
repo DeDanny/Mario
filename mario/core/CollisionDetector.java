@@ -58,8 +58,8 @@ public class CollisionDetector
                                 characterObjectLoop.doCharacterCollision(Collision.UP, characterObject);
                             } else
                             {
-                                characterObject.doCharacterCollision(Collision.SIDE, characterObjectLoop);
-                                characterObjectLoop.doCharacterCollision(Collision.SIDE, characterObject);
+                                characterObject.doCharacterCollision(Collision.UP, characterObjectLoop);
+                                characterObjectLoop.doCharacterCollision(Collision.DOWN, characterObject);
                             }
                         }
                     }

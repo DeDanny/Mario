@@ -6,9 +6,6 @@ import mario.core.MapObject;
 
 public class WalkAi extends Ai {
 
-   
-
-
     public WalkAi(MapObject mapObject) {
         super(mapObject);
         direction = Direction.LEFT;
@@ -20,7 +17,7 @@ public class WalkAi extends Ai {
             int fallsize = 5;
             while (mapObject.checkCollisionMap(mapObject.getX(), mapObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
                 fallsize--;
-                System.out.println("fallsize = " + fallsize);
+                //System.out.println("fallsize = " + fallsize);
             }
 
             mapObject.setY(mapObject.getY() + fallsize);
@@ -30,16 +27,11 @@ public class WalkAi extends Ai {
         switch (direction) {
             case LEFT:
                 mapObject.setX(mapObject.getX() - WALKSPEED);
-
                 break;
             case RIGHT:
                 mapObject.setX(mapObject.getX() + WALKSPEED);
-
                 break;
         }
 
     }
-
-
-
 }

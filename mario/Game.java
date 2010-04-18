@@ -9,6 +9,7 @@ import mario.mapObjects.Coin;
 import mario.mapObjects.Questionmark;
 import mario.mapObjects.Stone;
 import mario.mapObjects.Mushroom;
+import mario.mapObjects.Tube;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.core.AiDirector;
@@ -46,9 +47,13 @@ public class Game
         mapObjects.add(new Questionmark(this, 240, 350, 45, 45));
         mapObjects.add(new Coin(this, 240, 303, 45, 45));
         mapObjects.add(new Stone(this, 286, 350, 45, 45));
+
+        mapObjects.add(new Tube(this, 286, 406, 96, 150));
+        mapObjects.add(new Tube(this, 650, 406, 96, 150));
         
-        mapObjects.add(new Goomba(this, 600, 205, 45, 45));    
-        mapObjects.add(new Mushroom(this, 500, 205, 45, 45));
+        //mapObjects.add(new Goomba(this, 600, 205, 45, 45));
+        mapObjects.add(new Goomba(this, 715, 330, 45, 45));
+       // mapObjects.add(new Mushroom(this, 500, 205, 45, 45));
 
     }
 

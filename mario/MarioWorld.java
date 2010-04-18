@@ -13,6 +13,7 @@ public class MarioWorld
     private boolean running = true;
     private Game game = new Game();
 
+
     public MarioWorld()
     {
     }
@@ -21,6 +22,11 @@ public class MarioWorld
     {
         return game;
     }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
 
     public boolean isRunning()
     {

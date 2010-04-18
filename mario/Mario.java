@@ -274,10 +274,12 @@ public class Mario extends CharacterObject implements NoClip {
             switch (collision) {
                 case DOWN:
                     setFall(false);
+                    //System.out.println("-----------------------------------------Mario Fall state After DOWN @ CUBE");
                     break;
                 case UP:
                     setFall(true);
                     jumpTeller = 0;
+                    //System.out.println("-----------------------------------------Mario Fall state After UP @ CUBE");
                     break;
             }
         }

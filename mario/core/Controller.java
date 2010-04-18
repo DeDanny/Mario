@@ -7,6 +7,7 @@ package mario.core;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JFrame;
+import mario.Game;
 import mario.MarioWorld;
 
 /**
@@ -72,6 +73,8 @@ public class Controller implements KeyListener, Runnable
                 else
                 {
                     //pauze menu
+
+                    marioWorld.setGame(new Game());
                 }
             }
 
