@@ -21,9 +21,12 @@ public class Stone extends Cube {
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
-        frames.put("stone 0", new Rectangle(558, 116, 49, 49));
-
-        setAnimation(new String[]{"stone 0"});
+        frames.put("stone 0", new Rectangle(870, 3822, 49, 49));
+        frames.put("stone 1", new Rectangle(921, 3822, 49, 49));
+        frames.put("stone 2", new Rectangle(972, 3822, 49, 49));
+        frames.put("stone 3", new Rectangle(1023, 3822, 49, 49));
+        frameSpeed = 100;
+        setAnimation(new String[]{"stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 1", "stone 2", "stone 3"});
 
     }
 

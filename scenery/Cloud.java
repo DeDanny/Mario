@@ -20,8 +20,8 @@ public class Cloud extends MapObject implements NoClip{
     int teller = 0;
         public Cloud(Game game, int x, int y, int width, int height)
     {
-        super(game, x, y, width, height, "/images/cloud.png");
-        frames.put("cloud 0", new Rectangle(0, 0, 96, 48));
+        super(game, x, y, width, height, "/images/nsmbtileset.png");
+        frames.put("cloud 0", new Rectangle(553, 4035, 96, 48));
         setAnimation(new String[]{"cloud 0"});
     }
 
