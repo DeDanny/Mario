@@ -17,12 +17,23 @@ public class PauzeMenu extends Menu
     {
         super(marioWorld,new String[]
                 {
-                    ""
+                    "Resume Game", "Save Game", "Exit Game"
                 });
     }
 
     public void execute()
     {
-        
+        switch(selectedItem)
+        {
+            case 1:
+                marioWorld.getGame().setPaused(false);
+            break;
+            case 2:
+
+                break;
+            case 3:
+                marioWorld.getGame().setRunning(false);
+                break;
+        }
     }
 }

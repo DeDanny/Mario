@@ -21,18 +21,16 @@ import javazoom.jl.player.Player;
  */
 public class Sound
 {
-    private static HashMap<String, AudioInputStream> sounds = new HashMap<String, AudioInputStream>();
-    private Player player;
-
+    private static HashMap<String, AudioStream> sounds = new HashMap<String, AudioStream>();
+    private AudioStream lastSong;
 
     public void playTheme()
     {
-        
     }
 
-    private AudioInputStream getSound(String fileName)
+    private AudioStream getSound(String fileName)
     {
-        AudioInputStream sound = sounds.get(fileName);
+        AudioStream sound = sounds.get(fileName);
 
         if (sound == null)
         {
@@ -44,37 +42,29 @@ public class Sound
 
     public void playSound(String fileName)
     {
-        //AudioInputStream sound = getSound(fileName);
-        URL soundUrl = Main.class.getResource(fileName);
-        AudioInputStream audioStream = null;
-        try
-        {
-            audioStream = AudioSystem.getAudioInputStream(soundUrl);
-        } catch (UnsupportedAudioFileException ex)
-        {
-            Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex)
-        {
-            Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        AudioPlayer.player.start(audioStream);
+        AudioStream sound = getSound(fileName);
+
+        if (lastSong != null)
+        {
+            AudioPlayer.player.stop(lastSong);
+        }
+        lastSong = sound;
+        AudioPlayer.player.start(sound);
     }
 
     public void loadSound(String fileName)
     {
-        URL soundUrl = Main.class.getResource(fileName);
-        AudioInputStream audioStream = null;
+        InputStream soundUrl = Main.class.getResourceAsStream(fileName);
+        AudioStream audioStream = null;
         try
         {
-             audioStream = AudioSystem.getAudioInputStream(soundUrl);
-        } catch (UnsupportedAudioFileException ex)
-        {
-            Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
+             audioStream = new AudioStream(soundUrl);
         } catch (IOException ex)
         {
             Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         sounds.put(fileName, audioStream);
     }
 }

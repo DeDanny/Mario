@@ -4,6 +4,7 @@
  */
 package mario.core;
 
+import mario.Game;
 import mario.MarioWorld;
 
 /**
@@ -25,6 +26,7 @@ public class MainMenu extends Menu
         switch(selectedItem)
         {
             case 1:
+                marioWorld.setGame(new Game());
                 marioWorld.getGame().setRunning(true);
                 break;
             case 2:

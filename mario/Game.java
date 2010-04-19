@@ -35,7 +35,7 @@ public class Game
 
     public Game()
     {
-        sound.playSound("/sound/theme.wav.MP3");
+        sound.playSound("/sound/theme.wav");
         mapObjects.add(background);
         mapObjects.add(background2);
         mapObjects.add(new Bush(this, 200, 475, 99, 78));

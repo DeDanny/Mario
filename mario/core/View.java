@@ -72,19 +72,20 @@ public class View
             graphics = bi.createGraphics();
 
             // Draw stuff here using Java's Graphics Object!!!
-            graphics.setColor(new Color(0, 0, 0, 30));
-            graphics.setColor(new Color(0, 0, 0));
-            graphics.fillRect(0, 0, 800, 600);
+
 
             if (menu == null)
             {
+                graphics.setColor(new Color(107, 136, 255));
+                graphics.fillRect(0, 0, 800, 600);
                 for (GameObject gameObject : marioWorld.getGame().getMapObjects())
                 {
                     gameObject.draw(graphics);
                 }
-            }
-            else
+            } else
             {
+                graphics.setColor(new Color(0, 0, 0));
+                graphics.fillRect(0, 0, 800, 600);
                 menu.draw(graphics);
             }
 
