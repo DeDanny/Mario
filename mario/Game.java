@@ -11,6 +11,7 @@ import java.util.Iterator;
 import mario.core.AiDirector;
 import mario.core.MapObject;
 import mario.core.ReUse;
+import mario.core.Sound;
 
 /**
  *
@@ -22,6 +23,7 @@ public class Game
     private boolean paused = false;
     private AiDirector aiDirector = new AiDirector(this);
     private Mario mario = new Mario(this,200, 420, 42, 57);
+    private Sound sound = new Sound();
 
     private Background background = new Background(this, 0, 552, 800,  48);
     private Background background2 = new Background(this, 800, 552, 800,  48);
@@ -31,6 +33,7 @@ public class Game
 
     public Game()
     {
+        sound.playSound("/sound/theme.wav.MP3");
         mapObjects.add(background);
         mapObjects.add(background2);
         mapObjects.add(mario);
@@ -117,4 +120,10 @@ public class Game
     {
         return aiDirector;
     }
+
+    public Sound getSound()
+    {
+        return sound;
+    }
+
 }

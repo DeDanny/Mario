@@ -31,16 +31,16 @@ public class CollisionDetector
                     if (characterObject != characterObjectLoop && characterObjectLoop.isAlive())
                     {
                         int y_last = characterObject.getYLast();
-                        int height_last = characterObject.getHeight();
+                        int heightl = characterObject.getHeight();
 
                         int x = characterObject.getX()+1;
                         int y = characterObject.getY()+1;
                         int width = characterObject.getWidth();
                         int height = characterObject.getHeight()+1;
 
-                        if( height_last == 0)
+                        if( heightl == 0)
                         {
-                            height_last = height;
+                            heightl = height;
                         }
 
                         int xOthere = characterObjectLoop.getX();
@@ -52,7 +52,7 @@ public class CollisionDetector
                         Rectangle othereObject = new Rectangle(xOthere, yOthere, widthOthere, heightOthere);
                         if (object.intersects(othereObject))
                         {
-                            if ((y_last + height_last) < yOthere)
+                            if ((y_last + heightl) < yOthere)
                             {
                                 characterObject.doCharacterCollision(Collision.DOWN, characterObjectLoop);
                                 characterObjectLoop.doCharacterCollision(Collision.UP, characterObject);

@@ -20,7 +20,7 @@ import mario.Mario;
  */
 public abstract class GameObject
 {
-    private static imagesLoader loader = new imagesLoader();
+    private static Sprites sprites = new Sprites();
     protected BufferedImage sprite;
     protected BufferedImage spritePart;
     protected int x, y, width, height;
@@ -41,7 +41,7 @@ public abstract class GameObject
         this.y = y;
         this.width = width;
         this.height = height;
-        sprite = loader.getImage(fileName);
+        sprite = sprites.getImage(fileName);
         boolean add = collection.add(this);
         this.game = game;
     }

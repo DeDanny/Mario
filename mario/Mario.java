@@ -110,6 +110,7 @@ public class Mario extends CharacterObject implements NoClip {
             } else {
                 if (jump || jumpExtra) {
                     if (this.state != fallMario || jumpExtra) {
+                        
                         setState(jumpMario);
                         if(jumpExtra)
                         {
@@ -241,6 +242,7 @@ public class Mario extends CharacterObject implements NoClip {
                         System.out.println("MARIO DOOD");
                         break;
                     case DOWN:
+                        game.getSound().playSound("/sound/deadGoomba.wav.MP3");
                         System.out.println("MARIO EXTRA JUMP");
                         jumpExtra = true;
                         break;
