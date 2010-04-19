@@ -4,9 +4,9 @@
  */
 package mario.core;
 
-import java.util.ArrayList;
 import mario.Game;
 import mario.MarioWorld;
+import mario.core.loadAndSave.loadAndSave;
 
 
 /**
@@ -32,10 +32,8 @@ public class MainMenu extends Menu
                 marioWorld.getGame().setRunning(true);
                 break;
             case 2:
-
-                //ArrayList<Game> game = database.getAllGames();
-
-                //marioWorld.setGame(game.get(0));
+                Game game = loadAndSave.load();
+                marioWorld.setGame(game);
                 marioWorld.getGame().setRunning(true);
                 break;
             case 3:

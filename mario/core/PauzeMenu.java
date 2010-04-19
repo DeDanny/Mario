@@ -30,7 +30,7 @@ public class PauzeMenu extends Menu
                 marioWorld.getGame().setPaused(false);
             break;
             case 2:
-                loadAndSave.save(marioWorld.getGame().getMapObjects());
+                loadAndSave.save(marioWorld.getGame());
                 marioWorld.getGame().setRunning(false);
                 break;
             case 3:

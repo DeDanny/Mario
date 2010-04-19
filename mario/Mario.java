@@ -348,4 +348,9 @@ public class Mario extends CharacterObject implements NoClip
     {
         return smallMario;
     }
+
+    public void setBig(boolean big)
+    {
+        this.big = big;
+    }
 }
