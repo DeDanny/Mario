@@ -5,7 +5,9 @@ import mario.mapObjects.Coin;
 import mario.mapObjects.Questionmark;
 import mario.mapObjects.Stone;
 import mario.mapObjects.Mushroom;
-import mario.mapObjects.Tube;
+import scenery.Cloud;
+import scenery.Tube;
+import scenery.Bush;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.core.AiDirector;
@@ -33,6 +35,8 @@ public class Game
     {
         mapObjects.add(background);
         mapObjects.add(background2);
+        mapObjects.add(new Bush(this, 200, 475, 99, 78));
+        mapObjects.add(new Cloud(this, 100, 100, 96, 48));
         mapObjects.add(mario);
         mapObjects.add(ScoreBalk);
         mapObjects.add(new Stone(this, 148, 350, 45, 45));
@@ -42,6 +46,7 @@ public class Game
         mapObjects.add(new Stone(this, 286, 350, 45, 45));
 
         mapObjects.add(new Tube(this, 400, 456, 96, 96));
+
        //mapObjects.add(new Tube(this, 650, 456, 96, 96));
         
         mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
