@@ -55,3 +55,4 @@ abstract public class Cube extends MapObject
 
     }
 }
+ 
