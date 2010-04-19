@@ -21,10 +21,13 @@ public class Questionmark extends Cube {
     public Questionmark(Game game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
-        frames.put("questionmark 0", new Rectangle(558, 66, 48, 48));
-        frames.put("questionmark 1", new Rectangle(507, 66, 48, 48));//vast blokje
-
-        setAnimation(new String[]{"questionmark 0"});
+        frames.put("questionmark 0", new Rectangle(870, 3771, 48, 48));
+        frames.put("questionmark 1", new Rectangle(921, 3771, 48, 48));
+        frames.put("questionmark 2", new Rectangle(972, 3771, 48, 48));
+        frames.put("questionmark 3", new Rectangle(1023, 3771, 48, 48));
+        frames.put("questionmark end", new Rectangle(507, 66, 48, 48));//vast blokje
+        frameSpeed = 100;
+        setAnimation(new String[]{"questionmark 0", "questionmark 1", "questionmark 2", "questionmark 3"});
 
     }
 
@@ -32,12 +35,13 @@ public class Questionmark extends Cube {
     public void doLoopAction() {
 
         if (hit && !done) {
+            setAnimation(new String[]{"questionmark end"});
             super.doHit();
             if (getGoinUp() == 20) {
                 hit = false;
                 done = true;
                 setGoinUp(0);
-                setAnimation(new String[]{"questionmark 1"});
+                
             }
             
         }

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package scenery;
+package mario.scenery;
 
 import java.awt.Rectangle;
 import mario.Game;
@@ -15,9 +15,9 @@ public class Bush extends MapObject implements NoClip{
 
     public Bush(Game game, int x, int y, int width, int height)
     {
-        super(game, x, y, width, height, "/images/bush.png");
-        frames.put("bush 0", new Rectangle(0, 0, 99, 78));
-        frames.put("bush 1", new Rectangle(99, 0, 99, 78));
+        super(game, x, y, width, height, "/images/nsmbtileset.png");
+        frames.put("bush 0", new Rectangle(424, 4134, 99, 78));
+        frames.put("bush 1", new Rectangle(523, 4134, 99, 78));
         frameSpeed = 700;
         setAnimation(new String[]{"bush 0", "bush 1"});
     }
