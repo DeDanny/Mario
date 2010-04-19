@@ -5,6 +5,7 @@
 package mario.core;
 
 import mario.MarioWorld;
+import mario.core.loadAndSave.loadAndSave;
 
 
 /**
@@ -15,7 +16,7 @@ public class PauzeMenu extends Menu
 {
     public PauzeMenu(MarioWorld marioWorld)
     {
-        super(marioWorld,new String[]
+        super(marioWorld, new String[]
                 {
                     "Resume Game", "Save Game", "Exit Game"
                 });
@@ -29,7 +30,8 @@ public class PauzeMenu extends Menu
                 marioWorld.getGame().setPaused(false);
             break;
             case 2:
-
+                loadAndSave.save(marioWorld.getGame().getMapObjects());
+                marioWorld.getGame().setRunning(false);
                 break;
             case 3:
                 marioWorld.getGame().setRunning(false);

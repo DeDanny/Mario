@@ -4,8 +4,10 @@
  */
 package mario.core;
 
+import java.util.ArrayList;
 import mario.Game;
 import mario.MarioWorld;
+
 
 /**
  *
@@ -13,7 +15,7 @@ import mario.MarioWorld;
  */
 public class MainMenu extends Menu
 {
-    public MainMenu(MarioWorld marioWorld)
+    MainMenu(MarioWorld marioWorld)
     {
         super(marioWorld, new String[]
                 {
@@ -30,7 +32,11 @@ public class MainMenu extends Menu
                 marioWorld.getGame().setRunning(true);
                 break;
             case 2:
-                //marioWorld.getGame().setRunning(true);
+
+                //ArrayList<Game> game = database.getAllGames();
+
+                //marioWorld.setGame(game.get(0));
+                marioWorld.getGame().setRunning(true);
                 break;
             case 3:
                 marioWorld.setRunning(false);
