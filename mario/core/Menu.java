@@ -18,27 +18,30 @@ public abstract class Menu
     protected int menuItemsCount;
     protected int selectedItem = 1;
     protected MarioWorld marioWorld;
+    private static Sprites sprite = new Sprites();
 
     public Menu(MarioWorld marioWorld, String[] menuItems)
     {
         this.marioWorld = marioWorld;
         this.menuItems = menuItems;
         this.menuItemsCount = menuItems.length;
+        sprite.getImage("/images/Help Gamecontrols V0.0.1.png");
     }
 
     public void draw(Graphics graphics)
     {
         int y = 600 / 3;
         int i = 1;
+        graphics.drawImage(sprite.getImage("/images/Help Gamecontrols V0.0.1.png"), 0, 0, null);
         for (String menuItem : menuItems)
         {
             if (i == selectedItem)
             {
                 graphics.setColor(Color.red);
-                graphics.fillRect(800 / 2 - 75, y + (i * 15)-7, 15, 2);
+                graphics.fillRect(700 - 25, y + (i * 15)-7, 15, 2);
             }
             graphics.setColor(Color.white);
-            graphics.drawString(menuItem, 800 / 2 - 50, y + (i * 15));
+            graphics.drawString(menuItem, 700, y + (i * 15));
             i++;
         }
     }
