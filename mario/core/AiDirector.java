@@ -9,7 +9,6 @@ import java.util.Random;
 import mario.Game;
 import mario.enemy.Goomba;
 import mario.mapObjects.Coin;
-import mario.mapObjects.Cube;
 import mario.mapObjects.Mushroom;
 import mario.mapObjects.Questionmark;
 import mario.mapObjects.Stone;
@@ -99,10 +98,10 @@ public class AiDirector
             if (procent < 70)
             {
                 procent = generator.nextInt(100);
-                if (procent < 35) //create an goobma
+                if (procent < 40) //create an goobma
                 {
-                    mapObjectenList.add(new Goomba(game, 900 + (countNow * 96+2), 500, 45, 51));
-                } else if (procent < 70)
+                    mapObjectenList.add(new Goomba(game, 900 + (countNow * 96 + 2), 500, 45, 51));
+                } else if (procent < 85)
                 {
                     if (countNow >= 3)
                     {
@@ -110,29 +109,34 @@ public class AiDirector
 
                         if (procent < 70)
                         {
-                            mapObjectenList.add(new Stone(game, 850 + (countNow * 45+2), 350, 45, 45));
+                            mapObjectenList.add(new Stone(game, 850 + (countNow * 45 + 2), 350, 45, 45));
                         } else
                         {
-                            if (!game.getMario().isBig())
+                            procent = generator.nextInt(100);
+                            if (!game.getMario().isBig() && procent < 50)
                             {
-                                mapObjectenList.add(new Mushroom(game, 850 + (countNow * 45+2), 303, 45, 45));
+                                mapObjectenList.add(new Mushroom(game, 850 + (countNow * 45 + 2), 303, 45, 45));
                             } else
                             {
-                                mapObjectenList.add(new Coin(game, 850 + (countNow * 45+2), 303, 45, 45));
+                                mapObjectenList.add(new Coin(game, 850 + (countNow * 45 + 2), 303, 45, 45));
                             }
-                            mapObjectenList.add(new Questionmark(game, 850 + (countNow * 45+2), 350, 45, 45));
+                            mapObjectenList.add(new Questionmark(game, 850 + (countNow * 45 + 2), 350, 45, 45));
                         }
                     }
                 } else
                 {
                     procent = generator.nextInt(100);
-                    if(procent < 5)
+                    if (procent < 14)
                     {
-                        mapObjectenList.add(new Tube(game, 900 + (countNow * 96+2), 456, 96, 96));
+                        mapObjectenList.add(new Tube(game, 900 + (countNow * 96 + 2), 456, 96, 96));
                     }
-                        procent = generator.nextInt(300);
-                        mapObjectenList.add(new Bush(game, 900 + (countNow * 96+2) , 475, 99, 78));
-                        mapObjectenList.add(new Cloud(game, 900 + (countNow * 96+2), procent, 96, 48));
+                    else
+                    {
+                        mapObjectenList.add(new Bush(game, 900 + (countNow * 96 + 2), 475, 99, 78));
+                    }
+                    
+                    procent = generator.nextInt(300);
+                    mapObjectenList.add(new Cloud(game, 900 + (countNow * 96 + 2 + procent), procent, 96, 48));
                 }
 
             }
