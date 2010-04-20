@@ -4,7 +4,6 @@
  */
 package mario.core;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -211,24 +210,27 @@ public abstract class GameObject
     public Collision checkCollisionMap(int x, int y, int downSize)
     {
         Rectangle objectRectangle = new Rectangle(x, y, width, height + downSize);
-        Rectangle mapRectangle = new Rectangle(0, 552, 800, 48);
 
         mapCollision = Collision.NONE;
 
-        for (MapObject characterObjectLoop : game.getMapObjects())
+        if (mapCollision == Collision.NONE)
         {
-            if (this != characterObjectLoop)
+            for (MapObject characterObjectLoop : game.getMapObjects())
             {
-                if (!(characterObjectLoop instanceof NoClip))
+                if (this != characterObjectLoop)
                 {
-                    Rectangle mapObjectRectangle = new Rectangle(characterObjectLoop.getX(), characterObjectLoop.getY(), characterObjectLoop.getWidth(), characterObjectLoop.getHeight());
-                    if (mapObjectRectangle.intersects(objectRectangle))
+                    if (!(characterObjectLoop instanceof NoClip))
                     {
-                        mapCollision = Collision.COLLISION;
+                        Rectangle mapObjectRectangle = new Rectangle(characterObjectLoop.getX(), characterObjectLoop.getY(), characterObjectLoop.getWidth(), characterObjectLoop.getHeight());
+                        if (mapObjectRectangle.intersects(objectRectangle))
+                        {
+                            mapCollision = Collision.COLLISION;
+                        }
                     }
                 }
             }
         }
+
         return mapCollision;
     }
 

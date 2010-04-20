@@ -29,6 +29,9 @@ public class Game
 
     private Background background = new Background(this, 0, 552, 800,  48);
     private Background background2 = new Background(this, 800, 552, 800,  48);
+    //work around try for bug. With out the 3rt background there where holes in the ground.
+    //private Background background3 = new Background(this, 400, 552, 800,  48);
+
 
     private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 45, 48);
     private ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
@@ -39,24 +42,9 @@ public class Game
         sound.playSound("/sound/theme.wav");
         mapObjects.add(background);
         mapObjects.add(background2);
-        mapObjects.add(new Bush(this, 200, 475, 99, 78));
-        mapObjects.add(new Cloud(this, 100, 100, 96, 48));
+       
         mapObjects.add(mario);
         mapObjects.add(ScoreBalk);
-        mapObjects.add(new Stone(this, 148, 350, 45, 45));
-        mapObjects.add(new Stone(this, 194, 350, 45, 45));
-        mapObjects.add(new Questionmark(this, 240, 350, 45, 45));
-        mapObjects.add(new Coin(this, 240, 303, 45, 45));
-
-        mapObjects.add(new Questionmark(this, 286, 350, 45, 45));
-        mapObjects.add(new Mushroom(this, 286, 303, 45, 45));
-
-        mapObjects.add(new Tube(this, 400, 456, 96, 96));
-
-       //mapObjects.add(new Tube(this, 650, 456, 96, 96));
-        
-        //mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
-
     }
 
     public boolean isRunning()
@@ -104,11 +92,11 @@ public class Game
         for (Iterator<MapObject> it = mapObjects.iterator(); it.hasNext();)
         {
             MapObject mapObject = it.next();
-            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) < 0 || mapObject.getX() > 1200)
+            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 || ((mapObject.getY() + mapObject.getHeight() )>= 555 && !(mapObject instanceof ReUse)))
             {
                 if(mapObject instanceof ReUse)
                 {
-                    mapObject.setX(800);
+                    mapObject.setX(800, true);
                 }
                 else
                 {

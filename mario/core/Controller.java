@@ -8,6 +8,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import mario.MarioWorld;
 
@@ -83,6 +85,13 @@ public class Controller implements KeyListener, Runnable, MouseListener
                         //System.out.println("end loop----------------------------------------------------------------");
                     }
                 }
+            }
+            try
+            {
+                Thread.sleep(1);
+            } catch (InterruptedException ex)
+            {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         SecurityManager security = System.getSecurityManager();

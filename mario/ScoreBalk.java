@@ -38,8 +38,6 @@ public class ScoreBalk extends MapObject implements Static
     @Override
     public void doLoopAction()
     {
-        // Verhoog telkens score met 1 (als test).
-        score++;
         //Controleerd telkens op nieuwe Score.
         addScore();
 //        scoreString = Integer.toString(score);
