@@ -134,7 +134,6 @@ public class AiDirector
                     {
                         mapObjectenList.add(new Bush(game, 900 + (countNow * 96 + 2), 475, 99, 78));
                     }
-                    
                     procent = generator.nextInt(300);
                     mapObjectenList.add(new Cloud(game, 900 + (countNow * 96 + 2 + procent), procent, 96, 48));
                 }

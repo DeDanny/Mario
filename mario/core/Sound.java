@@ -6,22 +6,39 @@ package mario.core;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.audio.AudioStream;
-import sun.audio.AudioPlayer;
+import javax.sound.sampled.LineUnavailableException;
 import java.util.HashMap;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import mario.Main;
 import java.io.*;
+import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 /**
  *
  * @author Danny
  */
 public class Sound
 {
-    private static HashMap<String, AudioStream> sounds = new HashMap<String, AudioStream>();
+    private static HashMap<String, AudioInputStream> sounds = new HashMap<String, AudioInputStream>();
+    private Clip player;
 
-    private AudioStream getSound(String fileName)
+    public Sound()
     {
-        AudioStream sound = sounds.get(fileName);
+        try
+        {
+            player = AudioSystem.getClip();
+        } catch (LineUnavailableException ex)
+        {
+            Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private AudioInputStream getSound(String fileName)
+    {
+        AudioInputStream sound = sounds.get(fileName);
 
         if (sound == null)
         {
@@ -33,28 +50,48 @@ public class Sound
 
     public void playSound(String fileName)
     {
-
-        AudioStream sound = getSound(fileName);
-
-        if (sound != null)
+        try
         {
-            AudioPlayer.player.stop(sound);
+            AudioInputStream sound = getSound(fileName);
+            Clip clip = AudioSystem.getClip();
+
+            clip.open(sound);
+            if (clip.isRunning())
+            {
+                clip.stop();   // Stop the player if it is still running
+                clip.setFramePosition(0); // rewind to the beginning
+            }
+            clip.setFramePosition(0); // rewind to the beginning
+            clip.start();
+            if (fileName.equals("/sound/theme.wav"))
+            {
+                clip.loop(999);
+            }
+
+        } catch (IOException ex)
+        {
+            Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (LineUnavailableException ex)
+        {
+            Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
         }
-        AudioPlayer.player.start(sound);
     }
 
     public void loadSound(String fileName)
     {
-        InputStream soundUrl = Main.class.getResourceAsStream(fileName);
-        AudioStream audioStream = null;
+        AudioInputStream audioIn = null;
         try
         {
-             audioStream = new AudioStream(soundUrl);
+            URL url = Main.class.getResource(fileName);
+            audioIn = AudioSystem.getAudioInputStream(url);
+            sounds.put(fileName, audioIn);
+        }// <editor-fold defaultstate="collapsed" desc="catch and try blocks">
+        catch (UnsupportedAudioFileException ex)
+        {
+            Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex)
         {
             Logger.getLogger(Sound.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        sounds.put(fileName, audioStream);
+        }// </editor-fold>        
     }
 }
