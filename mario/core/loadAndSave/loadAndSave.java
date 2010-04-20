@@ -43,7 +43,7 @@ public class loadAndSave
                 oos.close();
             } catch (IOException ex)
             {
-                System.out.println(ex);
+                //System.out.println(ex);
                 JOptionPane.showMessageDialog(null, "Er is een fout opgetreden \n Voor het bevoegde gezag:" + ex, "Het lezen is mislukt", JOptionPane.WARNING_MESSAGE);
             }
         }

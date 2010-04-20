@@ -60,7 +60,7 @@ public class Goomba extends Enemy implements NoClip {
         if (mapObject instanceof mario.Mario) {
             switch (collision) {
                 case UP:
-                    System.out.println("Goomba is dead");
+                    //////System.out.println("Goomba is dead");
                     setAlive(false);
                     game.getScoreBalk().killEnemy();
                     break;
@@ -79,10 +79,10 @@ public class Goomba extends Enemy implements NoClip {
                             setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0", "goombaWalkRight 1", "goombaWalkRight 2", "goombaWalkRight 3", "goombaWalkRight 4"});
                             break;
                     }
-                    System.out.println("Goomba Head is bumping on Tube -- Toggle Direction");
+                    //////System.out.println("Goomba Head is bumping on Tube -- Toggle Direction");
                     break;
                 case DOWN:
-                    System.out.println("Goomba is Walking on Tube -- Doorlopen");
+                    //////System.out.println("Goomba is Walking on Tube -- Doorlopen");
                     break;
             }
         }

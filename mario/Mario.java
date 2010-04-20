@@ -108,13 +108,13 @@ public class Mario extends CharacterObject implements NoClip
         if (grow)
         {
             setState(growMario);
-            //System.out.println("growMario");
+            ////System.out.println("growMario");
         } else
         {
             if (fall)
             {
                 setState(fallMario);
-                //System.out.println("fallMario");
+                ////System.out.println("fallMario");
             } else
             {
                 if (jump || jumpExtra)
@@ -125,10 +125,10 @@ public class Mario extends CharacterObject implements NoClip
                         setState(jumpMario);
                         if (jumpExtra)
                         {
-                            System.out.println("jumpXTRA");
+                            //System.out.println("jumpXTRA");
                         }
                         this.jumpExtra = false;
-                        // System.out.println("jumpMario");
+                        // //System.out.println("jumpMario");
                     } else
                     {
                         this.setJump(false);
@@ -138,11 +138,11 @@ public class Mario extends CharacterObject implements NoClip
                     if (big)
                     {
                         setState(bigMario);
-                        //System.out.println("bigMario");
+                        ////System.out.println("bigMario");
                     } else
                     {
                         setState(smallMario);
-                        //System.out.println("smallMario");
+                        ////System.out.println("smallMario");
                     }
                 }
             }
@@ -277,7 +277,7 @@ public class Mario extends CharacterObject implements NoClip
         {
             if (mapObject instanceof Enemy)
             {
-                System.out.println("collision:" + collision);
+                //System.out.println("collision:" + collision);
                 switch (collision)
                 {
                     case UP:
@@ -298,11 +298,11 @@ public class Mario extends CharacterObject implements NoClip
                                 game.setRunning(false);
                             }
                         }
-                        System.out.println("MARIO DOOD");
+                        //System.out.println("MARIO DOOD");
                         break;
                     case DOWN:
                         game.getSound().playSound("/sound/deadGoomba.wav");
-                        System.out.println("MARIO EXTRA JUMP");
+                        //System.out.println("MARIO EXTRA JUMP");
                         jumpExtra = true;
                         break;
                 }
@@ -314,12 +314,12 @@ public class Mario extends CharacterObject implements NoClip
             {
                 case DOWN:
                     setFall(false);
-                    //System.out.println("-----------------------------------------Mario Fall state After DOWN @ CUBE");
+                    ////System.out.println("-----------------------------------------Mario Fall state After DOWN @ CUBE");
                     break;
                 case UP:
                     setFall(true);
                     jumpTeller = 0;
-                    //System.out.println("-----------------------------------------Mario Fall state After UP @ CUBE");
+                    ////System.out.println("-----------------------------------------Mario Fall state After UP @ CUBE");
                     break;
             }
         }

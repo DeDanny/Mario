@@ -90,7 +90,7 @@ public class JumpState extends MarioState {
         if (marioObject.getJumpTeller() < 20) {
             while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() - jumpHeight) != Collision.NONE && jumpHeight != 0) {
                 jumpHeight--;
-                System.out.println("jumpHeight = " + jumpHeight);
+                //System.out.println("jumpHeight = " + jumpHeight);
             }
 
             marioObject.setY(marioObject.getY() - jumpHeight);

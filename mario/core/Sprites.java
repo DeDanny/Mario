@@ -56,9 +56,9 @@ public class Sprites
             images.put(fileName, sprite);
         } catch (IOException e)
         {
-            System.out.println("Error int ImagesLoader/loadImage"
-                    + "Error:");
-            System.out.println(e);
+            //System.out.println("Error int ImagesLoader/loadImage"
+           //         + "Error:");
+            //System.out.println(e);
         }
     }
 }

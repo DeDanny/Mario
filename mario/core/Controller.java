@@ -72,7 +72,7 @@ public class Controller implements KeyListener, Runnable, MouseListener
                     if ((System.currentTimeMillis() - gameTimer) > GAMESPEED)
                     {
                         gameTimer = System.currentTimeMillis();
-                        //System.out.println("going loop----------------------------------------------------------------");
+                        ////System.out.println("going loop----------------------------------------------------------------");
                         marioWorld.getGame().removeObjects();
                         marioWorld.getGame().getAiDirector().createMapObjects();
 
@@ -82,7 +82,7 @@ public class Controller implements KeyListener, Runnable, MouseListener
 
                         view.draw();
 
-                        //System.out.println("end loop----------------------------------------------------------------");
+                        ////System.out.println("end loop----------------------------------------------------------------");
                     }
                 }
             }
@@ -191,14 +191,14 @@ public class Controller implements KeyListener, Runnable, MouseListener
 
     public void mouseClicked(MouseEvent e)
     {
-        System.out.println("mouseClicked");
-        System.out.println(e);
+        //System.out.println("mouseClicked");
+        //System.out.println(e);
     }
 
     public void mousePressed(MouseEvent e)
     {
-        System.out.println("mousePressed");
-        System.out.println(e);
+        //System.out.println("mousePressed");
+        //System.out.println(e);
     }
 
     public void mouseReleased(MouseEvent e)
