@@ -12,7 +12,6 @@ import java.util.HashMap;
 import mario.Game;
 import mario.State;
 import mario.Mario;
-import mario.scenery.BackGround;
 import mario.scenery.ForeGround;
 
 /**
@@ -249,7 +248,7 @@ public abstract class GameObject
                 }
                 if (characterObjectLoop instanceof ForeGround)
                 {
-                    characterObjectLoop.setX(characterObjectLoop.getX() - (i / 2), true);
+                    characterObjectLoop.setX(characterObjectLoop.getX() - ( i -((i / 2) /2 )), true);
                 }
                 else
                 {

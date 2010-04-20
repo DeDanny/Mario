@@ -114,15 +114,11 @@ public class View
                 {
                     gameObject.draw(graphics);
                 }
+                gameObjectMario.draw(graphics);
                 for (GameObject gameObject : gameObjectForeGround)
                 {
                     gameObject.draw(graphics);
                 }
-
-                
-                
-                        
-                gameObjectMario.draw(graphics);
             } else
             {
                 graphics.setColor(new Color(0, 0, 0));

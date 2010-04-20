@@ -139,7 +139,7 @@ public class AiDirector
                     procent = generator.nextInt(100);
                     if(procent > 50)
                     {
-                         mapObjectenList.add(new SmallShrooms(game, 900 + (countNow * 96 + 2 + procent), 555-48, 96, 48));
+                         mapObjectenList.add(new SmallShrooms(game, 900 + (countNow * 96 + 2 + procent), 555-36, 96, 36));
                     }
                    
                 }
