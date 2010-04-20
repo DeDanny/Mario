@@ -18,6 +18,9 @@ import mario.core.NoClip;
  */
 public class Mushroom extends Powerup implements NoClip
 {
+    private boolean hit = false;
+    private boolean hadCollision = false;
+    
     public Mushroom(Game game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
@@ -30,6 +33,14 @@ public class Mushroom extends Powerup implements NoClip
 
     }
 
+    @Override
+    public void doLoopAction() {
+     if(hit)
+        {
+            super.ai();
+        }
+
+    }
     @Override
     public void hitBy() {
     }
@@ -65,35 +76,18 @@ public class Mushroom extends Powerup implements NoClip
     @Override
     public void doCharacterCollision(Collision collision, MapObject charachter) {
         if (charachter instanceof Mario) {
-            setAlive(false);
-            game.getMario().setGrow(true);
+            if(hadCollision){
+                setAlive(false);
+                game.getMario().setGrow(true);
+            }
         }
+
+        if (charachter instanceof Questionmark) {
+            hadCollision = true;
+            hit = true;
+
+        }
+
     }
-//    public void doLoopAction() {
-//        if(raak)
-//        {
-//            if(goinUp < 11)
-//            {
-//                setY(getY() - 5);
-//                goinUp++;
-//
-//            }
-//            else
-//            {
-//
-//                 if(goinUp < 4)
-//                 {
-//                raak = false;
-//
-//                 }
-//            }
-//        }
-        /*
-    if (y > 95) {
-    setY(getY() - 5);
-    } else if (raak = true) {
-    setY(getY() + 5);
-    }
-    raak = false;
-     * */
+
 }
