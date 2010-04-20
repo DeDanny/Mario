@@ -12,7 +12,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mario.Game;
@@ -26,8 +25,8 @@ public class loadAndSave
     public static void save(Game game)
     {
         FileDialog filedialog = new FileDialog(new JFrame(), "Save the Mario", FileDialog.SAVE);
-        FilenameFilterSet fnf = new FilenameFilterSet();
-        filedialog.setFilenameFilter(fnf);
+        //FilenameFilterSet fnf = new FilenameFilterSet();
+        //filedialog.setFilenameFilter(fnf);
         //filedialog.setFilenameFilter(filter1);
         filedialog.setVisible(true);
 
