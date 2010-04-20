@@ -18,19 +18,48 @@ import mario.core.NoClip;
  */
 public class Mushroom extends Powerup implements NoClip
 {
+    private boolean hit = false;
+    private boolean hadCollision = false;
+    private boolean changeAni = false;
+
     public Mushroom(Game game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
         ai = new WalkAi(this);
         ai.setWALKSPEED(2);
+        frames.put("mushroom nothing", new Rectangle(0, 0, 1, 1));
         frames.put("mushroom 0", new Rectangle(1225, 2327, 50, 50));
 
         setAnimation(new String[]
                 {
-                    "mushroom 0"
+                    "mushroom nothing"
                 });
 
+    }
+
+    @Override
+    public void doLoopAction()
+    {
+        if (hit)
+        {
+            super.ai();
+        }
+
+        if (changeAni)
+        {
+            setAnimation();
+            changeAni = false;
+        }
+
+    }
+
+    public void setAnimation()
+    {
+        setAnimation(new String[]
+                {
+                    "mushroom 0"
+                });
     }
 
     @Override
@@ -77,38 +106,22 @@ public class Mushroom extends Powerup implements NoClip
     {
         if (charachter instanceof Mario)
         {
-            setAlive(false);
-            if (!game.getMario().isBig())
+            if (hadCollision)
             {
-                game.getMario().setGrow(true);
+                if (!game.getMario().isBig())
+                {
+                    setAlive(false);
+                    game.getMario().setGrow(true);
+                }
             }
         }
+
+        if (charachter instanceof Questionmark)
+        {
+            hadCollision = true;
+            hit = true;
+            changeAni = true;
+        }
+
     }
-//    public void doLoopAction() {
-//        if(raak)
-//        {
-//            if(goinUp < 11)
-//            {
-//                setY(getY() - 5);
-//                goinUp++;
-//
-//            }
-//            else
-//            {
-//
-//                 if(goinUp < 4)
-//                 {
-//                raak = false;
-//
-//                 }
-//            }
-//        }
-        /*
-    if (y > 95) {
-    setY(getY() - 5);
-    } else if (raak = true) {
-    setY(getY() + 5);
-    }
-    raak = false;
-     * */
 }

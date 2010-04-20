@@ -47,13 +47,15 @@ public class Game
         mapObjects.add(new Stone(this, 194, 350, 45, 45));
         mapObjects.add(new Questionmark(this, 240, 350, 45, 45));
         mapObjects.add(new Coin(this, 240, 303, 45, 45));
-        mapObjects.add(new Stone(this, 286, 350, 45, 45));
+
+        mapObjects.add(new Questionmark(this, 286, 350, 45, 45));
+        mapObjects.add(new Mushroom(this, 286, 303, 45, 45));
 
         mapObjects.add(new Tube(this, 400, 456, 96, 96));
 
        //mapObjects.add(new Tube(this, 650, 456, 96, 96));
         
-        mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
+        //mapObjects.add(new Mushroom(this, 350, 205, 45, 45));
 
     }
 
