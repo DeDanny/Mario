@@ -10,17 +10,19 @@ import mario.core.Collision;
 import mario.core.MapObject;
 import mario.core.NoClip;
 
-public class Bush extends Scenery implements NoClip, BackGround
+/**
+ *
+ * @author danny
+ */
+public class SmallShrooms extends Scenery implements NoClip, ForeGround
 {
-    public Bush(Game game, int x, int y, int width, int height)
+    public SmallShrooms(Game game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
-        frames.put("bush 0", new Rectangle(424, 4134, 99, 78));
-        frames.put("bush 1", new Rectangle(523, 4134, 99, 78));
-        frameSpeed = 700;
+        frames.put("smallShroom 0", new Rectangle(308, 67, 95, 36));
         setAnimation(new String[]
                 {
-                    "bush 0", "bush 1"
+                    "smallShroom 0"
                 });
     }
 

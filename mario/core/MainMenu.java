@@ -19,7 +19,7 @@ public class MainMenu extends Menu
     {
         super(marioWorld, new String[]
                 {
-                    "New Game", "Load Game", "Exit Game"
+                    "New Game", "Load Game", "Exit"
                 });
     }
 

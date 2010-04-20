@@ -92,7 +92,7 @@ public class Game
         for (Iterator<MapObject> it = mapObjects.iterator(); it.hasNext();)
         {
             MapObject mapObject = it.next();
-            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 || ((mapObject.getY() + mapObject.getHeight() )>= 555 && !(mapObject instanceof ReUse)))
+            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 || ((mapObject.getY() + mapObject.getHeight() )>= 556 && !(mapObject instanceof ReUse)))
             {
                 if(mapObject instanceof ReUse)
                 {

@@ -6,17 +6,10 @@ package mario.core;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.sampled.LineUnavailableException;
 import java.util.HashMap;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import mario.Main;
 import java.io.*;
 import java.net.URL;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-
 import javax.sound.sampled.*;
 
 

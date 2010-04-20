@@ -12,6 +12,8 @@ import java.util.HashMap;
 import mario.Game;
 import mario.State;
 import mario.Mario;
+import mario.scenery.BackGround;
+import mario.scenery.ForeGround;
 
 /**
  *
@@ -245,7 +247,14 @@ public abstract class GameObject
                     Mario mario = (Mario) characterObjectLoop;
                     mario.setStepCounter(mario.getStepCounter() + 1);
                 }
-                characterObjectLoop.setX(characterObjectLoop.getX() - i, true);
+                if (characterObjectLoop instanceof ForeGround)
+                {
+                    characterObjectLoop.setX(characterObjectLoop.getX() - (i / 2), true);
+                }
+                else
+                {
+                    characterObjectLoop.setX(characterObjectLoop.getX() - i, true);
+                }
             }
         }
     }

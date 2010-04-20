@@ -12,9 +12,12 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import mario.Mario;
 import mario.MarioWorld;
+import mario.scenery.BackGround;
+import mario.scenery.ForeGround;
 
 /**
  *
@@ -80,17 +83,45 @@ public class View
                 graphics.setColor(new Color(107, 136, 255));
                 graphics.fillRect(0, 0, 800, 600);
                 GameObject gameObjectMario = null;
+                ArrayList<GameObject> gameObjectForeGround = new ArrayList<GameObject>();
+                ArrayList<GameObject> gameObjectMiddleGround = new ArrayList<GameObject>();
+                ArrayList<GameObject> gameObjectBackGround = new ArrayList<GameObject>();
                 for (GameObject gameObject : marioWorld.getGame().getMapObjects())
                 {
-                    if(gameObject instanceof Mario)
+
+                    if(gameObject instanceof Mario) //filter out the mario
                     {
                          gameObjectMario = gameObject;
                     }
-                    else
+                    else if(gameObject instanceof  ForeGround) //filter out foreground elements
                     {
-                    gameObject.draw(graphics);
+                        gameObjectForeGround.add(gameObject);
+                    }
+                    else if (gameObject instanceof BackGround) //filter out background elements
+                    {
+                        gameObjectBackGround.add(gameObject);
+                    }else //sort the rest
+                    {
+                        gameObjectMiddleGround.add(gameObject);
                     }
                 }
+
+                for (GameObject gameObject : gameObjectBackGround)
+                {
+                    gameObject.draw(graphics);
+                }
+                for (GameObject gameObject : gameObjectMiddleGround)
+                {
+                    gameObject.draw(graphics);
+                }
+                for (GameObject gameObject : gameObjectForeGround)
+                {
+                    gameObject.draw(graphics);
+                }
+
+                
+                
+                        
                 gameObjectMario.draw(graphics);
             } else
             {

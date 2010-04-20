@@ -14,6 +14,7 @@ import mario.mapObjects.Questionmark;
 import mario.mapObjects.Stone;
 import mario.scenery.Bush;
 import mario.scenery.Cloud;
+import mario.scenery.SmallShrooms;
 import mario.scenery.Tube;
 
 /**
@@ -32,8 +33,8 @@ public class AiDirector
     private static final int MAXMAPOBJECTEN = 10;
     private int mapObjectenCount = 0;
     private Game game;
-    private int lastXMario;
     private int randomSteps = 30;
+    private Random generator = new Random();
 
     public AiDirector(Game game)
     {
@@ -43,11 +44,10 @@ public class AiDirector
     public void createMapObjects()
     {
 
-        if (game.getMario().getStepCounter() > 30)
+        if (game.getMario().getStepCounter() > randomSteps)
         {
-            //randomSteps = ;
+            randomSteps = generator.nextInt(30);
             game.getMario().setStepCounter(0);
-            lastXMario = game.getMario().getX();
             ArrayList<MapObject> MapObjects = createObject();
             if (MapObjects != null)
             {
@@ -86,7 +86,7 @@ public class AiDirector
      */
     private ArrayList<MapObject> createObject()
     {
-        Random generator = new Random();
+        
         ArrayList<MapObject> mapObjectenList = new ArrayList<MapObject>();
 
         int countNow = MAXMAPOBJECTEN - mapObjectenCount;
@@ -136,6 +136,12 @@ public class AiDirector
                     }
                     procent = generator.nextInt(300);
                     mapObjectenList.add(new Cloud(game, 900 + (countNow * 96 + 2 + procent), procent, 96, 48));
+                    procent = generator.nextInt(100);
+                    if(procent > 50)
+                    {
+                         mapObjectenList.add(new SmallShrooms(game, 900 + (countNow * 96 + 2 + procent), 555-48, 96, 48));
+                    }
+                   
                 }
 
             }
