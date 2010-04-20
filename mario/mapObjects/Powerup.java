@@ -23,12 +23,12 @@ abstract public class Powerup extends CharacterObject
 
    
     @Override
-    public final void doLoopAction()
+    public void doLoopAction()
     {
-        ai();
+        //ai();
     }
 
-    public final void ai()
+    public void ai()
     {
         ai.doLoopAction();
     }

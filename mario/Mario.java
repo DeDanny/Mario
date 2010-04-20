@@ -180,6 +180,7 @@ public class Mario extends CharacterObject implements NoClip
     public void setJump(boolean jump)
     {
         this.jump = jump;
+        game.getSound().playSound("/sound/jump.wav");
     }
 
     public void setDown(boolean down)
@@ -213,6 +214,7 @@ public class Mario extends CharacterObject implements NoClip
     public void setGrow(boolean grow)
     {
         this.grow = grow;
+        game.getSound().playSound("/sound/grow.wav");
     }
 
     public boolean isLeft()
@@ -280,7 +282,16 @@ public class Mario extends CharacterObject implements NoClip
                             grow = true;
                         } else
                         {
-                            setAlive(false);
+                            if(game.getScoreBalk().getLives() > 1)
+                            {
+
+                                game.getScoreBalk().setLives(game.getScoreBalk().getLives()-1);
+                                godModeTimer = System.currentTimeMillis();
+                            }
+                            else{
+                                game.getSound().playSound("/sound/dead.wav");
+                                game.setRunning(false);
+                            }
                         }
                         System.out.println("MARIO DOOD");
                         break;
