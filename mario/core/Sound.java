@@ -53,19 +53,17 @@ public class Sound
         try
         {
             AudioInputStream sound = getSound(fileName);
-            Clip clip = AudioSystem.getClip();
 
-            clip.open(sound);
-            if (clip.isRunning())
+            player.open(sound);
+            if (player.isRunning())
             {
-                clip.stop();   // Stop the player if it is still running
-                clip.setFramePosition(0); // rewind to the beginning
+                player.stop();   // Stop the player if it is still running
+                player.setFramePosition(0); // rewind to the beginning
             }
-            clip.setFramePosition(0); // rewind to the beginning
-            clip.start();
+            player.start();
             if (fileName.equals("/sound/theme.wav"))
             {
-                clip.loop(999);
+                player.loop(999);
             }
 
         } catch (IOException ex)
