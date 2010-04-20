@@ -11,7 +11,7 @@ import mario.core.NoClip;
 import mario.Game;
 import mario.ai.WalkAi;
 import mario.core.MapObject;
-import scenery.Tube;
+import mario.scenery.Tube;
 
 /**
  *

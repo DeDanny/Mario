@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package scenery;
+package mario.scenery;
 
 import java.awt.Rectangle;
 import mario.Game;
