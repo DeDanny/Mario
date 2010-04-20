@@ -125,9 +125,9 @@ public abstract class GameObject
                 {
                     moveAll(this.x - x_last);
                 }
-                if(x <= 0)
+                if (x <= 0)
                 {
-                     this.x = 0;
+                    this.x = 0;
                 }
             }
         }
@@ -211,17 +211,16 @@ public abstract class GameObject
     public Collision checkCollisionMap(int x, int y, int downSize)
     {
         Rectangle objectRectangle = new Rectangle(x, y, width, height + downSize);
-        Rectangle mapRectangle = new Rectangle(0, 552, 800,  48);
+        Rectangle mapRectangle = new Rectangle(0, 552, 800, 48);
 
         mapCollision = Collision.NONE;
-        
+
         for (MapObject characterObjectLoop : game.getMapObjects())
         {
             if (this != characterObjectLoop)
             {
                 if (!(characterObjectLoop instanceof NoClip))
                 {
-
                     Rectangle mapObjectRectangle = new Rectangle(characterObjectLoop.getX(), characterObjectLoop.getY(), characterObjectLoop.getWidth(), characterObjectLoop.getHeight());
                     if (mapObjectRectangle.intersects(objectRectangle))
                     {
@@ -237,8 +236,15 @@ public abstract class GameObject
     {
         for (MapObject characterObjectLoop : game.getMapObjects())
         {
-            if( !(characterObjectLoop instanceof Static))
-            characterObjectLoop.setX(characterObjectLoop.getX() - i, true);
+            if (!(characterObjectLoop instanceof Static))
+            {
+                if (characterObjectLoop instanceof Mario)
+                {
+                    Mario mario = (Mario) characterObjectLoop;
+                    mario.setStepCounter(mario.getStepCounter() + 1);
+                }
+                characterObjectLoop.setX(characterObjectLoop.getX() - i, true);
+            }
         }
     }
 }

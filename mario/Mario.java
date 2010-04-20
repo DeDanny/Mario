@@ -37,6 +37,7 @@ public class Mario extends CharacterObject implements NoClip
     private FallState fallMario = new FallState(this);
     private GrowMario growMario = new GrowMario(this);
     protected int jumpTeller = 1;
+    private int stepCounter;
 
     public int getJumpTeller()
     {
@@ -362,4 +363,15 @@ public class Mario extends CharacterObject implements NoClip
     {
         this.big = big;
     }
+
+    public int getStepCounter()
+    {
+        return stepCounter;
+    }
+
+    public void setStepCounter(int stepCounter)
+    {
+        this.stepCounter = stepCounter;
+    }
+
 }

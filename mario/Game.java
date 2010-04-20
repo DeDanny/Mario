@@ -32,6 +32,7 @@ public class Game
 
     private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 45, 48);
     private ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
+    
 
     public Game()
     {
@@ -115,7 +116,6 @@ public class Game
             }
         }
     }
-
     public ScoreBalk getScoreBalk()
     {
         return ScoreBalk;
