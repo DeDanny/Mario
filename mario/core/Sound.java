@@ -18,11 +18,6 @@ import java.io.*;
 public class Sound
 {
     private static HashMap<String, AudioStream> sounds = new HashMap<String, AudioStream>();
-    private AudioStream lastSong;
-
-    public void playTheme()
-    {
-    }
 
     private AudioStream getSound(String fileName)
     {
@@ -41,11 +36,10 @@ public class Sound
 
         AudioStream sound = getSound(fileName);
 
-        if (lastSong != null)
+        if (sound != null)
         {
-            AudioPlayer.player.stop(lastSong);
+            AudioPlayer.player.stop(sound);
         }
-        lastSong = sound;
         AudioPlayer.player.start(sound);
     }
 

@@ -13,6 +13,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
+import mario.Mario;
 import mario.MarioWorld;
 
 /**
@@ -78,10 +79,19 @@ public class View
             {
                 graphics.setColor(new Color(107, 136, 255));
                 graphics.fillRect(0, 0, 800, 600);
+                GameObject gameObjectMario = null;
                 for (GameObject gameObject : marioWorld.getGame().getMapObjects())
                 {
+                    if(gameObject instanceof Mario)
+                    {
+                         gameObjectMario = gameObject;
+                    }
+                    else
+                    {
                     gameObject.draw(graphics);
+                    }
                 }
+                gameObjectMario.draw(graphics);
             } else
             {
                 graphics.setColor(new Color(0, 0, 0));
