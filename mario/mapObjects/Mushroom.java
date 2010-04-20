@@ -16,13 +16,14 @@ import mario.core.NoClip;
  *
  * @author Nishchal Baldew
  */
-public class Mushroom extends Powerup implements NoClip {
-
+public class Mushroom extends Powerup implements NoClip
+{
     private boolean hit = false;
     private boolean hadCollision = false;
     private boolean changeAni = false;
 
-    public Mushroom(Game game, int x, int y, int width, int height) {
+    public Mushroom(Game game, int x, int y, int width, int height)
+    {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
         ai = new WalkAi(this);
@@ -30,34 +31,47 @@ public class Mushroom extends Powerup implements NoClip {
         frames.put("mushroom nothing", new Rectangle(0, 0, 1, 1));
         frames.put("mushroom 0", new Rectangle(1225, 2327, 50, 50));
 
-        setAnimation(new String[]{"mushroom nothing"});
+        setAnimation(new String[]
+                {
+                    "mushroom nothing"
+                });
 
     }
 
     @Override
-    public void doLoopAction() {
-        if (hit) {
+    public void doLoopAction()
+    {
+        if (hit)
+        {
             super.ai();
         }
 
-        if (changeAni) {
+        if (changeAni)
+        {
             setAnimation();
             changeAni = false;
         }
 
     }
 
-    public void setAnimation() {
-        setAnimation(new String[]{"mushroom 0"});
+    public void setAnimation()
+    {
+        setAnimation(new String[]
+                {
+                    "mushroom 0"
+                });
     }
 
     @Override
-    public void hitBy() {
+    public void hitBy()
+    {
     }
 
     @Override
-    public void doMapCollision() {
-        switch (mapCollision) {
+    public void doMapCollision()
+    {
+        switch (mapCollision)
+        {
             case SIDE:
                 ai.toggleDirection();
                 break;
@@ -71,12 +85,16 @@ public class Mushroom extends Powerup implements NoClip {
         }
     }
 
-    public void doMapCollision(Collision side) {
-        if (side == Collision.SIDE) {
+    public void doMapCollision(Collision side)
+    {
+        if (side == Collision.SIDE)
+        {
             Direction direction = ai.getDirection();
-            if (direction == Direction.LEFT) {
+            if (direction == Direction.LEFT)
+            {
                 direction = Direction.RIGHT;
-            } else {
+            } else
+            {
                 direction = Direction.LEFT;
             }
             ai.setDirection(direction);
@@ -84,15 +102,22 @@ public class Mushroom extends Powerup implements NoClip {
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject charachter) {
-        if (charachter instanceof Mario) {
-            if (hadCollision) {
-                setAlive(false);
-                game.getMario().setGrow(true);
+    public void doCharacterCollision(Collision collision, MapObject charachter)
+    {
+        if (charachter instanceof Mario)
+        {
+            if (hadCollision)
+            {
+                if (!game.getMario().isBig())
+                {
+                    setAlive(false);
+                    game.getMario().setGrow(true);
+                }
             }
         }
 
-        if (charachter instanceof Questionmark) {
+        if (charachter instanceof Questionmark)
+        {
             hadCollision = true;
             hit = true;
             changeAni = true;

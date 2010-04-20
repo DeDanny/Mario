@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import mario.Game;
 import mario.enemy.Goomba;
+import mario.mapObjects.Coin;
+import mario.mapObjects.Cube;
 import mario.mapObjects.Questionmark;
 import mario.mapObjects.Stone;
 
@@ -27,6 +29,8 @@ public class AiDirector
     private static final int MAXMAPOBJECTEN = 10;
     private int mapObjectenCount = 0;
     private Game game;
+    private int lastXMario;
+    private int randomSteps = 30;
 
     public AiDirector(Game game)
     {
@@ -35,15 +39,22 @@ public class AiDirector
 
     public void createMapObjects()
     {
-        ArrayList<MapObject> MapObjects = createObject();
-        if (MapObjects != null)
+
+        if (game.getMario().getStepCounter() > 30)
         {
-            for (MapObject mapObject : MapObjects)
+            //randomSteps = ;
+            game.getMario().setStepCounter(0);
+            lastXMario = game.getMario().getX();
+            ArrayList<MapObject> MapObjects = createObject();
+            if (MapObjects != null)
             {
-                if (mapObjectenCount <= MAXMAPOBJECTEN)
+                for (MapObject mapObject : MapObjects)
                 {
-                    addObject();
-                    game.addMapObject(mapObject);
+                    if (mapObjectenCount <= MAXMAPOBJECTEN)
+                    {
+                        addObject();
+                        game.addMapObject(mapObject);
+                    }
                 }
             }
         }
@@ -87,32 +98,22 @@ public class AiDirector
                 if (procent < 40) //create an goobma
                 {
                     mapObjectenList.add(new Goomba(game, 880, 500, 45, 51));
-                }
-                else if (procent < 80)
+                } else if (procent < 80)
                 {
                     if (countNow >= 3)
                     {
-                        mapObjectenList.add(new Stone(game, 850, 350, 45, 45));
                         procent = generator.nextInt(100);
-                        if(procent < 40)
+
+                        if (procent < 70)
                         {
-                            procent = generator.nextInt(100);
-                            if(procent < 40)
-                            {
-                                mapObjectenList.add(new Questionmark(game, 850 + 45+1, 350, 45, 45));
-                            }
-                            mapObjectenList.add(new Stone(game, 850 + 45+1, 350, 45, 45));
-                        }
-                        else
+                            mapObjectenList.add(new Stone(game, 850 + 45 + 1, 350, 45, 45));
+                        } else
                         {
-                            mapObjectenList.add(new Stone(game, 850 + 45+1, 350, 45, 45));
+                            mapObjectenList.add(new Coin(game, 850 + 45 + 1, 350, 45, 45));
+                            mapObjectenList.add(new Questionmark(game, 850 + 45 + 1, 350, 45, 45));
                         }
-                        mapObjectenList.add(new Stone(game, 850 + 45+1, 350, 45, 45));
-                        mapObjectenList.add(new Stone(game, 850 + (45 * 2)+1, 350, 45, 45));
-                        countNow -= 3;
                     }
-                }
-                else
+                } else
                 {
                     // mapObjectenList.add(new Goomba(game, procent, procent, procent, procent));
                 }

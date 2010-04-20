@@ -145,6 +145,13 @@ public class Controller implements KeyListener, Runnable, MouseListener
         {
             marioWorld.setRunning(false);
         }
+        if (e.getKeyCode() == KeyEvent.VK_F1)
+        {
+            JFrame jFrame = new JFrame();
+            jFrame.setSize(800, 600);
+            jFrame.setLocationRelativeTo(null);
+            jFrame.setVisible(true);
+        }
     }
 
     @Override

@@ -89,7 +89,7 @@ public class loadAndSave
         game.getScoreBalk().setKilledEnemys(savedObject.getKills());
         game.getScoreBalk().setLives(savedObject.getLives());
         game.getScoreBalk().setScore(savedObject.getScore());
-        game.getMario().setBig(savedObject.isBig());
+        game.getMario().setGrow(true);
         return game;
     }
 }
