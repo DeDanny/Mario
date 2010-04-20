@@ -70,7 +70,7 @@ public class Coin extends MapObject implements NoClip
         if (mapObject instanceof mario.Mario) {
             if(hadCollision){
                 game.getScoreBalk().addCoin();
-                game.getSound().playSound("/sound/Coin.wav");
+                game.getSound().playSound("/sound/coin.wav");
                 setAlive(false);
             }
 
