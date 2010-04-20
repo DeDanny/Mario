@@ -191,11 +191,15 @@ public class Mario extends CharacterObject implements NoClip
 
     public void toggleBig()
     {
-        if (this.big == true)
+        if (this.big)
         {
+            if(!this.down)
+            {
+                setY(getY() + 24);
+                setHeight(58);
+            }
             this.big = false;
-            setY(getY() + 24);
-            setHeight(58);
+
         } else
         {
             this.big = true;
