@@ -5,6 +5,7 @@
 package mario.background;
 
 import java.awt.Rectangle;
+import java.io.Serializable;
 import mario.*;
 import mario.core.Collision;
 import mario.core.MapObject;
@@ -14,7 +15,7 @@ import mario.core.ReUse;
  *
  * @author Onno
  */
-public class Background extends MapObject implements ReUse
+public class Background extends MapObject implements ReUse, Serializable
 {
     public Background(Game game, int x, int y, int width, int height)
     {

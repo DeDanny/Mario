@@ -6,6 +6,8 @@ package mario.core;
 
 import mario.Game;
 import mario.MarioWorld;
+import mario.core.loadAndSave.loadAndSave;
+
 
 /**
  *
@@ -13,7 +15,7 @@ import mario.MarioWorld;
  */
 public class MainMenu extends Menu
 {
-    public MainMenu(MarioWorld marioWorld)
+    MainMenu(MarioWorld marioWorld)
     {
         super(marioWorld, new String[]
                 {
@@ -30,7 +32,9 @@ public class MainMenu extends Menu
                 marioWorld.getGame().setRunning(true);
                 break;
             case 2:
-                //marioWorld.getGame().setRunning(true);
+                Game game = loadAndSave.load();
+                marioWorld.setGame(game);
+                marioWorld.getGame().setRunning(true);
                 break;
             case 3:
                 marioWorld.setRunning(false);

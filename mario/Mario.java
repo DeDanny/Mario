@@ -18,8 +18,8 @@ import mario.mapObjects.Cube;
  *
  * @author danny
  */
-public class Mario extends CharacterObject implements NoClip {
-
+public class Mario extends CharacterObject implements NoClip
+{
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
@@ -38,15 +38,18 @@ public class Mario extends CharacterObject implements NoClip {
     private GrowMario growMario = new GrowMario(this);
     protected int jumpTeller = 1;
 
-    public int getJumpTeller() {
+    public int getJumpTeller()
+    {
         return jumpTeller;
     }
 
-    public void setJumpTeller(int jumpTeller) {
+    public void setJumpTeller(int jumpTeller)
+    {
         this.jumpTeller = jumpTeller;
     }
 
-    public Mario(Game game, int x, int y, int width, int height) {
+    public Mario(Game game, int x, int y, int width, int height)
+    {
         super(game, x, y, width, height, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
@@ -99,33 +102,44 @@ public class Mario extends CharacterObject implements NoClip {
     }
 
     @Override
-    public void doLoopAction() {
-        if (grow) {
+    public void doLoopAction()
+    {
+        if (grow)
+        {
             setState(growMario);
             //System.out.println("growMario");
-        } else {
-            if (fall) {
+        } else
+        {
+            if (fall)
+            {
                 setState(fallMario);
                 //System.out.println("fallMario");
-            } else {
-                if (jump || jumpExtra) {
-                    if (this.state != fallMario || jumpExtra) {
-                        
+            } else
+            {
+                if (jump || jumpExtra)
+                {
+                    if (this.state != fallMario || jumpExtra)
+                    {
+
                         setState(jumpMario);
-                        if(jumpExtra)
+                        if (jumpExtra)
                         {
                             System.out.println("jumpXTRA");
                         }
                         this.jumpExtra = false;
-                       // System.out.println("jumpMario");
-                    } else {
+                        // System.out.println("jumpMario");
+                    } else
+                    {
                         this.setJump(false);
                     }
-                } else {
-                    if (big) {
+                } else
+                {
+                    if (big)
+                    {
                         setState(bigMario);
                         //System.out.println("bigMario");
-                    } else {
+                    } else
+                    {
                         setState(smallMario);
                         //System.out.println("smallMario");
                     }
@@ -138,105 +152,134 @@ public class Mario extends CharacterObject implements NoClip {
         state.doAction();
     }
 
-    public boolean isMove() {
+    public boolean isMove()
+    {
         return (left || right);
     }
 
-    public boolean isPreformingSpecialMove() {
+    public boolean isPreformingSpecialMove()
+    {
         return (up || down);
     }
 
-    public void setLeft(boolean left) {
+    public void setLeft(boolean left)
+    {
         this.left = left;
     }
 
-    public void setRight(boolean right) {
+    public void setRight(boolean right)
+    {
         this.right = right;
     }
 
-    public void setUp(boolean up) {
+    public void setUp(boolean up)
+    {
         this.up = up;
     }
 
-    public void setJump(boolean jump) {
+    public void setJump(boolean jump)
+    {
         this.jump = jump;
     }
 
-    public void setDown(boolean down) {
+    public void setDown(boolean down)
+    {
         this.down = down;
     }
 
-    public void toggleBig() {
-        if (this.big == true) {
+    public void toggleBig()
+    {
+        if (this.big == true)
+        {
             this.big = false;
             setY(getY() + 24);
             setHeight(58);
-        } else {
+        } else
+        {
             this.big = true;
         }
     }
 
-    public boolean isBig() {
+    public boolean isBig()
+    {
         return big;
     }
 
-    public boolean isGrow() {
+    public boolean isGrow()
+    {
         return grow;
     }
 
-    public void setGrow(boolean grow) {
+    public void setGrow(boolean grow)
+    {
         this.grow = grow;
     }
 
-    public boolean isLeft() {
+    public boolean isLeft()
+    {
         return left;
     }
 
-    public boolean isRight() {
+    public boolean isRight()
+    {
         return right;
     }
 
-    public boolean isUp() {
+    public boolean isUp()
+    {
         return up;
     }
 
-    public boolean isDown() {
+    public boolean isDown()
+    {
         return down;
     }
 
-    public boolean isJump() {
+    public boolean isJump()
+    {
         return jump;
     }
 
-    public Direction getDirection() {
+    public Direction getDirection()
+    {
         return direction;
     }
 
-    public void setDirection(Direction direction) {
+    public void setDirection(Direction direction)
+    {
         this.direction = direction;
     }
 
     @Override
-    public void doMapCollision() {
+    public void doMapCollision()
+    {
         checkCollisionMap();
-        if (mapCollision == Collision.NONE && !isJump()) {
+        if (mapCollision == Collision.NONE && !isJump())
+        {
             setFall(true);
         }
-        if (mapCollision != Collision.NONE) {
+        if (mapCollision != Collision.NONE)
+        {
             setFall(false);
         }
     }
 
-    public void doCharacterCollision(Collision collision, MapObject mapObject) {
-        if ((System.currentTimeMillis() - godModeTimer) > godModeTime) {
-            if (mapObject instanceof Enemy) {
-                 System.out.println("collision:"+collision);
-                switch (collision) {
+    public void doCharacterCollision(Collision collision, MapObject mapObject)
+    {
+        if ((System.currentTimeMillis() - godModeTimer) > godModeTime)
+        {
+            if (mapObject instanceof Enemy)
+            {
+                System.out.println("collision:" + collision);
+                switch (collision)
+                {
                     case UP:
-                        if (big) {
+                        if (big)
+                        {
                             godModeTimer = System.currentTimeMillis();
                             grow = true;
-                        } else {
+                        } else
+                        {
                             setAlive(false);
                         }
                         System.out.println("MARIO DOOD");
@@ -249,8 +292,10 @@ public class Mario extends CharacterObject implements NoClip {
                 }
             }
         }
-        if (mapObject instanceof Cube) {
-            switch (collision) {
+        if (mapObject instanceof Cube)
+        {
+            switch (collision)
+            {
                 case DOWN:
                     setFall(false);
                     //System.out.println("-----------------------------------------Mario Fall state After DOWN @ CUBE");
@@ -262,6 +307,50 @@ public class Mario extends CharacterObject implements NoClip {
                     break;
             }
         }
+    }
 
+    public BigMario getBigMario()
+    {
+        return bigMario;
+    }
+
+    public FallState getFallMario()
+    {
+        return fallMario;
+    }
+
+    public int getGodModeTime()
+    {
+        return godModeTime;
+    }
+
+    public long getGodModeTimer()
+    {
+        return godModeTimer;
+    }
+
+    public GrowMario getGrowMario()
+    {
+        return growMario;
+    }
+
+    public boolean isJumpExtra()
+    {
+        return jumpExtra;
+    }
+
+    public JumpState getJumpMario()
+    {
+        return jumpMario;
+    }
+
+    public SmallMario getSmallMario()
+    {
+        return smallMario;
+    }
+
+    public void setBig(boolean big)
+    {
+        this.big = big;
     }
 }

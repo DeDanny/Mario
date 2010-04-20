@@ -5,7 +5,6 @@
 package mario.enemy;
 
 import java.awt.Rectangle;
-import mario.core.CharacterObject;
 import mario.core.Collision;
 import mario.core.NoClip;
 import mario.Game;
@@ -63,7 +62,7 @@ public class Goomba extends Enemy implements NoClip {
                 case UP:
                     System.out.println("Goomba is dead");
                     setAlive(false);
-                    game.getScoreBalk().killGoomba();
+                    game.getScoreBalk().killEnemy();
                     break;
             }
         }
@@ -86,54 +85,6 @@ public class Goomba extends Enemy implements NoClip {
                     System.out.println("Goomba is Walking on Tube -- Doorlopen");
                     break;
             }
-
         }
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //
-//        if(side == Collision.SIDE)
-//        {
-//            Direction direction = ai.getDirection();
-//            if(direction == Direction.LEFT)
-//            {
-//                direction = Direction.RIGHT;
-//            }
-//            else
-//            {
-//                direction = Direction.LEFT;
-//            }
-//            ai.setDirection(direction);
-    //  }
-    //
-    //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
-    //   }
-//         if(side == Collision.SIDE)
-//         {
-//           //super.setAnimation(new String[] {"goombaStandRight 0", "goombaWalkRight"});
-//         }
-//            switch(side)
-//            {
-//                case SIDE:
-//                    System.out.println("Goomba-Collision with Wall");
-//                    //setAlive(false);
-//                    break;
-//            }
-    //}
-    //else if(side == Collision.
 }
