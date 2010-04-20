@@ -26,17 +26,23 @@ public class Mushroom extends Powerup implements NoClip
         ai.setWALKSPEED(2);
         frames.put("mushroom 0", new Rectangle(1225, 2327, 50, 50));
 
-        setAnimation(new String[]{"mushroom 0"});
+        setAnimation(new String[]
+                {
+                    "mushroom 0"
+                });
 
     }
 
     @Override
-    public void hitBy() {
+    public void hitBy()
+    {
     }
 
     @Override
-    public void doMapCollision() {
-        switch (mapCollision) {
+    public void doMapCollision()
+    {
+        switch (mapCollision)
+        {
             case SIDE:
                 ai.toggleDirection();
                 break;
@@ -50,12 +56,16 @@ public class Mushroom extends Powerup implements NoClip
         }
     }
 
-    public void doMapCollision(Collision side) {
-        if (side == Collision.SIDE) {
+    public void doMapCollision(Collision side)
+    {
+        if (side == Collision.SIDE)
+        {
             Direction direction = ai.getDirection();
-            if (direction == Direction.LEFT) {
+            if (direction == Direction.LEFT)
+            {
                 direction = Direction.RIGHT;
-            } else {
+            } else
+            {
                 direction = Direction.LEFT;
             }
             ai.setDirection(direction);
@@ -63,10 +73,15 @@ public class Mushroom extends Powerup implements NoClip
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject charachter) {
-        if (charachter instanceof Mario) {
+    public void doCharacterCollision(Collision collision, MapObject charachter)
+    {
+        if (charachter instanceof Mario)
+        {
             setAlive(false);
-            game.getMario().setGrow(true);
+            if (!game.getMario().isBig())
+            {
+                game.getMario().setGrow(true);
+            }
         }
     }
 //    public void doLoopAction() {
