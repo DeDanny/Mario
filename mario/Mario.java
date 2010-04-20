@@ -280,7 +280,16 @@ public class Mario extends CharacterObject implements NoClip
                             grow = true;
                         } else
                         {
-                            setAlive(false);
+                            if(game.getScoreBalk().getLives() > 1)
+                            {
+
+                                game.getScoreBalk().setLives(game.getScoreBalk().getLives()-1);
+                                godModeTimer = System.currentTimeMillis();
+                            }
+                            else{
+                                game.getSound().playSound("/sound/dead.wav");
+                                game.setRunning(false);
+                            }
                         }
                         System.out.println("MARIO DOOD");
                         break;
