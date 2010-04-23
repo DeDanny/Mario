@@ -4,10 +4,11 @@
  */
 package mario.mapObjects;
 
+import mario.Stages.Stage;
 import java.awt.Rectangle;
 import mario.*;
 import mario.core.Collision;
-import mario.core.MapObject;
+import mario.core.StageObject;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Questionmark extends Cube {
     protected boolean hit = false;
     protected boolean done = false;
 
-    public Questionmark(Game game, int x, int y, int width, int height) {
+    public Questionmark(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
         frames.put("questionmark 0", new Rectangle(870, 3771, 48, 48));
@@ -48,8 +49,8 @@ public class Questionmark extends Cube {
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject charachter) {
-        if (charachter instanceof mario.Mario) {
+    public void doCharacterCollision(Collision collision, StageObject charachter) {
+        if (charachter instanceof mario.Stages.StageMario) {
 
             switch (collision) {
                 case SIDE:

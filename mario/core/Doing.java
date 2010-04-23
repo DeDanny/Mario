@@ -9,6 +9,10 @@ package mario.core;
  *
  * @author danny
  */
-public interface Static {
-
+public enum Doing {
+    PLAYING,
+    SELECTSTAGE,
+    MAIN,
+    PAUSE,
+    EXIT
 }

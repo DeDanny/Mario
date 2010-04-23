@@ -4,10 +4,11 @@
  */
 package mario.mapObjects;
 
+import mario.Stages.Stage;
 import java.awt.Rectangle;
 import mario.*;
 import mario.core.Collision;
-import mario.core.MapObject;
+import mario.core.StageObject;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Stone extends Cube {
 
     protected boolean hit = false;
 
-    public Stone(Game game, int x, int y, int width, int height)
+    public Stone(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
@@ -42,8 +43,8 @@ public class Stone extends Cube {
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject charachter) {
-        if (charachter instanceof mario.Mario) {
+    public void doCharacterCollision(Collision collision, StageObject charachter) {
+        if (charachter instanceof mario.Stages.StageMario) {
 
             switch (collision) {
                 case SIDE:

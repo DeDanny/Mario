@@ -1,6 +1,7 @@
-package mario;
+package mario.Stages;
 
 import mario.background.Background;
+import mario.core.KeyButtons;
 import mario.mapObjects.Coin;
 import mario.mapObjects.Questionmark;
 import mario.mapObjects.Stone;
@@ -11,20 +12,20 @@ import mario.scenery.Bush;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.core.AiDirector;
-import mario.core.MapObject;
-import mario.core.ReUse;
-import mario.core.Sound;
+import mario.core.StageObject;
+import mario.core.interfaces.ReUse;
+import mario.core.engine.Sound;
 
 /**
  *
  * @author danny
  */
-public class Game
+public class Stage
 {
     private boolean running = false;
     private boolean paused = false;
     private AiDirector aiDirector = new AiDirector(this);
-    private Mario mario = new Mario(this,200, 420, 42, 57);
+    private StageMario mario = new StageMario(this,200, 420, 42, 57);
     private Sound sound = new Sound();
 
     private Background background = new Background(this, 0, 552, 800,  48);
@@ -34,10 +35,10 @@ public class Game
 
 
     private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 45, 48);
-    private ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
+    private ArrayList<StageObject> mapObjects = new ArrayList<StageObject>();
     
 
-    public Game()
+    public Stage()
     {
         sound.playSound("/sound/theme.wav");
         mapObjects.add(background);
@@ -67,12 +68,12 @@ public class Game
         this.paused = paused;
     }
 
-    public Mario getMario()
+    public StageMario getMario()
     {
         return mario;
     }
 
-    public void addMapObject(MapObject mapObject)
+    public void addMapObject(StageObject mapObject)
     {
         mapObjects.add(mapObject);
     }
@@ -82,16 +83,22 @@ public class Game
         return background;
     }
 
-    public ArrayList<MapObject> getMapObjects()
+    public ArrayList<StageObject> getMapObjects()
     {
         return mapObjects;
     }
 
+    public void doLoopAction()
+    {
+        removeObjects();
+        gameObjectLoopAction();
+    }
+
     public void removeObjects()
     {
-        for (Iterator<MapObject> it = mapObjects.iterator(); it.hasNext();)
+        for (Iterator<StageObject> it = mapObjects.iterator(); it.hasNext();)
         {
-            MapObject mapObject = it.next();
+            StageObject mapObject = it.next();
             if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 || ((mapObject.getY() + mapObject.getHeight() )>= 556 && !(mapObject instanceof ReUse)))
             {
                 if(mapObject instanceof ReUse)
@@ -106,6 +113,16 @@ public class Game
             }
         }
     }
+
+     private void gameObjectLoopAction()
+    {
+        for (StageObject stageObject : mapObjects)
+        {
+            stageObject.doMapCollision();
+            stageObject.doLoopAction();
+        }
+    }
+
     public ScoreBalk getScoreBalk()
     {
         return ScoreBalk;
@@ -119,5 +136,10 @@ public class Game
     public Sound getSound()
     {
         return sound;
+    }
+
+    public void handlePressedKeys(ArrayList<KeyButtons> keyPressed)
+    {
+        
     }
 }

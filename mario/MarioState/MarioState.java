@@ -4,8 +4,8 @@
  */
 package mario.MarioState;
 
-import mario.Mario;
-import mario.State;
+import mario.Stages.StageMario;
+import mario.core.State;
 
 /**
  *
@@ -13,9 +13,9 @@ import mario.State;
  */
 public abstract class MarioState extends State
 {
-    protected Mario marioObject;
+    protected StageMario marioObject;
 
-    public MarioState(Mario gameObject)
+    public MarioState(StageMario gameObject)
     {
         super(gameObject);
         this.marioObject = gameObject;

@@ -4,7 +4,7 @@
  */
 package mario.MarioState;
 
-import mario.Mario;
+import mario.Stages.StageMario;
 
 /**
  *
@@ -12,7 +12,7 @@ import mario.Mario;
  */
 public class SmallMario extends MoveState {
 
-    public SmallMario(Mario gameObject) {
+    public SmallMario(StageMario gameObject) {
         super(gameObject);
         this.RightAnimation = new String[]{"smallMarioWalkRight 0", "smallMarioWalkRight 1"};
         this.LeftAnimation = new String[]{"smallMarioWalkLeft 0", "smallMarioWalkLeft 1"};
@@ -27,7 +27,7 @@ public class SmallMario extends MoveState {
         this.tempY = 19;
 
         //gameObject.setHeight(60);
-        //gameObject.setAnimation(StandRight);
+        gameObject.setAnimation(StandLeft);
     }
 
 }

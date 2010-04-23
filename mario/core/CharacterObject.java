@@ -4,16 +4,16 @@
  */
 package mario.core;
 
-import mario.Game;
+import mario.Stages.Stage;
 
 
 /**
  *
  * @author danny
  */
-abstract public class CharacterObject extends MapObject
+abstract public class CharacterObject extends StageObject
 {
-    public CharacterObject(Game game, int x, int y, int width, int height, String fileName)
+    public CharacterObject(Stage game, int x, int y, int width, int height, String fileName)
     {
         super(game, x, y, width, height, fileName);
     }

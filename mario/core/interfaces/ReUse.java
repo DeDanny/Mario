@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package mario.scenery;
+package mario.core.interfaces;
 
 /**
  *
  * @author danny
  */
-public interface BackGround {
+public interface ReUse {
 
 }

@@ -4,20 +4,21 @@
  */
 package mario.mapObjects;
 
+import mario.Stages.Stage;
 import mario.*;
 import mario.core.Collision;
-import mario.core.MapObject;
+import mario.core.StageObject;
 
 /**
  *
  * @author Nishchal Baldew
  */
-abstract public class Cube extends MapObject
+abstract public class Cube extends StageObject
 {
    
     protected int goinUp = 0;
 
-    public Cube(Game game, int x, int y, int width, int height, String fileName)
+    public Cube(Stage game, int x, int y, int width, int height, String fileName)
     {
         super(game, x, y, width, height, fileName);
     }
@@ -49,7 +50,7 @@ abstract public class Cube extends MapObject
         this.goinUp = goinUp;
     }
 
-    public void doCharacterCollision(Collision collision, MapObject charachter)
+    public void doCharacterCollision(Collision collision, StageObject charachter)
     {
 
 

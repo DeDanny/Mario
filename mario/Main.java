@@ -5,7 +5,7 @@
 package mario;
 
 import javax.swing.JFrame;
-import mario.core.Controller;
+import mario.core.engine.Controller;
 
 /**
  *
@@ -24,7 +24,7 @@ public class Main extends JFrame
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 
-        Controller controller = new Controller(this);
+        Controller controller = new Controller(this, true);
     }
 
     public static void main(String[] args)

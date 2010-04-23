@@ -4,7 +4,7 @@
  */
 package mario.MarioState;
 
-import mario.Mario;
+import mario.Stages.StageMario;
 
 /**
  *
@@ -23,7 +23,7 @@ public class GrowMario extends MarioState {
     protected String[] growDuckRight = new String[]{"smallMarioDuckRight 0", "bigMarioDuckRight 0"};
     private int growTeller;
 
-    public GrowMario(Mario marioObject) {
+    public GrowMario(StageMario marioObject) {
         super(marioObject);
     }
 

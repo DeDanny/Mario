@@ -6,7 +6,7 @@ package mario.enemy;
 
 import mario.ai.Ai;
 import mario.core.CharacterObject;
-import mario.Game;
+import mario.Stages.Stage;
 
 /**
  *
@@ -16,7 +16,7 @@ abstract public class Enemy extends CharacterObject {
 
     protected Ai ai;
 
-    public Enemy(Game game, int x, int y, int width, int height, String fileName) {
+    public Enemy(Stage game, int x, int y, int width, int height, String fileName) {
         super(game, x, y, width, height, fileName);
     }
 

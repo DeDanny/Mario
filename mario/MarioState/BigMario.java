@@ -5,7 +5,7 @@
 
 package mario.MarioState;
 
-import mario.Mario;
+import mario.Stages.StageMario;
 
 
 /**
@@ -14,7 +14,7 @@ import mario.Mario;
  */
 public class BigMario extends MoveState
 {
-      public BigMario(Mario gameObject) {
+      public BigMario(StageMario gameObject) {
         super(gameObject);
         this.RightAnimation     = new String[]{"bigMarioWalkRight 0", "bigMarioWalkRight 1", "bigMarioWalkRight 2"};
         this.LeftAnimation      = new String[]{"bigMarioWalkLeft 0", "bigMarioWalkLeft 1", "bigMarioWalkLeft 2"};

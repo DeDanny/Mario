@@ -5,7 +5,7 @@
 package mario.MarioState;
 
 import mario.core.Direction;
-import mario.Mario;
+import mario.Stages.StageMario;
 
 /**
  *
@@ -39,7 +39,7 @@ abstract public class MoveState extends MarioState {
     private boolean ducked = false;
     private boolean noMore = true;
 
-    public MoveState(Mario gameObject) {
+    public MoveState(StageMario gameObject) {
         super(gameObject);
         //gameObject.setAnimation(StandRight);
     }
@@ -114,7 +114,7 @@ abstract public class MoveState extends MarioState {
     }
 
     private void doStand() {
-        // Set Mario left or right side
+        // Set StageMario left or right side
         switch (marioObject.getDirection()) {
             case LEFT:
                 marioObject.setAnimation(StandLeft);
@@ -127,22 +127,22 @@ abstract public class MoveState extends MarioState {
 //    private void kansloos()
 //    {
 //        if(false){
-//            // Reset Mario's Y-as after looking up
+//            // Reset StageMario's Y-as after looking up
 //            if (lookingUP) {
 //                lookingUP = false;
 //                marioObject.setY(marioObject.getY() - lookupHeight);
 //            }
-//            // Reset Mario's Y-as after ducking down
+//            // Reset StageMario's Y-as after ducking down
 //            if (duckDown) {
 //                duckDown = false;
 //                marioObject.setY(marioObject.getY() - duckHeight);
 //
 //            }
 //
-//            // Mario does nothing - No key is pressed
+//            // StageMario does nothing - No key is pressed
 //            if (!marioObject.isRight() && !marioObject.isLeft() && !marioObject.isUp() && !marioObject.isDown()) {
 //
-//                // Set Mario left or right side
+//                // Set StageMario left or right side
 //                switch (direction) {
 //                    case 0:
 //                        marioObject.setAnimation(StandRight);
@@ -154,20 +154,20 @@ abstract public class MoveState extends MarioState {
 //
 //            }
 //
-//            // Mario walks left - Arrowleft key is pressed
+//            // StageMario walks left - Arrowleft key is pressed
 //            if (marioObject.isLeft() && !marioObject.isPreformingSpecialMove()) {
 //                marioObject.setX(marioObject.getX() - WALKSPEED);
 //                super.setAnimation(LeftAnimation);
 //                //lastSide = 1;
 //            }
-//            // Mario walks right - Arrowright key is pressed
+//            // StageMario walks right - Arrowright key is pressed
 //            if (marioObject.isRight() && !marioObject.isPreformingSpecialMove()) {
 //                marioObject.setX(marioObject.getX() + WALKSPEED);
 //                super.setAnimation(RightAnimation);
 //                //lastSide = 0;
 //            }
 //
-//            // Mario looks up - Arrowup key is pressed
+//            // StageMario looks up - Arrowup key is pressed
 //            if (marioObject.isUp() && !marioObject.isDown()) {
 //
 //
@@ -179,7 +179,7 @@ abstract public class MoveState extends MarioState {
 //
 //            }
 //
-//            // Mario ducks down - ArrowDown is pressed
+//            // StageMario ducks down - ArrowDown is pressed
 //            if (marioObject.isDown() && !marioObject.isUp()) {
 //                switch (direction) {
 //                    case 0:

@@ -3,12 +3,18 @@
  * and open the template in the editor.
  */
 
-package mario.scenery;
+package mario.core;
 
 /**
  *
  * @author danny
  */
-public interface ForeGround {
-
+public enum  KeyButtons {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT,
+    JUMP,
+    CONFIRM,
+    ESCAPE
 }

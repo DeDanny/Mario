@@ -6,19 +6,19 @@
 package mario.scenery;
 
 import java.awt.Rectangle;
-import mario.Game;
+import mario.Stages.Stage;
 import mario.core.Collision;
-import mario.core.MapObject;
-import mario.core.NoClip;
+import mario.core.StageObject;
+import mario.core.interfaces.NoClip;
 
 /**
  *
  * @author Mike
  */
-public class Cloud extends MapObject implements NoClip{
+public class Cloud extends StageObject implements NoClip{
 
     int teller = 0;
-        public Cloud(Game game, int x, int y, int width, int height)
+        public Cloud(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("cloud 0", new Rectangle(553, 4035, 96, 48));
@@ -40,7 +40,7 @@ public class Cloud extends MapObject implements NoClip{
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject mapObject) {
+    public void doCharacterCollision(Collision collision, StageObject mapObject) {
 
     }
 

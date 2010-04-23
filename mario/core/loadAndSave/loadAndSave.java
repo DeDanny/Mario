@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import mario.Game;
+import mario.Stages.Stage;
 
 /**
  *
@@ -22,7 +22,7 @@ import mario.Game;
  */
 public class loadAndSave
 {
-    public static void save(Game game)
+    public static void save(Stage game)
     {
         FileDialog filedialog = new FileDialog(new JFrame(), "Save the Mario", FileDialog.SAVE);
         //FilenameFilterSet fnf = new FilenameFilterSet();
@@ -49,7 +49,7 @@ public class loadAndSave
         }
     }
 
-    public static Game load()
+    public static Stage load()
     {
         FileDialog filedialog = new FileDialog(new JFrame(), "Load Dansgroep", FileDialog.LOAD);
         filedialog.setVisible(true);
@@ -83,7 +83,7 @@ public class loadAndSave
                 }
             }// </editor-fold>
         }
-        Game game = new Game();
+        Stage game = new Stage();
 
         game.getScoreBalk().setCoins(savedObject.getCoins());
         game.getScoreBalk().setKilledEnemys(savedObject.getKills());

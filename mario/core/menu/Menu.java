@@ -2,11 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.core;
+package mario.core.menu;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import mario.MarioWorld;
+import mario.core.KeyButtons;
+import mario.core.Sprites;
 
 /**
  *
@@ -64,4 +67,20 @@ public abstract class Menu
         }
     }
     abstract public void execute();
+
+    public void handlePressedKeys(ArrayList<KeyButtons> keyPressed)
+    {
+        if(keyPressed.contains(KeyButtons.DOWN))
+        {
+            menuDown();
+        }
+        if(keyPressed.contains(KeyButtons.UP))
+        {
+            menuUp();
+        }
+        if(keyPressed.contains(KeyButtons.CONFIRM))
+        {
+            execute();
+        }
+    }
 }

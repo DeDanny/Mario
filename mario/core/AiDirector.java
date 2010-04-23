@@ -6,7 +6,7 @@ package mario.core;
 
 import java.util.ArrayList;
 import java.util.Random;
-import mario.Game;
+import mario.Stages.Stage;
 import mario.enemy.Goomba;
 import mario.mapObjects.Coin;
 import mario.mapObjects.Mushroom;
@@ -32,11 +32,11 @@ public class AiDirector
 {
     private static final int MAXMAPOBJECTEN = 10;
     private int mapObjectenCount = 0;
-    private Game game;
+    private Stage game;
     private int randomSteps = 30;
     private Random generator = new Random();
 
-    public AiDirector(Game game)
+    public AiDirector(Stage game)
     {
         this.game = game;
     }
@@ -48,10 +48,10 @@ public class AiDirector
         {
             randomSteps = generator.nextInt(30);
             game.getMario().setStepCounter(0);
-            ArrayList<MapObject> MapObjects = createObject();
+            ArrayList<StageObject> MapObjects = createObject();
             if (MapObjects != null)
             {
-                for (MapObject mapObject : MapObjects)
+                for (StageObject mapObject : MapObjects)
                 {
                     if (mapObjectenCount <= MAXMAPOBJECTEN)
                     {
@@ -84,10 +84,10 @@ public class AiDirector
      *                25% mountain 2
      *
      */
-    private ArrayList<MapObject> createObject()
+    private ArrayList<StageObject> createObject()
     {
         
-        ArrayList<MapObject> mapObjectenList = new ArrayList<MapObject>();
+        ArrayList<StageObject> mapObjectenList = new ArrayList<StageObject>();
 
         int countNow = MAXMAPOBJECTEN - mapObjectenCount;
 

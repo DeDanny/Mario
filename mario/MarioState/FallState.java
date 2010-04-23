@@ -6,7 +6,7 @@ package mario.MarioState;
 
 import mario.core.Collision;
 import mario.core.Direction;
-import mario.Mario;
+import mario.Stages.StageMario;
 
 /**
  *
@@ -29,7 +29,7 @@ public class FallState extends MarioState {
     };
     private int fallsize = 1;
 
-    public FallState(Mario marioObject) {
+    public FallState(StageMario marioObject) {
         super(marioObject);
     }
 

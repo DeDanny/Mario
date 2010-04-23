@@ -5,16 +5,16 @@
 package mario.mapObjects;
 
 import java.awt.Rectangle;
-import mario.Game;
+import mario.Stages.Stage;
 import mario.core.Collision;
-import mario.core.MapObject;
-import mario.core.NoClip;
+import mario.core.StageObject;
+import mario.core.interfaces.NoClip;
 
 /**
  *
  * @author Nishchal Baldew
  */
-public class Coin extends MapObject implements NoClip
+public class Coin extends StageObject implements NoClip
 {
 
     private boolean hit = false;
@@ -23,7 +23,7 @@ public class Coin extends MapObject implements NoClip
     private boolean hadCollision = false;
     
 
-    public Coin(Game game, int x, int y, int width, int height)
+    public Coin(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("munt nothing", new Rectangle(0, 0, 1, 1));
@@ -66,8 +66,8 @@ public class Coin extends MapObject implements NoClip
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject mapObject) {
-        if (mapObject instanceof mario.Mario) {
+    public void doCharacterCollision(Collision collision, StageObject mapObject) {
+        if (mapObject instanceof mario.Stages.StageMario) {
             if(hadCollision){
                 game.getScoreBalk().addCoin();
                 game.getSound().playSound("/sound/coin.wav");

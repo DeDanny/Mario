@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario.core;
+package mario.core.engine;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,25 +43,24 @@ public class Sound
 
     public void playSound(String fileName)
     {
-        try
-        {
-            Clip player = getSound(fileName);
-            
-            if (!player.isRunning())
-            {
-                player.setFramePosition(0);
-                player.start();
-            }
-            
-            if (fileName.equals("/sound/theme.wav"))
-            {
-                player.loop(999);
-            }
-        }finally
-        {
-            
-        }
-
+//        try
+//        {
+//            Clip player = getSound(fileName);
+//
+//            if (!player.isRunning())
+//            {
+//                player.setFramePosition(0);
+//                player.start();
+//            }
+//
+//            if (fileName.equals("/sound/theme.wav"))
+//            {
+//                player.loop(999);
+//            }
+//        }finally
+//        {
+//
+//        }
     }
 
     public void loadSound(String fileName)

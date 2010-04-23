@@ -3,12 +3,12 @@
  * and open the template in the editor.
  */
 
-package mario.core;
+package mario.core.interfaces;
 
 /**
  *
- * @author Danny
+ * @author danny
  */
-public interface NoClip {
+public interface BackGround {
 
 }

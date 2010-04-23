@@ -5,7 +5,7 @@
 package mario.core.loadAndSave;
 
 import java.io.Serializable;
-import mario.Game;
+import mario.Stages.Stage;
 
 /**
  *
@@ -19,7 +19,7 @@ public class SaveObject implements Serializable
     private int kills;
     private boolean big;
 
-    public SaveObject(Game game)
+    public SaveObject(Stage game)
     {
         score = game.getScoreBalk().getScore();
         lives = game.getScoreBalk().getLives();

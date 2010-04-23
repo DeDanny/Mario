@@ -2,15 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor. git
  */
-package mario;
+package mario.Stages;
 
 import mario.core.Direction;
 import mario.core.CharacterObject;
 import mario.core.Collision;
 import java.awt.Rectangle;
 import mario.MarioState.*;
-import mario.core.MapObject;
-import mario.core.NoClip;
+import mario.core.StageObject;
+import mario.core.interfaces.NoClip;
 import mario.enemy.Enemy;
 import mario.mapObjects.Cube;
 
@@ -18,7 +18,7 @@ import mario.mapObjects.Cube;
  *
  * @author danny
  */
-public class Mario extends CharacterObject implements NoClip
+public class StageMario extends CharacterObject implements NoClip
 {
     private boolean left = false;
     private boolean right = false;
@@ -49,7 +49,7 @@ public class Mario extends CharacterObject implements NoClip
         this.jumpTeller = jumpTeller;
     }
 
-    public Mario(Game game, int x, int y, int width, int height)
+    public StageMario(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/mario_sprite.png");
 
@@ -271,7 +271,7 @@ public class Mario extends CharacterObject implements NoClip
         }
     }
 
-    public void doCharacterCollision(Collision collision, MapObject mapObject)
+    public void doCharacterCollision(Collision collision, StageObject mapObject)
     {
         if ((System.currentTimeMillis() - godModeTimer) > godModeTime)
         {
@@ -314,12 +314,12 @@ public class Mario extends CharacterObject implements NoClip
             {
                 case DOWN:
                     setFall(false);
-                    ////System.out.println("-----------------------------------------Mario Fall state After DOWN @ CUBE");
+                    ////System.out.println("-----------------------------------------StageMario Fall state After DOWN @ CUBE");
                     break;
                 case UP:
                     setFall(true);
                     jumpTeller = 0;
-                    ////System.out.println("-----------------------------------------Mario Fall state After UP @ CUBE");
+                    ////System.out.println("-----------------------------------------StageMario Fall state After UP @ CUBE");
                     break;
             }
         }

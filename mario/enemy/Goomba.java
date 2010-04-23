@@ -6,10 +6,10 @@ package mario.enemy;
 
 import java.awt.Rectangle;
 import mario.core.Collision;
-import mario.core.NoClip;
-import mario.Game;
+import mario.core.interfaces.NoClip;
+import mario.Stages.Stage;
 import mario.ai.WalkAi;
-import mario.core.MapObject;
+import mario.core.StageObject;
 import mario.scenery.Tube;
 
 /**
@@ -18,7 +18,7 @@ import mario.scenery.Tube;
  */
 public class Goomba extends Enemy implements NoClip {
 
-    public Goomba(Game game, int x, int y, int width, int height) {
+    public Goomba(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
         ai = new WalkAi(this);
         frames.put("goombaStandLeft 0", new Rectangle(27, 4161, 45, 51));
@@ -55,9 +55,9 @@ public class Goomba extends Enemy implements NoClip {
 
     }
 
-    public void doCharacterCollision(Collision collision, MapObject mapObject) {
+    public void doCharacterCollision(Collision collision, StageObject mapObject) {
 
-        if (mapObject instanceof mario.Mario) {
+        if (mapObject instanceof mario.Stages.StageMario) {
             switch (collision) {
                 case UP:
                     //////System.out.println("Goomba is dead");

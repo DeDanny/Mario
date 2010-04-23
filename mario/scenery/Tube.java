@@ -6,16 +6,16 @@
 package mario.scenery;
 
 import java.awt.Rectangle;
-import mario.Game;
+import mario.Stages.Stage;
 import mario.core.Collision;
-import mario.core.MapObject;
+import mario.core.StageObject;
 /**
  *
  * @author Onno
  */
-public class Tube extends MapObject{
+public class Tube extends StageObject{
 
-    public Tube(Game game, int x, int y, int width, int height)
+    public Tube(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("tube 0", new Rectangle(430, 4008, 96, 96));
@@ -29,7 +29,7 @@ public class Tube extends MapObject{
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject mapObject) {
+    public void doCharacterCollision(Collision collision, StageObject mapObject) {
 
     }
 

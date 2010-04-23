@@ -2,32 +2,32 @@ package mario.ai;
 
 import mario.core.Collision;
 import mario.core.Direction;
-import mario.core.MapObject;
+import mario.core.StageObject;
 
 public class WalkAi extends Ai {
 
-    public WalkAi(MapObject mapObject) {
+    public WalkAi(StageObject mapObject) {
         super(mapObject);
         direction = Direction.LEFT;
     }
 
     @Override
     public void doLoopAction() {
-        if (mapObject.isFall()) {
+        if (stageObject.isFall()) {
             int fallsize = 5;
-            while (mapObject.checkCollisionMap(mapObject.getX(), mapObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
+            while (stageObject.checkCollisionMap(stageObject.getX(), stageObject.getY() + fallsize) != Collision.NONE && fallsize != 0) {
                 fallsize--;
             }
-            mapObject.setY(mapObject.getY() + fallsize);
-            //System.out.println("fall mapObject");
+            stageObject.setY(stageObject.getY() + fallsize);
+            //System.out.println("fall stageObject");
         }
 
         switch (direction) {
             case LEFT:
-                mapObject.setX(mapObject.getX() - WALKSPEED);
+                stageObject.setX(stageObject.getX() - WALKSPEED);
                 break;
             case RIGHT:
-                mapObject.setX(mapObject.getX() + WALKSPEED);
+                stageObject.setX(stageObject.getX() + WALKSPEED);
                 break;
         }
 

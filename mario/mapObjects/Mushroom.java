@@ -4,13 +4,15 @@
  */
 package mario.mapObjects;
 
+import mario.Stages.StageMario;
+import mario.Stages.Stage;
 import mario.core.Direction;
 import mario.core.Collision;
 import java.awt.Rectangle;
 import mario.*;
 import mario.ai.WalkAi;
-import mario.core.MapObject;
-import mario.core.NoClip;
+import mario.core.StageObject;
+import mario.core.interfaces.NoClip;
 
 /**
  *
@@ -22,7 +24,7 @@ public class Mushroom extends Powerup implements NoClip
     private boolean hadCollision = false;
     private boolean changeAni = false;
 
-    public Mushroom(Game game, int x, int y, int width, int height)
+    public Mushroom(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
@@ -102,9 +104,9 @@ public class Mushroom extends Powerup implements NoClip
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject charachter)
+    public void doCharacterCollision(Collision collision, StageObject charachter)
     {
-        if (charachter instanceof Mario)
+        if (charachter instanceof StageMario)
         {
             if (hadCollision)
             {

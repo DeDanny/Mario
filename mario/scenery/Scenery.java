@@ -5,15 +5,15 @@
 
 package mario.scenery;
 
-import mario.Game;
-import mario.core.MapObject;
+import mario.Stages.Stage;
+import mario.core.StageObject;
 
 /**
  *
  * @author danny
  */
-abstract public class Scenery extends MapObject{
-     public Scenery(Game game, int x, int y, int width, int height, String sprite)
+abstract public class Scenery extends StageObject{
+     public Scenery(Stage game, int x, int y, int width, int height, String sprite)
     {
           super(game, x, y, width, height, sprite);
      }

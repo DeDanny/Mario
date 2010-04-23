@@ -4,15 +4,16 @@
  */
 package mario.scenery;
 
+import mario.core.interfaces.BackGround;
 import java.awt.Rectangle;
-import mario.Game;
+import mario.Stages.Stage;
 import mario.core.Collision;
-import mario.core.MapObject;
-import mario.core.NoClip;
+import mario.core.StageObject;
+import mario.core.interfaces.NoClip;
 
 public class Bush extends Scenery implements NoClip, BackGround
 {
-    public Bush(Game game, int x, int y, int width, int height)
+    public Bush(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("bush 0", new Rectangle(424, 4134, 99, 78));
@@ -30,7 +31,7 @@ public class Bush extends Scenery implements NoClip, BackGround
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, MapObject mapObject)
+    public void doCharacterCollision(Collision collision, StageObject mapObject)
     {
     }
 }

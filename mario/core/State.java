@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mario;
+package mario.core;
 
-import mario.core.GameObject;
+import mario.core.engine.GameObject;
 
 /**
  *
