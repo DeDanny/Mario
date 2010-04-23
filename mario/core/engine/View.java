@@ -34,6 +34,7 @@ public class View
     private GraphicsConfiguration gc = gd.getDefaultConfiguration();
     private BufferStrategy buffer;
     private BufferedImage bi;
+    private boolean debugger;
 
     /**
      *
@@ -44,6 +45,7 @@ public class View
     {
         this.frame = frame;
         setDoubleBuffer();
+        this.debugger = debugger;
         if (debugger == false)
         {
             setFullScreen();
@@ -161,8 +163,12 @@ public class View
     {
         Graphics graphics = startGraphics();
 
-        stageSelector.draw(graphics);
-        //graphics.drawImage(stageSelector.getImage(), stageSelector.getX(), stageSelector.getY(), frame);
+        //stageSelector.draw(graphics);
+        graphics.drawImage(stageSelector.getImage(), stageSelector.getX(), stageSelector.getY(), frame);
+        for(GameObject stageObjects : stageSelector.getStageSelectorObjects())
+        {
+             graphics.drawImage(stageObjects.getImage(), stageObjects.getX(), stageObjects.getY(), frame);
+        }
 
         endGraphics(graphics);
     }

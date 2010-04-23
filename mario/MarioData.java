@@ -11,8 +11,7 @@ package mario;
 public class MarioData
 {
     private boolean big;
-    private int coins;
-    private int lives;
+    private int coins, lives, x, y;
     private long points;
     private static MarioData marioData = new MarioData();
     //private something with levels so i know which one you can play.
@@ -73,5 +72,18 @@ public class MarioData
         coins = 0;
         lives = 5;
         points = 0;
+        x = 365;
+        y = 420;
     }
+
+    public int getX()
+    {
+        return x;
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+    
 }

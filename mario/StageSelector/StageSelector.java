@@ -23,6 +23,7 @@ public class StageSelector extends GameObject
     private boolean left = false;
     private boolean right = false;
     private boolean confirm = false;
+    private ArrayList<GameObject> StageSelectorObjects = new ArrayList<GameObject>();
 
     public StageSelector(MarioWorld marioWorld, int x, int y, int width, int height, MarioData marioData, String fileName)
     {
@@ -35,12 +36,13 @@ public class StageSelector extends GameObject
                 {
                     "portal 0"
                 });
+        StageSelectorObjects.add(new StageSelectorMario(marioData.getX(), marioData.getY(), 0, 0, marioData));
     }
 
     @Override
     public void doLoopAction()
     {
-        if(confirm == true)
+        if (confirm == true)
         {
             confirm = false;
             marioWorld.setWhatcha(Doing.PLAYING);
@@ -49,15 +51,15 @@ public class StageSelector extends GameObject
 
     public void handlePressedKeys(ArrayList<KeyButtons> keyPressed)
     {
-        if(keyPressed.contains(KeyButtons.LEFT))
+        if (keyPressed.contains(KeyButtons.LEFT))
         {
             left = true;
         }
-        if(keyPressed.contains(KeyButtons.RIGHT))
+        if (keyPressed.contains(KeyButtons.RIGHT))
         {
             right = true;
         }
-        if(keyPressed.contains(KeyButtons.CONFIRM))
+        if (keyPressed.contains(KeyButtons.CONFIRM))
         {
             confirm = true;
         }
@@ -65,11 +67,11 @@ public class StageSelector extends GameObject
 
     public void handleReleasedKeys(ArrayList<KeyButtons> keyReleased)
     {
-        if(keyReleased.contains(KeyButtons.LEFT))
+        if (keyReleased.contains(KeyButtons.LEFT))
         {
             left = false;
         }
-        if(keyReleased.contains(KeyButtons.RIGHT))
+        if (keyReleased.contains(KeyButtons.RIGHT))
         {
             right = false;
         }
@@ -80,5 +82,11 @@ public class StageSelector extends GameObject
      */
     public void newGame()
     {
+        marioData.reset();
+    }
+
+    public ArrayList<GameObject> getStageSelectorObjects()
+    {
+        return StageSelectorObjects;
     }
 }
