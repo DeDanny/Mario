@@ -2,13 +2,6 @@ package mario.Stages;
 
 import mario.background.Background;
 import mario.core.KeyButtons;
-import mario.mapObjects.Coin;
-import mario.mapObjects.Questionmark;
-import mario.mapObjects.Stone;
-import mario.mapObjects.Mushroom;
-import mario.scenery.Cloud;
-import mario.scenery.Tube;
-import mario.scenery.Bush;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.core.AiDirector;
@@ -116,6 +109,8 @@ public class Stage
 
      private void gameObjectLoopAction()
     {
+         aiDirector.createMapObjects();
+
         for (StageObject stageObject : mapObjects)
         {
             stageObject.doMapCollision();
