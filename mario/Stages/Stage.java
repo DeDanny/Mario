@@ -140,6 +140,37 @@ public class Stage
 
     public void handlePressedKeys(ArrayList<KeyButtons> keyPressed)
     {
+        boolean setter = true;
+        handleKeys(keyPressed, setter);
         
+    }
+
+    public void handleReleasedKeys(ArrayList<KeyButtons> keyPressed)
+    {
+        boolean setter = false;
+        handleKeys(keyPressed, setter);
+    }
+
+    private void handleKeys(ArrayList<KeyButtons> keyPressed, boolean setter)
+    {
+        if(keyPressed.contains(KeyButtons.LEFT))
+        {
+            mario.setLeft(setter);
+        }
+        if(keyPressed.contains(KeyButtons.RIGHT))
+        {
+            mario.setRight(setter);
+        }
+        if(keyPressed.contains(KeyButtons.JUMP))
+        {
+            if(setter == true)
+            {
+                mario.setJump(setter);
+            }
+        }
+        if(keyPressed.contains(KeyButtons.DOWN))
+        {
+            mario.setDown(setter);
+        }
     }
 }

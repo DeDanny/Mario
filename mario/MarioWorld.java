@@ -81,7 +81,7 @@ public class MarioWorld
         switch (whatcha)
         {
             case PLAYING:
-
+                stage.handleReleasedKeys(keyPressed);
                 break;
 
             case SELECTSTAGE:

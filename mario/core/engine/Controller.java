@@ -156,6 +156,7 @@ public class Controller implements KeyListener, Runnable
         if (e.getKeyCode() == KeyEvent.VK_UP)
         {
             keyPressed.add(KeyButtons.UP);
+            keyPressed.add(KeyButtons.JUMP);
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN)
         {
