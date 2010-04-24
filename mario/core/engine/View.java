@@ -16,7 +16,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import mario.MarioWorld;
+import mario.StageSelector.Node;
 import mario.Stages.Stage;
 import mario.Stages.StageMario;
 import mario.core.interfaces.BackGround;
@@ -110,26 +110,23 @@ public class View
         ArrayList<GameObject> gameObjectForeGround = new ArrayList<GameObject>();
         ArrayList<GameObject> gameObjectMiddleGround = new ArrayList<GameObject>();
         ArrayList<GameObject> gameObjectBackGround = new ArrayList<GameObject>();
-                for (GameObject gameObject : stage.getMapObjects())
-                {
+        for (GameObject gameObject : stage.getMapObjects())
+        {
 
-                    if (gameObject instanceof StageMario) //filter out the mario
-                    {
-                        gameObjectMario = gameObject;
-                    }
-                    else if (gameObject instanceof ForeGround) //filter out foreground elements
-                    {
-                        gameObjectForeGround.add(gameObject);
-                    }
-                    else if (gameObject instanceof BackGround) //filter out background elements
-                    {
-                        gameObjectBackGround.add(gameObject);
-                    }
-                    else //collect the rest
-                    {
-                        gameObjectMiddleGround.add(gameObject);
-                    }
-                }
+            if (gameObject instanceof StageMario) //filter out the mario
+            {
+                gameObjectMario = gameObject;
+            } else if (gameObject instanceof ForeGround) //filter out foreground elements
+            {
+                gameObjectForeGround.add(gameObject);
+            } else if (gameObject instanceof BackGround) //filter out background elements
+            {
+                gameObjectBackGround.add(gameObject);
+            } else //collect the rest
+            {
+                gameObjectMiddleGround.add(gameObject);
+            }
+        }
 
         for (GameObject gameObject : gameObjectBackGround)
         {
@@ -165,9 +162,18 @@ public class View
 
         //stageSelector.draw(graphics);
         graphics.drawImage(stageSelector.getImage(), stageSelector.getX(), stageSelector.getY(), frame);
-        for(GameObject stageObjects : stageSelector.getStageSelectorObjects())
+        for (GameObject stageObjects : stageSelector.getStageSelectorObjects())
         {
-             graphics.drawImage(stageObjects.getImage(), stageObjects.getX(), stageObjects.getY(), frame);
+            graphics.drawImage(stageObjects.getImage(), stageObjects.getX(), stageObjects.getY(), frame);
+        }
+
+        if (debugger)
+        {
+            for (Node node : stageSelector.getNodes())
+            {
+                graphics.setColor(Color.red);
+                graphics.fillRect(node.getX() - 2, node.getY() - 2, 4, 4);
+            }
         }
 
         endGraphics(graphics);

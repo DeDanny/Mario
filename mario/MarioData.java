@@ -4,6 +4,8 @@
  */
 package mario;
 
+import java.util.HashMap;
+
 /**
  *
  * @author danny
@@ -11,9 +13,10 @@ package mario;
 public class MarioData
 {
     private boolean big;
-    private int coins, lives, x, y;
+    private int coins, lives, node;
     private long points;
     private static MarioData marioData = new MarioData();
+    private HashMap<String, Boolean> playableMaps = new HashMap<String, Boolean>();
     //private something with levels so i know which one you can play.
 
     private MarioData()
@@ -66,24 +69,23 @@ public class MarioData
         this.points = points;
     }
 
-    public void reset()
+    public final void reset()
     {
         big = false;
         coins = 0;
         lives = 5;
         points = 0;
-        x = 365;
-        y = 420;
+        node = 3;
     }
 
-    public int getX()
+    public int getNode()
     {
-        return x;
+        return node;
     }
 
-    public int getY()
+    public void setNode(int node)
     {
-        return y;
+        this.node = node;
     }
-    
+
 }

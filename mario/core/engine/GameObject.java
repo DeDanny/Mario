@@ -101,11 +101,18 @@ public abstract class GameObject
     {
         this.width = width;
     }
-
     public void setAnimation(String[] animation)
     {
-        this.animation = animation;
-        animationFrame = 0;
+        setAnimation(animation, false);
+    }
+
+    public void setAnimation(String[] animation, boolean override)
+    {
+        if (this.animation != animation || override)
+        {
+            this.animation = animation;
+            animationFrame = 0;
+        }
     }
 
     public String[] getAnimation()

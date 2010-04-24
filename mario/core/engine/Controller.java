@@ -58,6 +58,7 @@ public class Controller implements KeyListener, Runnable
         {
             if ((System.currentTimeMillis() - gameTimer) > GAMESPEED)
             {
+                gameTimer = System.currentTimeMillis();
                 marioWorld.doLoopAction();
                 switch (marioWorld.getWhatcha())//doing
                 {
@@ -138,10 +139,10 @@ public class Controller implements KeyListener, Runnable
         {
             marioWorld.setWhatcha(Doing.EXIT);
         }
-        
+
         checkKeys(e);
         marioWorld.passKeyPressed(checkKeys(e));
-        
+
     }
 
     @Override
@@ -184,6 +185,4 @@ public class Controller implements KeyListener, Runnable
         }
         return keyPressed;
     }
-
-   
 }
