@@ -16,7 +16,7 @@ import mario.core.engine.GameObject;
  */
 public class StageSelectorMario extends GameObject
 {
-    private final static int moveSpeed = 1;
+    private final static int moveSpeed = 2;
     private boolean findPath = false;
     private Direction direction;
     private MarioData marioData;
@@ -119,7 +119,6 @@ public class StageSelectorMario extends GameObject
                     break;
             }
         }
-
     }
 
     public void findPath(Direction direction)

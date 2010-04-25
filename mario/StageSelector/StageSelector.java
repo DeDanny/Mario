@@ -19,7 +19,6 @@ import mario.core.engine.GameObject;
  */
 public class StageSelector extends GameObject
 {
-    private final static int moveSpeed = 2;
     private MarioData marioData;
     private MarioWorld marioWorld;
     private boolean left = false;
@@ -36,12 +35,13 @@ public class StageSelector extends GameObject
         super(x, y, width, height, fileName);
         this.marioData = marioData;
         this.marioWorld = marioWorld;
-        nodes.add(new Node(240, 490, true));
+        nodes.add(new Node(240, 490, true, "Waterfall World"));
         nodes.add(new Node(280, 490, false));
-        nodes.add(new Node(315, 474, false));
         nodes.add(new Node(350, 458, false));
-        nodes.add(new Node(386, 458, true));
-        nodes.add(new Node(200, 300, true));
+        nodes.add(new Node(386, 458, true, "yoshi's house"));
+        nodes.add(new Node(422, 458, false));
+        nodes.add(new Node(492, 490, false));
+        nodes.add(new Node(532, 490, true, "Goomba's garden"));
         stageSelectorMario = new StageSelectorMario(this, 50, 60, marioData);
         
         frames.put("portal 0", new Rectangle(0, 0, 800, 600));
@@ -67,6 +67,7 @@ public class StageSelector extends GameObject
             if (confirm == true)
             {
                 confirm = false;
+                marioWorld.setStage(nodes.get(marioData.getNode()).getStageName());
                 marioWorld.setWhatcha(Doing.PLAYING);
             }
             if (left == true)
@@ -157,5 +158,9 @@ public class StageSelector extends GameObject
     {
         return nodes;
     }
-    
+
+    public String getStageName()
+    {
+        return nodes.get(marioData.getNode()).getStageName();
+    }
 }

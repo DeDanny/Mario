@@ -129,4 +129,9 @@ public class MarioWorld
     {
         marioData.reset();
     }
+
+    public void setStage(String stageName)
+    {
+        
+    }
 }

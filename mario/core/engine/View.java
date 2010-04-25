@@ -8,6 +8,7 @@ import mario.StageSelector.StageSelector;
 import mario.core.menu.Menu;
 import java.awt.Color;
 import java.awt.DisplayMode;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
@@ -15,6 +16,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import javax.jws.soap.SOAPBinding.Style;
 import javax.swing.JFrame;
 import mario.StageSelector.Node;
 import mario.Stages.Stage;
@@ -166,6 +168,16 @@ public class View
         {
             graphics.drawImage(stageObjects.getImage(), stageObjects.getX(), stageObjects.getY(), frame);
         }
+        graphics.setColor(Color.black);
+        graphics.setFont(new Font("sansserif", Font.PLAIN, 25));
+        graphics.drawString(stageSelector.getStageName(), 300, 59);
+        graphics.drawString(stageSelector.getStageName(), 300, 61);
+        graphics.drawString(stageSelector.getStageName(), 299, 60);
+        graphics.drawString(stageSelector.getStageName(), 301, 60);
+
+        graphics.setColor(Color.white);
+        graphics.setFont(new Font("sansserif", Font.PLAIN, 25));
+        graphics.drawString(stageSelector.getStageName(), 300, 60);
 
         if (debugger)
         {
