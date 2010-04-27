@@ -8,6 +8,7 @@ import mario.core.engine.GameObject;
 import mario.core.interfaces.NoClip;
 import mario.core.interfaces.Static;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import mario.Stages.Stage;
 import mario.Stages.StageMario;
 
@@ -58,7 +59,7 @@ abstract public class StageObject extends GameObject
         this.alive = alive;
     }
 
-    public abstract void doCharacterCollision(Collision collision, StageObject stageObject);
+    public abstract void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject);
 
     public boolean isFall()
     {

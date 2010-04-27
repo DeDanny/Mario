@@ -13,6 +13,8 @@ public enum Collision {
 	UP,
 	DOWN,
 	SIDE,
+        LEFT,
+        RIGHT,
 	COLLISION,
         NONE
 }

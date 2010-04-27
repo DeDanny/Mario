@@ -5,6 +5,7 @@
 package mario.core;
 
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import mario.Stages.Stage;
 
 /**
@@ -30,13 +31,15 @@ public class CollisionDetector
                 {
                     if (characterObject != characterObjectLoop && characterObjectLoop.isAlive())
                     {
+                        int x_last = characterObject.getXLast();
                         int y_last = characterObject.getYLast();
                         int heightl = characterObject.getHeight();
+                        int widthl = characterObject.getWidth();
 
                         int x = characterObject.getX() + 1;
                         int y = characterObject.getY() + 1;
                         int width = characterObject.getWidth();
-                        int height = characterObject.getHeight() + 1;
+                        int height = characterObject.getHeight();
 
                         if (heightl == 0)
                         {
@@ -52,16 +55,34 @@ public class CollisionDetector
                         Rectangle othereObject = new Rectangle(xOthere, yOthere, widthOthere, heightOthere);
                         if (object.intersects(othereObject))
                         {
+
+                            ArrayList<Collision> collisionsCharacter = new ArrayList<Collision>();
+                            ArrayList<Collision> collisionsCharacterLoop = new ArrayList<Collision>();
+
                             if ((y_last + heightl) < yOthere)
                             {
-                                characterObject.doCharacterCollision(Collision.DOWN, characterObjectLoop);
-                                characterObjectLoop.doCharacterCollision(Collision.UP, characterObject);
+                                collisionsCharacter.add(Collision.DOWN);
+                                collisionsCharacterLoop.add(Collision.UP);
                             }
                             else
                             {
-                                characterObject.doCharacterCollision(Collision.UP, characterObjectLoop);
-                                characterObjectLoop.doCharacterCollision(Collision.DOWN, characterObject);
+                                collisionsCharacter.add(Collision.UP);
+                                collisionsCharacterLoop.add(Collision.DOWN);
                             }
+
+                            if((x_last + widthl) < xOthere)
+                            {
+                                collisionsCharacter.add(Collision.LEFT);
+                                collisionsCharacterLoop.add(Collision.RIGHT);
+                            }
+                            else
+                            {
+                                collisionsCharacter.add(Collision.RIGHT);
+                                collisionsCharacterLoop.add(Collision.LEFT);
+                            }
+
+                            characterObject.doCharacterCollision(collisionsCharacter, characterObjectLoop);
+                            characterObjectLoop.doCharacterCollision(collisionsCharacterLoop, characterObject);
                         }
                     }
                 }
