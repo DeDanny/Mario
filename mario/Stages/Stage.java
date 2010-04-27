@@ -17,8 +17,8 @@ public class Stage
     private AiDirector aiDirector = new AiDirector(this);
     private StageMario mario = new StageMario(this,200, 420, 42, 57);
     private Sound sound = new Sound();
-    private MapCompiler stageLoader = new MapCompiler(this);
-    private StageArray stageArray;
+    private MapCompiler mapCompiler = new MapCompiler(this);
+    private Map map;
 
     //private Background background = new Background(this, 0, 552, 800,  48);
     //private Background background2 = new Background(this, 800, 552, 800,  48);
@@ -145,6 +145,12 @@ public class Stage
 
     public void setStage(String stageName)
     {
-        //stageArray = stageLoader.getStage(stageName);
+        
+    }
+
+    public void addObjects()
+    {
+        StageChoose[] stageChooseds = map.getObjectsByStepCounter(mario.getStepCounter());
+        mapCompiler.addObjects(stageChooseds);
     }
 }
