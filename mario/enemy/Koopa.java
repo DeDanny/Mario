@@ -36,21 +36,22 @@ public class Koopa extends Enemy implements NoClip {
     private void init()
     {
         ai = new WalkAi(this);
-        frames.put("koopaStandLeft 0", new Rectangle(296, 0, 48, 81));
+        frames.put("koopaStandLeft 0", new Rectangle(396, 0, 48, 81));
         frames.put("koopaWalkLeft 0", new Rectangle(276, 0, 48, 81));
-        frames.put("koopaWalkLeft 1", new Rectangle(156, 0, 48, 81));
+        //.put("koopaWalkLeft 1", new Rectangle(156, 0, 48, 81));
 
         frames.put("koopaStandRight 0", new Rectangle(296, 476, 48, 81));
         frames.put("koopaWalkRight 0", new Rectangle(276, 476, 48, 81));
-        frames.put("koopaWalkRight 1", new Rectangle(156, 476, 48, 81));
+        //frames.put("koopaWalkRight 1", new Rectangle(156, 476, 48, 81));
 
-        frames.put("koopaFlat 0", new Rectangle(296, 476, 48, 81));
-        frames.put("koopaFlat 1", new Rectangle(276, 476, 48, 81));
-        frames.put("koopaFlat 2", new Rectangle(156, 476, 48, 81));
+        frames.put("koopaFlat 0", new Rectangle(36, 18, 48, 48));
+        frames.put("koopaFlat 1", new Rectangle(36, 138, 48, 48));
+        frames.put("koopaFlat 2", new Rectangle(36, 258, 48, 48));
 
         frameSpeed = 100;
 
-        setAnimation(new String[]{"koopaStandLeft 0", "koopaWalkLeft 0", "koopaWalkLeft 1"});
+        setAnimation(new String[]{"koopaStandLeft 0", "koopaWalkLeft 0"});
+        //setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
     }
 
     @Override
@@ -85,6 +86,8 @@ public class Koopa extends Enemy implements NoClip {
                 case UP:
                     if(!isShell)
                     {
+                        setHeight(48);
+                        setY(stageObject.getY() - 33);
                         ai.setDirection(Direction.NONE);
                         setAnimation(new String[]{"koopaFlat 0"});
                         isShell = true;

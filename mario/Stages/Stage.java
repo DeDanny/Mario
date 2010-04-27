@@ -7,8 +7,10 @@ import mario.core.AiDirector;
 import mario.core.StageObject;
 import mario.core.interfaces.ReUse;
 import mario.core.engine.Sound;
+import mario.enemy.Koopa;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
+import mario.scenery.Theme;
 
 /**
  *
@@ -41,9 +43,15 @@ public class Stage
         mapObjects.add(mario);
         mapObjects.add(ScoreBalk);
         
-        mapObjects.add(new Ground(this, 0, 552, 48,  48, GroundType.LEFT));
-        mapObjects.add(new Ground(this, 48, 552, 192,  48, GroundType.MIDDLE));
-        mapObjects.add(new Ground(this, 240, 552, 48,  48, GroundType.RIGHT));
+        mapObjects.add(new Ground(this, 0, 552, 48,  48, GroundType.LEFT, Theme.NORMAL));
+        mapObjects.add(new Ground(this, 48, 552, 192,  48, GroundType.MIDDLE, Theme.NORMAL));
+        mapObjects.add(new Ground(this, 240, 552, 48,  48, GroundType.RIGHT, Theme.NORMAL));
+
+        mapObjects.add(new Ground(this, 400, 552, 48,  48, GroundType.LEFT, Theme.JUNGLE));
+        mapObjects.add(new Ground(this, 448, 552, 192,  48, GroundType.MIDDLE, Theme.JUNGLE));
+        mapObjects.add(new Ground(this, 640, 552, 48,  48, GroundType.RIGHT, Theme.JUNGLE));
+
+        mapObjects.add(new Koopa(this, 230, 400, 48,  81));
     }
 
     public StageMario getMario()
