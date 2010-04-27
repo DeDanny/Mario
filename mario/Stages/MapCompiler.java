@@ -55,9 +55,9 @@ public class MapCompiler
                     mapObjectenList.add(new Koopa(stage, 900, 500, 45, 51, 15, 15));
                     break;
                 case GROUND:
-                    mapObjectenList.add(new Ground(stage, 600, 552, 48, 48, GroundType.LEFT));
-                    mapObjectenList.add(new Ground(stage, 648, 552, 192, 48, GroundType.MIDDLE));
-                    mapObjectenList.add(new Ground(stage, 840, 552, 48, 48, GroundType.RIGHT));
+                    mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.LEFT));
+                    mapObjectenList.add(new Ground(stage, 848, 552, 192, 48, GroundType.MIDDLE));
+                    mapObjectenList.add(new Ground(stage, 1040, 552, 48, 48, GroundType.RIGHT));
                     break;
             }
         }
