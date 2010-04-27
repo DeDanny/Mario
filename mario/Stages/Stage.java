@@ -59,7 +59,7 @@ public class Stage
         mapObjects.add(new Ground(this, 540+(48*3), 552, 48,  48, GroundType.RIGHT, Theme.JUNGLE));
 
         mapObjects.add(new Koopa(this, 330, 400, 48,81));
-        mapObjects.add(new Goomba(this, 400, 400, 48, 47));
+        mapObjects.add(new Goomba(this, 500, 400, 48, 47));
     }
 
     public StageMario getMario()
