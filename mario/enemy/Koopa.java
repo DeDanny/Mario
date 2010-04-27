@@ -26,6 +26,15 @@ public class Koopa extends Enemy implements NoClip {
 
     public Koopa(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
+        init();
+    }
+    public Koopa(Stage game, int x, int y, int width, int height, int pushX, int pushY) {
+        super(game, x, y, width, height, pushX, pushY, "/images/smw_enemies_sheet.png");
+        init();
+    }
+
+    private void init()
+    {
         ai = new WalkAi(this);
         frames.put("koopaStandLeft 0", new Rectangle(296, 0, 48, 81));
         frames.put("koopaWalkLeft 0", new Rectangle(276, 0, 48, 81));
@@ -43,6 +52,7 @@ public class Koopa extends Enemy implements NoClip {
 
         setAnimation(new String[]{"koopaStandLeft 0", "koopaWalkLeft 0", "koopaWalkLeft 1"});
     }
+
     @Override
     public void hitBy() {
 
@@ -126,5 +136,4 @@ public class Koopa extends Enemy implements NoClip {
             }
         }
     }
-
 }
