@@ -12,6 +12,7 @@ import mario.core.Direction;
 import mario.core.Doing;
 import mario.core.KeyButtons;
 import mario.core.engine.GameObject;
+import mario.core.engine.Sound;
 
 /**
  *
@@ -21,6 +22,7 @@ public class StageSelector extends GameObject
 {
     private MarioData marioData;
     private MarioWorld marioWorld;
+    private Sound sound = new Sound();
     private boolean left = false;
     private boolean right = false;
     private boolean confirm = false;
@@ -35,6 +37,7 @@ public class StageSelector extends GameObject
         super(x, y, width, height, fileName);
         this.marioData = marioData;
         this.marioWorld = marioWorld;
+        sound.playBackGround("/sound/background/Yoster Island.wav");
         nodes.add(new Node(240, 490, true, "Waterfall World"));
         nodes.add(new Node(280, 490, false));
         nodes.add(new Node(350, 458, false));

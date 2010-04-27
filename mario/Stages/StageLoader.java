@@ -24,6 +24,7 @@ public class StageLoader
 
     public StageLoader()
     {
+        
     }
 
     public StageArray getStage(String key)

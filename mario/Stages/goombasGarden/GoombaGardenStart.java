@@ -5,6 +5,7 @@
 package mario.Stages.goombasGarden;
 
 import mario.Stages.Map;
+import mario.Stages.StageChoose;
 
 /**
  *
@@ -12,8 +13,27 @@ import mario.Stages.Map;
  */
 public class GoombaGardenStart extends Map
 {
-    public GoombaGardenStart(String theme, int[] map)
+    //private int mapGooma[] =
+    public GoombaGardenStart(String theme)
     {
-        super(theme, map);
+        super(theme);
+        map = new int[]
+                {
+                    5, 12
+                };
+        testMap.put(2, new StageChoose[]
+                {
+                    StageChoose.GROUND, StageChoose.TUBE
+                });
+    }
+
+    @Override
+    public void startGame()
+    {
+    }
+
+    @Override
+    public void endgame()
+    {
     }
 }

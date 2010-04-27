@@ -1,6 +1,5 @@
 package mario.Stages;
 
-import mario.background.Background;
 import mario.core.KeyButtons;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,11 +17,11 @@ public class Stage
     private AiDirector aiDirector = new AiDirector(this);
     private StageMario mario = new StageMario(this,200, 420, 42, 57);
     private Sound sound = new Sound();
-    private StageLoader stageLoader = new StageLoader();
+    private MapCompiler stageLoader = new MapCompiler(this);
     private StageArray stageArray;
 
-    private Background background = new Background(this, 0, 552, 800,  48);
-    private Background background2 = new Background(this, 800, 552, 800,  48);
+    //private Background background = new Background(this, 0, 552, 800,  48);
+    //private Background background2 = new Background(this, 800, 552, 800,  48);
     //work around try for bug. With out the 3rt background there where holes in the ground.
     //private Background background3 = new Background(this, 400, 552, 800,  48);
 
@@ -33,9 +32,9 @@ public class Stage
 
     public Stage()
     {
-        sound.playSound("/sound/theme.wav");
-        mapObjects.add(background);
-        mapObjects.add(background2);
+        //sound.playSound("/sound/theme.wav");
+        //mapObjects.add(background);
+        //mapObjects.add(background2);
        
         mapObjects.add(mario);
         mapObjects.add(ScoreBalk);
@@ -49,11 +48,6 @@ public class Stage
     public void addMapObject(StageObject mapObject)
     {
         mapObjects.add(mapObject);
-    }
-
-    public Background getBackground()
-    {
-        return background;
     }
 
     public ArrayList<StageObject> getMapObjects()
@@ -151,6 +145,6 @@ public class Stage
 
     public void setStage(String stageName)
     {
-        stageArray = stageLoader.getStage(stageName);
+        //stageArray = stageLoader.getStage(stageName);
     }
 }

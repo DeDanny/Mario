@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mario.Stages;
+
+import java.util.HashMap;
 
 /**
  *
@@ -12,14 +13,17 @@ package mario.Stages;
 public abstract class Map
 {
     protected String theme;
+
+    protected HashMap<Integer, StageChoose[]> testMap = new HashMap<Integer, StageChoose[]>();
     protected int[] map;
 
-    public Map(String theme, int[] map)
+    public Map(String theme)
     {
         this.theme = theme;
-        this.map = map;
     }
 
-    
+    public abstract void startGame();
+
+    public abstract void endgame();
 
 }

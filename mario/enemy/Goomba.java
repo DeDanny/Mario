@@ -20,6 +20,16 @@ public class Goomba extends Enemy implements NoClip {
 
     public Goomba(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
+        init();
+    }
+    
+    public Goomba(Stage game, int x, int y, int width, int height, int pushX, int pushY) {
+        super(game, x, y, width, height, pushX, pushY, "/images/smw_enemies_sheet.png");
+        init();
+    }
+
+    private void init()
+    {
         ai = new WalkAi(this);
         frames.put("goombaStandLeft 0", new Rectangle(27, 4161, 45, 51));
         frames.put("goombaWalkLeft 0", new Rectangle(87, 4161, 45, 51));

@@ -24,6 +24,7 @@ import javax.sound.sampled.*;
 public class Sound
 {
     private static HashMap<String, Clip> sounds = new HashMap<String, Clip>();
+    private static Clip playingBackground;
 
     public Sound()
     {
@@ -39,6 +40,28 @@ public class Sound
             clip = sounds.get(fileName);
         }
         return clip;
+    }
+
+    public void playBackGround(String fileName)
+    {
+//         try
+//        {
+//            Clip player = getSound(fileName);
+//            if(playingBackground != null && playingBackground != player && playingBackground.isRunning())
+//            {
+//                playingBackground.stop();
+//            }
+//
+//            if (!player.isRunning())
+//            {
+//                player.setFramePosition(0);
+//                player.start();
+//                playingBackground = player;
+//            }
+//        }finally
+//        {
+//
+//        }
     }
 
     public void playSound(String fileName)

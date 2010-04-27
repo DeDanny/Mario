@@ -20,6 +20,11 @@ abstract public class Enemy extends CharacterObject {
         super(game, x, y, width, height, fileName);
     }
 
+    public Enemy(Stage game, int x, int y, int width, int height, int pushX, int pushY, String fileName)
+    {
+        super(game, x, y, width, height, pushX, pushY, fileName);
+    }
+
     @Override
     public final void doLoopAction() {
         ai();

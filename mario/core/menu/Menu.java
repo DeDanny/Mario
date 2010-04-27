@@ -41,7 +41,7 @@ public abstract class Menu
             if (i == selectedItem)
             {
                 graphics.setColor(Color.red);
-                graphics.fillRect(300, y + (i * 37), 15, 2);
+                graphics.fillRect(310, y + (i * 37) + 5 , 15, 2);
             }
             graphics.setColor(Color.white);
             //graphics.drawString(menuItem, 700, y + (i * 35));
@@ -66,19 +66,20 @@ public abstract class Menu
             selectedItem = menuItemsCount;
         }
     }
+
     abstract public void execute();
 
     public void handlePressedKeys(ArrayList<KeyButtons> keyPressed)
     {
-        if(keyPressed.contains(KeyButtons.DOWN))
+        if (keyPressed.contains(KeyButtons.DOWN))
         {
             menuDown();
         }
-        if(keyPressed.contains(KeyButtons.UP))
+        if (keyPressed.contains(KeyButtons.UP))
         {
             menuUp();
         }
-        if(keyPressed.contains(KeyButtons.CONFIRM))
+        if (keyPressed.contains(KeyButtons.CONFIRM))
         {
             execute();
         }
