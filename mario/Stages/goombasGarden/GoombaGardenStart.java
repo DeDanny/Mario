@@ -21,15 +21,11 @@ public class GoombaGardenStart extends Map
                 {
                     5, 12
                 };
-        testMap.put(2, new StageChoose[]
+        testMap.put(1, new StageChoose[]
                 {
                     StageChoose.GROUNDLEFT, StageChoose.TUBE
                 });
         testMap.put(10, new StageChoose[]
-                {
-                    StageChoose.GROUNDMIDDLE
-                });
-        testMap.put(19, new StageChoose[]
                 {
                     StageChoose.GROUNDMIDDLE
                 });
