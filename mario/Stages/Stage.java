@@ -15,11 +15,11 @@ import mario.core.engine.Sound;
  */
 public class Stage
 {
-    private boolean running = false;
-    private boolean paused = false;
     private AiDirector aiDirector = new AiDirector(this);
     private StageMario mario = new StageMario(this,200, 420, 42, 57);
     private Sound sound = new Sound();
+    private StageLoader stageLoader = new StageLoader();
+    private StageArray stageArray;
 
     private Background background = new Background(this, 0, 552, 800,  48);
     private Background background2 = new Background(this, 800, 552, 800,  48);
@@ -39,26 +39,6 @@ public class Stage
        
         mapObjects.add(mario);
         mapObjects.add(ScoreBalk);
-    }
-
-    public boolean isRunning()
-    {
-        return running;
-    }
-
-    public void setRunning(boolean running)
-    {
-        this.running = running;
-    }
-
-    public boolean isPaused()
-    {
-        return paused;
-    }
-
-    public void setPaused(boolean paused)
-    {
-        this.paused = paused;
     }
 
     public StageMario getMario()
@@ -167,5 +147,10 @@ public class Stage
         {
             mario.setDown(setter);
         }
+    }
+
+    public void setStage(String stageName)
+    {
+        stageArray = stageLoader.getStage(stageName);
     }
 }

@@ -132,6 +132,6 @@ public class MarioWorld
 
     public void setStage(String stageName)
     {
-        
+        stage.setStage(stageName);
     }
 }

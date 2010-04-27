@@ -295,7 +295,6 @@ public class StageMario extends CharacterObject implements NoClip
                             }
                             else{
                                 game.getSound().playSound("/sound/dead.wav");
-                                game.setRunning(false);
                             }
                         }
                         //System.out.println("MARIO DOOD");
@@ -379,5 +378,4 @@ public class StageMario extends CharacterObject implements NoClip
     {
         this.stepCounter = stepCounter;
     }
-
 }
