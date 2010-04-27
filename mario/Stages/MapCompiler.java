@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import mario.core.StageObject;
 import mario.enemy.Goomba;
 import mario.enemy.Koopa;
+import mario.scenery.Ground;
+import mario.scenery.GroundType;
 
 /**
  *
@@ -22,20 +24,23 @@ public class MapCompiler
         this.stage = stage;
     }
 
-    public void addObject(StageChoose[] stageChooseds)
+    public void addObjects(StageChoose[] stageChooseds)
     {
-        ArrayList<StageObject> MapObjects = compile(stageChooseds);
-        if (MapObjects != null)
+        if (stageChooseds != null)
         {
-            for (StageObject mapObject : MapObjects)
+            ArrayList<StageObject> MapObjects = compile(stageChooseds);
+            if (MapObjects != null)
             {
+                for (StageObject mapObject : MapObjects)
+                {
 
-                stage.addMapObject(mapObject);
+                    stage.addMapObject(mapObject);
+                }
             }
         }
     }
 
-    public ArrayList<StageObject> compile(StageChoose[] stageChooseds)
+    private ArrayList<StageObject> compile(StageChoose[] stageChooseds)
     {
         ArrayList<StageObject> mapObjectenList = new ArrayList<StageObject>();
         for (StageChoose stageChoose : stageChooseds)
@@ -47,6 +52,11 @@ public class MapCompiler
                     break;
                 case KOOPA:
                     mapObjectenList.add(new Koopa(stage, 900, 500, 45, 51, 15, 15));
+                    break;
+                case GROUND:
+                    mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.LEFT));
+                    mapObjectenList.add(new Ground(stage, 848, 552, 192, 48, GroundType.MIDDLE));
+                    mapObjectenList.add(new Ground(stage, 1040, 552, 48, 48, GroundType.RIGHT));
                     break;
             }
         }

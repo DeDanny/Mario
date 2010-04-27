@@ -20,39 +20,39 @@ import mario.Main;
  */
 public class StageLoader
 {
-    private static HashMap<String, StageArray> stages = new HashMap<String, StageArray>();
-
-    public StageLoader()
-    {
-        
-    }
-
-    public StageArray getStage(String key)
-    {
-        StageArray stage = stages.get(key);
-
-        if (stage == null)
-        {
-            stages.put(key, loadStage(key));
-            stage = stages.get(key);
-        }
-        return stage;
-    }
-
-    private StageArray loadStage(String key)
-    {
-        URL arrayUrl = Main.class.getResource("/stages/" + key + ".map");
-        BufferedReader in = null;
-
-        try
-        {
-            in = new BufferedReader(new FileReader(arrayUrl.getFile()));
-        } catch (FileNotFoundException ex)
-        {
-            Logger.getLogger(StageLoader.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        StageArray stageArray = new StageArray(in);
-        return stageArray;
-    }
+//    private static HashMap<String, StageArray> stages = new HashMap<String, StageArray>();
+//
+//    public StageLoader()
+//    {
+//
+//    }
+//
+//    public StageArray getStage(String key)
+//    {
+//        StageArray stage = stages.get(key);
+//
+//        if (stage == null)
+//        {
+//            stages.put(key, loadStage(key));
+//            stage = stages.get(key);
+//        }
+//        return stage;
+//    }
+//
+//    private StageArray loadStage(String key)
+//    {
+//        URL arrayUrl = Main.class.getResource("/stages/" + key + ".map");
+//        BufferedReader in = null;
+//
+//        try
+//        {
+//            in = new BufferedReader(new FileReader(arrayUrl.getFile()));
+//        } catch (FileNotFoundException ex)
+//        {
+//            Logger.getLogger(StageLoader.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        StageArray stageArray = new StageArray(in);
+//        return stageArray;
+//    }
 }
