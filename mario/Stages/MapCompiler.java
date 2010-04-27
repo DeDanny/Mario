@@ -38,7 +38,6 @@ public class MapCompiler
                 }
             }
         }
-
     }
 
     private ArrayList<StageObject> compile(StageChoose[] stageChooseds)
