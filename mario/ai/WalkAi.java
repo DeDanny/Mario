@@ -29,6 +29,9 @@ public class WalkAi extends Ai {
             case RIGHT:
                 stageObject.setX(stageObject.getX() + WALKSPEED);
                 break;
+            case NONE:
+                
+                break;
         }
 
     }

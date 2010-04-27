@@ -14,5 +14,6 @@ public enum Direction
     RIGHT,
     UP,
     DOWN,
-    MIDDLE
+    MIDDLE,
+    NONE
 }

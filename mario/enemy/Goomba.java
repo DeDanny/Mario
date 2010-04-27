@@ -67,6 +67,19 @@ public class Goomba extends Enemy implements NoClip {
             }
         }
 
+        if (mapObject instanceof Koopa) {
+            switch (collision) {
+                case SIDE:
+                    Koopa koopa = (Koopa) mapObject;
+                    if(koopa.isShell() && koopa.isMoving())
+                    {
+                        setAlive(false);
+                        game.getScoreBalk().killEnemy();
+                    }
+                    break;
+            }
+        }
+
         if (mapObject instanceof Tube) {
             switch (collision) {
                 case UP:
