@@ -8,6 +8,7 @@ import mario.Stages.Stage;
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.util.ArrayList;
 import mario.core.Collision;
 import mario.core.StageObject;
 import mario.core.interfaces.Static;
@@ -118,7 +119,7 @@ public class ScoreBalk extends StageObject implements Static
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, StageObject mapObject)
+    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject mapObject)
     {
     }
 

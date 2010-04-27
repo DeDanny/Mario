@@ -9,6 +9,7 @@ import mario.Stages.Stage;
 import mario.core.Direction;
 import mario.core.Collision;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import mario.*;
 import mario.ai.WalkAi;
 import mario.core.StageObject;
@@ -95,7 +96,8 @@ public class Mushroom extends Powerup implements NoClip
             if (direction == Direction.LEFT)
             {
                 direction = Direction.RIGHT;
-            } else
+            }
+            else
             {
                 direction = Direction.LEFT;
             }
@@ -104,9 +106,13 @@ public class Mushroom extends Powerup implements NoClip
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, StageObject charachter)
+    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject)
     {
-        if (charachter instanceof StageMario)
+        /**
+         * @todo remove tempory fix
+         */
+        Collision collision = collisions.get(0);
+        if (stageObject instanceof StageMario)
         {
             if (hadCollision)
             {
@@ -118,7 +124,7 @@ public class Mushroom extends Powerup implements NoClip
             }
         }
 
-        if (charachter instanceof Questionmark)
+        if (stageObject instanceof Questionmark)
         {
             hadCollision = true;
             hit = true;

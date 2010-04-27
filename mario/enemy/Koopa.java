@@ -6,6 +6,7 @@
 package mario.enemy;
 
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import mario.core.Collision;
 import mario.core.interfaces.NoClip;
 import mario.Stages.Stage;
@@ -80,7 +81,11 @@ public class Koopa extends Enemy implements NoClip {
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, StageObject stageObject) {
+    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject) {
+        /**
+         * @todo remove tempory fix
+         */
+        Collision collision =  collisions.get(0);
         if (stageObject instanceof mario.Stages.StageMario) {
             switch (collision) {
                 case UP:

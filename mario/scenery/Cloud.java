@@ -6,15 +6,13 @@ package mario.scenery;
 
 import java.awt.Rectangle;
 import mario.Stages.Stage;
-import mario.core.Collision;
-import mario.core.StageObject;
 import mario.core.interfaces.NoClip;
 
 /**
  *
  * @author Mike
  */
-public class Cloud extends StageObject implements NoClip
+public class Cloud extends Scenery implements NoClip
 {
     int teller = 0;
 
@@ -41,10 +39,5 @@ public class Cloud extends StageObject implements NoClip
         {
             teller++;
         }
-    }
-
-    @Override
-    public void doCharacterCollision(Collision collision, StageObject mapObject)
-    {
     }
 }

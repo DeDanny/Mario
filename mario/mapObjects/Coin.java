@@ -5,6 +5,7 @@
 package mario.mapObjects;
 
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import mario.Stages.Stage;
 import mario.core.Collision;
 import mario.core.StageObject;
@@ -16,12 +17,10 @@ import mario.core.interfaces.NoClip;
  */
 public class Coin extends StageObject implements NoClip
 {
-
     private boolean hit = false;
     private boolean changeAni = false;
     private int goinUp;
     private boolean hadCollision = false;
-    
 
     public Coin(Stage game, int x, int y, int width, int height)
     {
@@ -31,29 +30,36 @@ public class Coin extends StageObject implements NoClip
         frames.put("munt 1", new Rectangle(922, 3873, 45, 48));
         frames.put("munt 2", new Rectangle(973, 3872, 45, 48));
         frames.put("munt 3", new Rectangle(1023, 3873, 45, 48));
-        setAnimation(new String[]{"munt nothing"});
+        setAnimation(new String[]
+                {
+                    "munt nothing"
+                });
     }
 
     @Override
-    public void doLoopAction() {
-        if(hit)
+    public void doLoopAction()
+    {
+        if (hit)
         {
             doHit();
 
         }
 
-        if(changeAni){
+        if (changeAni)
+        {
             setAnimation();
             changeAni = false;
         }
     }
 
-    public void doHit() {
+    public void doHit()
+    {
 
-        if (goinUp < 20) {
+        if (goinUp < 20)
+        {
             setY(getY() - 5);
         }
-        else if(goinUp < 40)
+        else if (goinUp < 40)
         {
             setY(getY() + 5);
         }
@@ -61,14 +67,25 @@ public class Coin extends StageObject implements NoClip
 
     }
 
-    public void setAnimation() {
-        setAnimation(new String[]{"munt 0", "munt 1", "munt 2", "munt 3"});
+    public void setAnimation()
+    {
+        setAnimation(new String[]
+                {
+                    "munt 0", "munt 1", "munt 2", "munt 3"
+                });
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, StageObject mapObject) {
-        if (mapObject instanceof mario.Stages.StageMario) {
-            if(hadCollision){
+    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject)
+    {
+        /**
+         * @todo remove tempory fix
+         */
+        Collision collision = collisions.get(0);
+        if (stageObject instanceof mario.Stages.StageMario)
+        {
+            if (hadCollision)
+            {
                 game.getScoreBalk().addCoin();
                 game.getSound().playSound("/sound/coin.wav");
                 setAlive(false);
@@ -76,14 +93,11 @@ public class Coin extends StageObject implements NoClip
 
         }
 
-        if (mapObject instanceof Questionmark) {
+        if (stageObject instanceof Questionmark)
+        {
             hadCollision = true;
             hit = true;
             changeAni = true;
         }
-
-
     }
 }
-
-

@@ -17,14 +17,16 @@ import mario.scenery.Tube;
  *
  * @author Danny
  */
-public class Goomba extends Enemy implements NoClip {
-
-    public Goomba(Stage game, int x, int y, int width, int height) {
+public class Goomba extends Enemy implements NoClip
+{
+    public Goomba(Stage game, int x, int y, int width, int height)
+    {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
         init();
     }
-    
-    public Goomba(Stage game, int x, int y, int width, int height, int pushX, int pushY) {
+
+    public Goomba(Stage game, int x, int y, int width, int height, int pushX, int pushY)
+    {
         super(game, x, y, width, height, pushX, pushY, "/images/smw_enemies_sheet.png");
         init();
     }
@@ -47,30 +49,42 @@ public class Goomba extends Enemy implements NoClip {
         frames.put("goombaWalkRight 4", new Rectangle(336, 4100, 45, 51));
         frameSpeed = 100;
 
-        setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 4", "goombaWalkLeft 3", "goombaWalkLeft 2", "goombaWalkLeft 1", "goombaWalkLeft 0"});
+        setAnimation(new String[]
+                {
+                    "goombaStandLeft 0", "goombaWalkLeft 4", "goombaWalkLeft 3", "goombaWalkLeft 2", "goombaWalkLeft 1", "goombaWalkLeft 0"
+                });
     }
 
     @Override
-    public void hitBy() {
+    public void hitBy()
+    {
     }
 
     @Override
-    public void doMapCollision() {
-            checkCollisionMap();
-            if (mapCollision == Collision.NONE) {
-                setFall(true);
-            }
-            if (mapCollision != Collision.NONE) {
-                setFall(false);
-            }
+    public void doMapCollision()
+    {
+        checkCollisionMap();
+        if (mapCollision == Collision.NONE)
+        {
+            setFall(true);
+        }
+        if (mapCollision != Collision.NONE)
+        {
+            setFall(false);
+        }
 
     }
 
-
-    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject) {
-
-        if (stageObject instanceof mario.Stages.StageMario) {
-            switch (collision) {
+    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject)
+    {
+        /**
+         * @todo remove tempory fix
+         */
+        Collision collision = collisions.get(0);
+        if (stageObject instanceof mario.Stages.StageMario)
+        {
+            switch (collision)
+            {
                 case UP:
                     //////System.out.println("Goomba is dead");
                     setAlive(false);
@@ -79,11 +93,13 @@ public class Goomba extends Enemy implements NoClip {
             }
         }
 
-        if (stageObject instanceof Koopa) {
-            switch (collision) {
+        if (stageObject instanceof Koopa)
+        {
+            switch (collision)
+            {
                 case SIDE:
                     Koopa koopa = (Koopa) stageObject;
-                    if(koopa.isShell() && koopa.isMoving())
+                    if (koopa.isShell() && koopa.isMoving())
                     {
                         setAlive(false);
                         game.getScoreBalk().killEnemy();
@@ -92,16 +108,25 @@ public class Goomba extends Enemy implements NoClip {
             }
         }
 
-        if (stageObject instanceof Tube) {
-            switch (collision) {
+        if (stageObject instanceof Tube)
+        {
+            switch (collision)
+            {
                 case UP:
                     ai.toggleDirection();
-                    switch (ai.getDirection()) {
+                    switch (ai.getDirection())
+                    {
                         case LEFT:
-                            setAnimation(new String[]{"goombaStandLeft 0", "goombaWalkLeft 4", "goombaWalkLeft 3", "goombaWalkLeft 2", "goombaWalkLeft 1", "goombaWalkLeft 0"});
+                            setAnimation(new String[]
+                                    {
+                                        "goombaStandLeft 0", "goombaWalkLeft 4", "goombaWalkLeft 3", "goombaWalkLeft 2", "goombaWalkLeft 1", "goombaWalkLeft 0"
+                                    });
                             break;
                         case RIGHT:
-                            setAnimation(new String[]{"goombaStandRight 0", "goombaWalkRight 0", "goombaWalkRight 1", "goombaWalkRight 2", "goombaWalkRight 3", "goombaWalkRight 4"});
+                            setAnimation(new String[]
+                                    {
+                                        "goombaStandRight 0", "goombaWalkRight 0", "goombaWalkRight 1", "goombaWalkRight 2", "goombaWalkRight 3", "goombaWalkRight 4"
+                                    });
                             break;
                     }
                     //////System.out.println("Goomba Head is bumping on Tube -- Toggle Direction");
@@ -112,5 +137,4 @@ public class Goomba extends Enemy implements NoClip {
             }
         }
     }
-
 }

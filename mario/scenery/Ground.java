@@ -5,6 +5,7 @@
 package mario.scenery;
 
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import mario.Stages.Stage;
 import mario.core.Collision;
 import mario.core.StageObject;
@@ -13,7 +14,7 @@ import mario.core.StageObject;
  *
  * @author Onno
  */
-public class Ground extends StageObject {
+public class Ground extends Scenery {
 
     int yAs;
     // Stappen van 28 maken
@@ -55,13 +56,5 @@ public class Ground extends StageObject {
                 break;
         }
 
-    }
-
-    @Override
-    public void doCharacterCollision(Collision collision, StageObject stageObject) {
-    }
-
-    @Override
-    public void doLoopAction() {
     }
 }

@@ -7,8 +7,6 @@ package mario.scenery;
 import mario.core.interfaces.BackGround;
 import java.awt.Rectangle;
 import mario.Stages.Stage;
-import mario.core.Collision;
-import mario.core.StageObject;
 import mario.core.interfaces.NoClip;
 
 public class Bush extends Scenery implements NoClip, BackGround
@@ -23,15 +21,5 @@ public class Bush extends Scenery implements NoClip, BackGround
                 {
                     "bush 0", "bush 1"
                 });
-    }
-
-    @Override
-    public void doLoopAction()
-    {
-    }
-
-    @Override
-    public void doCharacterCollision(Collision collision, StageObject mapObject)
-    {
     }
 }

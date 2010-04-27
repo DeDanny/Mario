@@ -6,7 +6,9 @@ package mario.mapObjects;
 
 import mario.Stages.Stage;
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import mario.*;
+import mario.Stages.StageMario;
 import mario.core.Collision;
 import mario.core.StageObject;
 
@@ -14,8 +16,8 @@ import mario.core.StageObject;
  *
  * @author Nishchal Baldew
  */
-public class Stone extends Cube {
-
+public class Stone extends Cube
+{
     protected boolean hit = false;
 
     public Stone(Stage game, int x, int y, int width, int height)
@@ -27,15 +29,21 @@ public class Stone extends Cube {
         frames.put("stone 2", new Rectangle(972, 3822, 49, 49));
         frames.put("stone 3", new Rectangle(1023, 3822, 49, 49));
         frameSpeed = 100;
-        setAnimation(new String[]{"stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 1", "stone 2", "stone 3"});
+        setAnimation(new String[]
+                {
+                    "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 0", "stone 1", "stone 2", "stone 3"
+                });
 
     }
 
     @Override
-    public void doLoopAction() {
-        if (hit) {
+    public void doLoopAction()
+    {
+        if (hit)
+        {
             super.doHit();
-            if (getGoinUp() == 20) {
+            if (getGoinUp() == 20)
+            {
                 hit = false;
                 setGoinUp(0);
             }
@@ -43,10 +51,16 @@ public class Stone extends Cube {
     }
 
     @Override
-    public void doCharacterCollision(Collision collision, StageObject charachter) {
-        if (charachter instanceof mario.Stages.StageMario) {
-
-            switch (collision) {
+    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject charachter)
+    {
+        /**
+         * @todo remove tempory fix
+         */
+        Collision collision = collisions.get(0);
+        if (charachter instanceof StageMario)
+        {
+            switch (collision)
+            {
                 case SIDE:
 
                     break;
@@ -60,8 +74,6 @@ public class Stone extends Cube {
 
                     break;
             }
-
         }
-
     }
 }
