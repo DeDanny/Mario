@@ -89,18 +89,18 @@ public class Stage
         for (Iterator<StageObject> it = mapObjects.iterator(); it.hasNext();)
         {
             StageObject mapObject = it.next();
-//            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 || ((mapObject.getY() + mapObject.getHeight() )>= 556 && !(mapObject instanceof ReUse)))
-//            {
-//                if(mapObject instanceof ReUse)
-//                {
-//                    mapObject.setX(800, true);
-//                }
-//                else
-//                {
-//                    it.remove();
-//                    aiDirector.removeObject();
-//                }
-//            }
+            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 ) //|| ((mapObject.getY() + mapObject.getHeight() )>= 556 && !(mapObject instanceof ReUse)))
+            {
+                if(mapObject instanceof ReUse)
+                {
+                    mapObject.setX(800, true);
+                }
+                else
+                {
+                    it.remove();
+                    aiDirector.removeObject();
+                }
+            }
         }
     }
 
