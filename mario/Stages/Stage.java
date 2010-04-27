@@ -7,6 +7,8 @@ import mario.core.AiDirector;
 import mario.core.StageObject;
 import mario.core.interfaces.ReUse;
 import mario.core.engine.Sound;
+import mario.scenery.Ground;
+import mario.scenery.GroundType;
 
 /**
  *
@@ -38,6 +40,10 @@ public class Stage
        
         mapObjects.add(mario);
         mapObjects.add(ScoreBalk);
+        
+        mapObjects.add(new Ground(this, 0, 552, 48,  48, GroundType.LEFT));
+        mapObjects.add(new Ground(this, 48, 552, 192,  48, GroundType.MIDDLE));
+        mapObjects.add(new Ground(this, 240, 552, 48,  48, GroundType.RIGHT));
     }
 
     public StageMario getMario()
@@ -66,18 +72,18 @@ public class Stage
         for (Iterator<StageObject> it = mapObjects.iterator(); it.hasNext();)
         {
             StageObject mapObject = it.next();
-            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 || ((mapObject.getY() + mapObject.getHeight() )>= 556 && !(mapObject instanceof ReUse)))
-            {
-                if(mapObject instanceof ReUse)
-                {
-                    mapObject.setX(800, true);
-                }
-                else
-                {
-                    it.remove();
-                    aiDirector.removeObject();
-                }
-            }
+//            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 || ((mapObject.getY() + mapObject.getHeight() )>= 556 && !(mapObject instanceof ReUse)))
+//            {
+//                if(mapObject instanceof ReUse)
+//                {
+//                    mapObject.setX(800, true);
+//                }
+//                else
+//                {
+//                    it.remove();
+//                    aiDirector.removeObject();
+//                }
+//            }
         }
     }
 
