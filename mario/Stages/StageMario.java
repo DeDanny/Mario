@@ -52,6 +52,11 @@ public class StageMario extends CharacterObject implements NoClip
         this.jumpTeller = jumpTeller;
     }
 
+
+    public void setJumpExtra(boolean jumpExtra) {
+        this.jumpExtra = jumpExtra;
+    }
+
     public StageMario(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/mario_sprite.png");

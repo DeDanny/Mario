@@ -61,6 +61,7 @@ abstract public class StageObject extends GameObject
 
     public abstract void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject);
 
+
     public boolean isFall()
     {
         return fall;

@@ -4,9 +4,11 @@
  */
 package mario.enemy;
 
+
 import mario.ai.Ai;
 import mario.core.CharacterObject;
 import mario.Stages.Stage;
+
 
 /**
  *

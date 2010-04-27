@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mario.enemy;
 
 import java.awt.Rectangle;
@@ -15,7 +14,6 @@ import mario.core.Direction;
 import mario.core.StageObject;
 import mario.scenery.Tube;
 
-
 /**
  *
  * @author Onno
@@ -23,19 +21,19 @@ import mario.scenery.Tube;
 public class Koopa extends Enemy implements NoClip {
 
     private boolean isShell = false;
-    private boolean isMoving = true;
+    private boolean isMoving = false;
 
     public Koopa(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
         init();
     }
+
     public Koopa(Stage game, int x, int y, int width, int height, int pushX, int pushY) {
         super(game, x, y, width, height, pushX, pushY, "/images/smw_enemies_sheet.png");
         init();
     }
 
-    private void init()
-    {
+    private void init() {
         ai = new WalkAi(this);
         frames.put("koopaStandLeft 0", new Rectangle(396, 0, 48, 81));
         frames.put("koopaWalkLeft 0", new Rectangle(276, 0, 48, 81));
@@ -57,18 +55,17 @@ public class Koopa extends Enemy implements NoClip {
 
     @Override
     public void hitBy() {
-
     }
 
     @Override
     public void doMapCollision() {
-            checkCollisionMap();
-            if (mapCollision == Collision.NONE) {
-                setFall(true);
-            }
-            if (mapCollision != Collision.NONE) {
-                setFall(false);
-            }
+        checkCollisionMap();
+        if (mapCollision == Collision.NONE) {
+            setFall(true);
+        }
+        if (mapCollision != Collision.NONE) {
+            setFall(false);
+        }
 
     }
 
@@ -85,32 +82,34 @@ public class Koopa extends Enemy implements NoClip {
         /**
          * @todo remove tempory fix
          */
-        Collision collision =  collisions.get(0);
+        Collision collision = collisions.get(0);
         if (stageObject instanceof mario.Stages.StageMario) {
-            switch (collision) {
-                case UP:
-                    if(!isShell)
-                    {
-                        setHeight(48);
-                        //setY(stageObject.getY() - 33);
-                        ai.setDirection(Direction.NONE);
-                        setAnimation(new String[]{"koopaFlat 0"});
-                        isShell = true;
-                    }
-                    else
-                    {
-                        setAlive(false);
-                        game.getScoreBalk().killEnemy();
-                    }
+            if (collisions.contains(Collision.UP)) {
+                if (!isShell) {
+                    setHeight(48);
+                    //setY(stageObject.getY() - 33);
+                    ai.setDirection(Direction.NONE);
+                    setAnimation(new String[]{"koopaFlat 0"});
+                    isShell = true;
+                }
+            } else if (collisions.contains(Collision.LEFT)) {
+                if (isShell) {
+                    ai.setDirection(Direction.LEFT);
+                    ai.setWALKSPEED(8);
+                    setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
+                    isMoving = true;
+                }
 
-                    break;
-                case SIDE:
-                    if(isShell){
-                        ai.setWALKSPEED(5);
-                        isMoving = true;
-                    }
-                    break;
+            } else if (collisions.contains(Collision.RIGHT)) {
+                if (isShell) {
+                    ai.setDirection(Direction.RIGHT);
+                    ai.setWALKSPEED(8);
+                    setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
+                    isMoving = true;
+                }
             }
+
+
         }
 
 
@@ -118,8 +117,7 @@ public class Koopa extends Enemy implements NoClip {
             switch (collision) {
                 case SIDE:
                     Koopa koopa = (Koopa) stageObject;
-                    if(koopa.isShell() && koopa.isMoving())
-                    {
+                    if (koopa.isShell() && koopa.isMoving()) {
                         setAlive(false);
                         game.getScoreBalk().killEnemy();
                     }
