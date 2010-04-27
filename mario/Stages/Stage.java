@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import mario.Stages.goombasGarden.GoombaGardenStart;
 import mario.core.AiDirector;
+import mario.core.CollisionDetector;
 import mario.core.StageObject;
 import mario.core.interfaces.ReUse;
 import mario.core.engine.Sound;
@@ -23,6 +24,7 @@ public class Stage
     private StageMario mario = new StageMario(this,200, 420, 42, 57);
     private Sound sound = new Sound();
     private MapCompiler mapCompiler = new MapCompiler(this);
+    private CollisionDetector collisionDetector = new CollisionDetector(this);
     private Map map;
 
     //private Background background = new Background(this, 0, 552, 800,  48);
@@ -72,6 +74,8 @@ public class Stage
 
     public void doLoopAction()
     {
+        removeObjects();
+        collisionDetector.detectCollisionsGameObjects();
         removeObjects();
         gameObjectLoopAction();
     }

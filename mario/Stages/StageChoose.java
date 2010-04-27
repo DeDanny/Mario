@@ -11,7 +11,9 @@ package mario.Stages;
  */
 public enum StageChoose {
     CUBE,
-    GROUND,
+    GROUNDLEFT,
+    GROUNDMIDDLE,
+    GROUNDRIGHT,
     CLOUD,
     CELING,
     GOOMBA,
