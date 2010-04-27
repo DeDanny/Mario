@@ -39,7 +39,6 @@ public class Controller implements KeyListener, Runnable
     {
         view = new View(frame, debugger);
         this.frame = frame;
-        collisionDetector = new CollisionDetector(marioWorld);
 
         init();
 
