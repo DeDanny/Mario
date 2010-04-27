@@ -109,15 +109,11 @@ public class StageMario extends CharacterObject implements NoClip {
         } else {
             if (fall) {
                 setState(fallMario);
-                ////System.out.println("fallMario");
+                //System.out.println("fallMario");
             } else {
                 if (jump || jumpExtra) {
                     if (this.state != fallMario || jumpExtra) {
-
                         setState(jumpMario);
-                        if (jumpExtra) {
-                            //System.out.println("jumpXTRA");
-                        }
                         this.jumpExtra = false;
                         // //System.out.println("jumpMario");
                     } else {
@@ -256,8 +252,9 @@ public class StageMario extends CharacterObject implements NoClip {
                         break;
                     case DOWN:
                         game.getSound().playSound("/sound/deadGoomba.wav");
-                        //System.out.println("MARIO EXTRA JUMP");
+                        setFall(false);
                         jumpExtra = true;
+                        jump = true;
                         break;
                 }
             }
@@ -280,13 +277,12 @@ public class StageMario extends CharacterObject implements NoClip {
                                 }
                             }
                         }
-
-                        //System.out.println("MARIO DOOD");
                         break;
                     case DOWN:
                         game.getSound().playSound("/sound/deadGoomba.wav");
-                        //System.out.println("MARIO EXTRA JUMP");
+                        setFall(false);
                         jumpExtra = true;
+                        jump = true;
                         break;
                 }
             }

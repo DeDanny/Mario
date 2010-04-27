@@ -5,6 +5,7 @@
 package mario.enemy;
 
 import java.awt.Rectangle;
+import java.util.ArrayList;
 import mario.core.Collision;
 import mario.core.interfaces.NoClip;
 import mario.Stages.Stage;
@@ -65,9 +66,10 @@ public class Goomba extends Enemy implements NoClip {
 
     }
 
-    public void doCharacterCollision(Collision collision, StageObject mapObject) {
 
-        if (mapObject instanceof mario.Stages.StageMario) {
+    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject) {
+
+        if (stageObject instanceof mario.Stages.StageMario) {
             switch (collision) {
                 case UP:
                     //////System.out.println("Goomba is dead");
@@ -77,10 +79,10 @@ public class Goomba extends Enemy implements NoClip {
             }
         }
 
-        if (mapObject instanceof Koopa) {
+        if (stageObject instanceof Koopa) {
             switch (collision) {
                 case SIDE:
-                    Koopa koopa = (Koopa) mapObject;
+                    Koopa koopa = (Koopa) stageObject;
                     if(koopa.isShell() && koopa.isMoving())
                     {
                         setAlive(false);
@@ -90,7 +92,7 @@ public class Goomba extends Enemy implements NoClip {
             }
         }
 
-        if (mapObject instanceof Tube) {
+        if (stageObject instanceof Tube) {
             switch (collision) {
                 case UP:
                     ai.toggleDirection();
@@ -110,4 +112,5 @@ public class Goomba extends Enemy implements NoClip {
             }
         }
     }
+
 }

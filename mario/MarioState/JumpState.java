@@ -36,7 +36,7 @@ public class JumpState extends MarioState {
 
     @Override
     public void doAction() {
-        if (!marioObject.isPreformingSpecialMove()) {
+        //if (!marioObject.isPreformingSpecialMove()) {
             if (marioObject.isLeft() && !marioObject.isRight()) {
                 doLeft();
             } else if (marioObject.isRight() && !marioObject.isLeft()) {
@@ -47,9 +47,9 @@ public class JumpState extends MarioState {
                 setAnimationRight();
             }
             doJumping();
-        } else {
-            marioObject.setJump(false);
-        }
+        //} else {
+        //    marioObject.setJump(false);
+        //}
     }
 
     private void doLeft() {
@@ -83,13 +83,14 @@ public class JumpState extends MarioState {
     private void doJumping() {
 
         jumpHeight = 12;
-        if (marioObject.getJumpTeller() > 10) {
-            jumpHeight++;
+        if (marioObject.getJumpTeller() < 10) {
+        }else{
+            //jumpHeight--;
         }
 
         if (marioObject.getJumpTeller() < 20) {
             while (marioObject.checkCollisionMap(marioObject.getX(), marioObject.getY() - jumpHeight) != Collision.NONE && jumpHeight != 0) {
-                jumpHeight--;
+               jumpHeight--;
                 //System.out.println("jumpHeight = " + jumpHeight);
             }
 
@@ -98,11 +99,10 @@ public class JumpState extends MarioState {
 
             marioObject.setJumpTeller(marioObject.getJumpTeller() + 1);
 
-            //System.out.println("teller " + jumpTeller);
+            System.out.println("teller " + jumpHeight + " " +marioObject.getJumpTeller());
         } else {
             marioObject.setJump(false);
             marioObject.setFall(true);
-            //System.out.println("set jump false yippykayeay");
             marioObject.setJumpTeller(0);
         }
     }

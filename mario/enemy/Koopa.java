@@ -87,7 +87,7 @@ public class Koopa extends Enemy implements NoClip {
                     if(!isShell)
                     {
                         setHeight(48);
-                        setY(stageObject.getY() - 33);
+                        //setY(stageObject.getY() - 33);
                         ai.setDirection(Direction.NONE);
                         setAnimation(new String[]{"koopaFlat 0"});
                         isShell = true;

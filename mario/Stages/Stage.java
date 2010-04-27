@@ -9,6 +9,7 @@ import mario.core.CollisionDetector;
 import mario.core.StageObject;
 import mario.core.interfaces.ReUse;
 import mario.core.engine.Sound;
+import mario.enemy.Goomba;
 import mario.enemy.Koopa;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
@@ -50,11 +51,12 @@ public class Stage
         mapObjects.add(new Ground(this, 48, 552, 192,  48, GroundType.MIDDLE, Theme.NORMAL));
         mapObjects.add(new Ground(this, 240, 552, 48,  48, GroundType.RIGHT, Theme.NORMAL));
 
-        mapObjects.add(new Ground(this, 400, 552, 48,  48, GroundType.LEFT, Theme.JUNGLE));
-        mapObjects.add(new Ground(this, 448, 552, 192,  48, GroundType.MIDDLE, Theme.JUNGLE));
-        mapObjects.add(new Ground(this, 640, 552, 48,  48, GroundType.RIGHT, Theme.JUNGLE));
+        mapObjects.add(new Ground(this, 300, 552, 48,  48, GroundType.LEFT, Theme.JUNGLE));
+        mapObjects.add(new Ground(this, 348, 552, 192,  48, GroundType.MIDDLE, Theme.JUNGLE));
+        mapObjects.add(new Ground(this, 540, 552, 48,  48, GroundType.RIGHT, Theme.JUNGLE));
 
-        mapObjects.add(new Koopa(this, 230, 400, 48,  81));
+        mapObjects.add(new Koopa(this, 330, 400, 48,  81));
+        mapObjects.add(new Goomba(this, 390, 400, 48,  81));
     }
 
     public StageMario getMario()
