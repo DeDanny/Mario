@@ -75,7 +75,7 @@ public class CollisionDetector
                                 collisionsCharacter.add(Collision.LEFT);
                                 collisionsCharacterLoop.add(Collision.RIGHT);
                             }
-                            else
+                            else 
                             {
                                 collisionsCharacter.add(Collision.RIGHT);
                                 collisionsCharacterLoop.add(Collision.LEFT);
