@@ -18,7 +18,7 @@ import mario.core.interfaces.NoClip;
 public class Ground extends StageObject{
 
     int yAs = 0;
-
+    // Stappen van 28 maken
     public Ground(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/groundObjects.png");
