@@ -7,6 +7,7 @@ package mario.Stages;
 import java.util.ArrayList;
 import mario.core.StageObject;
 import mario.enemy.Goomba;
+import mario.enemy.Koopa;
 
 /**
  *
@@ -21,17 +22,34 @@ public class MapCompiler
         this.stage = stage;
     }
 
-    public void compile(StageChoose[] stageChooseds)
+    public void addObject(StageChoose[] stageChooseds)
+    {
+        ArrayList<StageObject> MapObjects = compile(stageChooseds);
+        if (MapObjects != null)
+        {
+            for (StageObject mapObject : MapObjects)
+            {
+
+                stage.addMapObject(mapObject);
+            }
+        }
+    }
+
+    public ArrayList<StageObject> compile(StageChoose[] stageChooseds)
     {
         ArrayList<StageObject> mapObjectenList = new ArrayList<StageObject>();
         for (StageChoose stageChoose : stageChooseds)
         {
             switch (stageChoose)
             {
-                case GROUND:
+                case GOOMBA:
                     mapObjectenList.add(new Goomba(stage, 900, 500, 45, 51, 15, 15));
+                    break;
+                case KOOPA:
+                    mapObjectenList.add(new Koopa(stage, 900, 500, 45, 51, 15, 15));
                     break;
             }
         }
+        return mapObjectenList;
     }
 }

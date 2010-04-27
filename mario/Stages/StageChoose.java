@@ -15,6 +15,7 @@ public enum StageChoose {
     CLOUD,
     CELING,
     GOOMBA,
+    KOOPA,
     COIN,
     SMALLMUSSCHROOM,
     TUBE,
