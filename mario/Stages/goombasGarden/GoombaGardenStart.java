@@ -12,5 +12,8 @@ import mario.Stages.Map;
  */
 public class GoombaGardenStart extends Map
 {
-    
+    public GoombaGardenStart(String theme, int[] map)
+    {
+        super(theme, map);
+    }
 }

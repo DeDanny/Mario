@@ -5,10 +5,16 @@
 
 package mario.Stages.goombasGarden;
 
+import mario.Stages.Map;
+
 /**
  *
  * @author danny
  */
-public class GoombaGardenEnd {
-
+public class GoombaGardenEnd extends Map {
+    
+    public GoombaGardenEnd(String theme, int[] map)
+    {
+        super(theme, map);
+    }
 }
