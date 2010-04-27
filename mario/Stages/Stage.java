@@ -3,6 +3,7 @@ package mario.Stages;
 import mario.core.KeyButtons;
 import java.util.ArrayList;
 import java.util.Iterator;
+import mario.Stages.goombasGarden.GoombaGardenStart;
 import mario.core.AiDirector;
 import mario.core.StageObject;
 import mario.core.interfaces.ReUse;
@@ -89,7 +90,9 @@ public class Stage
 
      private void gameObjectLoopAction()
     {
-         aiDirector.createMapObjects();
+
+         addObjects();
+         //aiDirector.createMapObjects();
 
         for (StageObject stageObject : mapObjects)
         {
@@ -151,7 +154,10 @@ public class Stage
 
     public void setStage(String stageName)
     {
-        
+       if(stageName.equals("yoshi's house"))
+       {
+                map = new GoombaGardenStart(stageName);
+       }
     }
 
     public void addObjects()

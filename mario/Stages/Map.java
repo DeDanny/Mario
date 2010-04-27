@@ -22,6 +22,13 @@ public abstract class Map
         this.theme = theme;
     }
 
+    public StageChoose[] getObjectsByStepCounter(int steps)
+    {
+        StageChoose[] stageChoose = new StageChoose[]{};
+        stageChoose = testMap.get(steps);
+        return stageChoose;
+    }
+
     public abstract void startGame();
 
     public abstract void endgame();
