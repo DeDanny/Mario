@@ -47,9 +47,9 @@ public class Stage
         mapObjects.add(mario);
         mapObjects.add(ScoreBalk);
         
-        mapObjects.add(new Ground(this, 0, 552, 48,  48, GroundType.LEFT, Theme.NORMAL));
-        mapObjects.add(new Ground(this, 48, 552, 192,  48, GroundType.MIDDLE, Theme.NORMAL));
-        mapObjects.add(new Ground(this, 240, 552, 48,  48, GroundType.RIGHT, Theme.NORMAL));
+        mapObjects.add(new Ground(this, 0, 552, 48,  48, GroundType.LEFT, Theme.STONE));
+        mapObjects.add(new Ground(this, 48, 552, 192,  48, GroundType.MIDDLE, Theme.STONE));
+        mapObjects.add(new Ground(this, 240, 552, 48,  48, GroundType.RIGHT, Theme.STONE));
 
         mapObjects.add(new Ground(this, 300, 552, 48,  48, GroundType.LEFT, Theme.JUNGLE));
         mapObjects.add(new Ground(this, 348, 552, 192,  48, GroundType.MIDDLE, Theme.JUNGLE));
