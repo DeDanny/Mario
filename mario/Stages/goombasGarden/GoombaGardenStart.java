@@ -49,6 +49,7 @@ public class GoombaGardenStart extends Map
     public void startGame()
     {
         System.out.println("Start nieuw game");
+        
     }
 
     @Override
