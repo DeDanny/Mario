@@ -16,8 +16,8 @@ import mario.Stages.StageMario;
 public class MarioFireballAi extends Ai {
 
     private boolean goingUp = false;
-    private int upsize = 3;
-    private int fallsize = 3;
+    private int upsize = 2;
+    private int fallsize = 2;
     private int upTeller;
 
     public MarioFireballAi(StageObject mapObject) {

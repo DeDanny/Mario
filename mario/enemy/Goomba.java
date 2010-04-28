@@ -118,6 +118,7 @@ public class Goomba extends Enemy implements NoClip {
         }
         if (stageObject instanceof Fireball) {
             setAlive(false);
+            stage.getScoreBalk().killEnemy();
         }
     }
 }

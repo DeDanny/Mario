@@ -42,8 +42,6 @@ public class Fireball extends Weapon implements NoClip {
 
     @Override
     public void doMapCollision() {
-
-
         checkCollisionMap();
         if (mapCollision == Collision.NONE) {
             setFall(true);

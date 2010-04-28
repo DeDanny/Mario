@@ -19,23 +19,21 @@ public class DeadState extends MarioState
 
     public DeadState(StageMario gameObject) {
         super(gameObject);
+        marioObject.setHeight(72);
     }
 
     @Override
     public void doAction() {
         super.setAnimation(death);
+        
         if (heightTeller < 20) {
             marioObject.setY(marioObject.getY() - WALKSPEED, true);
             heightTeller++;
         }
         else if(heightTeller < 40)
-        {
+        {       
             marioObject.setY(marioObject.getY() + WALKSPEED, true);
             heightTeller++;
-        }
-        else
-        {
-
         }
         //System.out.println(heightTeller);
     }

@@ -38,6 +38,8 @@ public class Stage {
     private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 1, 1);
     private ArrayList<StageObject> mapObjects = new ArrayList<StageObject>();
     private boolean resetMap = true;
+    private long fireBallTimer = System.currentTimeMillis();
+    private int fireBallTime = 500;
 
     public Stage(MarioWorld marioWorld) {
         this.marioWorld = marioWorld;
@@ -127,8 +129,11 @@ public class Stage {
             mario.setDown(setter);
         }
         if (keyPressed.contains(KeyButtons.SHOOT)) {
-            if (setter == true && mario.isFlowerPower()) {
-                getMapObjects().add(new Fireball(this, mario.getX() - 2, mario.getY(), 12, 12, mario.getDirection()));
+            if ((System.currentTimeMillis() - fireBallTimer) > fireBallTime) {
+                if (setter == true && mario.isFlowerPower()) {
+                    fireBallTimer = System.currentTimeMillis();
+                    getMapObjects().add(new Fireball(this, mario.getX() - 2, mario.getY() + 20, 12, 12, mario.getDirection()));
+                }
             }
         }
     }
@@ -173,7 +178,7 @@ public class Stage {
         mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
         mapObjects.add(new Flower(this, 348, 301, 42, 48));
         mapObjects.add(new Tube(this, 0, 456, 96, 96));
-        mapObjects.add(new Fireball(this, 500, 500, 11, 12, Direction.LEFT));
+       
 
         resetMap = false;
     }

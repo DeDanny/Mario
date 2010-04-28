@@ -42,7 +42,7 @@ public class StageMario extends CharacterObject implements NoClip
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
     private GrowMario growMario = new GrowMario(this);
-    private DeadState deadMario = new DeadState(this);
+    private DeadState deadState = new DeadState(this);
     protected int jumpTeller = 1;
     private int stepCounter = 0;
 
@@ -57,13 +57,17 @@ public class StageMario extends CharacterObject implements NoClip
     public void doLoopAction()
     {
         if(init){
+            // Do this to change coordinates for Big mario - Normal or Flower
             init();
             init = false;
         }
-        
+
+        checkGap();
+
+
         if (dead)
         {
-            setState(deadMario);
+            setState(deadState);
         }
         else
         {
@@ -191,6 +195,11 @@ public class StageMario extends CharacterObject implements NoClip
         }
     }
 
+    public void checkGap(){
+        if(getY() >= 552){
+            setDead(true);
+        }
+    }
     public boolean isMove()
     {
         return (left || right);
