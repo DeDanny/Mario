@@ -18,7 +18,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.swing.JFrame;
-import mario.StageSelector.Node;
+import mario.core.Node;
 import mario.Stages.Stage;
 import mario.Stages.StageMario;
 import mario.core.interfaces.BackGround;
@@ -118,13 +118,16 @@ public class View
             if (gameObject instanceof StageMario) //filter out the mario
             {
                 gameObjectMario = gameObject;
-            } else if (gameObject instanceof ForeGround) //filter out foreground elements
+            }
+            else if (gameObject instanceof ForeGround) //filter out foreground elements
             {
                 gameObjectForeGround.add(gameObject);
-            } else if (gameObject instanceof BackGround) //filter out background elements
+            }
+            else if (gameObject instanceof BackGround) //filter out background elements
             {
                 gameObjectBackGround.add(gameObject);
-            } else //collect the rest
+            }
+            else //collect the rest
             {
                 gameObjectMiddleGround.add(gameObject);
             }
@@ -138,7 +141,10 @@ public class View
         {
             gameObject.draw(graphics);
         }
-        gameObjectMario.draw(graphics);
+        if (gameObjectMario != null)
+        {
+            gameObjectMario.draw(graphics);
+        }
         for (GameObject gameObject : gameObjectForeGround)
         {
             gameObject.draw(graphics);

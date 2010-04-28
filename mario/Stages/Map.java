@@ -4,8 +4,10 @@
  */
 package mario.Stages;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import mario.MarioWorld;
+import mario.core.Node;
 
 /**
  *
@@ -16,8 +18,8 @@ public abstract class Map
     protected String theme;
     protected MarioWorld marioWorld;
     protected boolean disableInpute = false;
-
     protected HashMap<Integer, StageChoose[]> map = new HashMap<Integer, StageChoose[]>();
+    protected ArrayList<Node> nodes;
 
     public Map(MarioWorld marioWorld, String theme)
     {
@@ -27,7 +29,9 @@ public abstract class Map
 
     public StageChoose[] getObjectsByStepCounter(int steps)
     {
-        StageChoose[] stageChoose = new StageChoose[]{};
+        StageChoose[] stageChoose = new StageChoose[]
+        {
+        };
         stageChoose = map.get(steps);
         return stageChoose;
     }
@@ -38,4 +42,8 @@ public abstract class Map
 
     public abstract void finishgame();
 
+    public boolean isDisableInpute()
+    {
+        return disableInpute;
+    }
 }

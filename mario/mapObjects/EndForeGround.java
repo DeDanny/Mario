@@ -35,9 +35,8 @@ public class EndForeGround extends Scenery implements NoClip, ForeGround
     {
         if(stageObject instanceof StageMario)
         {
-            System.out.println("END THE GAME");
-            
-            stage.getMap().endgame();
+           
+            stage.getMap().finishgame();
         }
     }
 }

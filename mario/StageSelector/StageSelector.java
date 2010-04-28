@@ -4,6 +4,7 @@
  */
 package mario.StageSelector;
 
+import mario.core.Node;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import mario.MarioData;
@@ -69,8 +70,9 @@ public class StageSelector extends GameObject
         {
             if (confirm == true)
             {
-                confirm = false;
                 marioWorld.setStage(nodes.get(marioData.getNode()).getStageName());
+                confirm = false;
+                
                 marioWorld.setWhatcha(Doing.PLAYING);
             }
             if (left == true)

@@ -7,6 +7,7 @@ package mario.Stages.goombasGarden;
 import mario.MarioWorld;
 import mario.Stages.Map;
 import mario.Stages.StageChoose;
+import mario.core.Doing;
 
 /**
  * size of GROUNDLEFT   = 9
@@ -46,6 +47,7 @@ public class GoombaGardenStart extends Map
     @Override
     public void startGame()
     {
+        
     }
 
     @Override
@@ -53,12 +55,13 @@ public class GoombaGardenStart extends Map
     {
         //marioWorld.getStage().setMap("yoshi's house end");
         marioWorld.getStage().setMap("yoshi's house");
+        disableInpute = false;
         //marioWorld.setWhatcha(Doing.SELECTSTAGE);
     }
 
     @Override
     public void finishgame()
     {
-        
+        disableInpute = true;
     }
 }

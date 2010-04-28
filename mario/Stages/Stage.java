@@ -39,7 +39,7 @@ public class Stage
     {
         this.marioWorld = marioWorld;
         //sound.playSound("/sound/theme.wav");
-        resetMap();
+        //resetMap();
     }
 
     public StageMario getMario()
@@ -111,15 +111,20 @@ public class Stage
 
     public void handlePressedKeys(ArrayList<KeyButtons> keyPressed)
     {
-        boolean setter = true;
-        handleKeys(keyPressed, setter);
-
+        if(!map.isDisableInpute())
+        {
+            boolean setter = true;
+            handleKeys(keyPressed, setter);
+        }
     }
 
     public void handleReleasedKeys(ArrayList<KeyButtons> keyPressed)
     {
-        boolean setter = false;
-        handleKeys(keyPressed, setter);
+        if(!map.isDisableInpute())
+        {
+            boolean setter = false;
+            handleKeys(keyPressed, setter);
+        }
     }
 
     private void handleKeys(ArrayList<KeyButtons> keyPressed, boolean setter)
@@ -162,11 +167,13 @@ public class Stage
     private void resetMap()
     {
         mapObjects.clear();
+        mapObjects.add(mario);
+        mapObjects.add(ScoreBalk);
+        
+        map.startGame();
         mario.setX(200, true);
         mario.setY(420,true);
         mario.setStepCounter(0);
-        mapObjects.add(mario);
-        mapObjects.add(ScoreBalk);
 
         mapObjects.add(new Ground(this, 0, 552, 48, 48, GroundType.LEFT, Theme.NORMAL));
         mapObjects.add(new Ground(this, 48, 552, 192, 48, GroundType.MIDDLE, Theme.NORMAL));
