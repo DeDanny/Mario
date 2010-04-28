@@ -116,10 +116,10 @@ public class Mushroom extends Powerup implements NoClip
         {
             if (hadCollision)
             {
-                if (!game.getMario().isBig())
+                if (!stage.getMario().isBig())
                 {
                     setAlive(false);
-                    game.getMario().setGrow(true);
+                    stage.getMario().setGrow(true);
                 }
             }
         }

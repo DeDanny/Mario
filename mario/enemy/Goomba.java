@@ -77,7 +77,7 @@ public class Goomba extends Enemy implements NoClip {
                 case UP:
                     //////System.out.println("Goomba is dead");
                     setAlive(false);
-                    game.getScoreBalk().killEnemy();
+                    stage.getScoreBalk().killEnemy();
                     break;
             }
         }
@@ -87,7 +87,7 @@ public class Goomba extends Enemy implements NoClip {
                 Koopa koopa = (Koopa) stageObject;
                 if (koopa.isShell() && koopa.isMoving()) {
                     setAlive(false);
-                    game.getScoreBalk().killEnemy();
+                    stage.getScoreBalk().killEnemy();
                 }
             }
         }

@@ -189,7 +189,7 @@ public class StageMario extends CharacterObject implements NoClip
     public void setJump(boolean jump)
     {
         this.jump = jump;
-        game.getSound().playSound("/sound/jump.wav");
+        stage.getSound().playSound("/sound/jump.wav");
     }
 
     public void setDown(boolean down)
@@ -228,7 +228,7 @@ public class StageMario extends CharacterObject implements NoClip
     public void setGrow(boolean grow)
     {
         this.grow = grow;
-        game.getSound().playSound("/sound/grow.wav");
+        stage.getSound().playSound("/sound/grow.wav");
     }
 
     public boolean isLeft()
@@ -309,21 +309,21 @@ public class StageMario extends CharacterObject implements NoClip
                         }
                         else
                         {
-                            if (game.getScoreBalk().getLives() > 1)
+                            if (stage.getScoreBalk().getLives() > 1)
                             {
 
-                                game.getScoreBalk().setLives(game.getScoreBalk().getLives() - 1);
+                                stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
                                 godModeTimer = System.currentTimeMillis();
                             }
                             else
                             {
-                                game.getSound().playSound("/sound/dead.wav");
+                                stage.getSound().playSound("/sound/dead.wav");
                             }
                         }
                         //System.out.println("MARIO DOOD");
                         break;
                     case DOWN:
-                        game.getSound().playSound("/sound/deadGoomba.wav");
+                        stage.getSound().playSound("/sound/deadGoomba.wav");
                         setFall(false);
                         jumpExtra = true;
                         jump = true;
@@ -346,21 +346,21 @@ public class StageMario extends CharacterObject implements NoClip
                             }
                             else
                             {
-                                if (game.getScoreBalk().getLives() > 1)
+                                if (stage.getScoreBalk().getLives() > 1)
                                 {
 
-                                    game.getScoreBalk().setLives(game.getScoreBalk().getLives() - 1);
+                                    stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
                                     godModeTimer = System.currentTimeMillis();
                                 }
                                 else
                                 {
-                                    game.getSound().playSound("/sound/dead.wav");
+                                    stage.getSound().playSound("/sound/dead.wav");
                                 }
                             }
                         }
                         break;
                     case DOWN:
-                        game.getSound().playSound("/sound/deadGoomba.wav");
+                        stage.getSound().playSound("/sound/deadGoomba.wav");
                         setFall(false);
                         jumpExtra = true;
                         jump = true;

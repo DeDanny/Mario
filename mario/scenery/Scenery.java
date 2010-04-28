@@ -15,9 +15,9 @@ import mario.core.StageObject;
  */
 abstract public class Scenery extends StageObject
 {
-    public Scenery(Stage game, int x, int y, int width, int height, String sprite)
+    public Scenery(Stage stage, int x, int y, int width, int height, String sprite)
     {
-        super(game, x, y, width, height, sprite);
+        super(stage, x, y, width, height, sprite);
     }
 
     @Override

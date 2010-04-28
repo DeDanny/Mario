@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import mario.core.StageObject;
 import mario.enemy.Goomba;
 import mario.enemy.Koopa;
+import mario.mapObjects.EndBackGround;
+import mario.mapObjects.EndForeGround;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
 import mario.scenery.Theme;
@@ -62,6 +64,10 @@ public class MapCompiler
                     break;
                 case GROUNDRIGHT:
                     mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.RIGHT, Theme.NORMAL));
+                    break;
+                case END:
+                    mapObjectenList.add(new EndBackGround(stage, 800, 438, 48, 48));
+                    mapObjectenList.add(new EndForeGround(stage, 850, 438, 48, 48));
                     break;
             }
         }
