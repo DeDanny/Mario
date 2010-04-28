@@ -4,12 +4,12 @@
  */
 package mario.Stages;
 
-import mario.Stages.Stage;
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+import mario.MarioWorld;
 import mario.core.Collision;
 import mario.core.StageObject;
 import mario.core.interfaces.Static;
@@ -27,7 +27,7 @@ public class ScoreBalk extends StageObject implements Static
     private int lives = 3;
     private int coins;
 
-    public ScoreBalk(Stage game, int x, int y, int width, int height)
+    public ScoreBalk(Stage game, MarioWorld marioWorld ,int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("muntje", new Rectangle(457, 167, 45, 48));
