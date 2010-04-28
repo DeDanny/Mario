@@ -163,10 +163,10 @@ public class Stage {
 
         mapObjects.add(new Ground(this, 300, 552, 48, 48, GroundType.LEFT, map.getTheme()));
         mapObjects.add(new Ground(this, 348, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 348 + 48, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 348 + (48 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 348 + (48 * 3), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 540 + (48 * 3), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
+        mapObjects.add(new Ground(this, 348 + 192, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+        mapObjects.add(new Ground(this, 348 + (192 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+        mapObjects.add(new Ground(this, 348 + (192 * 3), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+        mapObjects.add(new Ground(this, 540 + (192 * 3), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
 
         //mapObjects.add(new Koopa(this, 330, 400, 48, 81));
         mapObjects.add(new Goomba(this, 500, 400, 48, 47));

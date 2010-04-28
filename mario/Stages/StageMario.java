@@ -400,16 +400,19 @@ public class StageMario extends CharacterObject implements NoClip
                         }
                         else
                         {
-                            if (stage.getScoreBalk().getLives() > 1)
-                            {
-                                dead = true;
-                                stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
-                                godModeTimer = System.currentTimeMillis();
-                            }
-                            else
-                            {
-                                dead = true;
-                                stage.getSound().playSound("/sound/dead.wav");
+                            Goomba goomba = (Goomba) mapObject;
+                            if(!goomba.isDead()){
+                                if (stage.getScoreBalk().getLives() > 1)
+                                {
+                                    dead = true;
+                                    stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
+                                    godModeTimer = System.currentTimeMillis();
+                                }
+                                else
+                                {
+                                    dead = true;
+                                    stage.getSound().playSound("/sound/dead.wav");
+                                }
                             }
                         }
                         //System.out.println("MARIO DOOD");
@@ -438,6 +441,7 @@ public class StageMario extends CharacterObject implements NoClip
                             }
                             else
                             {
+                                 if(!koopa.isDead()){
                                 if (stage.getScoreBalk().getLives() > 1)
                                 {
                                     // Go to start of level
@@ -452,6 +456,7 @@ public class StageMario extends CharacterObject implements NoClip
                                     dead = true;
                                     stage.getSound().playSound("/sound/dead.wav");
                                 }
+                                 }
                             }
                         }
                         break;
