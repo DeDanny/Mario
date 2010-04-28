@@ -206,7 +206,7 @@ public class Stage
         //mapObjects.add(new Koopa(this, 500, 400, 48, 81));
         //mapObjects.add(new Koopa(this, 400, 400, 48, 81));
         //mapObjects.add(new Goomba(this, 500, 400, 48, 47));
-        mapObjects.add(new Goomba(this, 400, 400, 48, 47));
+        //mapObjects.add(new Goomba(this, 400, 400, 48, 47));
 
 
         //mapObjects.add(new Questionmark(this, 300, 350, 45, 45));

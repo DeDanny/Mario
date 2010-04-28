@@ -32,19 +32,37 @@ public class GoombaGardenStart extends Map
         //map.put(38 * 3, new StageChoose[]{StageChoose.GROUNDRIGHT});
 
 
-        map.put(12 * 3, new StageChoose[]
-                {
-                    StageChoose.GROUNDLEFT, StageChoose.GOOMBA
-                });
-        map.put(12 * 4, new StageChoose[]
-                {
-                    StageChoose.GROUNDMIDDLE
-                });
-         map.put(12 * 8, new StageChoose[]
-                {
-                    StageChoose.GROUNDRIGHT
-                });
+        map.put(12 * 3, new StageChoose[]{StageChoose.GROUNDLEFT, StageChoose.CLOUD});
+        map.put(12 * 4, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.BUSH});
+        map.put(12 * 8, new StageChoose[]{StageChoose.GROUNDRIGHT});
 
+        map.put(12 * 10, new StageChoose[]{StageChoose.GROUNDLEFT, StageChoose.CLOUD});
+        map.put(12 * 11, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(12 * 15, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.BUSH});
+        map.put(12 * 19, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA});
+        map.put(12 * 23, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD});
+        map.put(12 * 27, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});
+
+        map.put(12 * 30, new StageChoose[]{StageChoose.GROUNDLEFT});
+        map.put(12 * 31, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD});
+        map.put(12 * 35, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.TUBE, StageChoose.CLOUD});
+        map.put(12 * 39, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(12 * 43, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD, StageChoose.POWERUP});
+        map.put(12 * 47, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});
+
+        map.put(12 * 50, new StageChoose[]{StageChoose.GROUNDLEFT});
+        map.put(12 * 51, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD});
+        map.put(12 * 55, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.TUBE, StageChoose.CLOUD, StageChoose.BUSH});
+        map.put(12 * 59, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(12 * 63, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD, StageChoose.BUSH, StageChoose.POWERUP});
+        map.put(12 * 67, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});
+
+        map.put(12 * 70, new StageChoose[]{StageChoose.GROUNDLEFT});
+        map.put(12 * 71, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD});
+        map.put(12 * 75, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.TUBE, StageChoose.CLOUD});
+        map.put(12 * 79, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(12 * 83, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD, StageChoose.BUSH , StageChoose.POWERUP});
+        map.put(12 * 87, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});
 
 
 
