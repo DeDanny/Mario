@@ -30,7 +30,7 @@ public class DeadState extends MarioState
             marioObject.setY(marioObject.getY() - WALKSPEED, true);
             heightTeller++;
         }
-        else if(heightTeller < 40)
+        else
         {       
             marioObject.setY(marioObject.getY() + WALKSPEED, true);
             heightTeller++;
