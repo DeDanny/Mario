@@ -58,7 +58,7 @@ public class Fireball extends Weapon implements NoClip {
 
     @Override
     public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject) {
-        if (stageObject instanceof Tube || stageObject instanceof Enemy) {
+        if (stageObject instanceof Tube || stageObject instanceof Enemy || stageObject instanceof Cube) {
             setAlive(false);
         }
     }
