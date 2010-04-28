@@ -12,11 +12,8 @@ import mario.core.StageObject;
 import mario.core.interfaces.ReUse;
 import mario.core.engine.Sound;
 import mario.enemy.Goomba;
-import mario.mapObjects.Flower;
-import mario.mapObjects.Questionmark;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
-import mario.scenery.Tube;
 import mario.weapons.Fireball;
 
 /**
