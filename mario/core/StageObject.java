@@ -133,7 +133,7 @@ abstract public class StageObject extends GameObject
                 if (characterObjectLoop instanceof StageMario)
                 {
                     StageMario mario = (StageMario) characterObjectLoop;
-                    mario.setStepCounter(mario.getStepCounter() + i);
+                    mario.setStepCounter(mario.getStepCounter() + 1);
                 }
                 characterObjectLoop.setX(characterObjectLoop.getX() - i, true);
             }
