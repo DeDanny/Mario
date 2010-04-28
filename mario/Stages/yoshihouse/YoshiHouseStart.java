@@ -1,15 +1,13 @@
-
-package mario.Stages.goombasGarden;
-
-/**
- *
- * @author danny
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
+package mario.Stages.yoshihouse;
+
 import java.awt.Color;
 import mario.MarioWorld;
 import mario.Stages.Map;
 import mario.Stages.StageChoose;
-import mario.core.Doing;
 import mario.core.StageEndNode;
 import mario.scenery.Theme;
 
@@ -21,11 +19,11 @@ import mario.scenery.Theme;
  *
  * @author danny
  */
-public class GoombaGardenstart extends Map
+public class YoshiHouseStart extends Map
 {
-    public GoombaGardenstart(MarioWorld marioWorld)
+    public YoshiHouseStart(MarioWorld marioWorld)
     {
-        super(marioWorld, Theme.JUNGLE, new Color(102, 133, 6));
+        super(marioWorld, Theme.NORMAL, new Color(107, 136, 255));
         nodes.add(new StageEndNode(550, 400));
 
         //map.put(38 * 1, new StageChoose[]{StageChoose.GROUNDLEFT});
@@ -96,7 +94,7 @@ public class GoombaGardenstart extends Map
         //marioWorld.getStage().setMap("yoshi's house end");
         marioWorld.getStage().setMap("yoshi's house");
         disableInpute = false;
-        marioWorld.setWhatcha(Doing.SELECTSTAGE);
+        //marioWorld.setWhatcha(Doing.SELECTSTAGE);
     }
 
     @Override

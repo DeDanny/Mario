@@ -57,7 +57,7 @@ public class StageSelectorMario extends GameObject
 
         frames.put("smallMarioWalkLeft 0", new Rectangle(150, 0, 45, 57));
         frames.put("smallMarioWalkLeft 1", new Rectangle(507, 0, 42, 60));
-        frameSpeed = 100;
+        frameSpeed = 900;
         setAnimation(standAnimation);
     }
 

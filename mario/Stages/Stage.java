@@ -4,8 +4,10 @@ import mario.core.KeyButtons;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.MarioWorld;
-import mario.Stages.goombasGarden.GoombaGardenEnd;
-import mario.Stages.goombasGarden.GoombaGardenStart;
+import mario.Stages.goombasGarden.GoombaGardenstart;
+import mario.Stages.waterfall.WaterFallStart;
+import mario.Stages.yoshihouse.GoombaGardenEnd;
+import mario.Stages.yoshihouse.YoshiHouseStart;
 import mario.core.AiDirector;
 import mario.core.CollisionDetector;
 import mario.core.Doing;
@@ -170,11 +172,19 @@ public class Stage
     {
         if (stageName.equals("yoshi's house"))
         {
-            map = new GoombaGardenStart(marioWorld);
+            map = new YoshiHouseStart(marioWorld);
         }
         if (stageName.equals("yoshi's house end"))
         {
             map = new GoombaGardenEnd(marioWorld);
+        }
+        if (stageName.equals("Waterfall World"))
+        {
+            map = new WaterFallStart(marioWorld);
+        }
+        if (stageName.equals("Goomba's garden"))
+        {
+            map = new GoombaGardenstart(marioWorld);
         }
 
         resetMap = true;
@@ -215,7 +225,6 @@ public class Stage
         //mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
         //mapObjects.add(new Flower(this, 348, 301, 42, 48));
         //mapObjects.add(new Tube(this, 0, 456, 96, 96));
-
 
         resetMap = false;
     }
