@@ -104,9 +104,8 @@ public class Stage
         }
     }
 
-     private void gameObjectLoopAction()
+    private void gameObjectLoopAction()
     {
-
         addObjects();
         for (StageObject stageObject : mapObjects)
         {

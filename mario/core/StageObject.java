@@ -170,6 +170,16 @@ abstract public class StageObject extends GameObject
         }
     }
 
+    public void setY(int y, boolean override)
+    {
+        if (override)
+        {
+            y_last = this.y;
+            this.y = y;
+        }
+    }
+
+
     public int getXLast()
     {
         return x_last;
