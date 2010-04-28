@@ -20,32 +20,43 @@ import mario.scenery.Theme;
  */
 public class GoombaGardenStart extends Map
 {
+   
     public GoombaGardenStart(MarioWorld marioWorld)
     {
         super(marioWorld, Theme.NORMAL, new Color(107, 136, 255));
         // ALWAYS PUT TOGETHER
         // TUBE - GROUNDMIDDLE
 
-        map.put(38 * 1, new StageChoose[]{StageChoose.GROUNDLEFT});
-        map.put(38 * 2, new StageChoose[]{StageChoose.GROUNDMIDDLE});
-        map.put(38 * 3, new StageChoose[]{StageChoose.GROUNDRIGHT});
+        //map.put(38 * 1, new StageChoose[]{StageChoose.GROUNDLEFT});
+        //map.put(38 * 2, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        //map.put(38 * 3, new StageChoose[]{StageChoose.GROUNDRIGHT});
 
 
-        map.put(10, new StageChoose[]
+        map.put(12 * 3, new StageChoose[]
                 {
-                    StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA
+                    StageChoose.GROUNDLEFT, StageChoose.GOOMBA
                 });
-        map.put(48, new StageChoose[]
+        map.put(12 * 4, new StageChoose[]
                 {
                     StageChoose.GROUNDMIDDLE
                 });
+         map.put(12 * 8, new StageChoose[]
+                {
+                    StageChoose.GROUNDRIGHT
+                });
+
+
+
+
+
+
         map.put(49, new StageChoose[]
                 {
                     //StageChoose.END
                 });
         map.put(86, new StageChoose[]
                 {
-                    StageChoose.GROUNDRIGHT
+                   // StageChoose.GROUNDRIGHT
                 });
     }
 

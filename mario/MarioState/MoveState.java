@@ -13,7 +13,7 @@ import mario.Stages.StageMario;
  */
 abstract public class MoveState extends MarioState {
 
-    protected static final int WALKSPEED = 5;
+    protected static final int WALKSPEED = 4;
     protected String[] RightAnimation;
     protected String[] LeftAnimation;
     protected String[] StandLeft;
