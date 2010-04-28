@@ -34,7 +34,7 @@ public class Stage
     private CollisionDetector collisionDetector = new CollisionDetector(this);
     private Map map;
     private MarioWorld marioWorld;
-    private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 45, 48);
+    private ScoreBalk ScoreBalk = new ScoreBalk(this, 0, 0, 1, 1);
     private ArrayList<StageObject> mapObjects = new ArrayList<StageObject>();
 
     private boolean resetMap = true;

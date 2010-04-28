@@ -29,11 +29,7 @@ public class GoombaGardenStart extends Map
                 });
         map.put(10, new StageChoose[]
                 {
-                    StageChoose.GROUNDMIDDLE
-                });
-        map.put(11, new StageChoose[]
-                {
-                    StageChoose.GOOMBA
+                    StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA
                 });
         map.put(48, new StageChoose[]
                 {

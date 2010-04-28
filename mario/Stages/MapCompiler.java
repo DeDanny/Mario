@@ -12,7 +12,6 @@ import mario.mapObjects.EndBackGround;
 import mario.mapObjects.EndForeGround;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
-import mario.scenery.Theme;
 
 /**
  *
@@ -51,7 +50,7 @@ public class MapCompiler
             switch (stageChoose)
             {
                 case GOOMBA:
-                    mapObjectenList.add(new Goomba(stage, 900, 500, 45, 51, 90, 15));
+                    mapObjectenList.add(new Goomba(stage, 900, 500, 35, 40, 4, 6));
                     break;
                 case KOOPA:
                     mapObjectenList.add(new Koopa(stage, 900, 500, 45, 51, 15, 15));
