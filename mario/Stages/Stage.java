@@ -8,14 +8,11 @@ import mario.Stages.goombasGarden.GoombaGardenEnd;
 import mario.Stages.goombasGarden.GoombaGardenStart;
 import mario.core.AiDirector;
 import mario.core.CollisionDetector;
-import mario.core.Direction;
 import mario.core.StageObject;
 import mario.core.interfaces.ReUse;
 import mario.core.engine.Sound;
 import mario.enemy.Goomba;
-import mario.enemy.Koopa;
 import mario.mapObjects.Flower;
-import mario.mapObjects.Mushroom;
 import mario.mapObjects.Questionmark;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
@@ -75,7 +72,7 @@ public class Stage {
     public void removeObjects() {
         for (Iterator<StageObject> it = mapObjects.iterator(); it.hasNext();) {
             StageObject mapObject = it.next();
-            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0) //|| ((mapObject.getY() + mapObject.getHeight() )>= 556 && !(mapObject instanceof ReUse)))
+            if (!mapObject.isAlive() || (mapObject.getX() + mapObject.getWidth()) <= 0 || mapObject.getY() >= 600)
             {
                 if (mapObject instanceof ReUse) {
                     mapObject.setX(800, true);

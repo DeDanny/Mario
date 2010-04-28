@@ -119,7 +119,7 @@ public class StageMario extends CharacterObject implements NoClip
         state.doAction();
     }
 
-    public void init(){
+    private void init(){
         
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
