@@ -22,6 +22,8 @@ public class Koopa extends Enemy implements NoClip {
 
     private boolean isShell = false;
     private boolean isMoving = false;
+    private long godModeTimer = System.currentTimeMillis();
+    private int godModeTime = 2000;
 
     public Koopa(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
@@ -91,19 +93,29 @@ public class Koopa extends Enemy implements NoClip {
                     ai.setDirection(Direction.NONE);
                     setAnimation(new String[]{"koopaFlat 0"});
                     isShell = true;
+                } else {
+
+                    if ((System.currentTimeMillis() - godModeTimer) > godModeTime) {
+                        ai.setDirection(Direction.LEFT);
+                        ai.setWALKSPEED(7);
+                        setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
+                        isMoving = true;
+                        godModeTimer = System.currentTimeMillis();
+                    }
+
                 }
             } else if (collisions.contains(Collision.LEFT)) {
                 if (isShell) {
-                    ai.setDirection(Direction.LEFT);
-                    ai.setWALKSPEED(8);
+                    ai.setDirection(Direction.RIGHT);
+                    ai.setWALKSPEED(7);
                     setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
                     isMoving = true;
                 }
 
             } else if (collisions.contains(Collision.RIGHT)) {
                 if (isShell) {
-                    ai.setDirection(Direction.RIGHT);
-                    ai.setWALKSPEED(8);
+                    ai.setDirection(Direction.LEFT);
+                    ai.setWALKSPEED(7);
                     setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
                     isMoving = true;
                 }
