@@ -155,27 +155,31 @@ public class Stage {
 
         mapObjects.add(new Ground(this, 0, 552, 48, 48, GroundType.LEFT, map.getTheme()));
         mapObjects.add(new Ground(this, 48, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 48 + (48 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 240 + (48 * 2), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
+        mapObjects.add(new Ground(this, 48 + (192 * 1), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+        mapObjects.add(new Ground(this, 48 + (192 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+        mapObjects.add(new Ground(this, 48 + (192 * 3), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+         mapObjects.add(new Ground(this, 48 + (192 * 4), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
+        //mapObjects.add(new Ground(this, 240 + (48 * 2), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
 
-        mapObjects.add(new Ground(this, 300, 552, 48, 48, GroundType.LEFT, map.getTheme()));
-        mapObjects.add(new Ground(this, 348, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 348 + 192, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 348 + (192 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 348 + (192 * 3), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
-        mapObjects.add(new Ground(this, 540 + (192 * 3), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
+        //mapObjects.add(new Ground(this, 300, 552, 48, 48, GroundType.LEFT, map.getTheme()));
+        //mapObjects.add(new Ground(this, 348, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+        //mapObjects.add(new Ground(this, 348 + 192, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+        //mapObjects.add(new Ground(this, 348 + (192 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+       // mapObjects.add(new Ground(this, 348 + (192 * 3), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
+       // mapObjects.add(new Ground(this, 540 + (192 * 3), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
 
-        //mapObjects.add(new Koopa(this, 330, 400, 48, 81));
-        mapObjects.add(new Goomba(this, 500, 400, 48, 47));
+        //mapObjects.add(new Koopa(this, 500, 400, 48, 81));
+        //mapObjects.add(new Koopa(this, 400, 400, 48, 81));
+        //mapObjects.add(new Goomba(this, 500, 400, 48, 47));
         mapObjects.add(new Goomba(this, 400, 400, 48, 47));
 
 
         //mapObjects.add(new Questionmark(this, 300, 350, 45, 45));
         //mapObjects.add(new Mushroom(this, 300, 303, 45, 45));
 
-        mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
-        mapObjects.add(new Flower(this, 348, 301, 42, 48));
-        mapObjects.add(new Tube(this, 0, 456, 96, 96));
+        //mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
+        //mapObjects.add(new Flower(this, 348, 301, 42, 48));
+        //mapObjects.add(new Tube(this, 0, 456, 96, 96));
        
 
         resetMap = false;

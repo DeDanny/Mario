@@ -16,7 +16,6 @@ import mario.enemy.Koopa;
 import mario.enemy.Goomba;
 import mario.mapObjects.Cube;
 
-
 /**
  *
  * @author danny
@@ -56,7 +55,8 @@ public class StageMario extends CharacterObject implements NoClip
     @Override
     public void doLoopAction()
     {
-        if(init){
+        if (init)
+        {
             // Do this to change coordinates for Big mario - Normal or Flower
             init();
             init = false;
@@ -119,8 +119,8 @@ public class StageMario extends CharacterObject implements NoClip
         state.doAction();
     }
 
-    private void init(){
-        
+    private void init()
+    {
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
         frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
 
@@ -147,7 +147,8 @@ public class StageMario extends CharacterObject implements NoClip
         frames.put("deathMario 1", new Rectangle(1104, 114, 48, 72)); // RIGHT
 
         // Big coordinates
-        if(!flowerPower){
+        if (!flowerPower)
+        {
             frames.put("bigMarioStandRight 0", new Rectangle(624, 228, 45, 84)); // RIGHT
             frames.put("bigMarioStandLeft 0", new Rectangle(507, 228, 45, 84)); // LEFT
 
@@ -171,7 +172,9 @@ public class StageMario extends CharacterObject implements NoClip
             frames.put("bigMarioFallLeft 0", new Rectangle(384, 345, 48, 87)); // LEFT
             frames.put("bigMarioFallRight 0", new Rectangle(744, 345, 48, 87)); // RIGHT
 
-        }else{
+        }
+        else
+        {
             frames.put("bigMarioStandRight 0", new Rectangle(624, 1308, 45, 84)); // RIGHT
             frames.put("bigMarioStandLeft 0", new Rectangle(507, 1308, 45, 84)); // LEFT
 
@@ -195,11 +198,14 @@ public class StageMario extends CharacterObject implements NoClip
         }
     }
 
-    public void checkGap(){
-        if(getY() >= 552){
+    public void checkGap()
+    {
+        if (getY() >= 552)
+        {
             setDead(true);
         }
     }
+
     public boolean isMove()
     {
         return (left || right);
@@ -253,20 +259,23 @@ public class StageMario extends CharacterObject implements NoClip
         this.jumpExtra = jumpExtra;
     }
 
-    public boolean isFlowerPower() {
+    public boolean isFlowerPower()
+    {
         return flowerPower;
     }
 
-    public void setFlowerPower(boolean flowerPower) {
+    public void setFlowerPower(boolean flowerPower)
+    {
         this.flowerPower = flowerPower;
     }
 
-
-    public boolean isInit() {
+    public boolean isInit()
+    {
         return init;
     }
 
-    public void setInit(boolean init) {
+    public void setInit(boolean init)
+    {
         this.init = init;
     }
 
@@ -289,11 +298,13 @@ public class StageMario extends CharacterObject implements NoClip
         }
     }
 
+    @Override
     public boolean isDead()
     {
         return dead;
     }
 
+    @Override
     public void setDead(boolean dead)
     {
         this.dead = dead;
@@ -389,9 +400,10 @@ public class StageMario extends CharacterObject implements NoClip
                         if (big)
                         {
                             godModeTimer = System.currentTimeMillis();
-                            if(flowerPower){
-                               init = true;
-                               flowerPower = false;
+                            if (flowerPower)
+                            {
+                                init = true;
+                                flowerPower = false;
                             }
                             else
                             {
@@ -401,7 +413,8 @@ public class StageMario extends CharacterObject implements NoClip
                         else
                         {
                             Goomba goomba = (Goomba) mapObject;
-                            if(!goomba.isDead()){
+                            if (!goomba.isDead())
+                            {
                                 if (stage.getScoreBalk().getLives() > 1)
                                 {
                                     dead = true;
@@ -441,22 +454,23 @@ public class StageMario extends CharacterObject implements NoClip
                             }
                             else
                             {
-                                 if(!koopa.isDead()){
-                                if (stage.getScoreBalk().getLives() > 1)
+                                if (!koopa.isDead())
                                 {
-                                    // Go to start of level
-                                    dead = true;
-                                    stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
-                                    godModeTimer = System.currentTimeMillis();
+                                    if (stage.getScoreBalk().getLives() > 1)
+                                    {
+                                        // Go to start of level
+                                        dead = true;
+                                        stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
+                                        godModeTimer = System.currentTimeMillis();
 
+                                    }
+                                    else
+                                    {
+                                        // Go to Stage selector
+                                        dead = true;
+                                        stage.getSound().playSound("/sound/dead.wav");
+                                    }
                                 }
-                                else
-                                {
-                                    // Go to Stage selector
-                                    dead = true;
-                                    stage.getSound().playSound("/sound/dead.wav");
-                                }
-                                 }
                             }
                         }
                         break;
