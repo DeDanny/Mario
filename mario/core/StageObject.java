@@ -21,6 +21,8 @@ abstract public class StageObject extends GameObject
     protected int fallSpeed = 2;
     protected boolean alive = true;
     protected boolean fall = false;
+    protected boolean dead = false;
+
     protected int x_last, y_last, width_last, height_last, pushX = 0, pushY = 0;
     protected Stage stage;
 
@@ -54,9 +56,18 @@ abstract public class StageObject extends GameObject
         return alive;
     }
 
-    protected void setAlive(boolean alive)
+    public void setAlive(boolean alive)
     {
         this.alive = alive;
+    }
+
+
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
     }
 
     public abstract void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject);

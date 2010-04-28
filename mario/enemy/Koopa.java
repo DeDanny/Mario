@@ -42,9 +42,14 @@ public class Koopa extends Enemy implements NoClip {
         frames.put("koopaWalkLeft 0", new Rectangle(276, 0, 48, 81));
         //.put("koopaWalkLeft 1", new Rectangle(156, 0, 48, 81));
 
+
         frames.put("koopaStandRight 0", new Rectangle(156, 476, 48, 81));
         frames.put("koopaWalkRight 0", new Rectangle(276, 476, 48, 81));
         //frames.put("koopaWalkRight 1", new Rectangle(156, 476, 48, 81));
+
+        frames.put("koopaDeadLeft", new Rectangle(99, 476, 48, 81));
+        frames.put("koopaDeadRight", new Rectangle(452, 0, 48, 81));
+
 
         frames.put("koopaFlat 0", new Rectangle(36, 18, 48, 48));
         frames.put("koopaFlat 1", new Rectangle(36, 138, 48, 48));
@@ -127,14 +132,13 @@ public class Koopa extends Enemy implements NoClip {
 
 
         if (stageObject instanceof Koopa) {
-            switch (collision) {
-                case SIDE:
-                    Koopa koopa = (Koopa) stageObject;
-                    if (koopa.isShell() && koopa.isMoving()) {
-                        setAlive(false);
-                        stage.getScoreBalk().killEnemy();
-                    }
-                    break;
+            if (collisions.contains(Collision.RIGHT) || collisions.contains(Collision.LEFT)) {
+                Koopa koopa = (Koopa) stageObject;
+                System.out.println("koopa hit");
+                if (koopa.isShell() && koopa.isMoving()) {
+                    //setAlive(false);
+                    doDead();
+                }
             }
         }
 
@@ -175,8 +179,23 @@ public class Koopa extends Enemy implements NoClip {
         }
 
         if (stageObject instanceof Fireball) {
-            setAlive(false);
+            doDead();
             stage.getScoreBalk().killEnemy();
         }
+    }
+
+    public void doDead() {
+        if (!isShell) {
+            switch (ai.getDirection()) {
+                case LEFT:
+                    setAnimation(new String[]{"koopaDeadLeft"});
+                    break;
+                case RIGHT:
+                    setAnimation(new String[]{"koopaDeadRight"});
+                    break;
+            }
+        }
+        setDead(true);
+        stage.getScoreBalk().killEnemy();
     }
 }

@@ -389,7 +389,14 @@ public class StageMario extends CharacterObject implements NoClip
                         if (big)
                         {
                             godModeTimer = System.currentTimeMillis();
-                            grow = true;
+                            if(flowerPower){
+                               init = true;
+                               flowerPower = false;
+                            }
+                            else
+                            {
+                                grow = true;
+                            }
                         }
                         else
                         {

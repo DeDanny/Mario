@@ -45,6 +45,12 @@ public class Goomba extends Enemy implements NoClip {
         frames.put("goombaWalkRight 2", new Rectangle(210, 4100, 45, 51));
         frames.put("goombaWalkRight 3", new Rectangle(273, 4100, 45, 51));
         frames.put("goombaWalkRight 4", new Rectangle(336, 4100, 45, 51));
+
+        frames.put("goombaDeadRight", new Rectangle(290, 4232, 48, 54));
+        frames.put("goombaDeadLeft", new Rectangle(235, 4232, 48, 54));
+
+        frames.put("goombaFlatRight", new Rectangle(25, 4388, 45, 48));
+        frames.put("goombaFlatLeft", new Rectangle(73, 4388, 45, 48));
         frameSpeed = 100;
 
         setAnimation(new String[]{
@@ -77,7 +83,8 @@ public class Goomba extends Enemy implements NoClip {
             switch (collision) {
                 case UP:
                     //////System.out.println("Goomba is dead");
-                    setAlive(false);
+                    //setAlive(false);
+                    doFlat();
                     stage.getScoreBalk().killEnemy();
                     break;
             }
@@ -87,8 +94,9 @@ public class Goomba extends Enemy implements NoClip {
             if (collisions.contains(Collision.LEFT) || collisions.contains(Collision.RIGHT)) {
                 Koopa koopa = (Koopa) stageObject;
                 if (koopa.isShell() && koopa.isMoving()) {
-                    setAlive(false);
-                    stage.getScoreBalk().killEnemy();
+                    //setAlive(false);
+                    //stage.getScoreBalk().killEnemy();
+                    doDead();
                 }
             }
         }
@@ -117,8 +125,38 @@ public class Goomba extends Enemy implements NoClip {
             }
         }
         if (stageObject instanceof Fireball) {
-            setAlive(false);
+            //setAlive(false);
+            doDead();
             stage.getScoreBalk().killEnemy();
         }
+    }
+
+    public void doDead() {
+
+        switch (ai.getDirection()) {
+            case LEFT:
+                setAnimation(new String[]{"goombaDeadLeft"});
+                break;
+            case RIGHT:
+                setAnimation(new String[]{"goombaDeadRight"});
+                break;
+        }
+
+        setDead(true);
+        stage.getScoreBalk().killEnemy();
+    }
+
+    public void doFlat(){
+        switch (ai.getDirection()) {
+            case LEFT:
+                setAnimation(new String[]{"goombaFlatLeft"});
+                break;
+            case RIGHT:
+                setAnimation(new String[]{"goombaFlatRight"});
+                break;
+        }
+
+        setDead(true);
+        stage.getScoreBalk().killEnemy();
     }
 }
