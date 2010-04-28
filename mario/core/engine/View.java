@@ -16,11 +16,11 @@ import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import javax.jws.soap.SOAPBinding.Style;
 import javax.swing.JFrame;
-import mario.StageSelector.Node;
+import mario.core.Node;
 import mario.Stages.Stage;
 import mario.Stages.StageMario;
+import mario.core.StageObject;
 import mario.core.interfaces.BackGround;
 import mario.core.interfaces.ForeGround;
 
@@ -106,7 +106,8 @@ public class View
     {
         Graphics graphics = startGraphics();
 
-        graphics.setColor(new Color(107, 136, 255));
+
+        graphics.setColor(stage.getMap().getBackgroundColor());
         graphics.fillRect(0, 0, 800, 600);
         GameObject gameObjectMario = null;
         ArrayList<GameObject> gameObjectForeGround = new ArrayList<GameObject>();
@@ -118,13 +119,16 @@ public class View
             if (gameObject instanceof StageMario) //filter out the mario
             {
                 gameObjectMario = gameObject;
-            } else if (gameObject instanceof ForeGround) //filter out foreground elements
+            }
+            else if (gameObject instanceof ForeGround) //filter out foreground elements
             {
                 gameObjectForeGround.add(gameObject);
-            } else if (gameObject instanceof BackGround) //filter out background elements
+            }
+            else if (gameObject instanceof BackGround) //filter out background elements
             {
                 gameObjectBackGround.add(gameObject);
-            } else //collect the rest
+            }
+            else //collect the rest
             {
                 gameObjectMiddleGround.add(gameObject);
             }
@@ -132,19 +136,53 @@ public class View
 
         for (GameObject gameObject : gameObjectBackGround)
         {
+            if (debugger)
+            {
+                debugger(graphics, gameObject);
+            }
             gameObject.draw(graphics);
         }
         for (GameObject gameObject : gameObjectMiddleGround)
         {
+            if (debugger)
+            {
+                debugger(graphics, gameObject);
+            }
             gameObject.draw(graphics);
         }
-        gameObjectMario.draw(graphics);
+        if (gameObjectMario != null)
+        {
+            if (debugger)
+            {
+                debugger(graphics, gameObjectMario);
+            }
+            gameObjectMario.draw(graphics);
+        }
         for (GameObject gameObject : gameObjectForeGround)
         {
+            if (debugger)
+            {
+                debugger(graphics, gameObject);
+            }
             gameObject.draw(graphics);
         }
 
         endGraphics(graphics);
+    }
+
+    public void debugger(Graphics graphics, GameObject gameObject)
+    {
+        if (debugger)
+        {
+            StageObject stageObject = (StageObject) gameObject;
+            graphics.setColor(new Color(255, 0, 0, 50));
+            graphics.fillRect(gameObject.getX(), gameObject.getY(), gameObject.getWidth(), gameObject.getHeight());
+
+            graphics.setColor(new Color(0, 255, 0, 50));
+
+
+            graphics.fillRect(gameObject.getX() + stageObject.getPushX(), gameObject.getY() + stageObject.getPushY(), gameObject.getWidth(), gameObject.getHeight());
+        }
     }
 
     public void drawMenu(Menu menu)

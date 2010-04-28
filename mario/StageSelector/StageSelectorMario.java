@@ -4,6 +4,7 @@
  */
 package mario.StageSelector;
 
+import mario.core.Node;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import mario.MarioData;

@@ -4,9 +4,11 @@
  */
 package mario.Stages.goombasGarden;
 
+import java.awt.Color;
 import mario.MarioWorld;
 import mario.Stages.Map;
 import mario.Stages.StageChoose;
+import mario.scenery.Theme;
 
 /**
  * size of GROUNDLEFT   = 9
@@ -18,9 +20,9 @@ import mario.Stages.StageChoose;
  */
 public class GoombaGardenStart extends Map
 {
-    public GoombaGardenStart(MarioWorld marioWorld, String theme)
+    public GoombaGardenStart(MarioWorld marioWorld)
     {
-        super(marioWorld, theme);
+        super(marioWorld, Theme.NORMAL, new Color(107, 136, 255));
         map.put(1, new StageChoose[]
                 {
                     StageChoose.GROUNDLEFT, StageChoose.TUBE
@@ -46,6 +48,7 @@ public class GoombaGardenStart extends Map
     @Override
     public void startGame()
     {
+        
     }
 
     @Override
@@ -53,12 +56,13 @@ public class GoombaGardenStart extends Map
     {
         //marioWorld.getStage().setMap("yoshi's house end");
         marioWorld.getStage().setMap("yoshi's house");
+        disableInpute = false;
         //marioWorld.setWhatcha(Doing.SELECTSTAGE);
     }
 
     @Override
     public void finishgame()
     {
-        
+        disableInpute = true;
     }
 }

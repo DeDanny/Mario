@@ -101,6 +101,7 @@ public abstract class GameObject
     {
         this.width = width;
     }
+
     public void setAnimation(String[] animation)
     {
         setAnimation(animation, false);
