@@ -11,6 +11,9 @@ import mario.enemy.Koopa;
 import mario.mapObjects.Coin;
 import mario.mapObjects.EndBackGround;
 import mario.mapObjects.EndForeGround;
+import mario.mapObjects.Flower;
+import mario.mapObjects.Mushroom;
+import mario.mapObjects.Questionmark;
 import mario.mapObjects.Stone;
 import mario.scenery.Bush;
 import mario.scenery.Cloud;
@@ -48,10 +51,10 @@ public class MapCompiler {
         for (StageChoose stageChoose : stageChooseds) {
             switch (stageChoose) {
                 case GOOMBA:
-                    mapObjectenList.add(new Goomba(stage, 900, 500, 35, 40, 4, 6));
+                    mapObjectenList.add(new Goomba(stage, 800, 500, 35, 40, 4, 6));
                     break;
                 case KOOPA:
-                    mapObjectenList.add(new Koopa(stage, 900, 500, 45, 51, 15, 15));
+                    mapObjectenList.add(new Koopa(stage, 800, 500, 45, 51, 15, 15));
                     break;
                 case GROUNDLEFT:
                     mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.LEFT, stage.getMap().getTheme()));
@@ -66,23 +69,32 @@ public class MapCompiler {
                     mapObjectenList.add(new Cloud(stage, 800, 200, 0, 0));
                     break;
                 case COIN:
-                    mapObjectenList.add(new Coin(stage, 900, 303, 45, 45));
+                    mapObjectenList.add(new Questionmark(stage, 800, 350, 45, 45));
+                    mapObjectenList.add(new Coin(stage, 800, 303, 45, 45));
                     break;
                 case POWERUP:
                     // IF STATEMENT FOR WICH POWERUP
-                    //mapObjectenList.add(new Cloud(stage, 800, 552, 48, 48, GroundType.RIGHT, stage.getMap().getTheme()));
+                    mapObjectenList.add(new Questionmark(stage, 800, 350, 45, 45));
+                    if(stage.getMario().isBig()){
+                        mapObjectenList.add(new Flower(stage, 800, 303, 45, 45));
+                    }else if(stage.getMario().isFlowerPower()){
+                         mapObjectenList.add(new Coin(stage, 800, 303, 45, 45));
+                    }else{
+                        mapObjectenList.add(new Mushroom(stage, 800, 303, 45, 45));
+                    }
+                    
                     break;
                 case STONE:
-                    mapObjectenList.add(new Stone(stage, 900, 350, 45, 45));
+                    mapObjectenList.add(new Stone(stage, 800, 350, 45, 45));
                     break;
                 case TUBE:
-                    mapObjectenList.add(new Tube(stage, 900, 456, 96, 96));
+                    mapObjectenList.add(new Tube(stage, 800, 456, 96, 96));
                     break;
                 case SMALLMUSSCHROOM:
-                    mapObjectenList.add(new SmallShrooms(stage, 900, 516, 96, 36));
+                    mapObjectenList.add(new SmallShrooms(stage, 800, 516, 96, 36));
                     break;
                 case BUSH:
-                    mapObjectenList.add(new Bush(stage, 900, 475, 99, 78));
+                    mapObjectenList.add(new Bush(stage, 800, 475, 99, 78));
                     break;
                 case END:
                     mapObjectenList.add(new EndBackGround(stage, 800, 438, 0, 0));
