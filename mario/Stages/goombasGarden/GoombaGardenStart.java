@@ -26,30 +26,27 @@ public class GoombaGardenStart extends Map
         // ALWAYS PUT TOGETHER
         // TUBE - GROUNDMIDDLE
 
-        map.put(48 * 3, new StageChoose[]{StageChoose.GROUNDLEFT});
-        map.put(48 * 4, new StageChoose[]{StageChoose.GROUNDMIDDLE});
-        map.put(48 * 8, new StageChoose[]{StageChoose.GROUNDRIGHT});
+        map.put(38 * 1, new StageChoose[]{StageChoose.GROUNDLEFT});
+        map.put(38 * 2, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(38 * 3, new StageChoose[]{StageChoose.GROUNDRIGHT});
 
 
-
-
-
-//        map.put(10, new StageChoose[]
-//                {
-//                    StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA
-//                });
-//        map.put(48, new StageChoose[]
-//                {
-//                    StageChoose.GROUNDMIDDLE
-//                });
-//        map.put(49, new StageChoose[]
-//                {
-//                    StageChoose.END
-//                });
-//        map.put(86, new StageChoose[]
-//                {
-//                    StageChoose.GROUNDRIGHT
-//                });
+        map.put(10, new StageChoose[]
+                {
+                    StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA
+                });
+        map.put(48, new StageChoose[]
+                {
+                    StageChoose.GROUNDMIDDLE
+                });
+        map.put(49, new StageChoose[]
+                {
+                    //StageChoose.END
+                });
+        map.put(86, new StageChoose[]
+                {
+                    StageChoose.GROUNDRIGHT
+                });
     }
 
     @Override
