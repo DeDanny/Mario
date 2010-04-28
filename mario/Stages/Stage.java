@@ -173,8 +173,8 @@ public class Stage {
         mapObjects.add(new Goomba(this, 400, 400, 48, 47));
 
 
-        mapObjects.add(new Questionmark(this, 300, 350, 45, 45));
-        mapObjects.add(new Mushroom(this, 300, 303, 45, 45));
+        //mapObjects.add(new Questionmark(this, 300, 350, 45, 45));
+        //mapObjects.add(new Mushroom(this, 300, 303, 45, 45));
 
         mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
         mapObjects.add(new Flower(this, 348, 301, 42, 48));

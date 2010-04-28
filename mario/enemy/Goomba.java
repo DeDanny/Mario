@@ -135,10 +135,10 @@ public class Goomba extends Enemy implements NoClip {
 
         switch (ai.getDirection()) {
             case LEFT:
-                setAnimation(new String[]{"goombaDeadLeft"});
+                setAnimation(new String[]{"goombaFlatLeft"});
                 break;
             case RIGHT:
-                setAnimation(new String[]{"goombaDeadRight"});
+                setAnimation(new String[]{"goombaFlatRight"});
                 break;
         }
 
