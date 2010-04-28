@@ -18,6 +18,7 @@ public class Bush extends Scenery implements NoClip, BackGround
         frames.put("bush 1", new Rectangle(523, 4134, 99, 78));
 
         frameSpeed = 700;
+
         setAnimation(new String[]
                 {
                     "bush 0", "bush 1"

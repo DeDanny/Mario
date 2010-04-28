@@ -14,6 +14,12 @@ import java.util.ArrayList;
 import mario.ai.MarioFireballAi;
 import mario.core.StageObject;
 import mario.core.interfaces.NoClip;
+import mario.enemy.Enemy;
+import mario.mapObjects.Cube;
+import mario.scenery.Bush;
+import mario.scenery.Cloud;
+import mario.scenery.SmallShrooms;
+import mario.scenery.Tube;
 
 /**
  *
@@ -53,7 +59,7 @@ public class Fireball extends Weapon implements NoClip {
 
     @Override
     public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject) {
-        if (!(stageObject instanceof StageMario)) {
+        if (stageObject instanceof Tube || stageObject instanceof Enemy || stageObject instanceof Cube) {
             setAlive(false);
         }
     }
