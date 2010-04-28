@@ -364,14 +364,17 @@ public class StageMario extends CharacterObject implements NoClip
     @Override
     public void doMapCollision()
     {
-        checkCollisionMap();
-        if (mapCollision == Collision.NONE && !isJump())
+        if (!dead)
         {
-            setFall(true);
-        }
-        if (mapCollision != Collision.NONE)
-        {
-            setFall(false);
+            checkCollisionMap();
+            if (mapCollision == Collision.NONE && !isJump())
+            {
+                setFall(true);
+            }
+            if (mapCollision != Collision.NONE)
+            {
+                setFall(false);
+            }
         }
     }
 
@@ -415,17 +418,10 @@ public class StageMario extends CharacterObject implements NoClip
                             Goomba goomba = (Goomba) mapObject;
                             if (!goomba.isDead())
                             {
-                                if (stage.getScoreBalk().getLives() > 1)
-                                {
-                                    dead = true;
-                                    stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
-                                    godModeTimer = System.currentTimeMillis();
-                                }
-                                else
-                                {
-                                    dead = true;
-                                    stage.getSound().playSound("/sound/dead.wav");
-                                }
+
+                                dead = true;
+                                godModeTimer = System.currentTimeMillis();
+
                             }
                         }
                         //System.out.println("MARIO DOOD");
@@ -456,20 +452,12 @@ public class StageMario extends CharacterObject implements NoClip
                             {
                                 if (!koopa.isDead())
                                 {
-                                    if (stage.getScoreBalk().getLives() > 1)
-                                    {
-                                        // Go to start of level
-                                        dead = true;
-                                        stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
-                                        godModeTimer = System.currentTimeMillis();
 
-                                    }
-                                    else
-                                    {
-                                        // Go to Stage selector
-                                        dead = true;
-                                        stage.getSound().playSound("/sound/dead.wav");
-                                    }
+                                    // Go to start of level
+                                    dead = true;
+                                    godModeTimer = System.currentTimeMillis();
+                                    stage.getSound().playSound("/sound/dead.wav");
+
                                 }
                             }
                         }

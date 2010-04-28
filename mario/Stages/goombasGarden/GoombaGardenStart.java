@@ -67,6 +67,7 @@ public class GoombaGardenStart extends Map
         marioWorld.getStage().getMario().setY(400, true);
         marioWorld.getStage().getMario().setHeight(60);
         marioWorld.getStage().getMario().setStepCounter(0);
+        marioWorld.getStage().getMario().setDead(false);
     }
 
     @Override
