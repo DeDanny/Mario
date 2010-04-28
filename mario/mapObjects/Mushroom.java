@@ -10,7 +10,7 @@ import mario.core.Direction;
 import mario.core.Collision;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-import mario.*;
+
 import mario.ai.WalkAi;
 import mario.core.StageObject;
 import mario.core.interfaces.NoClip;

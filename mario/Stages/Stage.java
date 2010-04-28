@@ -150,6 +150,13 @@ public class Stage
         {
             mario.setDown(setter);
         }
+        if (keyPressed.contains(KeyButtons.SHOOT))
+        {
+            if (setter == true)
+            {
+                getMapObjects().add(new Fireball(this, 300, 303, 45, 45));
+            }
+        }
     }
 
     public void setMap(String stageName)
@@ -196,7 +203,7 @@ public class Stage
         mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
         mapObjects.add(new Flower(this, 348, 301, 42, 48));
 
-        mapObjects.add(new Fireball(this, 200, 200, 11, 12));
+        mapObjects.add(new Fireball(this, 500, 500, 11, 12));
 
         resetMap = false;
     }
