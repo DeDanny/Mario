@@ -4,7 +4,6 @@
  */
 package mario.StageSelector;
 
-import mario.core.Node;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import mario.MarioData;
@@ -12,6 +11,7 @@ import mario.MarioWorld;
 import mario.core.Direction;
 import mario.core.Doing;
 import mario.core.KeyButtons;
+import mario.core.StageSelectNode;
 import mario.core.engine.GameObject;
 import mario.core.engine.Sound;
 
@@ -31,7 +31,7 @@ public class StageSelector extends GameObject
     private boolean down = false;
     private StageSelectorMario stageSelectorMario;
     private ArrayList<GameObject> StageSelectorObjects = new ArrayList<GameObject>();
-    private ArrayList<Node> nodes = new ArrayList<Node>();
+    private ArrayList<StageSelectNode> nodes = new ArrayList<StageSelectNode>();
 
     public StageSelector(MarioWorld marioWorld, int x, int y, int width, int height, MarioData marioData, String fileName)
     {
@@ -39,13 +39,13 @@ public class StageSelector extends GameObject
         this.marioData = marioData;
         this.marioWorld = marioWorld;
         sound.playBackGround("/sound/background/Yoster Island.wav");
-        nodes.add(new Node(240, 490, true, "Waterfall World"));
-        nodes.add(new Node(280, 490, false));
-        nodes.add(new Node(350, 458, false));
-        nodes.add(new Node(386, 458, true, "yoshi's house"));
-        nodes.add(new Node(422, 458, false));
-        nodes.add(new Node(492, 490, false));
-        nodes.add(new Node(532, 490, true, "Goomba's garden"));
+        nodes.add(new StageSelectNode(240, 490, true, "Waterfall World"));
+        nodes.add(new StageSelectNode(280, 490, false));
+        nodes.add(new StageSelectNode(350, 458, false));
+        nodes.add(new StageSelectNode(386, 458, true, "yoshi's house"));
+        nodes.add(new StageSelectNode(422, 458, false));
+        nodes.add(new StageSelectNode(492, 490, false));
+        nodes.add(new StageSelectNode(532, 490, true, "Goomba's garden"));
         stageSelectorMario = new StageSelectorMario(this, 50, 60, marioData);
         
         frames.put("portal 0", new Rectangle(0, 0, 800, 600));
@@ -163,7 +163,7 @@ public class StageSelector extends GameObject
         return StageSelectorObjects;
     }
 
-    public ArrayList<Node> getNodes()
+    public ArrayList<StageSelectNode> getNodes()
     {
         return nodes;
     }
