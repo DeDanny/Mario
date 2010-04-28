@@ -22,7 +22,9 @@ public enum StageChoose {
     SMALLMUSSCHROOM,
     TUBE,
     BOWSER,
+    BUSH,
+    STONE,
     FLYINGENEMY,
-    QUESTIONMARK,
+    POWERUP,
     END
 }
