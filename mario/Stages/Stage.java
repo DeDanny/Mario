@@ -18,7 +18,6 @@ import mario.mapObjects.Mushroom;
 import mario.mapObjects.Questionmark;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
-import mario.scenery.Theme;
 import mario.scenery.Tube;
 import mario.weapons.Fireball;
 
@@ -182,10 +181,7 @@ public class Stage
         mapObjects.add(ScoreBalk);
         
         map.startGame();
-        mario.setX(200, true);
-        mario.setY(420,true);
-        mario.setStepCounter(0);
-
+        
         mapObjects.add(new Ground(this, 0, 552, 48, 48, GroundType.LEFT, map.getTheme()));
         mapObjects.add(new Ground(this, 48, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
         mapObjects.add(new Ground(this, 48 + (48 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
