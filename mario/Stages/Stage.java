@@ -19,6 +19,7 @@ import mario.mapObjects.Questionmark;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
 import mario.scenery.Theme;
+import mario.scenery.Tube;
 import mario.weapons.Fireball;
 
 /**
@@ -206,7 +207,7 @@ public class Stage
 
         mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
         mapObjects.add(new Flower(this, 348, 301, 42, 48));
-
+        mapObjects.add(new Tube(this, 0, 456, 96, 96));
         mapObjects.add(new Fireball(this, 500, 500, 11, 12));
 
         resetMap = false;

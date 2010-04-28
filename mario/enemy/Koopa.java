@@ -41,7 +41,7 @@ public class Koopa extends Enemy implements NoClip {
         frames.put("koopaWalkLeft 0", new Rectangle(276, 0, 48, 81));
         //.put("koopaWalkLeft 1", new Rectangle(156, 0, 48, 81));
 
-        frames.put("koopaStandRight 0", new Rectangle(296, 476, 48, 81));
+        frames.put("koopaStandRight 0", new Rectangle(156, 476, 48, 81));
         frames.put("koopaWalkRight 0", new Rectangle(276, 476, 48, 81));
         //frames.put("koopaWalkRight 1", new Rectangle(156, 476, 48, 81));
 
@@ -88,20 +88,21 @@ public class Koopa extends Enemy implements NoClip {
         if (stageObject instanceof mario.Stages.StageMario) {
             if ((System.currentTimeMillis() - godModeTimer) > godModeTime) {
                 if (collisions.contains(Collision.UP)) {
-                    if (!isShell) {
+                    if (!isShell || isMoving) {
                         setHeight(48);
                         //setY(stageObject.getY() - 33);
-                        ai.setDirection(Direction.NONE);
+                        ai.setDirection(Direction.LEFT);
                         setAnimation(new String[]{"koopaFlat 0"});
+                        ai.setWALKSPEED(0);
                         isShell = true;
+                        isMoving = false;
                     } else {
                         ai.setDirection(Direction.LEFT);
                         ai.setWALKSPEED(7);
                         setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
                         isMoving = true;
-
                     }
-                   // System.out.println("Col Up");
+                    // System.out.println("Col Up");
                 } else if (collisions.contains(Collision.LEFT)) {
                     if (isShell) {
                         ai.setDirection(Direction.RIGHT);
@@ -138,19 +139,38 @@ public class Koopa extends Enemy implements NoClip {
 
 
         if (stageObject instanceof Tube) {
-            switch (collision) {
-                case UP:
-                    ai.toggleDirection();
-                    switch (ai.getDirection()) {
-                        case LEFT:
-                            setAnimation(new String[]{"koopaStandLeft 0", "koopaWalkLeft 0", "koopaWalkLeft 1"});
-                            break;
-                        case RIGHT:
-                            setAnimation(new String[]{"koopaStandRight 0", "koopaWalkRight 0", "koopaWalkRight 1"});
-                            break;
+            if (!collisions.contains(Collision.DOWN)) {
+                               ai.toggleDirection();
+                    if (!isShell) {
+                        switch (ai.getDirection()) {
+                            case LEFT:
+                                setAnimation(new String[]{"koopaStandLeft 0", "koopaWalkLeft 0"});
+                                break;
+                            case RIGHT:
+                                setAnimation(new String[]{"koopaStandRight 0", "koopaWalkRight 0"});
+                                break;
+                        }
                     }
-                    break;
+
+
             }
+//
+//            switch (collision) {
+//                case UP:
+//                    ai.toggleDirection();
+//                    if (!isShell) {
+//                        switch (ai.getDirection()) {
+//                            case LEFT:
+//                                setAnimation(new String[]{"koopaStandLeft 0", "koopaWalkLeft 0"});
+//                                break;
+//                            case RIGHT:
+//                                setAnimation(new String[]{"koopaStandRight 0", "koopaWalkRight 0"});
+//                                break;
+//                        }
+//                    }
+//
+//                    break;
+//            }
         }
     }
 }

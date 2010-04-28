@@ -14,19 +14,19 @@ import java.util.ArrayList;
 import mario.ai.WalkAi;
 import mario.core.StageObject;
 import mario.core.interfaces.NoClip;
+import mario.scenery.Tube;
 
 /**
  *
  * @author Onno
  */
-public class Mushroom extends Powerup implements NoClip
-{
+public class Mushroom extends Powerup implements NoClip {
+
     private boolean hit = false;
     private boolean hadCollision = false;
     private boolean changeAni = false;
 
-    public Mushroom(Stage game, int x, int y, int width, int height)
-    {
+    public Mushroom(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
         ai = new WalkAi(this);
@@ -39,39 +39,31 @@ public class Mushroom extends Powerup implements NoClip
     }
 
     @Override
-    public void doLoopAction()
-    {
-        if (hit)
-        {
+    public void doLoopAction() {
+        if (hit) {
             super.ai();
         }
 
-        if (changeAni)
-        {
+        if (changeAni) {
             setAnimation();
             changeAni = false;
         }
 
     }
 
-    public void setAnimation()
-    {
-        setAnimation(new String[]
-                {
+    public void setAnimation() {
+        setAnimation(new String[]{
                     "mushroom 0"
                 });
     }
 
     @Override
-    public void hitBy()
-    {
+    public void hitBy() {
     }
 
     @Override
-    public void doMapCollision()
-    {
-        switch (mapCollision)
-        {
+    public void doMapCollision() {
+        switch (mapCollision) {
             case SIDE:
                 ai.toggleDirection();
                 break;
@@ -85,17 +77,12 @@ public class Mushroom extends Powerup implements NoClip
         }
     }
 
-    public void doMapCollision(Collision side)
-    {
-        if (side == Collision.SIDE)
-        {
+    public void doMapCollision(Collision side) {
+        if (side == Collision.SIDE) {
             Direction direction = ai.getDirection();
-            if (direction == Direction.LEFT)
-            {
+            if (direction == Direction.LEFT) {
                 direction = Direction.RIGHT;
-            }
-            else
-            {
+            } else {
                 direction = Direction.LEFT;
             }
             ai.setDirection(direction);
@@ -103,30 +90,33 @@ public class Mushroom extends Powerup implements NoClip
     }
 
     @Override
-    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject)
-    {
+    public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject) {
         /**
          * @todo remove tempory fix
          */
         Collision collision = collisions.get(0);
-        if (stageObject instanceof StageMario)
-        {
-            if (hadCollision)
-            {
-                if (!stage.getMario().isBig())
-                {
+        if (stageObject instanceof StageMario) {
+            if (hadCollision) {
+                if (!stage.getMario().isBig()) {
                     setAlive(false);
                     stage.getMario().setGrow(true);
                 }
             }
         }
 
-        if (stageObject instanceof Questionmark)
-        {
+        if (stageObject instanceof Questionmark) {
             hadCollision = true;
             hit = true;
             changeAni = true;
         }
 
+
+        if (stageObject instanceof Tube) {
+            switch (collision) {
+                case UP:
+                    ai.toggleDirection();
+                    break;
+            }
+        }
     }
 }
