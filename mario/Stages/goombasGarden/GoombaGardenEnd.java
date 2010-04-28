@@ -4,8 +4,10 @@
  */
 package mario.Stages.goombasGarden;
 
+import java.awt.Color;
 import mario.MarioWorld;
 import mario.Stages.Map;
+import mario.scenery.Theme;
 
 /**
  *
@@ -13,9 +15,9 @@ import mario.Stages.Map;
  */
 public class GoombaGardenEnd extends Map
 {
-    public GoombaGardenEnd(MarioWorld marioWorld, String theme)
+    public GoombaGardenEnd(MarioWorld marioWorld)
     {
-        super(marioWorld, theme);
+        super(marioWorld, Theme.NORMAL, new Color(4, 8 ,10));
     }
 
     @Override

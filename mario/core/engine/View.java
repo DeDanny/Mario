@@ -106,7 +106,8 @@ public class View
     {
         Graphics graphics = startGraphics();
 
-        graphics.setColor(new Color(107, 136, 255));
+
+        graphics.setColor(stage.getMap().getBackgroundColor());
         graphics.fillRect(0, 0, 800, 600);
         GameObject gameObjectMario = null;
         ArrayList<GameObject> gameObjectForeGround = new ArrayList<GameObject>();

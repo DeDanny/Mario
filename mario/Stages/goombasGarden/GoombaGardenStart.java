@@ -4,10 +4,12 @@
  */
 package mario.Stages.goombasGarden;
 
+import java.awt.Color;
 import mario.MarioWorld;
 import mario.Stages.Map;
 import mario.Stages.StageChoose;
 import mario.core.Doing;
+import mario.scenery.Theme;
 
 /**
  * size of GROUNDLEFT   = 9
@@ -19,9 +21,9 @@ import mario.core.Doing;
  */
 public class GoombaGardenStart extends Map
 {
-    public GoombaGardenStart(MarioWorld marioWorld, String theme)
+    public GoombaGardenStart(MarioWorld marioWorld)
     {
-        super(marioWorld, theme);
+        super(marioWorld, Theme.NORMAL, new Color(1, 1, 1));
         map.put(1, new StageChoose[]
                 {
                     StageChoose.GROUNDLEFT, StageChoose.TUBE

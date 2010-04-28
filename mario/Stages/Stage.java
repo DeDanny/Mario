@@ -154,11 +154,11 @@ public class Stage
     {
         if (stageName.equals("yoshi's house"))
         {
-            map = new GoombaGardenStart(marioWorld, stageName);
+            map = new GoombaGardenStart(marioWorld);
         }
         if (stageName.equals("yoshi's house end"))
         {
-            map = new GoombaGardenEnd(marioWorld, stageName);
+            map = new GoombaGardenEnd(marioWorld);
         }
 
         resetMap = true;

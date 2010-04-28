@@ -4,10 +4,12 @@
  */
 package mario.Stages;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 import mario.MarioWorld;
 import mario.core.Node;
+import mario.scenery.Theme;
 
 /**
  *
@@ -15,16 +17,18 @@ import mario.core.Node;
  */
 public abstract class Map
 {
-    protected String theme;
+    protected Theme theme;
     protected MarioWorld marioWorld;
     protected boolean disableInpute = false;
     protected HashMap<Integer, StageChoose[]> map = new HashMap<Integer, StageChoose[]>();
     protected ArrayList<Node> nodes;
+    private Color color;
 
-    public Map(MarioWorld marioWorld, String theme)
+    public Map(MarioWorld marioWorld, Theme theme, Color color)
     {
         this.marioWorld = marioWorld;
         this.theme = theme;
+        this.color = color;
     }
 
     public StageChoose[] getObjectsByStepCounter(int steps)
@@ -45,5 +49,10 @@ public abstract class Map
     public boolean isDisableInpute()
     {
         return disableInpute;
+    }
+
+    public Color getBackgroundColor()
+    {
+        return color;
     }
 }
