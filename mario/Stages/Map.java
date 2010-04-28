@@ -37,6 +37,9 @@ public abstract class Map
         {
         };
         stageChoose = map.get(steps);
+        map.put(steps, new StageChoose[]
+                {
+                });
         return stageChoose;
     }
 
@@ -60,5 +63,4 @@ public abstract class Map
     {
         return theme;
     }
-    
 }
