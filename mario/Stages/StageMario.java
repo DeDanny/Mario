@@ -22,6 +22,7 @@ import mario.mapObjects.Cube;
  */
 public class StageMario extends CharacterObject implements NoClip
 {
+    private boolean init = false;
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
@@ -31,6 +32,7 @@ public class StageMario extends CharacterObject implements NoClip
     private boolean grow = false;
     private boolean big = false; // False is SmallMario - True is BigMario
     private boolean dead = false;
+    private boolean flowerPower = false;
     private long godModeTimer = System.currentTimeMillis();
     private int godModeTime = 1000;
     private Direction direction = Direction.LEFT;
@@ -45,64 +47,19 @@ public class StageMario extends CharacterObject implements NoClip
 
     public StageMario(Stage game, int x, int y, int width, int height)
     {
-
         super(game, x, y, width, height, "/images/mario_sprite.png");
-
-        frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
-        frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
-
-        frames.put("smallMarioWalkRight 0", new Rectangle(984, 0, 45, 57));
-        frames.put("smallMarioWalkRight 1", new Rectangle(627, 0, 42, 60));
-
-        frames.put("smallMarioWalkLeft 0", new Rectangle(150, 0, 45, 57));
-        frames.put("smallMarioWalkLeft 1", new Rectangle(507, 0, 42, 60));
-
-        frames.put("smallMarioLookUpLeft 0", new Rectangle(147, 117, 45, 63));
-        frames.put("smallMarioLookUpRight 0", new Rectangle(985, 117, 45, 63));
-
-        frames.put("smallMarioDuckLeft 0", new Rectangle(267, 129, 45, 42));
-        frames.put("smallMarioDuckRight 0", new Rectangle(864, 129, 45, 42));
-
-        frames.put("smallMarioJumpLeft 0", new Rectangle(504, 117, 48, 66));
-        frames.put("smallMarioJumpRight 0", new Rectangle(624, 117, 48, 66));
-
-        frames.put("smallMarioFallLeft 0", new Rectangle(384, 120, 48, 60));
-        frames.put("smallMarioFallRight 0", new Rectangle(744, 120, 48, 60));
-
-        // Big coordinates
-
-        frames.put("bigMarioStandRight 0", new Rectangle(624, 228, 45, 84)); // RIGHT
-        frames.put("bigMarioStandLeft 0", new Rectangle(507, 228, 45, 84)); // LEFT
-
-        frames.put("bigMarioWalkRight 0", new Rectangle(1104, 228, 48, 84)); // RIGHT
-        frames.put("bigMarioWalkRight 1", new Rectangle(984, 228, 48, 81)); // RIGHT
-        frames.put("bigMarioWalkRight 2", new Rectangle(624, 228, 45, 84)); // RIGHT
-
-        frames.put("bigMarioWalkLeft 0", new Rectangle(27, 228, 48, 84)); // LEFT
-        frames.put("bigMarioWalkLeft 1", new Rectangle(147, 228, 48, 81)); // LEFT
-        frames.put("bigMarioWalkLeft 2", new Rectangle(507, 228, 45, 84)); // LEFT
-
-        frames.put("bigMarioLookUpLeft 0", new Rectangle(387, 588, 85, 81)); // LEFT
-        frames.put("bigMarioLookUpRight 0", new Rectangle(744, 588, 85, 81)); // RIGHT
-
-        frames.put("bigMarioDuckLeft 0", new Rectangle(264, 366, 48, 45)); // LEFT
-        frames.put("bigMarioDuckRight 0", new Rectangle(864, 366, 48, 45)); // RIGHT
-
-        frames.put("bigMarioJumpLeft 0", new Rectangle(504, 342, 48, 93)); // LEFT
-        frames.put("bigMarioJumpRight 0", new Rectangle(624, 342, 48, 93)); // RIGHT
-
-        frames.put("bigMarioFallLeft 0", new Rectangle(384, 345, 48, 87)); // LEFT
-        frames.put("bigMarioFallRight 0", new Rectangle(744, 345, 48, 87)); // RIGHT
-
-        frames.put("deathMario 0", new Rectangle(24, 114, 48, 72)); // Left
-        frames.put("deathMario 1", new Rectangle(1104, 114, 48, 72)); // RIGHT
-
         //state = new SmallMario(this);
+        init();
     }
 
     @Override
     public void doLoopAction()
     {
+        if(init){
+            init();
+            init = false;
+        }
+        
         if (dead)
         {
             setState(deadMario);
@@ -157,6 +114,82 @@ public class StageMario extends CharacterObject implements NoClip
         state.doAction();
     }
 
+    public void init(){
+        
+        frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
+        frames.put("smallMarioStandLeft 0", new Rectangle(507, 0, 42, 60));
+
+        frames.put("smallMarioWalkRight 0", new Rectangle(984, 0, 45, 57));
+        frames.put("smallMarioWalkRight 1", new Rectangle(627, 0, 42, 60));
+
+        frames.put("smallMarioWalkLeft 0", new Rectangle(150, 0, 45, 57));
+        frames.put("smallMarioWalkLeft 1", new Rectangle(507, 0, 42, 60));
+
+        frames.put("smallMarioLookUpLeft 0", new Rectangle(147, 117, 45, 63));
+        frames.put("smallMarioLookUpRight 0", new Rectangle(985, 117, 45, 63));
+
+        frames.put("smallMarioDuckLeft 0", new Rectangle(267, 129, 45, 42));
+        frames.put("smallMarioDuckRight 0", new Rectangle(864, 129, 45, 42));
+
+        frames.put("smallMarioJumpLeft 0", new Rectangle(504, 117, 48, 66));
+        frames.put("smallMarioJumpRight 0", new Rectangle(624, 117, 48, 66));
+
+        frames.put("smallMarioFallLeft 0", new Rectangle(384, 120, 48, 60));
+        frames.put("smallMarioFallRight 0", new Rectangle(744, 120, 48, 60));
+
+
+        frames.put("deathMario 0", new Rectangle(24, 114, 48, 72)); // Left
+        frames.put("deathMario 1", new Rectangle(1104, 114, 48, 72)); // RIGHT
+
+        // Big coordinates
+        if(!flowerPower){
+            frames.put("bigMarioStandRight 0", new Rectangle(624, 228, 45, 84)); // RIGHT
+            frames.put("bigMarioStandLeft 0", new Rectangle(507, 228, 45, 84)); // LEFT
+
+            frames.put("bigMarioWalkRight 0", new Rectangle(1104, 228, 48, 84)); // RIGHT
+            frames.put("bigMarioWalkRight 1", new Rectangle(984, 228, 48, 81)); // RIGHT
+            frames.put("bigMarioWalkRight 2", new Rectangle(624, 228, 45, 84)); // RIGHT
+
+            frames.put("bigMarioWalkLeft 0", new Rectangle(27, 228, 48, 84)); // LEFT
+            frames.put("bigMarioWalkLeft 1", new Rectangle(147, 228, 48, 81)); // LEFT
+            frames.put("bigMarioWalkLeft 2", new Rectangle(507, 228, 45, 84)); // LEFT
+
+            //frames.put("bigMarioLookUpLeft 0", new Rectangle(387, 588, 85, 81)); // LEFT
+            //frames.put("bigMarioLookUpRight 0", new Rectangle(744, 588, 85, 81)); // RIGHT
+
+            frames.put("bigMarioDuckLeft 0", new Rectangle(264, 366, 48, 45)); // LEFT
+            frames.put("bigMarioDuckRight 0", new Rectangle(864, 366, 48, 45)); // RIGHT
+
+            frames.put("bigMarioJumpLeft 0", new Rectangle(504, 342, 48, 93)); // LEFT
+            frames.put("bigMarioJumpRight 0", new Rectangle(624, 342, 48, 93)); // RIGHT
+
+            frames.put("bigMarioFallLeft 0", new Rectangle(384, 345, 48, 87)); // LEFT
+            frames.put("bigMarioFallRight 0", new Rectangle(744, 345, 48, 87)); // RIGHT
+
+        }else{
+            frames.put("bigMarioStandRight 0", new Rectangle(624, 1308, 45, 84)); // RIGHT
+            frames.put("bigMarioStandLeft 0", new Rectangle(507, 1308, 45, 84)); // LEFT
+
+            frames.put("bigMarioWalkRight 0", new Rectangle(1104, 1308, 48, 84)); // RIGHT
+            frames.put("bigMarioWalkRight 1", new Rectangle(984, 1308, 48, 81)); // RIGHT
+            frames.put("bigMarioWalkRight 2", new Rectangle(624, 1308, 45, 84)); // RIGHT
+
+            frames.put("bigMarioWalkLeft 0", new Rectangle(27, 1308, 48, 84)); // LEFT
+            frames.put("bigMarioWalkLeft 1", new Rectangle(147, 1308, 48, 81)); // LEFT
+            frames.put("bigMarioWalkLeft 2", new Rectangle(507, 1308, 45, 84)); // LEFT
+
+            frames.put("bigMarioDuckLeft 0", new Rectangle(264, 1447, 48, 45)); // LEFT
+            frames.put("bigMarioDuckRight 0", new Rectangle(864, 1447, 48, 45)); // RIGHT
+
+            frames.put("bigMarioJumpLeft 0", new Rectangle(504, 1425, 48, 93)); // LEFT
+            frames.put("bigMarioJumpRight 0", new Rectangle(624, 1425, 48, 93)); // RIGHT
+
+            frames.put("bigMarioFallLeft 0", new Rectangle(384, 1425, 48, 87)); // LEFT
+            frames.put("bigMarioFallRight 0", new Rectangle(744, 1425, 48, 87)); // RIGHT
+
+        }
+    }
+
     public boolean isMove()
     {
         return (left || right);
@@ -206,6 +239,23 @@ public class StageMario extends CharacterObject implements NoClip
     public void setJumpExtra(boolean jumpExtra)
     {
         this.jumpExtra = jumpExtra;
+    }
+
+    public boolean isFlowerPower() {
+        return flowerPower;
+    }
+
+    public void setFlowerPower(boolean flowerPower) {
+        this.flowerPower = flowerPower;
+    }
+
+
+    public boolean isInit() {
+        return init;
+    }
+
+    public void setInit(boolean init) {
+        this.init = init;
     }
 
     public void toggleBig()

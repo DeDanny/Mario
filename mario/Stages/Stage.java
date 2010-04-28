@@ -13,9 +13,13 @@ import mario.core.interfaces.ReUse;
 import mario.core.engine.Sound;
 import mario.enemy.Goomba;
 import mario.enemy.Koopa;
+import mario.mapObjects.Flower;
+import mario.mapObjects.Mushroom;
+import mario.mapObjects.Questionmark;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
 import mario.scenery.Theme;
+import mario.weapons.Fireball;
 
 /**
  *
@@ -181,6 +185,15 @@ public class Stage
 
         mapObjects.add(new Koopa(this, 330, 400, 48, 81));
         mapObjects.add(new Goomba(this, 500, 400, 48, 47));
+
+
+        mapObjects.add(new Questionmark(this, 300, 350, 45, 45));
+        mapObjects.add(new Mushroom(this, 300, 303, 45, 45));
+
+        mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
+        mapObjects.add(new Flower(this, 348, 301, 42, 48));
+
+        mapObjects.add(new Fireball(this, 200, 200, 11, 12));
 
         resetMap = false;
     }

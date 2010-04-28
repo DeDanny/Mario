@@ -19,23 +19,21 @@ import mario.core.interfaces.NoClip;
  *
  * @author Onno
  */
-public class Mushroom extends Powerup implements NoClip
+public class Flower extends Powerup implements NoClip
 {
     private boolean hit = false;
     private boolean hadCollision = false;
     private boolean changeAni = false;
 
-    public Mushroom(Stage game, int x, int y, int width, int height)
+    public Flower(Stage game, int x, int y, int width, int height)
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
 
         ai = new WalkAi(this);
         ai.setWALKSPEED(2);
-        frames.put("mushroom nothing", new Rectangle(0, 0, 1, 1));
-        frames.put("mushroom 0", new Rectangle(1225, 2327, 48, 48));
-
-        setAnimation(new String[]{"mushroom nothing"});
-
+        frames.put("flower nothing", new Rectangle(0, 0, 1, 1));
+        frames.put("flower 0", new Rectangle(1230,  2379, 42, 48));
+        setAnimation(new String[]{"flower nothing"});
     }
 
     @Override
@@ -43,7 +41,7 @@ public class Mushroom extends Powerup implements NoClip
     {
         if (hit)
         {
-            super.ai();
+            //super.ai();
         }
 
         if (changeAni)
@@ -56,10 +54,7 @@ public class Mushroom extends Powerup implements NoClip
 
     public void setAnimation()
     {
-        setAnimation(new String[]
-                {
-                    "mushroom 0"
-                });
+        setAnimation(new String[]{"flower 0"});
     }
 
     @Override
@@ -70,19 +65,7 @@ public class Mushroom extends Powerup implements NoClip
     @Override
     public void doMapCollision()
     {
-        switch (mapCollision)
-        {
-            case SIDE:
-                ai.toggleDirection();
-                break;
-            case NONE:
-                setFall(true);
-                break;
-            default:
-                setFall(false);
-                break;
 
-        }
     }
 
     public void doMapCollision(Collision side)
@@ -113,10 +96,11 @@ public class Mushroom extends Powerup implements NoClip
         {
             if (hadCollision)
             {
-                if (!stage.getMario().isBig())
+                if (stage.getMario().isBig())
                 {
                     setAlive(false);
-                    stage.getMario().setGrow(true);
+                    stage.getMario().setInit(true);
+                    stage.getMario().setFlowerPower(true);
                 }
             }
         }
