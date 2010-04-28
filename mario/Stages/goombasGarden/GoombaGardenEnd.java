@@ -4,6 +4,7 @@
  */
 package mario.Stages.goombasGarden;
 
+import mario.MarioWorld;
 import mario.Stages.Map;
 
 /**
@@ -12,9 +13,9 @@ import mario.Stages.Map;
  */
 public class GoombaGardenEnd extends Map
 {
-    public GoombaGardenEnd(String theme, int[] map)
+    public GoombaGardenEnd(MarioWorld marioWorld, String theme)
     {
-        super(theme);
+        super(marioWorld, theme);
     }
 
     @Override
@@ -25,5 +26,11 @@ public class GoombaGardenEnd extends Map
     @Override
     public void endgame()
     {
+    }
+
+    @Override
+    public void finishgame()
+    {
+        
     }
 }

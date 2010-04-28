@@ -5,6 +5,7 @@
 package mario.Stages;
 
 import java.util.HashMap;
+import mario.MarioWorld;
 
 /**
  *
@@ -13,11 +14,14 @@ import java.util.HashMap;
 public abstract class Map
 {
     protected String theme;
+    protected MarioWorld marioWorld;
+    protected boolean disableInpute = false;
 
     protected HashMap<Integer, StageChoose[]> map = new HashMap<Integer, StageChoose[]>();
 
-    public Map(String theme)
+    public Map(MarioWorld marioWorld, String theme)
     {
+        this.marioWorld = marioWorld;
         this.theme = theme;
     }
 
@@ -31,5 +35,7 @@ public abstract class Map
     public abstract void startGame();
 
     public abstract void endgame();
+
+    public abstract void finishgame();
 
 }

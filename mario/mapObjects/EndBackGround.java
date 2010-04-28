@@ -9,7 +9,6 @@ import mario.Stages.Stage;
 import mario.core.interfaces.BackGround;
 import mario.core.interfaces.NoClip;
 import mario.scenery.Scenery;
-import mario.scenery.Scenery;
 
 /**
  *

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import mario.MarioState.*;
 import mario.core.StageObject;
 import mario.core.interfaces.NoClip;
-import mario.enemy.Enemy;
 import mario.enemy.Koopa;
 import mario.enemy.Goomba;
 import mario.mapObjects.Cube;
@@ -41,21 +40,6 @@ public class StageMario extends CharacterObject implements NoClip
     private GrowMario growMario = new GrowMario(this);
     protected int jumpTeller = 1;
     private int stepCounter = 0;
-
-    public int getJumpTeller()
-    {
-        return jumpTeller;
-    }
-
-    public void setJumpTeller(int jumpTeller)
-    {
-        this.jumpTeller = jumpTeller;
-    }
-
-
-    public void setJumpExtra(boolean jumpExtra) {
-        this.jumpExtra = jumpExtra;
-    }
 
     public StageMario(Stage game, int x, int y, int width, int height)
     {
@@ -197,6 +181,21 @@ public class StageMario extends CharacterObject implements NoClip
         this.down = down;
     }
 
+    public int getJumpTeller()
+    {
+        return jumpTeller;
+    }
+
+    public void setJumpTeller(int jumpTeller)
+    {
+        this.jumpTeller = jumpTeller;
+    }
+
+    public void setJumpExtra(boolean jumpExtra)
+    {
+        this.jumpExtra = jumpExtra;
+    }
+
     public void toggleBig()
     {
         if (this.big)
@@ -291,7 +290,7 @@ public class StageMario extends CharacterObject implements NoClip
         //temp solution
         Collision collision = collisions.get(0);
         //end temp solution
-        
+
         if ((System.currentTimeMillis() - godModeTimer) > godModeTime)
         {
 

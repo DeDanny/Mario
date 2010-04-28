@@ -6,7 +6,6 @@ package mario.mapObjects;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
-import mario.Stages.Map;
 import mario.Stages.Stage;
 import mario.Stages.StageMario;
 import mario.core.Collision;
@@ -36,8 +35,9 @@ public class EndForeGround extends Scenery implements NoClip, ForeGround
     {
         if(stageObject instanceof StageMario)
         {
-            Map map = stage.getMap();
-            map.endgame();
+            System.out.println("END THE GAME");
+            
+            stage.getMap().endgame();
         }
     }
 }

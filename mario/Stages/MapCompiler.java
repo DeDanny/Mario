@@ -67,6 +67,7 @@ public class MapCompiler
                     break;
                 case END:
                     mapObjectenList.add(new EndBackGround(stage, 800, 438, 48, 48));
+                    
                     mapObjectenList.add(new EndForeGround(stage, 850, 438, 48, 48));
                     break;
             }

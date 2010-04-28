@@ -22,7 +22,7 @@ public class MarioWorld
     private Doing whatcha = Doing.MAIN;
     private MarioData marioData = MarioData.getMarioData();
     private StageSelector stageSelector = new StageSelector(this, 0, 0, 600, 800, marioData, "/images/portal.png");
-    private Stage stage = new Stage();
+    private Stage stage = new Stage(this);
     private Menu mainMenu = new MainMenu(this);
     private Menu pauzeMenu = new PauzeMenu(this);
 
@@ -132,6 +132,6 @@ public class MarioWorld
 
     public void setStage(String stageName)
     {
-        stage.setStage(stageName);
+        stage.setMap(stageName);
     }
 }

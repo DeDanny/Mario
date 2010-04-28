@@ -4,6 +4,7 @@
  */
 package mario.Stages.goombasGarden;
 
+import mario.MarioWorld;
 import mario.Stages.Map;
 import mario.Stages.StageChoose;
 
@@ -17,9 +18,9 @@ import mario.Stages.StageChoose;
  */
 public class GoombaGardenStart extends Map
 {
-    public GoombaGardenStart(String theme)
+    public GoombaGardenStart(MarioWorld marioWorld, String theme)
     {
-        super(theme);
+        super(marioWorld, theme);
         map.put(1, new StageChoose[]
                 {
                     StageChoose.GROUNDLEFT, StageChoose.TUBE
@@ -50,5 +51,14 @@ public class GoombaGardenStart extends Map
     @Override
     public void endgame()
     {
+        //marioWorld.getStage().setMap("yoshi's house end");
+        marioWorld.getStage().setMap("yoshi's house");
+        //marioWorld.setWhatcha(Doing.SELECTSTAGE);
+    }
+
+    @Override
+    public void finishgame()
+    {
+        
     }
 }

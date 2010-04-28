@@ -19,6 +19,10 @@ abstract public class Scenery extends StageObject
     {
         super(stage, x, y, width, height, sprite);
     }
+    public Scenery(Stage stage, int x, int y, int width, int height, int pushX, int pushY, String sprite)
+    {
+        super(stage, x, y, width, height, pushX, pushY, sprite);
+    }
 
     @Override
     public void doCharacterCollision(ArrayList<Collision> collisions, StageObject mapObject)
