@@ -74,13 +74,13 @@ abstract public class MoveState extends MarioState {
     private void doLeft() {
         marioObject.setX(marioObject.getX() - WALKSPEED);
         super.setAnimation(LeftAnimation);
-        marioObject.setDirection(Direction.LEFT);
+        //marioObject.setDirection(Direction.LEFT);
     }
 
     private void doRight() {
         marioObject.setX(marioObject.getX() + WALKSPEED);
         super.setAnimation(RightAnimation);
-        marioObject.setDirection(Direction.RIGHT);
+        //marioObject.setDirection(Direction.RIGHT);
     }
 
     private void doUp() {

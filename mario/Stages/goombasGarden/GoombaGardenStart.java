@@ -22,7 +22,7 @@ public class GoombaGardenStart extends Map
 {
     public GoombaGardenStart(MarioWorld marioWorld)
     {
-        super(marioWorld, Theme.NORMAL, new Color(107, 136, 255));
+        super(marioWorld, Theme.STONE, new Color(107, 136, 255));
         map.put(1, new StageChoose[]
                 {
                     StageChoose.GROUNDLEFT, StageChoose.TUBE
@@ -49,7 +49,8 @@ public class GoombaGardenStart extends Map
     public void startGame()
     {
         marioWorld.getStage().getMario().setX(100, true);
-        marioWorld.getStage().getMario().setY(500, true);
+        marioWorld.getStage().getMario().setY(400, true);
+        marioWorld.getStage().getMario().setHeight(60);
         marioWorld.getStage().getMario().setStepCounter(0);
     }
 

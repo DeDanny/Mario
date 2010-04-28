@@ -42,7 +42,7 @@ public class StageMario extends CharacterObject implements NoClip
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
     private GrowMario growMario = new GrowMario(this);
-    private DeadState deadMario = new DeadState(this);
+    private DeadState deadState = new DeadState(this);
     protected int jumpTeller = 1;
     private int stepCounter = 0;
 
@@ -57,13 +57,17 @@ public class StageMario extends CharacterObject implements NoClip
     public void doLoopAction()
     {
         if(init){
+            // Do this to change coordinates for Big mario - Normal or Flower
             init();
             init = false;
         }
-        
+
+        checkGap();
+
+
         if (dead)
         {
-            setState(deadMario);
+            setState(deadState);
         }
         else
         {
@@ -191,6 +195,11 @@ public class StageMario extends CharacterObject implements NoClip
         }
     }
 
+    public void checkGap(){
+        if(getY() >= 552){
+            setDead(true);
+        }
+    }
     public boolean isMove()
     {
         return (left || right);
@@ -204,11 +213,13 @@ public class StageMario extends CharacterObject implements NoClip
     public void setLeft(boolean left)
     {
         this.left = left;
+        setDirection(Direction.LEFT);
     }
 
     public void setRight(boolean right)
     {
         this.right = right;
+        setDirection(Direction.RIGHT);
     }
 
     public void setUp(boolean up)
@@ -378,20 +389,30 @@ public class StageMario extends CharacterObject implements NoClip
                         if (big)
                         {
                             godModeTimer = System.currentTimeMillis();
-                            grow = true;
-                        }
-                        else
-                        {
-                            if (stage.getScoreBalk().getLives() > 1)
-                            {
-                                dead = true;
-                                stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
-                                godModeTimer = System.currentTimeMillis();
+                            if(flowerPower){
+                               init = true;
+                               flowerPower = false;
                             }
                             else
                             {
-                                dead = true;
-                                stage.getSound().playSound("/sound/dead.wav");
+                                grow = true;
+                            }
+                        }
+                        else
+                        {
+                            Goomba goomba = (Goomba) mapObject;
+                            if(!goomba.isDead()){
+                                if (stage.getScoreBalk().getLives() > 1)
+                                {
+                                    dead = true;
+                                    stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
+                                    godModeTimer = System.currentTimeMillis();
+                                }
+                                else
+                                {
+                                    dead = true;
+                                    stage.getSound().playSound("/sound/dead.wav");
+                                }
                             }
                         }
                         //System.out.println("MARIO DOOD");
@@ -420,6 +441,7 @@ public class StageMario extends CharacterObject implements NoClip
                             }
                             else
                             {
+                                 if(!koopa.isDead()){
                                 if (stage.getScoreBalk().getLives() > 1)
                                 {
                                     // Go to start of level
@@ -434,6 +456,7 @@ public class StageMario extends CharacterObject implements NoClip
                                     dead = true;
                                     stage.getSound().playSound("/sound/dead.wav");
                                 }
+                                 }
                             }
                         }
                         break;

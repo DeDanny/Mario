@@ -6,6 +6,8 @@ import mario.core.StageObject;
 
 public class WalkAi extends Ai {
 
+    private int heightTeller = 0;
+
     public WalkAi(StageObject mapObject) {
         super(mapObject);
         direction = Direction.LEFT;
@@ -22,16 +24,28 @@ public class WalkAi extends Ai {
             //System.out.println("fall stageObject");
         }
 
-        switch (direction) {
-            case LEFT:
-                stageObject.setX(stageObject.getX() - WALKSPEED);
-                break;
-            case RIGHT:
-                stageObject.setX(stageObject.getX() + WALKSPEED);
-                break;
-            case NONE:
-                
-                break;
+        if (stageObject.isDead()) {
+            WALKSPEED = 15;
+            if (heightTeller < 5) {
+            } else if (heightTeller < 10) {
+                stageObject.setY(stageObject.getY() - WALKSPEED, true);
+            } else if (heightTeller >= 10) {
+                stageObject.setY(stageObject.getY() + WALKSPEED, true);
+            }
+            heightTeller++;
+        } else {
+
+            switch (direction) {
+                case LEFT:
+                    stageObject.setX(stageObject.getX() - WALKSPEED);
+                    break;
+                case RIGHT:
+                    stageObject.setX(stageObject.getX() + WALKSPEED);
+                    break;
+                case NONE:
+
+                    break;
+            }
         }
 
     }

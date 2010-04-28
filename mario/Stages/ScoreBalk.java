@@ -8,6 +8,7 @@ import mario.Stages.Stage;
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import mario.core.Collision;
 import mario.core.StageObject;
@@ -30,11 +31,8 @@ public class ScoreBalk extends StageObject implements Static
     {
         super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("muntje", new Rectangle(457, 167, 45, 48));
-        frames.put("leven", new Rectangle(1338, 2337, 33, 30));
-        setAnimation(new String[]
-                {
-                    "muntje"
-                });
+        frames.put("coin", new Rectangle(1278, 2328, 48, 48));
+        setAnimation(new String[]{"coin"});
     }
 
     @Override
@@ -48,22 +46,18 @@ public class ScoreBalk extends StageObject implements Static
     @Override
     public void draw(Graphics graphics)
     {
+        Font font = new Font("Arial", Font.PLAIN, 20);
+        graphics.setFont(font);
 
         graphics.setColor(Color.WHITE);
-        graphics.drawString("Score: " + newScore, 10, 20);
-        setAnimation(new String[]
-                {
-                    "muntje"
-                });
+        graphics.drawString("Score: " + newScore, 10, 30);
+        setAnimation(new String[]{"muntje"});
 //        graphics.drawImage(getImage(), 50, 5, null);
-        graphics.drawString("Coins: " + coins, 110, 20);
-        setAnimation(new String[]
-                {
-                    "leven"
-                });
+        graphics.drawString("Coins: " + coins, 110, 30);
+        //setAnimation(new String[]{"leven"});
 //        graphics.drawImage(getImage(), 20, 5, null);
-        graphics.drawString("Lives: " + lives, 210, 20);
-        graphics.drawString("Killed enemy's: " + killedEnemy, 310, 20);
+        graphics.drawString("Lives: " + lives, 210, 30);
+        graphics.drawString("Killed enemy's: " + killedEnemy, 310, 30);
 
     }
 
