@@ -48,7 +48,6 @@ public class GoombaGardenStart extends Map
     @Override
     public void startGame()
     {
-        System.out.println("Start nieuw game");
         marioWorld.getStage().getMario().setX(100, true);
         marioWorld.getStage().getMario().setY(500, true);
         marioWorld.getStage().getMario().setStepCounter(0);

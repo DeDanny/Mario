@@ -9,6 +9,7 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import mario.MarioData;
 import mario.core.Direction;
+import mario.core.StageSelectNode;
 import mario.core.engine.GameObject;
 
 /**
@@ -65,7 +66,7 @@ public class StageSelectorMario extends GameObject
     {
         if (findPath)
         {
-            ArrayList<Node> nodes = stageSelector.getNodes();
+            ArrayList<StageSelectNode> nodes = stageSelector.getNodes();
 
             int nodeX = nodes.get(marioData.getNode()).getX();
             int nodeY = nodes.get(marioData.getNode()).getY();
@@ -207,7 +208,7 @@ public class StageSelectorMario extends GameObject
 
     public void moveRight()
     {
-        ArrayList<Node> nodes = stageSelector.getNodes();
+        ArrayList<StageSelectNode> nodes = stageSelector.getNodes();
         int nodeSize = nodes.size();
         if (marioData.getNode() + 1 < nodeSize)
         {
