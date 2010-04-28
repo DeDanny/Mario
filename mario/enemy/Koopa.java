@@ -119,7 +119,7 @@ public class Koopa extends Enemy implements NoClip {
                     Koopa koopa = (Koopa) stageObject;
                     if (koopa.isShell() && koopa.isMoving()) {
                         setAlive(false);
-                        game.getScoreBalk().killEnemy();
+                        stage.getScoreBalk().killEnemy();
                     }
                     break;
             }

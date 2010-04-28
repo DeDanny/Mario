@@ -142,6 +142,10 @@ public class StageSelector extends GameObject
         {
             down = false;
         }
+        if (keyReleased.contains(KeyButtons.CONFIRM))
+        {
+            confirm = false;
+        }
     }
 
     /**

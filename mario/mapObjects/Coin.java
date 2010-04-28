@@ -86,8 +86,8 @@ public class Coin extends StageObject implements NoClip
         {
             if (hadCollision)
             {
-                game.getScoreBalk().addCoin();
-                game.getSound().playSound("/sound/coin.wav");
+                stage.getScoreBalk().addCoin();
+                stage.getSound().playSound("/sound/coin.wav");
                 setAlive(false);
             }
 

@@ -8,26 +8,37 @@ import mario.Stages.Map;
 import mario.Stages.StageChoose;
 
 /**
+ * size of GROUNDLEFT   = 9
+ * guiss GROUNDRIGHT    = 9 //?!
+ * size of GROUNDMIDDLE = 38
+ *
  *
  * @author danny
  */
 public class GoombaGardenStart extends Map
 {
-    //private int mapGooma[] =
     public GoombaGardenStart(String theme)
     {
         super(theme);
-        map = new int[]
-                {
-                    5, 12
-                };
-        testMap.put(1, new StageChoose[]
+        map.put(1, new StageChoose[]
                 {
                     StageChoose.GROUNDLEFT, StageChoose.TUBE
                 });
-        testMap.put(10, new StageChoose[]
+        map.put(10, new StageChoose[]
                 {
                     StageChoose.GROUNDMIDDLE
+                });
+        map.put(48, new StageChoose[]
+                {
+                    StageChoose.GROUNDMIDDLE
+                });
+        map.put(49, new StageChoose[]
+                {
+                    StageChoose.END
+                });
+        map.put(86, new StageChoose[]
+                {
+                    StageChoose.GROUNDRIGHT
                 });
     }
 

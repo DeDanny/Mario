@@ -40,7 +40,7 @@ public class StageSelectorMario extends GameObject
 
     StageSelectorMario(StageSelector stageSelector, int width, int height, MarioData marioData)
     {
-        super(stageSelector.getNodes().get(marioData.getNode()).getX() - (width / 2) +4,// plus 4 for centering the mario (only small tested) do not know why
+        super(stageSelector.getNodes().get(marioData.getNode()).getX() - (width / 2) - 4,// minus 4 for centering the mario (only small tested) do not know why
                 (stageSelector.getNodes().get(marioData.getNode()).getY() - height),
                 width,
                 height,
@@ -69,7 +69,7 @@ public class StageSelectorMario extends GameObject
             int nodeX = nodes.get(marioData.getNode()).getX();
             int nodeY = nodes.get(marioData.getNode()).getY();
 
-            int halfX = x + (width / 2)+4; // plus 4 for centering the mario (only small tested) do not know why
+            int halfX = x + (width / 2) + 4; // plus 4 for centering the mario (only small tested) do not know why
             if (nodeX > halfX)
             {
                 setAnimation(rightAnimation);
@@ -98,7 +98,7 @@ public class StageSelectorMario extends GameObject
                 findPath = false;
                 setAnimation(standAnimation);
             }
-            
+
             switch (direction)
             {
                 case LEFT:

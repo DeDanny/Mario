@@ -14,8 +14,7 @@ public abstract class Map
 {
     protected String theme;
 
-    protected HashMap<Integer, StageChoose[]> testMap = new HashMap<Integer, StageChoose[]>();
-    protected int[] map;
+    protected HashMap<Integer, StageChoose[]> map = new HashMap<Integer, StageChoose[]>();
 
     public Map(String theme)
     {
@@ -25,7 +24,7 @@ public abstract class Map
     public StageChoose[] getObjectsByStepCounter(int steps)
     {
         StageChoose[] stageChoose = new StageChoose[]{};
-        stageChoose = testMap.get(steps);
+        stageChoose = map.get(steps);
         return stageChoose;
     }
 

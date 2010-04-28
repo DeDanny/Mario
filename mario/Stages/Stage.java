@@ -174,6 +174,11 @@ public class Stage
        }
     }
 
+    public Map getMap()
+    {
+        return map;
+    }
+
     public void addObjects()
     {
         StageChoose[] stageChooseds = map.getObjectsByStepCounter(mario.getStepCounter());

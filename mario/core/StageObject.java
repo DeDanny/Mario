@@ -22,17 +22,17 @@ abstract public class StageObject extends GameObject
     protected boolean alive = true;
     protected boolean fall = false;
     protected int x_last, y_last, width_last, height_last, pushX = 0, pushY = 0;
-    protected Stage game;
+    protected Stage stage;
 
-    public StageObject(Stage game, int x, int y, int width, int height, String fileName)
+    public StageObject(Stage stage, int x, int y, int width, int height, String fileName)
     {
         super(x, y, width, height, fileName);
-        this.game = game;
+        this.stage = stage;
     }
 
     /**
      * 
-     * @param game
+     * @param stage
      * @param x
      * @param y
      * @param width
@@ -44,7 +44,7 @@ abstract public class StageObject extends GameObject
     public StageObject(Stage game, int x, int y, int width, int height, int pushX, int pushY, String fileName)
     {
         super(x, y, width, height, fileName);
-        this.game = game;
+        this.stage = game;
         this.pushX = pushX;
         this.pushY = pushY;
     }
@@ -94,7 +94,7 @@ abstract public class StageObject extends GameObject
 
         if (mapCollision == Collision.NONE)
         {
-            for (StageObject characterObjectLoop : game.getMapObjects())
+            for (StageObject characterObjectLoop : stage.getMapObjects())
             {
                 if (this != characterObjectLoop)
                 {
@@ -115,7 +115,7 @@ abstract public class StageObject extends GameObject
 
     private void moveAll(int i)
     {
-        for (StageObject characterObjectLoop : game.getMapObjects())
+        for (StageObject characterObjectLoop : stage.getMapObjects())
         {
             if (!(characterObjectLoop instanceof Static))
             {
