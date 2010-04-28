@@ -8,7 +8,6 @@ import java.awt.Color;
 import mario.MarioWorld;
 import mario.Stages.Map;
 import mario.Stages.StageChoose;
-import mario.core.Doing;
 import mario.scenery.Theme;
 
 /**
@@ -23,7 +22,7 @@ public class GoombaGardenStart extends Map
 {
     public GoombaGardenStart(MarioWorld marioWorld)
     {
-        super(marioWorld, Theme.NORMAL, new Color(1, 1, 1));
+        super(marioWorld, Theme.NORMAL, new Color(107, 136, 255));
         map.put(1, new StageChoose[]
                 {
                     StageChoose.GROUNDLEFT, StageChoose.TUBE

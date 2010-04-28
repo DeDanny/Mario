@@ -41,10 +41,10 @@ abstract public class StageObject extends GameObject
      * @param pushY //Expirimental
      * @param fileName
      */
-    public StageObject(Stage game, int x, int y, int width, int height, int pushX, int pushY, String fileName)
+    public StageObject(Stage stage, int x, int y, int width, int height, int pushX, int pushY, String fileName)
     {
         super(x, y, width, height, fileName);
-        this.stage = game;
+        this.stage = stage;
         this.pushX = pushX;
         this.pushY = pushY;
     }
@@ -213,5 +213,15 @@ abstract public class StageObject extends GameObject
     {
         width_last = this.width;
         super.setWidth(width);
+    }
+
+    public int getPushX()
+    {
+        return pushX;
+    }
+
+    public int getPushY()
+    {
+        return pushY;
     }
 }

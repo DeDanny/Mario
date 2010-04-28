@@ -17,7 +17,7 @@ public class GoombaGardenEnd extends Map
 {
     public GoombaGardenEnd(MarioWorld marioWorld)
     {
-        super(marioWorld, Theme.NORMAL, new Color(4, 8 ,10));
+        super(marioWorld, Theme.NORMAL, new Color(107, 136, 255));
     }
 
     @Override

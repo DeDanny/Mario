@@ -16,11 +16,11 @@ import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import javax.jws.soap.SOAPBinding.Style;
 import javax.swing.JFrame;
 import mario.core.Node;
 import mario.Stages.Stage;
 import mario.Stages.StageMario;
+import mario.core.StageObject;
 import mario.core.interfaces.BackGround;
 import mario.core.interfaces.ForeGround;
 
@@ -136,22 +136,53 @@ public class View
 
         for (GameObject gameObject : gameObjectBackGround)
         {
+            if (debugger)
+            {
+                debugger(graphics, gameObject);
+            }
             gameObject.draw(graphics);
         }
         for (GameObject gameObject : gameObjectMiddleGround)
         {
+            if (debugger)
+            {
+                debugger(graphics, gameObject);
+            }
             gameObject.draw(graphics);
         }
         if (gameObjectMario != null)
         {
+            if (debugger)
+            {
+                debugger(graphics, gameObjectMario);
+            }
             gameObjectMario.draw(graphics);
         }
         for (GameObject gameObject : gameObjectForeGround)
         {
+            if (debugger)
+            {
+                debugger(graphics, gameObject);
+            }
             gameObject.draw(graphics);
         }
 
         endGraphics(graphics);
+    }
+
+    public void debugger(Graphics graphics, GameObject gameObject)
+    {
+        if (debugger)
+        {
+            StageObject stageObject = (StageObject) gameObject;
+            graphics.setColor(new Color(255, 0, 0, 50));
+            graphics.fillRect(gameObject.getX(), gameObject.getY(), gameObject.getWidth(), gameObject.getHeight());
+
+            graphics.setColor(new Color(0, 255, 0, 50));
+
+
+            graphics.fillRect(gameObject.getX() + stageObject.getPushX(), gameObject.getY() + stageObject.getPushY(), gameObject.getWidth(), gameObject.getHeight());
+        }
     }
 
     public void drawMenu(Menu menu)
