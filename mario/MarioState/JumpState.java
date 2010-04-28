@@ -15,23 +15,14 @@ import mario.core.Collision;
 public class JumpState extends MarioState {
 
     protected static final int WALKSPEED = 4;
-    protected String[] smallJumpRight = new String[]{
-        "smallMarioJumpRight 0"
-    };
-    protected String[] smallJumpLeft = new String[]{
-        "smallMarioJumpLeft 0"
-    };
-    protected String[] bigJumpRight = new String[]{
-        "bigMarioJumpRight 0"
-    };
-    protected String[] bigJumpLeft = new String[]{
-        "bigMarioJumpLeft 0"
-    };
+    protected String[] smallJumpRight = new String[]{"smallMarioJumpRight 0"};
+    protected String[] smallJumpLeft = new String[]{"smallMarioJumpLeft 0"};
+    protected String[] bigJumpRight = new String[]{"bigMarioJumpRight 0"};
+    protected String[] bigJumpLeft = new String[]{"bigMarioJumpLeft 0"};
     private int jumpHeight;
 
     public JumpState(StageMario marioObject) {
         super(marioObject);
-
     }
 
     @Override

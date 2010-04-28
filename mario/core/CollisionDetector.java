@@ -72,13 +72,13 @@ public class CollisionDetector
 
                             if((x_last + widthl) < xOthere)
                             {
-                                collisionsCharacter.add(Collision.LEFT);
-                                collisionsCharacterLoop.add(Collision.RIGHT);
+                                collisionsCharacter.add(Collision.RIGHT);
+                                collisionsCharacterLoop.add(Collision.LEFT);
                             }
                             else 
                             {
-                                collisionsCharacter.add(Collision.RIGHT);
-                                collisionsCharacterLoop.add(Collision.LEFT);
+                                collisionsCharacter.add(Collision.LEFT);
+                                collisionsCharacterLoop.add(Collision.RIGHT);
                             }
 
                             characterObject.doCharacterCollision(collisionsCharacter, characterObjectLoop);

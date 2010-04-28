@@ -30,6 +30,7 @@ public class StageMario extends CharacterObject implements NoClip
     private boolean jumpExtra = false;
     private boolean grow = false;
     private boolean big = false; // False is SmallMario - True is BigMario
+    private boolean dead = false;
     private long godModeTimer = System.currentTimeMillis();
     private int godModeTime = 1000;
     private Direction direction = Direction.LEFT;
@@ -38,11 +39,13 @@ public class StageMario extends CharacterObject implements NoClip
     private JumpState jumpMario = new JumpState(this);
     private FallState fallMario = new FallState(this);
     private GrowMario growMario = new GrowMario(this);
+    private DeadState deadMario = new DeadState(this);
     protected int jumpTeller = 1;
     private int stepCounter = 0;
 
     public StageMario(Stage game, int x, int y, int width, int height)
     {
+
         super(game, x, y, width, height, "/images/mario_sprite.png");
 
         frames.put("smallMarioStandRight 0", new Rectangle(627, 0, 42, 60));
@@ -91,56 +94,65 @@ public class StageMario extends CharacterObject implements NoClip
         frames.put("bigMarioFallLeft 0", new Rectangle(384, 345, 48, 87)); // LEFT
         frames.put("bigMarioFallRight 0", new Rectangle(744, 345, 48, 87)); // RIGHT
 
+        frames.put("deathMario 0", new Rectangle(24, 114, 48, 72)); // Left
+        frames.put("deathMario 1", new Rectangle(1104, 114, 48, 72)); // RIGHT
+
         //state = new SmallMario(this);
     }
 
     @Override
     public void doLoopAction()
     {
-        if (grow)
+        if (dead)
         {
-            setState(growMario);
-            ////System.out.println("growMario");
+            setState(deadMario);
         }
         else
         {
-            if (fall)
+            if (grow)
             {
-                setState(fallMario);
-                //System.out.println("fallMario");
+                setState(growMario);
+                ////System.out.println("growMario");
             }
             else
             {
-                if (jump || jumpExtra)
+                if (fall)
                 {
-                    if (this.state != fallMario || jumpExtra)
-                    {
-                        setState(jumpMario);
-                        this.jumpExtra = false;
-                        // //System.out.println("jumpMario");
-                    }
-                    else
-                    {
-                        this.setJump(false);
-                    }
+                    setState(fallMario);
+                    //System.out.println("fallMario");
                 }
                 else
                 {
-                    if (big)
+                    if (jump || jumpExtra)
                     {
-                        setState(bigMario);
-                        ////System.out.println("bigMario");
+                        if (this.state != fallMario || jumpExtra)
+                        {
+                            setState(jumpMario);
+                            this.jumpExtra = false;
+                            // //System.out.println("jumpMario");
+                        }
+                        else
+                        {
+                            this.setJump(false);
+                        }
                     }
                     else
                     {
-                        setState(smallMario);
-                        ////System.out.println("smallMario");
+                        if (big)
+                        {
+                            setState(bigMario);
+                            ////System.out.println("bigMario");
+                        }
+                        else
+                        {
+                            setState(smallMario);
+                            ////System.out.println("smallMario");
+                        }
                     }
                 }
             }
+
         }
-
-
 
         state.doAction();
     }
@@ -202,6 +214,7 @@ public class StageMario extends CharacterObject implements NoClip
         {
             if (!this.down)
             {
+
                 setY(getY() + 24);
                 setHeight(58);
             }
@@ -212,6 +225,16 @@ public class StageMario extends CharacterObject implements NoClip
         {
             this.big = true;
         }
+    }
+
+    public boolean isDead()
+    {
+        return dead;
+    }
+
+    public void setDead(boolean dead)
+    {
+        this.dead = dead;
     }
 
     public boolean isBig()
@@ -291,9 +314,9 @@ public class StageMario extends CharacterObject implements NoClip
         Collision collision = collisions.get(0);
         //end temp solution
 
+
         if ((System.currentTimeMillis() - godModeTimer) > godModeTime)
         {
-
             if (mapObject instanceof Goomba)
             {
                 //System.out.println("collision:" + collision);
@@ -310,12 +333,13 @@ public class StageMario extends CharacterObject implements NoClip
                         {
                             if (stage.getScoreBalk().getLives() > 1)
                             {
-
+                                dead = true;
                                 stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
                                 godModeTimer = System.currentTimeMillis();
                             }
                             else
                             {
+                                dead = true;
                                 stage.getSound().playSound("/sound/dead.wav");
                             }
                         }
@@ -347,12 +371,16 @@ public class StageMario extends CharacterObject implements NoClip
                             {
                                 if (stage.getScoreBalk().getLives() > 1)
                                 {
-
+                                    // Go to start of level
+                                    dead = true;
                                     stage.getScoreBalk().setLives(stage.getScoreBalk().getLives() - 1);
                                     godModeTimer = System.currentTimeMillis();
+
                                 }
                                 else
                                 {
+                                    // Go to Stage selector
+                                    dead = true;
                                     stage.getSound().playSound("/sound/dead.wav");
                                 }
                             }

@@ -23,7 +23,7 @@ public class Koopa extends Enemy implements NoClip {
     private boolean isShell = false;
     private boolean isMoving = false;
     private long godModeTimer = System.currentTimeMillis();
-    private int godModeTime = 2000;
+    private int godModeTime = 100;
 
     public Koopa(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
@@ -86,42 +86,41 @@ public class Koopa extends Enemy implements NoClip {
          */
         Collision collision = collisions.get(0);
         if (stageObject instanceof mario.Stages.StageMario) {
-            if (collisions.contains(Collision.UP)) {
-                if (!isShell) {
-                    setHeight(48);
-                    //setY(stageObject.getY() - 33);
-                    ai.setDirection(Direction.NONE);
-                    setAnimation(new String[]{"koopaFlat 0"});
-                    isShell = true;
-                } else {
-
-                    if ((System.currentTimeMillis() - godModeTimer) > godModeTime) {
+            if ((System.currentTimeMillis() - godModeTimer) > godModeTime) {
+                if (collisions.contains(Collision.UP)) {
+                    if (!isShell) {
+                        setHeight(48);
+                        //setY(stageObject.getY() - 33);
+                        ai.setDirection(Direction.NONE);
+                        setAnimation(new String[]{"koopaFlat 0"});
+                        isShell = true;
+                    } else {
                         ai.setDirection(Direction.LEFT);
                         ai.setWALKSPEED(7);
                         setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
                         isMoving = true;
-                        godModeTimer = System.currentTimeMillis();
+
                     }
-
+                   // System.out.println("Col Up");
+                } else if (collisions.contains(Collision.LEFT)) {
+                    if (isShell) {
+                        ai.setDirection(Direction.RIGHT);
+                        ai.setWALKSPEED(7);
+                        setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
+                        isMoving = true;
+                    }
+                    //System.out.println("Col LEFT");
+                } else if (collisions.contains(Collision.RIGHT)) {
+                    if (isShell) {
+                        ai.setDirection(Direction.LEFT);
+                        ai.setWALKSPEED(7);
+                        setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
+                        isMoving = true;
+                    }
+                    //System.out.println("Col Right");
                 }
-            } else if (collisions.contains(Collision.LEFT)) {
-                if (isShell) {
-                    ai.setDirection(Direction.RIGHT);
-                    ai.setWALKSPEED(7);
-                    setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
-                    isMoving = true;
-                }
-
-            } else if (collisions.contains(Collision.RIGHT)) {
-                if (isShell) {
-                    ai.setDirection(Direction.LEFT);
-                    ai.setWALKSPEED(7);
-                    setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
-                    isMoving = true;
-                }
+                godModeTimer = System.currentTimeMillis();
             }
-
-
         }
 
 
