@@ -66,8 +66,8 @@ public class GoombaGardenStart extends Map
     @Override
     public void finishGame()
     {
-        marioWorld.getStage().getMario().setRight(false);
         marioWorld.getStage().getMario().setLeft(false);
+        marioWorld.getStage().getMario().setRight(false);
         marioWorld.getStage().getMario().setDown(false);
         disableInpute = true;
     }
