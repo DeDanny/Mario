@@ -5,6 +5,7 @@
 package mario.Stages;
 
 import java.util.ArrayList;
+import java.util.Random;
 import mario.core.StageObject;
 import mario.enemy.Goomba;
 import mario.enemy.Koopa;
@@ -29,6 +30,7 @@ import mario.scenery.Tube;
 public class MapCompiler {
 
     private Stage stage;
+    private Random generator = new Random();
 
     public MapCompiler(Stage stage) {
         this.stage = stage;
@@ -65,7 +67,24 @@ public class MapCompiler {
                     mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.RIGHT, stage.getMap().getTheme()));
                     break;
                 case CLOUD:
-                    mapObjectenList.add(new Cloud(stage, 800, 200, 0, 0));
+                    int procent = generator.nextInt(4);
+                    int yAs = 0;
+                    switch (procent) {
+                        case 1:
+                            yAs = 100;
+                            break;
+                        case 2:
+                            yAs = 140;
+                            break;
+                        case 3:
+                            yAs = 180;
+                            break;
+                        case 4:
+                            yAs = 220;
+                            break;
+
+                    }
+                    mapObjectenList.add(new Cloud(stage, 800, yAs, 96, 0));
                     break;
                 case COIN:
                     mapObjectenList.add(new Questionmark(stage, 800, 350, 45, 45));

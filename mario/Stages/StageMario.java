@@ -203,6 +203,8 @@ public class StageMario extends CharacterObject implements NoClip
         if (getY() >= 552)
         {
             setDead(true);
+            setBig(false);
+            setFlowerPower(false);
         }
     }
 
