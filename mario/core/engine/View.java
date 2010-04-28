@@ -179,8 +179,6 @@ public class View
             graphics.fillRect(gameObject.getX(), gameObject.getY(), gameObject.getWidth(), gameObject.getHeight());
 
             graphics.setColor(new Color(0, 255, 0, 50));
-
-
             graphics.fillRect(gameObject.getX() + stageObject.getPushX(), gameObject.getY() + stageObject.getPushY(), gameObject.getWidth(), gameObject.getHeight());
         }
     }

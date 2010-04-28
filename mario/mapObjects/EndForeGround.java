@@ -29,6 +29,15 @@ public class EndForeGround extends Scenery implements NoClip, ForeGround
                     "pole"
                 });
     }
+    public EndForeGround(Stage stage, int x, int y, int width, int height, int pushX, int pushY)
+    {
+        super(stage, x, y, width, height, pushX, pushY, "/images/finish.png");
+        frames.put("pole", new Rectangle(3, 4, 24, 118));
+        setAnimation(new String[]
+                {
+                    "pole"
+                });
+    }
 
     @Override
     public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject)

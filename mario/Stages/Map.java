@@ -55,4 +55,10 @@ public abstract class Map
     {
         return color;
     }
+
+    public Theme getTheme()
+    {
+        return theme;
+    }
+    
 }
