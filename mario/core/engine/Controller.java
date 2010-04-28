@@ -27,8 +27,6 @@ public class Controller implements KeyListener, Runnable
     private Thread gameLoop = new Thread(this, "GameLoop");
     private final static int GAMESPEED = 10;
     private long gameTimer = System.currentTimeMillis();
-    ////old trying to remove.
-    private CollisionDetector collisionDetector;
 
     /**
      *
@@ -172,7 +170,7 @@ public class Controller implements KeyListener, Runnable
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE)
         {
-            keyPressed.add(KeyButtons.JUMP);
+            keyPressed.add(KeyButtons.SHOOT);
         }
         if (e.getKeyCode() == KeyEvent.VK_ENTER)
         {

@@ -16,5 +16,6 @@ public enum  KeyButtons {
     RIGHT,
     JUMP,
     CONFIRM,
-    ESCAPE
+    ESCAPE,
+    SHOOT
 }

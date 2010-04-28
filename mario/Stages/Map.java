@@ -42,9 +42,9 @@ public abstract class Map
 
     public abstract void startGame();
 
-    public abstract void endgame();
+    public abstract void endGame();
 
-    public abstract void finishgame();
+    public abstract void finishGame();
 
     public boolean isDisableInpute()
     {

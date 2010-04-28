@@ -43,7 +43,6 @@ public class Stage
     {
         this.marioWorld = marioWorld;
         //sound.playSound("/sound/theme.wav");
-        //resetMap();
     }
 
     public StageMario getMario()
