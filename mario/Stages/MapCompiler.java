@@ -39,7 +39,6 @@ public class MapCompiler {
             ArrayList<StageObject> MapObjects = compile(stageChooseds);
             if (MapObjects != null) {
                 for (StageObject mapObject : MapObjects) {
-
                     stage.addMapObject(mapObject);
                 }
             }

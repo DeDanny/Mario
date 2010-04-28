@@ -16,6 +16,7 @@ public class Bush extends Scenery implements NoClip, BackGround
         super(game, x, y, width, height, "/images/nsmbtileset.png");
         frames.put("bush 0", new Rectangle(424, 4134, 99, 78));
         frames.put("bush 1", new Rectangle(523, 4134, 99, 78));
+
         frameSpeed = 700;
         setAnimation(new String[]
                 {

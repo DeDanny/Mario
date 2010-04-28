@@ -104,6 +104,7 @@ public abstract class GameObject
 
     public void setAnimation(String[] animation)
     {
+        systemTime = 0;
         setAnimation(animation, false);
     }
 
