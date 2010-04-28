@@ -204,11 +204,13 @@ public class StageMario extends CharacterObject implements NoClip
     public void setLeft(boolean left)
     {
         this.left = left;
+        setDirection(Direction.LEFT);
     }
 
     public void setRight(boolean right)
     {
         this.right = right;
+        setDirection(Direction.RIGHT);
     }
 
     public void setUp(boolean up)

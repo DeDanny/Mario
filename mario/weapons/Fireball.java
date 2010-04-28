@@ -21,10 +21,11 @@ import mario.core.interfaces.NoClip;
  */
 public class Fireball extends Weapon implements NoClip {
 
-    public Fireball(Stage game, int x, int y, int width, int height) {
+    public Fireball(Stage game, int x, int y, int width, int height, Direction direction) {
         super(game, x, y, width, height, "/images/mario_sprite.png");
         ai = new MarioFireballAi(this);
-        ai.setWALKSPEED(3);
+        ai.setWALKSPEED(5);
+        ai.setDirection(direction);
 
         frames.put("fireball 0", new Rectangle(0, 1042, 11, 12));
         frames.put("fireball 1", new Rectangle(12, 1042, 12, 12));
@@ -54,7 +55,8 @@ public class Fireball extends Weapon implements NoClip {
 
     @Override
     public void doCharacterCollision(ArrayList<Collision> collisions, StageObject stageObject) {
-        setAlive(false);
-
+        if (!(stageObject instanceof StageMario)) {
+            setAlive(false);
+        }
     }
 }

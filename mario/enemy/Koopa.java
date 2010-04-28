@@ -13,6 +13,7 @@ import mario.ai.WalkAi;
 import mario.core.Direction;
 import mario.core.StageObject;
 import mario.scenery.Tube;
+import mario.weapons.Fireball;
 
 /**
  *
@@ -140,17 +141,17 @@ public class Koopa extends Enemy implements NoClip {
 
         if (stageObject instanceof Tube) {
             if (!collisions.contains(Collision.DOWN)) {
-                               ai.toggleDirection();
-                    if (!isShell) {
-                        switch (ai.getDirection()) {
-                            case LEFT:
-                                setAnimation(new String[]{"koopaStandLeft 0", "koopaWalkLeft 0"});
-                                break;
-                            case RIGHT:
-                                setAnimation(new String[]{"koopaStandRight 0", "koopaWalkRight 0"});
-                                break;
-                        }
+                ai.toggleDirection();
+                if (!isShell) {
+                    switch (ai.getDirection()) {
+                        case LEFT:
+                            setAnimation(new String[]{"koopaStandLeft 0", "koopaWalkLeft 0"});
+                            break;
+                        case RIGHT:
+                            setAnimation(new String[]{"koopaStandRight 0", "koopaWalkRight 0"});
+                            break;
                     }
+                }
 
 
             }
@@ -171,6 +172,10 @@ public class Koopa extends Enemy implements NoClip {
 //
 //                    break;
 //            }
+        }
+
+        if (stageObject instanceof Fireball) {
+            setAlive(false);
         }
     }
 }

@@ -53,13 +53,13 @@ public class FallState extends MarioState {
     private void doLeft() {
         marioObject.setX(marioObject.getX() - WALKSPEED);
         setAnimationLeft();
-        marioObject.setDirection(Direction.LEFT);
+        //marioObject.setDirection(Direction.LEFT);
     }
 
     private void doRight() {
         marioObject.setX(marioObject.getX() + WALKSPEED);
         setAnimationRight();
-        marioObject.setDirection(Direction.RIGHT);
+        //marioObject.setDirection(Direction.RIGHT);
     }
 
     private void setAnimationLeft() {
