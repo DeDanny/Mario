@@ -13,20 +13,19 @@ import mario.core.StageObject;
 import mario.core.interfaces.ForeGround;
 import mario.core.interfaces.NoClip;
 import mario.scenery.Scenery;
-
 /**
- *
+ * invisiable object
  * @author danny
  */
-public class EndForeGround extends Scenery implements NoClip, ForeGround
+public class EndGameObject extends Scenery implements NoClip, ForeGround
 {
-    public EndForeGround(Stage stage, int x, int y, int width, int height)
+    public EndGameObject(Stage stage, int x, int y, int width, int height)
     {
         super(stage, x, y, width, height, "/images/finish.png");
-        frames.put("pole", new Rectangle(3, 4, 24, 118));
+        frames.put("nothing", new Rectangle(1, 1, 1, 1));
         setAnimation(new String[]
                 {
-                    "pole"
+                    "nothing"
                 });
     }
 
@@ -35,8 +34,7 @@ public class EndForeGround extends Scenery implements NoClip, ForeGround
     {
         if(stageObject instanceof StageMario)
         {
-           
-            stage.getMap().finishGame();
+            stage.getMap().endGame();
         }
     }
 }

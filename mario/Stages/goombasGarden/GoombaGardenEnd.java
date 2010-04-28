@@ -26,12 +26,12 @@ public class GoombaGardenEnd extends Map
     }
 
     @Override
-    public void endgame()
+    public void endGame()
     {
     }
 
     @Override
-    public void finishgame()
+    public void finishGame()
     {
         
     }

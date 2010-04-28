@@ -48,11 +48,11 @@ public class GoombaGardenStart extends Map
     @Override
     public void startGame()
     {
-        
+        System.out.println("Start nieuw game");
     }
 
     @Override
-    public void endgame()
+    public void endGame()
     {
         //marioWorld.getStage().setMap("yoshi's house end");
         marioWorld.getStage().setMap("yoshi's house");
@@ -61,8 +61,11 @@ public class GoombaGardenStart extends Map
     }
 
     @Override
-    public void finishgame()
+    public void finishGame()
     {
+        marioWorld.getStage().getMario().setRight(false);
+        marioWorld.getStage().getMario().setLeft(false);
+        marioWorld.getStage().getMario().setDown(false);
         disableInpute = true;
     }
 }
