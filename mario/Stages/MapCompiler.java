@@ -12,7 +12,6 @@ import mario.mapObjects.EndBackGround;
 import mario.mapObjects.EndForeGround;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
-import mario.scenery.Theme;
 
 /**
  *
@@ -51,24 +50,24 @@ public class MapCompiler
             switch (stageChoose)
             {
                 case GOOMBA:
-                    mapObjectenList.add(new Goomba(stage, 900, 500, 45, 51, 15, 15));
+                    mapObjectenList.add(new Goomba(stage, 900, 500, 35, 40, 4, 6));
                     break;
                 case KOOPA:
                     mapObjectenList.add(new Koopa(stage, 900, 500, 45, 51, 15, 15));
                     break;
                 case GROUNDLEFT:
-                    mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.LEFT, Theme.NORMAL));
+                    mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.LEFT, stage.getMap().getTheme()));
                     break;
                 case GROUNDMIDDLE:
-                    mapObjectenList.add(new Ground(stage, 800, 552, 192, 48, GroundType.MIDDLE, Theme.NORMAL));
+                    mapObjectenList.add(new Ground(stage, 800, 552, 192, 48, GroundType.MIDDLE, stage.getMap().getTheme()));
                     break;
                 case GROUNDRIGHT:
-                    mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.RIGHT, Theme.NORMAL));
+                    mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.RIGHT, stage.getMap().getTheme()));
                     break;
                 case END:
-                    mapObjectenList.add(new EndBackGround(stage, 800, 438, 48, 48));
+                    mapObjectenList.add(new EndBackGround(stage, 800, 438, 0, 0));
                     
-                    mapObjectenList.add(new EndForeGround(stage, 850, 438, 48, 48));
+                    mapObjectenList.add(new EndForeGround(stage, 850, 438, 80, 118, 20, 0));
                     break;
             }
         }

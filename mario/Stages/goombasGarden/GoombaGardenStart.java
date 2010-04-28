@@ -29,7 +29,7 @@ public class GoombaGardenStart extends Map
                 });
         map.put(10, new StageChoose[]
                 {
-                    StageChoose.GROUNDMIDDLE
+                    StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA
                 });
         map.put(48, new StageChoose[]
                 {
@@ -49,6 +49,7 @@ public class GoombaGardenStart extends Map
     public void startGame()
     {
         System.out.println("Start nieuw game");
+        
     }
 
     @Override
