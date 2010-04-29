@@ -5,10 +5,8 @@
 package mario.Stages;
 
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.HashMap;
 import mario.MarioWorld;
-import mario.core.Node;
 import mario.scenery.Theme;
 
 /**

@@ -43,10 +43,10 @@ public class MarioWorld
                 stage.doLoopAction();
                 break;
             case PAUSE:
-                //pauzeMenu.doLoopAction();
+                pauzeMenu.doLoopAction();
                 break;
             case MAIN:
-                //mainMenu.doLoopAction();
+                mainMenu.doLoopAction();
                 break;
             case SELECTSTAGE:
                 stageSelector.doLoopAction();

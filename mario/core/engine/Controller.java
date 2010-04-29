@@ -11,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import mario.MarioWorld;
-import mario.core.CollisionDetector;
 import mario.core.Doing;
 import mario.core.KeyButtons;
 

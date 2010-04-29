@@ -44,46 +44,41 @@ public class Sound
 
     public void playBackGround(String fileName)
     {
-//         try
-//        {
-//            Clip player = getSound(fileName);
-//            if(playingBackground != null && playingBackground != player && playingBackground.isRunning())
-//            {
-//                playingBackground.stop();
-//            }
-//
-//            if (!player.isRunning())
-//            {
-//                player.setFramePosition(0);
-//                player.start();
-//                playingBackground = player;
-//            }
-//        }finally
-//        {
-//
-//        }
+         try
+        {
+            Clip player = getSound(fileName);
+            if(playingBackground != null && playingBackground != player && playingBackground.isRunning())
+            {
+                playingBackground.stop();
+            }
+
+            if (!player.isRunning())
+            {
+                player.setFramePosition(0);
+                player.start();
+                playingBackground = player;
+            }
+        }finally
+        {
+
+        }
     }
 
     public void playSound(String fileName)
     {
-//        try
-//        {
-//            Clip player = getSound(fileName);
-//
-//            if (!player.isRunning())
-//            {
-//                player.setFramePosition(0);
-//                player.start();
-//            }
-//
-//            if (fileName.equals("/sound/theme.wav"))
-//            {
-//                player.loop(999);
-//            }
-//        }finally
-//        {
-//
-//        }
+        try
+        {
+            Clip player = getSound(fileName);
+
+            if (!player.isRunning())
+            {
+                player.setFramePosition(0);
+                player.start();
+            }
+        }finally
+        {
+
+        }
     }
 
     public void loadSound(String fileName)

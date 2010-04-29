@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import mario.MarioWorld;
 import mario.core.KeyButtons;
 import mario.core.Sprites;
+import mario.core.engine.Sound;
 
 /**
  *
@@ -23,6 +24,7 @@ public abstract class Menu
     protected MarioWorld marioWorld;
     private static Sprites sprite = new Sprites();
     protected String image;
+    protected Sound sound = new Sound();
 
     public Menu(MarioWorld marioWorld, String[] menuItems, String image)
     {
@@ -83,5 +85,10 @@ public abstract class Menu
         {
             execute();
         }
+    }
+
+    public void doLoopAction()
+    {
+        sound.playBackGround("/sound/background/Title BGM.wav");
     }
 }

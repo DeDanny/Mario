@@ -38,7 +38,6 @@ public class StageSelector extends GameObject
         super(x, y, width, height, fileName);
         this.marioData = marioData;
         this.marioWorld = marioWorld;
-        sound.playBackGround("/sound/background/Yoster Island.wav");
         nodes.add(new StageSelectNode(240, 490, true, "Waterfall World"));
         nodes.add(new StageSelectNode(280, 490, false));
         nodes.add(new StageSelectNode(350, 458, false));
@@ -62,6 +61,7 @@ public class StageSelector extends GameObject
     @Override
     public void doLoopAction()
     {
+        sound.playBackGround("/sound/background/Yoster Island.wav");
         for(GameObject gameObject : StageSelectorObjects)
         {
             gameObject.doLoopAction();
