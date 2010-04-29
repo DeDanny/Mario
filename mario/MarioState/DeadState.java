@@ -6,6 +6,7 @@
 package mario.MarioState;
 
 import mario.Stages.StageMario;
+import mario.core.engine.Sound;
 
 /**
  *
@@ -13,6 +14,7 @@ import mario.Stages.StageMario;
  */
 public class DeadState extends MarioState
 {
+    protected Sound sound = new Sound();
     protected static final int WALKSPEED = 10;
     protected String[] death = new String[]{"deathMario 0", "deathMario 1"};
     private int heightTeller = 0;
@@ -25,15 +27,19 @@ public class DeadState extends MarioState
     @Override
     public void doAction() {
         super.setAnimation(death);
-        
+        sound.playSound("/sound/dead.wav");
         if (heightTeller < 20) {
             marioObject.setY(marioObject.getY() - WALKSPEED, true);
             heightTeller++;
         }
-        else
+        else if (heightTeller > 130)
         {       
             marioObject.setY(marioObject.getY() + WALKSPEED, true);
             marioObject.setHeight(60);
+            heightTeller++;
+        }
+        else
+        {
             heightTeller++;
         }
         //System.out.println(heightTeller);

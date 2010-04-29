@@ -194,6 +194,7 @@ public class Stage
         mapObjects.add(ScoreBalk);
 
         map.startGame();
+        map.startSound();
 
         mapObjects.add(new Ground(this, 0, 552, 48, 48, GroundType.LEFT, map.getTheme()));
         mapObjects.add(new Ground(this, 48, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
