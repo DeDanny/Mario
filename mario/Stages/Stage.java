@@ -23,7 +23,6 @@ import mario.weapons.Fireball;
  */
 public class Stage
 {
-    private AiDirector aiDirector = new AiDirector(this);
     private StageMario mario = new StageMario(this, 200, 420, 42, 57);
     private Sound sound = new Sound();
     private MapCompiler mapCompiler = new MapCompiler(this);
@@ -97,7 +96,6 @@ public class Stage
                 }
 
                 it.remove();
-                aiDirector.removeObject();
             }
         }
     }
@@ -105,11 +103,6 @@ public class Stage
     public ScoreBalk getScoreBalk()
     {
         return ScoreBalk;
-    }
-
-    public AiDirector getAiDirector()
-    {
-        return aiDirector;
     }
 
     public Sound getSound()

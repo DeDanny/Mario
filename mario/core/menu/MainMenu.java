@@ -4,9 +4,10 @@
  */
 package mario.core.menu;
 
+import mario.MarioData;
 import mario.MarioWorld;
-import mario.StageSelector.StageSelector;
 import mario.core.Doing;
+import mario.core.loadAndSave.loadAndSave;
 
 
 /**
@@ -19,8 +20,8 @@ public class MainMenu extends Menu
     {
         super(marioWorld, new String[]
                 {
-                    "New Game", "Deat Match", "Load Game", "Exit"
-                });
+                    "New Game", "Load Game", "Exit"
+                }, "/images/marioMainMenu.png");
     }
 
     public void execute()
@@ -31,12 +32,12 @@ public class MainMenu extends Menu
                 marioWorld.newGame();//reset
                 marioWorld.setWhatcha(Doing.SELECTSTAGE);
                 break;
-//            case 2:
-//                Stage game = loadAndSave.load();
-//                marioWorld.setStage(game);
-//                marioWorld.getGame().setRunning(true);
-//                break;
-            case 4:
+            case 2:
+                MarioData marioData = loadAndSave.load();
+                marioWorld.setMarioData(marioData);
+                marioWorld.setWhatcha(Doing.SELECTSTAGE);
+                break;
+            case 3:
                 marioWorld.setWhatcha(Doing.EXIT);
                 break;
         }

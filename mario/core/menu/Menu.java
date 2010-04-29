@@ -22,20 +22,22 @@ public abstract class Menu
     protected int selectedItem = 1;
     protected MarioWorld marioWorld;
     private static Sprites sprite = new Sprites();
+    protected String image;
 
-    public Menu(MarioWorld marioWorld, String[] menuItems)
+    public Menu(MarioWorld marioWorld, String[] menuItems, String image)
     {
         this.marioWorld = marioWorld;
         this.menuItems = menuItems;
         this.menuItemsCount = menuItems.length;
-        sprite.getImage("/images/marioMainMenu.png");
+        this.image = image;
+        sprite.getImage(image);
     }
 
     public void draw(Graphics graphics)
     {
         int y = 1000 / 3;
         int i = 1;
-        graphics.drawImage(sprite.getImage("/images/marioMainMenu.png"), 0, 0, null);
+        graphics.drawImage(sprite.getImage(image), 0, 0, null);
         for (String menuItem : menuItems)
         {
             if (i == selectedItem)
@@ -43,8 +45,6 @@ public abstract class Menu
                 graphics.setColor(Color.red);
                 graphics.fillRect(310, y + (i * 37) + 5 , 15, 2);
             }
-            graphics.setColor(Color.white);
-            //graphics.drawString(menuItem, 700, y + (i * 35));
             i++;
         }
     }
