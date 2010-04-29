@@ -6,7 +6,7 @@ import java.util.Iterator;
 import mario.MarioWorld;
 import mario.Stages.goombaGarden.GoombaGardenStart;
 import mario.Stages.waterfall.WaterFallStart;
-import mario.Stages.yoshihouse.GoombaGardenEnd;
+import mario.Stages.yoshihouse.YoshiHouseEnd;
 import mario.Stages.yoshihouse.YoshiHouseStart;
 import mario.core.AiDirector;
 import mario.core.CollisionDetector;
@@ -40,6 +40,7 @@ public class Stage
     public Stage(MarioWorld marioWorld)
     {
         this.marioWorld = marioWorld;
+        mario.setHeight(60);
         //sound.playSound("/sound/theme.wav");
     }
 
@@ -176,7 +177,7 @@ public class Stage
         }
         if (stageName.equals("yoshi's house end"))
         {
-            map = new GoombaGardenEnd(marioWorld);
+            map = new YoshiHouseEnd(marioWorld);
         }
         if (stageName.equals("Waterfall World"))
         {
@@ -204,7 +205,8 @@ public class Stage
         mapObjects.add(new Ground(this, 48 + (192 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
         mapObjects.add(new Ground(this, 48 + (192 * 3), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
         mapObjects.add(new Ground(this, 48 + (192 * 4), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
-        //mapObjects.add(new Ground(this, 240 + (48 * 2), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
+// <editor-fold defaultstate="collapsed" desc="comments">
+//mapObjects.add(new Ground(this, 240 + (48 * 2), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
 
         //mapObjects.add(new Ground(this, 300, 552, 48, 48, GroundType.LEFT, map.getTheme()));
         //mapObjects.add(new Ground(this, 348, 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
@@ -224,7 +226,7 @@ public class Stage
 
         //mapObjects.add(new Questionmark(this, 345, 350, 48, 48));
         //mapObjects.add(new Flower(this, 348, 301, 42, 48));
-        //mapObjects.add(new Tube(this, 0, 456, 96, 96));
+        //mapObjects.add(new Tube(this, 0, 456, 96, 96));// </editor-fold>
 
         resetMap = false;
     }

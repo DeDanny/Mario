@@ -24,7 +24,6 @@ public class YoshiHouseStart extends Map
     public YoshiHouseStart(MarioWorld marioWorld)
     {
         super(marioWorld, Theme.NORMAL, new Color(107, 136, 255));
-        nodes.add(new StageEndNode(550, 400));
 
         //map.put(38 * 1, new StageChoose[]{StageChoose.GROUNDLEFT});
         //map.put(38 * 2, new StageChoose[]{StageChoose.GROUNDMIDDLE});
@@ -36,7 +35,7 @@ public class YoshiHouseStart extends Map
     {
         marioWorld.getStage().getMario().setX(100, true);
         marioWorld.getStage().getMario().setY(400, true);
-        marioWorld.getStage().getMario().setHeight(60);
+        //marioWorld.getStage().getMario().setHeight(60);
         marioWorld.getStage().getMario().setStepCounter(0);
         marioWorld.getStage().getMario().setDead(false);
         marioWorld.getStage().getMario().setFlowerPower(false);
@@ -47,17 +46,18 @@ public class YoshiHouseStart extends Map
     @Override
     public void endGame()
     {
-        //marioWorld.getStage().setMap("yoshi's house end");
-        marioWorld.getStage().setMap("yoshi's house");
         disableInpute = false;
-        //marioWorld.setWhatcha(Doing.SELECTSTAGE);
+        marioWorld.getStage().getMario().setLeft(false);
+        marioWorld.getStage().getMario().setRight(false);
+        marioWorld.getStage().getMario().setDown(false);
+        marioWorld.getStage().setMap("yoshi's house end");
     }
 
     @Override
     public void finishGame()
     {
         marioWorld.getStage().getMario().setLeft(false);
-        marioWorld.getStage().getMario().setRight(false);
+        marioWorld.getStage().getMario().setRight(true);
         marioWorld.getStage().getMario().setDown(false);
         disableInpute = true;
     }
@@ -93,20 +93,15 @@ public class YoshiHouseStart extends Map
         map.put(12 * 71, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD});
         map.put(12 * 75, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.TUBE, StageChoose.CLOUD});
         map.put(12 * 79, new StageChoose[]{StageChoose.GROUNDMIDDLE});
-        map.put(12 * 83, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD, StageChoose.BUSH , StageChoose.POWERUP});
+        map.put(12 * 79 + 8, new StageChoose[]{StageChoose.GOOMBA, StageChoose.BUSH});
+        map.put(12 * 83, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD , StageChoose.POWERUP});
         map.put(12 * 87, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});
 
+        map.put(12 * 90, new StageChoose[]{StageChoose.GROUNDLEFT});
+        map.put(12 * 91, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(12 * 95, new StageChoose[]{StageChoose.GROUNDRIGHT});
+        map.put(12 * 87 + 50, new StageChoose[]{StageChoose.END});
+        map.put(12 * 87 + 90, new StageChoose[]{StageChoose.NEXTMAP});
 
-
-
-
-        map.put(49, new StageChoose[]
-                {
-                    //StageChoose.END
-                });
-        map.put(86, new StageChoose[]
-                {
-                   // StageChoose.GROUNDRIGHT
-                });
     }
 }

@@ -26,7 +26,6 @@ public class GoombaGardenStart extends Map
     public GoombaGardenStart(MarioWorld marioWorld)
     {
         super(marioWorld, Theme.JUNGLE, new Color(102, 133, 6));
-        nodes.add(new StageEndNode(550, 400));
 
         //map.put(38 * 1, new StageChoose[]{StageChoose.GROUNDLEFT});
         //map.put(38 * 2, new StageChoose[]{StageChoose.GROUNDMIDDLE});

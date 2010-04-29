@@ -21,7 +21,6 @@ public abstract class Map
     protected MarioWorld marioWorld;
     protected boolean disableInpute = false;
     protected HashMap<Integer, StageChoose[]> map = new HashMap<Integer, StageChoose[]>();
-    protected ArrayList<Node> nodes = new ArrayList<Node>();
     private Color color;
 
     public Map(MarioWorld marioWorld, Theme theme, Color color)

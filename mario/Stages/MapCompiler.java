@@ -12,6 +12,7 @@ import mario.enemy.Koopa;
 import mario.mapObjects.Coin;
 import mario.mapObjects.EndBackGround;
 import mario.mapObjects.EndForeGround;
+import mario.mapObjects.EndGameObject;
 import mario.mapObjects.Flower;
 import mario.mapObjects.Mushroom;
 import mario.mapObjects.Questionmark;
@@ -118,6 +119,9 @@ public class MapCompiler {
                     mapObjectenList.add(new EndBackGround(stage, 800, 438, 0, 0));
 
                     mapObjectenList.add(new EndForeGround(stage, 850, 438, 80, 118, 20, 0));
+                    break;
+                case NEXTMAP:
+                    mapObjectenList.add(new EndGameObject(stage, 800, 438, 50, 50));
                     break;
             }
         }

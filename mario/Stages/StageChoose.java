@@ -26,5 +26,6 @@ public enum StageChoose {
     STONE,
     FLYINGENEMY,
     POWERUP,
-    END
+    END,
+    NEXTMAP
 }

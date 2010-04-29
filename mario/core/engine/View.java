@@ -166,7 +166,6 @@ public class View
             }
             gameObject.draw(graphics);
         }
-
         endGraphics(graphics);
     }
 

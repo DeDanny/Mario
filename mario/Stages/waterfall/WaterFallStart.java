@@ -9,7 +9,6 @@ import mario.MarioWorld;
 import mario.Stages.Map;
 import mario.Stages.StageChoose;
 import mario.core.Doing;
-import mario.core.StageEndNode;
 import mario.scenery.Theme;
 
 /**
@@ -25,7 +24,7 @@ public class WaterFallStart extends Map
     public WaterFallStart(MarioWorld marioWorld)
     {
         super(marioWorld, Theme.STONE, new Color(137, 136, 122));
-        nodes.add(new StageEndNode(550, 400));
+        
 
         //map.put(38 * 1, new StageChoose[]{StageChoose.GROUNDLEFT});
         //map.put(38 * 2, new StageChoose[]{StageChoose.GROUNDMIDDLE});
