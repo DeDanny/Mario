@@ -19,7 +19,7 @@ public class DeadState extends MarioState
 
     public DeadState(StageMario gameObject) {
         super(gameObject);
-        marioObject.setHeight(72);
+        //marioObject.setHeight(72);
     }
 
     @Override
@@ -33,6 +33,7 @@ public class DeadState extends MarioState
         else
         {       
             marioObject.setY(marioObject.getY() + WALKSPEED, true);
+            marioObject.setHeight(60);
             heightTeller++;
         }
         //System.out.println(heightTeller);

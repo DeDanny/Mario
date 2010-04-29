@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+import mario.MarioData;
 import mario.MarioWorld;
 import mario.core.Collision;
 import mario.core.StageObject;
@@ -26,6 +27,7 @@ public class ScoreBalk extends StageObject implements Static
 //    private String scoreString;
     private int lives = 3;
     private int coins;
+    private MarioData marioData;
 
     public ScoreBalk(Stage game, MarioWorld marioWorld ,int x, int y, int width, int height)
     {
@@ -33,6 +35,7 @@ public class ScoreBalk extends StageObject implements Static
         frames.put("muntje", new Rectangle(457, 167, 45, 48));
         frames.put("coin", new Rectangle(1278, 2328, 48, 48));
         setAnimation(new String[]{"coin"});
+        marioData = marioWorld.getMarioData();
     }
 
     @Override
@@ -64,7 +67,7 @@ public class ScoreBalk extends StageObject implements Static
     //Zit in de doLoop zodat altijd de juiste Score aangegeven wordt.
     public void addScore()
     {
-        newScore = getScore() + (getCoins() * 100) + (killedEnemy * 20);
+        newScore = (int) (getScore() + (getCoins() * 100) + (killedEnemy * 20));
     }
 
     public void addScore(int punten)
@@ -74,32 +77,32 @@ public class ScoreBalk extends StageObject implements Static
 
     public int getCoins()
     {
-        return coins;
+        return marioData.getCoins();
     }
 
     public void setCoins(int coins)
     {
-        this.coins = coins;
+        marioData.setCoins(coins);
     }
 
     public int getLives()
     {
-        return lives;
+        return marioData.getLives();
     }
 
     public void setLives(int lives)
     {
-        this.lives = lives;
+        marioData.setLives(lives);
     }
 
-    public int getScore()
+    public long getScore()
     {
-        return score;
+        return marioData.getPoints();
     }
 
-    public void setScore(int score)
+    public void setScore(long score)
     {
-        this.score = score;
+        marioData.setPoints(score);
     }
 
     public void addCoin()

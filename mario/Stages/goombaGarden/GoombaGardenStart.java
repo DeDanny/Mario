@@ -59,7 +59,7 @@ public class GoombaGardenStart extends Map
 
         map.put(12 * 70, new StageChoose[]{StageChoose.GROUNDLEFT});
         map.put(12 * 71, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD});
-        map.put(12 * 75, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.TUBE, StageChoose.CLOUD});
+        map.put(12 * 75, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.TUBE});
         map.put(12 * 79, new StageChoose[]{StageChoose.GROUNDMIDDLE});
         map.put(12 * 83, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD, StageChoose.BUSH , StageChoose.POWERUP});
         map.put(12 * 87, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});

@@ -13,7 +13,6 @@ import mario.core.CollisionDetector;
 import mario.core.Doing;
 import mario.core.StageObject;
 import mario.core.engine.Sound;
-import mario.enemy.Goomba;
 import mario.scenery.Ground;
 import mario.scenery.GroundType;
 import mario.weapons.Fireball;
@@ -31,7 +30,7 @@ public class Stage
     private CollisionDetector collisionDetector = new CollisionDetector(this);
     private Map map;
     private MarioWorld marioWorld;
-    private ScoreBalk ScoreBalk = new ScoreBalk(this, marioWorld, 0, 0, 1, 1);
+    private ScoreBalk ScoreBalk;
     private ArrayList<StageObject> mapObjects = new ArrayList<StageObject>();
     private boolean resetMap = true;
     private long fireBallTimer = System.currentTimeMillis();
@@ -40,6 +39,7 @@ public class Stage
     public Stage(MarioWorld marioWorld)
     {
         this.marioWorld = marioWorld;
+        ScoreBalk = new ScoreBalk(this, marioWorld, 0, 0, 1, 1);
         mario.setHeight(60);
         //sound.playSound("/sound/theme.wav");
     }

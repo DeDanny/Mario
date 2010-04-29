@@ -115,6 +115,11 @@ public class MarioWorld
         return pauzeMenu;
     }
 
+    public MarioData getMarioData()
+    {
+        return marioData;
+    }
+
     public StageSelector getStageSelector()
     {
         return stageSelector;
