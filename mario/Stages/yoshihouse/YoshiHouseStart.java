@@ -8,7 +8,6 @@ import java.awt.Color;
 import mario.MarioWorld;
 import mario.Stages.Map;
 import mario.Stages.StageChoose;
-import mario.core.StageEndNode;
 import mario.scenery.Theme;
 
 /**

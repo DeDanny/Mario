@@ -139,4 +139,10 @@ public class MarioWorld
     {
         stage.setMap(stageName);
     }
+
+    public void setMarioData(MarioData marioData)
+    {
+        this.marioData = marioData;
+    }
+   
 }

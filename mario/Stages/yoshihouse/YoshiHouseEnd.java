@@ -17,6 +17,8 @@ import mario.scenery.Theme;
  */
 public class YoshiHouseEnd extends Map
 {
+    private boolean gameStarted = false;
+
     public YoshiHouseEnd(MarioWorld marioWorld)
     {
         super(marioWorld, Theme.NORMAL, new Color(107, 136, 255));
@@ -25,6 +27,7 @@ public class YoshiHouseEnd extends Map
     @Override
     public void startGame()
     {
+        gameStarted = true;
         marioWorld.getStage().getMario().setX(100, true);
         marioWorld.getStage().getMario().setY(0, true);
         //marioWorld.getStage().getMario().setHeight(60);
@@ -37,8 +40,11 @@ public class YoshiHouseEnd extends Map
     @Override
     public void endGame()
     {
-        disableInpute = false;
-        marioWorld.setWhatcha(Doing.SELECTSTAGE);
+        if (gameStarted)
+        {
+            disableInpute = false;
+            marioWorld.setWhatcha(Doing.SELECTSTAGE);
+        }
     }
 
     @Override
@@ -52,10 +58,34 @@ public class YoshiHouseEnd extends Map
 
     private void putObjects()
     {
-        map.put(12 * 3, new StageChoose[]{StageChoose.GROUNDLEFT});
-        map.put(12 * 4, new StageChoose[]{StageChoose.GROUNDMIDDLE});
-        map.put(12 * 8, new StageChoose[]{StageChoose.GROUNDRIGHT});
-        map.put(12 * 4 + 50, new StageChoose[]{StageChoose.END});
+        map.put(12 * 3, new StageChoose[]
+                {
+                    StageChoose.GROUNDLEFT
+                });
+        map.put(12 * 4, new StageChoose[]
+                {
+                    StageChoose.GROUNDMIDDLE
+                });
+        map.put(12 * 8, new StageChoose[]
+                {
+                    StageChoose.GROUNDMIDDLE
+                });
+        map.put(12 * 12, new StageChoose[]
+                {
+                    StageChoose.GROUNDMIDDLE
+                });
+        map.put(12 * 16, new StageChoose[]
+                {
+                    StageChoose.GROUNDMIDDLE
+                });
+        map.put(12 * 20, new StageChoose[]
+                {
+                    StageChoose.GROUNDMIDDLE
+                });
+        map.put(12 * 4 + 50, new StageChoose[]
+                {
+                    StageChoose.END
+                });
         map.put(12 * 4 + 115, new StageChoose[]{StageChoose.NEXTMAP});
     }
 }

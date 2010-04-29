@@ -45,13 +45,13 @@ public class GoombaGardenStart extends Map {
         marioWorld.getStage().getMario().setLeft(false);
         marioWorld.getStage().getMario().setRight(false);
         marioWorld.getStage().getMario().setDown(false);
-        marioWorld.getStage().setMap("Goomba's garden");
+        marioWorld.setWhatcha(Doing.SELECTSTAGE);
     }
 
     @Override
     public void finishGame() {
         marioWorld.getStage().getMario().setLeft(false);
-        marioWorld.getStage().getMario().setRight(false);
+        marioWorld.getStage().getMario().setRight(true);
         marioWorld.getStage().getMario().setDown(false);
         disableInpute = true;
     }
