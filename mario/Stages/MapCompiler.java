@@ -55,8 +55,14 @@ public class MapCompiler {
                 case GOOMBA:
                     mapObjectenList.add(new Goomba(stage, 800, 500, 35, 40, 4, 6));
                     break;
+                case GOOMBAFLY:
+                    mapObjectenList.add(new Goomba(stage, 800, 250, 35, 40, 4, 6));
+                    break;
                 case KOOPA:
                     mapObjectenList.add(new Koopa(stage, 800, 400, 48, 81));
+                    break;
+                case KOOPAFLY:
+                    mapObjectenList.add(new Koopa(stage, 800, 250, 48, 81));
                     break;
                 case GROUNDLEFT:
                     mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.LEFT, stage.getMap().getTheme()));

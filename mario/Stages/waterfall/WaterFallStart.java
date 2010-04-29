@@ -45,33 +45,34 @@ public class WaterFallStart extends Map
         marioWorld.getStage().getMario().setLeft(false);
         marioWorld.getStage().getMario().setRight(false);
         marioWorld.getStage().getMario().setDown(false);
-        marioWorld.getStage().setMap("Waterfall World");
+        marioWorld.setWhatcha(Doing.SELECTSTAGE);
     }
 
     @Override
     public void finishGame()
     {
         marioWorld.getStage().getMario().setLeft(false);
-        marioWorld.getStage().getMario().setRight(false);
+        marioWorld.getStage().getMario().setRight(true);
         marioWorld.getStage().getMario().setDown(false);
         disableInpute = true;
     }
  private void putObjects() {
-        map.put(12 * 3, new StageChoose[]{StageChoose.GROUNDLEFT, StageChoose.CLOUD});
-        map.put(12 * 4, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.TUBE});
-        map.put(12 * 8, new StageChoose[]{StageChoose.GROUNDRIGHT});
+        //map.put(12 * 1, new StageChoose[]{StageChoose.GROUNDLEFT, StageChoose.CLOUD, StageChoose.GOOMBA, StageChoose.POWERUP});
+        map.put(12 * 1, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.GOOMBA, StageChoose.POWERUP});
+        map.put(12 * 4, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.COIN});
+        map.put(12 * 8, new StageChoose[]{StageChoose.GROUNDMIDDLE});
 
-        map.put(12 * 10, new StageChoose[]{StageChoose.GROUNDLEFT, StageChoose.CLOUD});
+        map.put(12 * 10, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD});
         map.put(12 * 11, new StageChoose[]{StageChoose.GROUNDMIDDLE});
         map.put(12 * 15, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.STONE});
-        map.put(12 * 19, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.KOOPA});
-        map.put(12 * 23, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.KOOPA, StageChoose.CLOUD, StageChoose.STONE});
-        map.put(12 * 27, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.KOOPA, StageChoose.CLOUD});
+        map.put(12 * 19, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.BUSH});
+        map.put(12 * 23, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD, StageChoose.STONE});
+        map.put(12 * 27, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});
 
         map.put(12 * 30, new StageChoose[]{StageChoose.GROUNDLEFT});
         map.put(12 * 31, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD});
-        map.put(12 * 35, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.TUBE, StageChoose.CLOUD, StageChoose.SMALLMUSSCHROOM});
-        map.put(12 * 39, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(12 * 35, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD});
+        map.put(12 * 39, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.TUBE});
         map.put(12 * 43, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.CLOUD, StageChoose.POWERUP});
         map.put(12 * 47, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});
 
@@ -91,7 +92,7 @@ public class WaterFallStart extends Map
 
         map.put(12 * 68, new StageChoose[]{StageChoose.GROUNDLEFT});
         map.put(12 * 69, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.SMALLMUSSCHROOM});
-        map.put(12 * 73, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.BUSH, StageChoose.POWERUP});
+        map.put(12 * 73, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.BUSH, StageChoose.STONE});
         map.put(12 * 77, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.COIN});
         map.put(12 * 81, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.GOOMBA, StageChoose.COIN, StageChoose.SMALLMUSSCHROOM});
         map.put(12 * 85, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.KOOPA, StageChoose.COIN});
@@ -99,11 +100,11 @@ public class WaterFallStart extends Map
         map.put(12 * 89, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.CLOUD});
 
         map.put(12 * 90, new StageChoose[]{StageChoose.GROUNDLEFTFLY});
-        map.put(12 * 91, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.COINFLY});
-        map.put(12 * 95, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.COINFLY});
-        map.put(12 * 99, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.COINFLY});
-        map.put(12 * 103, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.COINFLY});
-        map.put(12 * 107, new StageChoose[]{StageChoose.GROUNDRIGHTFLY, StageChoose.CLOUD});
+        map.put(12 * 91, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.POWERUP});
+        map.put(12 * 95, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.SMALLMUSSCHROOM});
+        map.put(12 * 99, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(12 * 103, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.COIN});
+        map.put(12 * 107, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.CLOUD});
 
         map.put(12 * 108, new StageChoose[]{StageChoose.GROUNDLEFT});
         map.put(12 * 109, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.BUSH});
