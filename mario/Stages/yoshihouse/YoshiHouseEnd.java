@@ -42,6 +42,7 @@ public class YoshiHouseEnd extends Map
     {
         if (gameStarted)
         {
+            marioWorld.getStage().getMario().setRight(false);
             disableInpute = false;
             marioWorld.setWhatcha(Doing.SELECTSTAGE);
         }
