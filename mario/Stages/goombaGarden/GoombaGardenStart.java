@@ -1,5 +1,5 @@
 
-package mario.Stages.goombasGarden;
+package mario.Stages.goombaGarden;
 
 /**
  *

@@ -4,7 +4,7 @@ import mario.core.KeyButtons;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.MarioWorld;
-import mario.Stages.goombasGarden.GoombaGardenStart;
+import mario.Stages.goombaGarden.GoombaGardenStart;
 import mario.Stages.waterfall.WaterFallStart;
 import mario.Stages.yoshihouse.GoombaGardenEnd;
 import mario.Stages.yoshihouse.YoshiHouseStart;
