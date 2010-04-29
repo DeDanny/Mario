@@ -128,6 +128,7 @@ public class Controller implements KeyListener, Runnable
     @Override
     public void keyPressed(KeyEvent e)
     {
+        System.out.println(e);
         /**
          * special quik shutdown
          */

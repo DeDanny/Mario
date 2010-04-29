@@ -53,13 +53,13 @@ public class ScoreBalk extends StageObject implements Static
         graphics.setFont(font);
 
         graphics.setColor(Color.WHITE);
-        graphics.drawString("Score: " + newScore, 10, 30);
+        graphics.drawString("Score: " + (int)marioData.getPoints(), 10, 30);
         setAnimation(new String[]{"muntje"});
 //        graphics.drawImage(getImage(), 50, 5, null);
         graphics.drawString("Coins: " + coins, 110, 30);
         //setAnimation(new String[]{"leven"});
 //        graphics.drawImage(getImage(), 20, 5, null);
-        graphics.drawString("Lives: " + lives, 210, 30);
+        graphics.drawString("Lives: " + marioData.getLives(), 210, 30);
         graphics.drawString("Killed enemy's: " + killedEnemy, 310, 30);
 
     }
