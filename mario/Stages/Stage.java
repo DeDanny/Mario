@@ -40,7 +40,7 @@ public class Stage
         this.marioWorld = marioWorld;
         ScoreBalk = new ScoreBalk(this, marioWorld, 0, 0, 1, 1);
         mario.setHeight(60);
-        //sound.playSound("/sound/theme.wav");
+        
     }
 
     public StageMario getMario()

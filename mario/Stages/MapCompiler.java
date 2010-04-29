@@ -140,7 +140,7 @@ public class MapCompiler {
                     mapObjectenList.add(new EndForeGround(stage, 850, 438, 80, 118, 20, 0));
                     break;
                 case NEXTMAP:
-                    mapObjectenList.add(new EndGameObject(stage, 800, 438, 50, 50));
+                    mapObjectenList.add(new EndGameObject(stage, 800, 438, 50, 100));
                     break;
             }
         }
