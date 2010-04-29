@@ -122,6 +122,18 @@ public class MapCompiler {
                     }
 
                     break;
+                case POWERUPFLY:
+                    // IF STATEMENT FOR WICH POWERUP
+                    mapObjectenList.add(new Questionmark(stage, 800, 150, 45, 45));
+                    if (stage.getMario().isFlowerPower()) {
+                        mapObjectenList.add(new Coin(stage, 800, 103, 45, 45));
+                    } else if (stage.getMario().isBig()) {
+                        mapObjectenList.add(new Flower(stage, 800, 103, 45, 45));
+                    } else {
+                        mapObjectenList.add(new Mushroom(stage, 800, 103, 45, 45));
+                    }
+
+                    break;
                 case STONE:
                     mapObjectenList.add(new Stone(stage, 800, 350, 45, 45));
                     break;
