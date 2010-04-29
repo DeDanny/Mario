@@ -7,6 +7,8 @@ package mario.Stages.yoshihouse;
 import java.awt.Color;
 import mario.MarioWorld;
 import mario.Stages.Map;
+import mario.Stages.StageChoose;
+import mario.core.Doing;
 import mario.scenery.Theme;
 
 /**
@@ -35,16 +37,25 @@ public class YoshiHouseEnd extends Map
     @Override
     public void endGame()
     {
+        disableInpute = false;
+        marioWorld.setWhatcha(Doing.SELECTSTAGE);
     }
 
     @Override
     public void finishGame()
     {
-        
+        marioWorld.getStage().getMario().setLeft(false);
+        marioWorld.getStage().getMario().setRight(true);
+        marioWorld.getStage().getMario().setDown(false);
+        disableInpute = true;
     }
 
     private void putObjects()
     {
-        
+        map.put(12 * 3, new StageChoose[]{StageChoose.GROUNDLEFT});
+        map.put(12 * 4, new StageChoose[]{StageChoose.GROUNDMIDDLE});
+        map.put(12 * 8, new StageChoose[]{StageChoose.GROUNDRIGHT});
+        map.put(12 * 4 + 50, new StageChoose[]{StageChoose.END});
+        map.put(12 * 4 + 115, new StageChoose[]{StageChoose.NEXTMAP});
     }
 }

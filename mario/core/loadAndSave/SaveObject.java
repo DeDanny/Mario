@@ -13,7 +13,7 @@ import mario.Stages.Stage;
  */
 public class SaveObject implements Serializable
 {
-    private int score;
+    private long score;
     private int lives;
     private int coins;
     private int kills;
@@ -48,7 +48,7 @@ public class SaveObject implements Serializable
         return lives;
     }
 
-    public int getScore()
+    public long getScore()
     {
         return score;
     }
