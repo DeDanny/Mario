@@ -35,7 +35,7 @@ public class StageMario extends CharacterObject implements NoClip
     private boolean flowerPower = false;
     private long godModeTimer = System.currentTimeMillis();
     private int godModeTime = 1000;
-    private Direction direction = Direction.LEFT;
+    private Direction direction = Direction.RIGHT;
     private SmallMario smallMario = new SmallMario(this);
     private BigMario bigMario = new BigMario(this);
     private JumpState jumpMario = new JumpState(this);

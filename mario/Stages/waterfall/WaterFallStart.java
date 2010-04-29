@@ -35,6 +35,7 @@ public class WaterFallStart extends Map
         marioWorld.getStage().getMario().setStepCounter(0);
         marioWorld.getStage().getMario().setDead(false);
         marioWorld.getStage().getMario().setFlowerPower(false);
+        marioWorld.getStage().getMario().setBig(false);
         putObjects();
     }
 
@@ -78,7 +79,7 @@ public class WaterFallStart extends Map
 
         map.put(12 * 48, new StageChoose[]{StageChoose.GROUNDLEFTFLY});
         map.put(12 * 49, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.COINFLY});
-        map.put(12 * 53, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.COINFLY});
+        map.put(12 * 53, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.POWERUPFLY});
         map.put(12 * 57, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.COINFLY});
         map.put(12 * 61, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.COINFLY});
         map.put(12 * 65, new StageChoose[]{StageChoose.GROUNDRIGHTFLY, StageChoose.CLOUD});
@@ -99,7 +100,7 @@ public class WaterFallStart extends Map
         map.put(12 * 85, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.KOOPA, StageChoose.STONE});
         map.put(12 * 89, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.CLOUD});
 
-        map.put(12 * 90, new StageChoose[]{StageChoose.GROUNDLEFTFLY});
+        map.put(12 * 90, new StageChoose[]{StageChoose.GROUNDLEFT});
         map.put(12 * 91, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.POWERUP});
         map.put(12 * 95, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.SMALLMUSSCHROOM});
         map.put(12 * 99, new StageChoose[]{StageChoose.GROUNDMIDDLE});

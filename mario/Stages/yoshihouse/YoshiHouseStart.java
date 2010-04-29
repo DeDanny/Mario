@@ -38,6 +38,7 @@ public class YoshiHouseStart extends Map
         marioWorld.getStage().getMario().setStepCounter(0);
         marioWorld.getStage().getMario().setDead(false);
         marioWorld.getStage().getMario().setFlowerPower(false);
+        marioWorld.getStage().getMario().setBig(false);
         putObjects();
     }
 
@@ -79,7 +80,7 @@ public class YoshiHouseStart extends Map
         map.put(12 * 31, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD});
         map.put(12 * 35, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.COINFLY});
         map.put(12 * 39, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY});
-        map.put(12 * 43, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.KOOPAFLY, StageChoose.CLOUD, StageChoose.COINFLY});
+        map.put(12 * 43, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.KOOPAFLY, StageChoose.CLOUD, StageChoose.POWERUPFLY});
         map.put(12 * 47, new StageChoose[]{StageChoose.GROUNDRIGHTFLY, StageChoose.GOOMBAFLY, StageChoose.CLOUD});
 
         map.put(12 * 50, new StageChoose[]{StageChoose.GROUNDLEFT});
