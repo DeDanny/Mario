@@ -75,9 +75,9 @@ public class YoshiHouseStart extends Map
         map.put(12 * 27, new StageChoose[]{StageChoose.GROUNDRIGHT, StageChoose.GOOMBA, StageChoose.CLOUD});
 
         map.put(12 * 26, new StageChoose[]{StageChoose.GROUNDLEFTFLY});
-        map.put(12 * 27, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD});
+        map.put(12 * 27, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD,StageChoose.GOOMBAFLY, StageChoose.COINFLY});
         map.put(12 * 31, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD});
-        map.put(12 * 35, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD});
+        map.put(12 * 35, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.CLOUD, StageChoose.COINFLY});
         map.put(12 * 39, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY});
         map.put(12 * 43, new StageChoose[]{StageChoose.GROUNDMIDDLEFLY, StageChoose.KOOPAFLY, StageChoose.CLOUD, StageChoose.COINFLY});
         map.put(12 * 47, new StageChoose[]{StageChoose.GROUNDRIGHTFLY, StageChoose.GOOMBAFLY, StageChoose.CLOUD});
