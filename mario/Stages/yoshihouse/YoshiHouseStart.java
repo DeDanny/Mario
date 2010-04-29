@@ -101,7 +101,7 @@ public class YoshiHouseStart extends Map
         map.put(12 * 91, new StageChoose[]{StageChoose.GROUNDMIDDLE});
         map.put(12 * 95, new StageChoose[]{StageChoose.GROUNDRIGHT});
         map.put(12 * 87 + 50, new StageChoose[]{StageChoose.END});
-        map.put(12 * 87 + 90, new StageChoose[]{StageChoose.NEXTMAP});
+        map.put(12 * 87 + 115, new StageChoose[]{StageChoose.NEXTMAP});
 
     }
 }
