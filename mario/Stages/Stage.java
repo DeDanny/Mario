@@ -8,7 +8,6 @@ import mario.Stages.goombaGarden.GoombaGardenStart;
 import mario.Stages.waterfall.WaterFallStart;
 import mario.Stages.yoshihouse.YoshiHouseEnd;
 import mario.Stages.yoshihouse.YoshiHouseStart;
-import mario.core.AiDirector;
 import mario.core.CollisionDetector;
 import mario.core.Doing;
 import mario.core.StageObject;
@@ -40,7 +39,6 @@ public class Stage
         this.marioWorld = marioWorld;
         ScoreBalk = new ScoreBalk(this, marioWorld, 0, 0, 1, 1);
         mario.setHeight(60);
-        
     }
 
     public StageMario getMario()
@@ -112,6 +110,10 @@ public class Stage
 
     public void handlePressedKeys(ArrayList<KeyButtons> keyPressed)
     {
+        if(keyPressed.contains(KeyButtons.ESCAPE))
+        {
+            marioWorld.setWhatcha(Doing.PAUSE);
+        }
         if (!map.isDisableInpute())
         {
             boolean setter = true;

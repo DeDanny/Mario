@@ -73,7 +73,7 @@ public class MarioData
     {
         big = false;
         coins = 0;
-        lives = 5;
+        lives = 3;
         points = 0;
         node = 3;
     }
