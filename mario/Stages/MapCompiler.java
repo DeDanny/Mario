@@ -67,6 +67,15 @@ public class MapCompiler {
                 case GROUNDRIGHT:
                     mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.RIGHT, stage.getMap().getTheme()));
                     break;
+                case GROUNDLEFTFLY:
+                    mapObjectenList.add(new Ground(stage, 800, 350, 48, 48, GroundType.LEFT, stage.getMap().getTheme()));
+                    break;
+                case GROUNDMIDDLEFLY:
+                    mapObjectenList.add(new Ground(stage, 800, 350, 192, 48, GroundType.MIDDLE, stage.getMap().getTheme()));
+                    break;
+                case GROUNDRIGHTFLY:
+                    mapObjectenList.add(new Ground(stage, 800, 350, 48, 48, GroundType.RIGHT, stage.getMap().getTheme()));
+                    break;
                 case CLOUD:
                     int procent = generator.nextInt(4);
                     int yAs = 0;
@@ -90,6 +99,10 @@ public class MapCompiler {
                 case COIN:
                     mapObjectenList.add(new Questionmark(stage, 800, 350, 45, 45));
                     mapObjectenList.add(new Coin(stage, 800, 303, 45, 45));
+                    break;
+                case COINFLY:
+                    mapObjectenList.add(new Questionmark(stage, 800, 150, 45, 45));
+                    mapObjectenList.add(new Coin(stage, 800, 103, 45, 45));
                     break;
                 case POWERUP:
                     // IF STATEMENT FOR WICH POWERUP

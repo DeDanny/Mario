@@ -98,14 +98,14 @@ public class Koopa extends Enemy implements NoClip {
                     if (!isShell || isMoving) {
                         setHeight(48);
                         //setY(stageObject.getY() - 33);
-                        ai.setDirection(Direction.LEFT);
+                        ai.setDirection(Direction.NONE);
                         setAnimation(new String[]{"koopaFlat 0"});
                         ai.setWALKSPEED(0);
                         isShell = true;
                         isMoving = false;
                     } else {
-                        ai.setDirection(Direction.LEFT);
-                        //ai.setWALKSPEED(8);
+                        ai.setDirection(Direction.RIGHT);
+                        ai.setWALKSPEED(7);
                         setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
                         isMoving = true;
                     }
@@ -113,7 +113,7 @@ public class Koopa extends Enemy implements NoClip {
                 } else if (collisions.contains(Collision.LEFT)) {
                     if (isShell) {
                         ai.setDirection(Direction.RIGHT);
-                        //ai.setWALKSPEED(8);
+                        ai.setWALKSPEED(7);
                         setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
                         isMoving = true;
                     }
@@ -121,7 +121,7 @@ public class Koopa extends Enemy implements NoClip {
                 } else if (collisions.contains(Collision.RIGHT)) {
                     if (isShell) {
                         ai.setDirection(Direction.LEFT);
-                        ai.setWALKSPEED(8);
+                        ai.setWALKSPEED(7);
                         setAnimation(new String[]{"koopaFlat 0", "koopaFlat 1", "koopaFlat 2"});
                         isMoving = true;
                     }

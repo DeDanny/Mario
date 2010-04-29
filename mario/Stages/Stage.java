@@ -195,6 +195,9 @@ public class Stage
     {
         mapObjects.clear();
         mapObjects.add(mario);
+        mario.setFlowerPower(false);
+        mario.setBig(false);
+        mario.setHeight(58);
         mapObjects.add(ScoreBalk);
 
         map.startGame();
@@ -205,6 +208,7 @@ public class Stage
         mapObjects.add(new Ground(this, 48 + (192 * 2), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
         mapObjects.add(new Ground(this, 48 + (192 * 3), 552, 192, 48, GroundType.MIDDLE, map.getTheme()));
         mapObjects.add(new Ground(this, 48 + (192 * 4), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
+
 // <editor-fold defaultstate="collapsed" desc="comments">
 //mapObjects.add(new Ground(this, 240 + (48 * 2), 552, 48, 48, GroundType.RIGHT, map.getTheme()));
 

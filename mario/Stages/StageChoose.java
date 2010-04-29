@@ -22,6 +22,7 @@ public enum StageChoose {
     GOOMBA,
     KOOPA,
     COIN,
+    COINFLY,
     SMALLMUSSCHROOM,
     TUBE,
     BOWSER,
