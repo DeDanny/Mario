@@ -21,9 +21,9 @@ import mario.scenery.Theme;
  *
  * @author danny
  */
-public class GoombaGardenstart extends Map
+public class GoombaGardenStart extends Map
 {
-    public GoombaGardenstart(MarioWorld marioWorld)
+    public GoombaGardenStart(MarioWorld marioWorld)
     {
         super(marioWorld, Theme.JUNGLE, new Color(102, 133, 6));
         nodes.add(new StageEndNode(550, 400));

@@ -4,7 +4,7 @@ import mario.core.KeyButtons;
 import java.util.ArrayList;
 import java.util.Iterator;
 import mario.MarioWorld;
-import mario.Stages.goombasGarden.GoombaGardenstart;
+import mario.Stages.goombasGarden.GoombaGardenStart;
 import mario.Stages.waterfall.WaterFallStart;
 import mario.Stages.yoshihouse.GoombaGardenEnd;
 import mario.Stages.yoshihouse.YoshiHouseStart;
@@ -184,7 +184,7 @@ public class Stage
         }
         if (stageName.equals("Goomba's garden"))
         {
-            map = new GoombaGardenstart(marioWorld);
+            map = new GoombaGardenStart(marioWorld);
         }
 
         resetMap = true;
