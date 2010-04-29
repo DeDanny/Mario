@@ -20,6 +20,8 @@ import mario.weapons.Fireball;
  */
 public class Goomba extends Enemy implements NoClip {
 
+    private boolean doPoints = true;
+
     public Goomba(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
         init();
@@ -85,7 +87,10 @@ public class Goomba extends Enemy implements NoClip {
                     //////System.out.println("Goomba is dead");
                     //setAlive(false);
                     doFlat();
-                    stage.getScoreBalk().killEnemy();
+                    if (doPoints) {
+                        stage.getScoreBalk().killEnemy();
+                        doPoints = false;
+                    }
                     break;
             }
         }
@@ -97,6 +102,10 @@ public class Goomba extends Enemy implements NoClip {
                     //setAlive(false);
                     //stage.getScoreBalk().killEnemy();
                     doDead();
+                    if (doPoints) {
+                        stage.getScoreBalk().killEnemy();
+                        doPoints = false;
+                    }
                 }
             }
         }
@@ -127,7 +136,7 @@ public class Goomba extends Enemy implements NoClip {
         if (stageObject instanceof Fireball) {
             //setAlive(false);
             doDead();
-            stage.getScoreBalk().killEnemy();
+
         }
     }
 
@@ -143,10 +152,10 @@ public class Goomba extends Enemy implements NoClip {
         }
 
         setDead(true);
-        stage.getScoreBalk().killEnemy();
+
     }
 
-    public void doFlat(){
+    public void doFlat() {
         switch (ai.getDirection()) {
             case LEFT:
                 setAnimation(new String[]{"goombaFlatLeft"});
@@ -157,6 +166,6 @@ public class Goomba extends Enemy implements NoClip {
         }
 
         setDead(true);
-        stage.getScoreBalk().killEnemy();
+
     }
 }

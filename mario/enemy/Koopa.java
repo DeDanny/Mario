@@ -25,6 +25,7 @@ public class Koopa extends Enemy implements NoClip {
     private boolean isMoving = false;
     private long godModeTimer = System.currentTimeMillis();
     private int godModeTime = 100;
+    private boolean doPoints = true;
 
     public Koopa(Stage game, int x, int y, int width, int height) {
         super(game, x, y, width, height, "/images/smw_enemies_sheet.png");
@@ -196,6 +197,9 @@ public class Koopa extends Enemy implements NoClip {
             }
         }
         setDead(true);
-        stage.getScoreBalk().killEnemy();
+        if (doPoints) {
+            stage.getScoreBalk().killEnemy();
+            doPoints = false;
+        }
     }
 }

@@ -55,7 +55,7 @@ public class MapCompiler {
                     mapObjectenList.add(new Goomba(stage, 800, 500, 35, 40, 4, 6));
                     break;
                 case KOOPA:
-                    mapObjectenList.add(new Koopa(stage, 800, 500, 45, 51, 15, 15));
+                    mapObjectenList.add(new Koopa(stage, 800, 400, 48, 81));
                     break;
                 case GROUNDLEFT:
                     mapObjectenList.add(new Ground(stage, 800, 552, 48, 48, GroundType.LEFT, stage.getMap().getTheme()));
@@ -71,16 +71,16 @@ public class MapCompiler {
                     int yAs = 0;
                     switch (procent) {
                         case 1:
-                            yAs = 100;
-                            break;
-                        case 2:
                             yAs = 140;
                             break;
-                        case 3:
+                        case 2:
                             yAs = 180;
                             break;
-                        case 4:
+                        case 3:
                             yAs = 220;
+                            break;
+                        case 4:
+                            yAs = 260;
                             break;
 
                     }
