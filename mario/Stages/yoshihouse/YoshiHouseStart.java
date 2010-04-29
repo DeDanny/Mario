@@ -29,8 +29,41 @@ public class YoshiHouseStart extends Map
         //map.put(38 * 1, new StageChoose[]{StageChoose.GROUNDLEFT});
         //map.put(38 * 2, new StageChoose[]{StageChoose.GROUNDMIDDLE});
         //map.put(38 * 3, new StageChoose[]{StageChoose.GROUNDRIGHT});
+    }
+
+    @Override
+    public void startGame()
+    {
+        marioWorld.getStage().getMario().setX(100, true);
+        marioWorld.getStage().getMario().setY(400, true);
+        marioWorld.getStage().getMario().setHeight(60);
+        marioWorld.getStage().getMario().setStepCounter(0);
+        marioWorld.getStage().getMario().setDead(false);
+        marioWorld.getStage().getMario().setFlowerPower(false);
+        putObjects();
+    }
 
 
+    @Override
+    public void endGame()
+    {
+        //marioWorld.getStage().setMap("yoshi's house end");
+        marioWorld.getStage().setMap("yoshi's house");
+        disableInpute = false;
+        //marioWorld.setWhatcha(Doing.SELECTSTAGE);
+    }
+
+    @Override
+    public void finishGame()
+    {
+        marioWorld.getStage().getMario().setLeft(false);
+        marioWorld.getStage().getMario().setRight(false);
+        marioWorld.getStage().getMario().setDown(false);
+        disableInpute = true;
+    }
+
+    private void putObjects()
+    {
         map.put(12 * 3, new StageChoose[]{StageChoose.GROUNDLEFT, StageChoose.CLOUD});
         map.put(12 * 4, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.CLOUD, StageChoose.BUSH});
         map.put(12 * 8, new StageChoose[]{StageChoose.GROUNDRIGHT});
@@ -75,34 +108,5 @@ public class YoshiHouseStart extends Map
                 {
                    // StageChoose.GROUNDRIGHT
                 });
-    }
-
-    @Override
-    public void startGame()
-    {
-        marioWorld.getStage().getMario().setX(100, true);
-        marioWorld.getStage().getMario().setY(400, true);
-        marioWorld.getStage().getMario().setHeight(60);
-        marioWorld.getStage().getMario().setStepCounter(0);
-        marioWorld.getStage().getMario().setDead(false);
-        marioWorld.getStage().getMario().setFlowerPower(false);
-    }
-
-    @Override
-    public void endGame()
-    {
-        //marioWorld.getStage().setMap("yoshi's house end");
-        marioWorld.getStage().setMap("yoshi's house");
-        disableInpute = false;
-        //marioWorld.setWhatcha(Doing.SELECTSTAGE);
-    }
-
-    @Override
-    public void finishGame()
-    {
-        marioWorld.getStage().getMario().setLeft(false);
-        marioWorld.getStage().getMario().setRight(false);
-        marioWorld.getStage().getMario().setDown(false);
-        disableInpute = true;
     }
 }
