@@ -87,8 +87,13 @@ public class StageMario extends CharacterObject implements NoClip
                 {
                     if (jump || jumpExtra)
                     {
+                        if(this.jumpExtra == false){
+                            stage.getSound().playSound("/sound/jump.wav");
+                        }
                         if (this.state != fallMario || jumpExtra)
                         {
+
+
                             setState(jumpMario);
                             this.jumpExtra = false;
                             // //System.out.println("jumpMario");
@@ -238,7 +243,7 @@ public class StageMario extends CharacterObject implements NoClip
     public void setJump(boolean jump)
     {
         this.jump = jump;
-        stage.getSound().playSound("/sound/jump.wav");
+        
     }
 
     public void setDown(boolean down)

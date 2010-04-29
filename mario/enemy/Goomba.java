@@ -136,6 +136,7 @@ public class Goomba extends Enemy implements NoClip {
         if (stageObject instanceof Fireball) {
             //setAlive(false);
             doDead();
+             stage.getSound().playSound("/sound/deadGoomba.wav");
 
         }
     }
