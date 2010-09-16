@@ -23,7 +23,7 @@ public class WaterFallStart extends Map
 {
     public WaterFallStart(MarioWorld marioWorld)
     {
-        super(marioWorld, Theme.SNOW, new Color(137, 136, 122));
+        super(marioWorld, Theme.SNOW, new Color(137, 136, 122), "/sound/background/Swimming.wav");
     }
 
     @Override
