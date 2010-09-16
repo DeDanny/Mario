@@ -119,7 +119,9 @@ public class WaterFallStart extends Map
 
         map.put(12 * 135, new StageChoose[]{StageChoose.GROUNDLEFT, StageChoose.CLOUD});
         map.put(12 * 136, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.SMALLMUSSCHROOM});
-        map.put(12 * 140, new StageChoose[]{StageChoose.GROUNDRIGHT});
+        map.put(12 * 140, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.SMALLMUSSCHROOM});
+        map.put(12 * 144, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.SMALLMUSSCHROOM});
+        map.put(12 * 148, new StageChoose[]{StageChoose.GROUNDMIDDLE, StageChoose.SMALLMUSSCHROOM});
         map.put(12 * 137, new StageChoose[]{StageChoose.END});
         map.put(12 * 140, new StageChoose[]{StageChoose.NEXTMAP});
 

@@ -32,7 +32,7 @@ public class Stage
     private ArrayList<StageObject> mapObjects = new ArrayList<StageObject>();
     private boolean resetMap = true;
     private long fireBallTimer = System.currentTimeMillis();
-    private int fireBallTime = 500;
+    private int fireBallTime = 700;
 
     public Stage(MarioWorld marioWorld)
     {
